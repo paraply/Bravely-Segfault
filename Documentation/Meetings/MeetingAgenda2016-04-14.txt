@@ -1,0 +1,19 @@
+﻿Date: 2016-04-14 
+
+Facilitator: Anton
+
+Participants: Stefan, Mikael, Philip
+
+1. Objectives
+* Need a clean empty code skeleton on the repository
+1. Reports
+* Mike: Has implemented some keyboard event listeners
+* Stefan: Has written some more use cases
+* Anton: Got stuck with code skeleton, will be done together during the meeting
+* Philip: Has researched dialogue systems, made sequence diagram
+1. Discussion items
+* Generate clean domain model for seminar
+* Create code skeleton
+1. Outcomes and assignments
+* Stefan cleans up domain model
+* 1. Wrap up

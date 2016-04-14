@@ -1,0 +1,58 @@
+﻿Meeting Agenda
+
+ Date: 2016-04-11
+
+ Facilitator: Mikael Ragnhult
+
+ Participants: Mikael Ragnhult, Philip Tham, Anton Josefsson, Stefan Fritzon
+
+1. Objectives (5 min). Resolve any issues preventing the team to continue.
+
+
+* Need to create UML for the system.
+
+2. Reports (15 min) from previous meeting
+
+* Anton: has written some use cases for the RAD.
+* Nothing else has been done.
+
+3. Discussion items (35 min) 
+
+* Use cases
+   * Anton has written 4 use cases
+   * By looking at the use cases, we discovered that NPCs and interactive objects are basically the same thing and should be the same in the domain model
+* Sequence diagram
+   * Done on the blackboard
+* Finishing up the RAD
+   * Once the user cases are finished, the RAD is mostly finished
+* Issue tracking system
+   * Trello will be used for issue tracking
+* Technical things
+   * Model
+      * Grid-based movement system will be based on a 2D array
+      * Each tile (cell in the 2D array) will contain a value that represents what type of tile/object it is
+      * The player character needs a current position (x,y) in the 2D array
+      * Tiles that the player character can walk on are non-solid
+      * Tiles that the player character cannot walk on are solid
+         * Use XML file to input tiles to model
+         * List of booleans for solidness
+      * Game loops?
+         * http://gameprogrammingpatterns.com
+      * Entity-component
+         * It will be easier to implement the game in an entity-component system, as it will avoid inheritance problems in the future
+
+4. Outcomes and assignments (5 min) 
+
+* Use cases
+   * Stefan will finish up all high priority use cases
+* Sequence diagram
+   * Philip will make a digital version of the sequence diagram
+* Character movement
+   * Mikael will look into basic movement with keyboard listening, 2D arrays, and game loops
+* Code
+   * Anton will make a basic skeleton for the code
+* Dialogue system
+   * Philip will start thinking about how the dialogue system will work
+
+5. Wrap up
+* Meeting next thursday, 13-15.
