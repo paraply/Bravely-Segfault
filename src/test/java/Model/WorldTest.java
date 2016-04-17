@@ -9,9 +9,50 @@ import static org.junit.Assert.*;
  */
 public class WorldTest {
     @Test
-    public void move() throws Exception {
+    public void moveUpBlocked() {
         World world = new World();
-        assertFalse(world.Move());
+        assertFalse(world.Move(1,1,"up"));
     }
 
+    @Test
+    public void moveUpUnblocked() {
+        World world = new World();
+        assertTrue(world.Move(2,1,"up"));
+    }
+
+    @Test
+    public void moveDownBlocked() {
+        World world = new World();
+        assertFalse(world.Move(6,1,"down"));
+    }
+
+    @Test
+    public void moveDownUnblocked() {
+        World world = new World();
+        assertTrue(world.Move(5,1,"up"));
+    }
+
+    @Test
+    public void moveLeftBlocked() {
+        World world = new World();
+        assertFalse(world.Move(1,1,"left"));
+    }
+
+    @Test
+    public void moveLeftUnblocked() {
+        World world = new World();
+        assertTrue(world.Move(1,2,"left"));
+    }
+
+    @Test
+    public void moveRightBlocked() {
+        World world = new World();
+        assertFalse(world.Move(1,8,"right"));
+    }
+
+    @Test
+    public void moveRightUnblocked() {
+        World world = new World();
+        assertTrue(world.Move(1,7,"right"));
+    }
 }

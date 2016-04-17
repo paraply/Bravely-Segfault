@@ -27,7 +27,7 @@ public class World{
     }
 
     /** Checks if a movement in one direction in the tilemap is possible or not*/
-    public boolean Move()
+    public boolean Move(int y, int x, String direction)
     {
         return true;
     }
