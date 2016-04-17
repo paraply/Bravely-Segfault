@@ -7,6 +7,7 @@ package Model;
  */
 public class World{
     //Temporarily hardcoded here, should always load a map from a file
+    //Currently hardcoded to have size 8*10 with magic numbers, should be changed ASAP!
     private int[][] tileMap =
                 {{1,1,1,1,1,1,1,1,1,1},
                  {1,0,0,0,0,0,0,0,0,1},
@@ -32,19 +33,34 @@ public class World{
     /** Checks if a movement in one direction in the tilemap is possible or not*/
     public boolean Move(int y, int x, MovementDirection direction)
     {
-        switch(direction)
-        {
+        switch(direction){
             case UP:
-                break;
+                if(y == 0)
+                    return false;
+                return !CheckSolidTile(tileMap[y-1][x]);
             case DOWN:
-                break;
+                if(y == 7)
+                    return false;
+                return !CheckSolidTile(tileMap[y+1][x]);
             case LEFT:
-                break;
+                if(x == 0)
+                    return false;
+                return !CheckSolidTile(tileMap[y][x-1]);
             case RIGHT:
-                break;
+                if(x == 9)
+                    return false;
+                return !CheckSolidTile(tileMap[y][x+1]);
+            default:
+                return false;
         }
+    }
 
-        return true;
+    /** Temporary helper function for tilemap solidity
+     *  Will be refactored to some kind of data structure later
+     */
+    private boolean CheckSolidTile(int value)
+    {
+        return value == 1;
     }
 
 }
