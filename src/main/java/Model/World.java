@@ -26,9 +26,24 @@ public class World{
         instantiated = true;
     }
 
+    public enum MovementDirection {
+        UP, DOWN, LEFT, RIGHT
+    }
     /** Checks if a movement in one direction in the tilemap is possible or not*/
-    public boolean Move(int y, int x, String direction)
+    public boolean Move(int y, int x, MovementDirection direction)
     {
+        switch(direction)
+        {
+            case UP:
+                break;
+            case DOWN:
+                break;
+            case LEFT:
+                break;
+            case RIGHT:
+                break;
+        }
+
         return true;
     }
 
