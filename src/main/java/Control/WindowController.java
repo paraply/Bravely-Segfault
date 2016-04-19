@@ -3,6 +3,8 @@ package Control;
 /**
  * Created by paraply on 2016-04-13.
  */
+
+import View.Render;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -17,5 +19,8 @@ public class WindowController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         main_canvas.setFocusTraversable(true); // May be necessary to get key events
         main_canvas.setOnKeyPressed(User_Input.getInstance());
+        Render.getInstance().setGraphicsContext(main_canvas.getGraphicsContext2D());
+
     }
+
 }
