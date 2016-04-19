@@ -1,5 +1,6 @@
 package Control;
 
+import Model.GameObjects.Character;
 import Model.World;
 import View.Render;
 import javafx.animation.AnimationTimer;
@@ -13,20 +14,24 @@ public class Game_Loop extends AnimationTimer {
     // Could probably use inspiration from
     // https://carlfx.wordpress.com/2012/04/09/javafx-2-gametutorial-part-2/
 
-    private final int COUNTDOWN = 20; //Its the final countdown
+    private final int COUNTDOWN = 10; //Its the final countdown
     private int counting_down = COUNTDOWN;
 
     private World world;
+    private Character player;
 
     public void initialize_game(){
         world = new World();
+        player = new Character(1,1, world);
         Render.getInstance().setWorld(world);
+        Render.getInstance().addGameObject(player);
     }
 
     @Override
     public void handle(long now) {
+        Render.getInstance().redraw();
 
-        if (counting_down > 0){
+        if (counting_down > 0){  // used to add a delay (better than sleep) to user movement
             counting_down--;
         }else{
             User_Input user_input = User_Input.getInstance();
@@ -34,15 +39,19 @@ public class Game_Loop extends AnimationTimer {
             if (latest_movement_request != null) {
                 switch (latest_movement_request) {
                     case UP:
+                        player.Move(World.MovementDirection.UP);
                         System.out.println("MOVE UP");
                         break;
                     case DOWN:
+                        player.Move(World.MovementDirection.DOWN);
                         System.out.println("MOVE DOWN");
                         break;
                     case LEFT:
+                        player.Move(World.MovementDirection.LEFT);
                         System.out.println("MOVE LEFT");
                         break;
                     case RIGHT:
+                        player.Move(World.MovementDirection.RIGHT);
                         System.out.println("MOVE RIGHT");
                         break;
                 }
@@ -58,7 +67,7 @@ public class Game_Loop extends AnimationTimer {
                 }
             }
 
-            Render.getInstance().redraw();
+
             counting_down = COUNTDOWN;
         }
     }

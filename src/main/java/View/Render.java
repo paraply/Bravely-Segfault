@@ -1,5 +1,6 @@
 package View;
 
+import Model.GameObjects.GameObject;
 import Model.World;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -11,6 +12,7 @@ public class Render {
     private static Render render; // Used by getInstance
     private GraphicsContext context;
     private World world; // World model provides information about what should be drawn
+    private GameObject gameObject;
 
     private boolean has_loaded_images;
     Image images[] = new Image[100];
@@ -23,6 +25,10 @@ public class Render {
 
     public void setWorld(World world){
         this.world = world;
+    }
+
+    public void addGameObject(GameObject gameObject){
+        this.gameObject = gameObject;
     }
 
     //This class is currently singleton, since its instance needs to be accessed by both WindowController and the Model. May change...
@@ -49,19 +55,19 @@ public class Render {
     }
 
     private void draw_ground_tiles(){
-        for (int y = 1; y <= World.mapSize; y++){
-            for (int x = 1; x <= World.mapSize; x++){
-                draw_tile(world.getTileMap()[x-1][y-1], x,y);
+        for (int y = 0; y < World.mapSize; y++){
+            for (int x = 0; x < World.mapSize; x++){
+                draw_tile(world.getTileMap()[x][y], x,y);
             }
         }
     }
     private void draw_objects(){
-        draw_tile(2,3,3);
+        draw_tile(2,gameObject.getX(),gameObject.getY());
     }
 
 
     private void draw_tile(int index, int tile_x, int tile_y){
-        context.drawImage(images[index], (tile_x - 1) * World.tileSize , (tile_y - 1) * World.tileSize);
+        context.drawImage(images[index], tile_x * World.tileSize , tile_y * World.tileSize);
     }
 
 }
