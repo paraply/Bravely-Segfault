@@ -15,6 +15,11 @@ public class World{
     private int[][] tileMap = new int[mapSize][mapSize];
 
     private static boolean instantiated = false;
+
+    public int[][] getTileMap(){
+        return tileMap;
+    }
+
     public World() {
         if(instantiated) {
             System.out.println("A world object has already been instantiated!");
