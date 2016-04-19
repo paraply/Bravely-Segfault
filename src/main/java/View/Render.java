@@ -49,13 +49,9 @@ public class Render {
     }
 
     private void draw_ground_tiles(){
-        for (int y = 1; y <=16; y++){
-            for (int x = 1; x <= 16; x++){
-                if (x == 1 || y == 1 || x == 16 || y == 16){
-                    draw_tile(1,x,y);
-                }else{
-                    draw_tile(0,x,y);
-                }
+        for (int y = 1; y <= World.mapSize; y++){
+            for (int x = 1; x <= World.mapSize; x++){
+                draw_tile(world.getTileMap()[x-1][y-1], x,y);
             }
         }
     }
@@ -65,7 +61,7 @@ public class Render {
 
 
     private void draw_tile(int index, int tile_x, int tile_y){
-        context.drawImage(images[index], (tile_x - 1) * 32 , (tile_y - 1) * 32);
+        context.drawImage(images[index], (tile_x - 1) * World.tileSize , (tile_y - 1) * World.tileSize);
     }
 
 }

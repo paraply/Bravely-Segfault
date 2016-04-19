@@ -1,5 +1,6 @@
 package Control;
 
+import Model.World;
 import View.Render;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
@@ -12,9 +13,15 @@ public class Game_Loop extends AnimationTimer {
     // Could probably use inspiration from
     // https://carlfx.wordpress.com/2012/04/09/javafx-2-gametutorial-part-2/
 
-    final int COUNTDOWN = 20; //Its the final countdown
-    int counting_down = COUNTDOWN;
+    private final int COUNTDOWN = 20; //Its the final countdown
+    private int counting_down = COUNTDOWN;
 
+    private World world;
+
+    public void initialize_game(){
+        world = new World();
+        Render.getInstance().setWorld(world);
+    }
 
     @Override
     public void handle(long now) {

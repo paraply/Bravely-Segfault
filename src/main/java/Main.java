@@ -19,7 +19,9 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> System.out.println("USER CLOSED APPLICATION WINDOW"));
-        new Game_Loop().start();
+        Game_Loop game_loop = new Game_Loop();
+        game_loop.initialize_game();
+        game_loop.start(); // starts the animation timer that calls handle() continuously
     }
 
     public static void main(String[] args) {
