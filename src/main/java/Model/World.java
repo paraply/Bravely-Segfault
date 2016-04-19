@@ -6,25 +6,39 @@ package Model;
  * For now only sending a message to the console, should be handled in a better way
  */
 public class World{
+
+    public static final int tileSize = 32;
+    public static final int mapSize = 16;
+
     //Temporarily hardcoded here, should always load a map from a file
     //Currently hardcoded to have size 8*10 with magic numbers, should be changed ASAP!
-    private int[][] tileMap =
-                {{1,1,1,1,1,1,1,1,1,1},
-                 {1,0,0,0,0,0,0,0,0,1},
-                 {1,0,0,0,0,0,0,0,0,1},
-                 {1,0,0,0,0,0,0,0,0,1},
-                 {1,0,0,0,0,0,0,0,0,1},
-                 {1,0,0,0,0,0,0,0,0,1},
-                 {1,0,0,0,0,0,0,0,0,1},
-                 {1,1,1,1,1,1,1,1,1,1}};
+    private int[][] tileMap = new int[mapSize][mapSize];
 
     private static boolean instantiated = false;
     public World() {
-        if(instantiated)
-        {
+        if(instantiated) {
             System.out.println("A world object has already been instantiated!");
         }
         instantiated = true;
+
+        tileMap = new int[][]{
+                {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
+        };
     }
 
     public enum MovementDirection {
@@ -33,15 +47,14 @@ public class World{
     /** Checks if a movement in one direction in the tilemap is possible or not
      *  Returns the new position after movement, and also handles potential new screen
      */
-    public boolean Move(int y, int x, MovementDirection direction)
-    {
+    public boolean Move(int y, int x, MovementDirection direction) {
         switch(direction){
             case UP:
                 if(y == 0)
                     return false;
                 return !CheckSolidTile(tileMap[y-1][x]);
             case DOWN:
-                if(y == 7)
+                if(y == mapSize - 1)
                     return false;
                 return !CheckSolidTile(tileMap[y+1][x]);
             case LEFT:
@@ -49,7 +62,7 @@ public class World{
                     return false;
                 return !CheckSolidTile(tileMap[y][x-1]);
             case RIGHT:
-                if(x == 9)
+                if(x == mapSize - 1)
                     return false;
                 return !CheckSolidTile(tileMap[y][x+1]);
             default:
