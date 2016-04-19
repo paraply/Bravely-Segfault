@@ -11,14 +11,14 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("window.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("window.fxml")); // The JavaFX window
         primaryStage.setTitle("Bravely Segfault");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> System.out.println("USER CLOSED APPLICATION WINDOW"));
-
         new Game_Loop().start();
     }
 

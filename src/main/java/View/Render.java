@@ -6,7 +6,7 @@ import javafx.scene.canvas.GraphicsContext;
  * Created by paraply on 2016-04-19.
  */
 public class Render {
-    private static Render render;
+    private static Render render; //Used by getInstance
     private GraphicsContext gc;
 
     // graphics context = main-canvas context

@@ -29,7 +29,7 @@ public class Game_Loop extends AnimationTimer {
                         System.out.println("MOVE UP");
                         break;
                     case DOWN:
-                        System.out.println("MOVE MOWN");
+                        System.out.println("MOVE DOWN");
                         break;
                     case LEFT:
                         System.out.println("MOVE LEFT");
