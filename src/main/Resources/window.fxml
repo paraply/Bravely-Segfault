@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
+<?import java.net.URL?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.layout.Pane?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.WindowController">
+
+<Pane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="pane-background" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.WindowController">
+    <stylesheets>
+        <URL value="@window_style.css" />
+    </stylesheets>
     <children>
-        <Canvas fx:id="main_canvas" height="600.0" width="800.0" />
+      <Pane layoutX="144.0" layoutY="44.0" prefHeight="512.0" prefWidth="512.0" styleClass="canvas-border">
+         <children>
+              <Canvas fx:id="main_canvas" height="512.0" width="512.0" />
+         </children>
+      </Pane>
     </children>
 </Pane>
