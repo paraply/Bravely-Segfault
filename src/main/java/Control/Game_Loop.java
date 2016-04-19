@@ -1,5 +1,6 @@
 package Control;
 
+import View.Render;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
 
@@ -50,6 +51,7 @@ public class Game_Loop extends AnimationTimer {
                 }
             }
 
+            Render.getInstance().redraw();
             counting_down = COUNTDOWN;
         }
     }

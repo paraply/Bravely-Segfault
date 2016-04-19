@@ -9,9 +9,9 @@
         <URL value="@window_style.css" />
     </stylesheets>
     <children>
-      <Pane layoutX="144.0" layoutY="44.0" prefHeight="512.0" prefWidth="512.0" styleClass="canvas-border">
+      <Pane layoutX="144.0" layoutY="44.0" prefHeight="516.0" prefWidth="516.0" styleClass="canvas-border">
          <children>
-              <Canvas fx:id="main_canvas" height="512.0" width="512.0" />
+              <Canvas fx:id="main_canvas" height="512.0" layoutX="2.0" layoutY="2.0" width="512.0" />
          </children>
       </Pane>
     </children>
