@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>Monaden Games</groupId>
-    <artifactId>Bravely Segfault</artifactId>
+    <groupId>Monaden-Games</groupId>
+    <artifactId>Bravely-Segfault</artifactId>
     <version>0.1</version>
     <build>
         <plugins>
@@ -19,6 +19,13 @@
             </plugin>
         </plugins>
     </build>
-
-
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
 </project>
