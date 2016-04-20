@@ -17,7 +17,7 @@ import org.junit.Test;
 public class PointTest {
     
 
-    Point point;
+    private Point point;
     
     @Before
     public void setUp(){
