@@ -5,13 +5,9 @@
  */
 package Model;
 
-import lombok.Getter;
-
-
-
 /**
  *
- * @author Admin
+ * @author Spock
  */
 public class Point {
 
