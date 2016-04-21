@@ -12,7 +12,7 @@ public class Render {
     private static Render render; // Used by getInstance
     private GraphicsContext context;
     private World world; // World model provides information about what should be drawn
-    private GameObject gameObject;
+    private RenderObject renderObject;
 
     private boolean has_loaded_images;
     Image images[] = new Image[100];
@@ -28,7 +28,7 @@ public class Render {
     }
 
     public void addGameObject(GameObject gameObject){
-        this.gameObject = gameObject;
+        renderObject = new RenderObject(gameObject, context, "Characters", "cat");
     }
 
     //This class is currently singleton, since its instance needs to be accessed by both WindowController and the Model. May change...
@@ -43,7 +43,6 @@ public class Render {
         if (!has_loaded_images){
             images[0] = new Image("grass.png");
             images[1] = new Image("border.png");
-            images[2] = new Image("cat.png");
             has_loaded_images = true;
         }
     }
@@ -51,7 +50,7 @@ public class Render {
     public void redraw(){
         load_images();
         draw_ground_tiles();
-        draw_objects();
+        renderObject.draw();
     }
 
     private void draw_ground_tiles(){
@@ -60,9 +59,6 @@ public class Render {
                 draw_tile(world.getTileMap()[x][y], x,y);
             }
         }
-    }
-    private void draw_objects(){
-        draw_tile(2,gameObject.getX(),gameObject.getY());
     }
 
 
