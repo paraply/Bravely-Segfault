@@ -49,7 +49,7 @@ public class World{
     public enum MovementDirection {
         UP, DOWN, LEFT, RIGHT
     }
-    /** Checks if a movement in one direction in the tilemap is possible or not
+    /** Checks if a movement in one Direction in the tilemap is possible or not
      *  Returns the new position after movement, and also handles potential new screen
      */
     public boolean Move(int y, int x, MovementDirection direction) {

@@ -35,15 +35,19 @@ public class Character extends GameObject {
             switch(direction) {
                 case UP:
                     setY(getY() - 1);
+                    setDirection(Direction.BACK);
                     break;
                 case DOWN:
                     setY(getY() + 1);
+                    setDirection(Direction.FRONT);
                     break;
                 case LEFT:
                     setX(getX() - 1);
+                    setDirection(Direction.LEFT);
                     break;
                 case RIGHT:
                     setX(getX() + 1);
+                    setDirection(Direction.RIGHT);
                     break;
             }
         }
