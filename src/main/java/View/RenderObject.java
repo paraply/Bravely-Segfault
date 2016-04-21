@@ -12,8 +12,8 @@ public class RenderObject {
     private GameObject gameObject;
     private GraphicsContext context;
     private Image image;
-    private final int IMAGE_SIZE = 32;
-
+    private final int IMAGE_HEIGHT = 32, IMAGE_WIDTH = 32;
+    private int animation_part = 0;
 
     public RenderObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName){
         this.gameObject = gameObject;
@@ -22,25 +22,28 @@ public class RenderObject {
     }
 
     public void draw(){
+        if (animation_part == 30){
+            animation_part = 0;
+        }
+
         int image_x_src, image_y_src ;
         switch (gameObject.getDirection()){
             case BACK:
-                image_x_src = 0;
-                image_y_src = IMAGE_SIZE * 3;
+                image_y_src = IMAGE_HEIGHT * 3;
                 break;
             case LEFT:
-                image_x_src = 0;
-                image_y_src = IMAGE_SIZE;
+                image_y_src = IMAGE_HEIGHT;
                 break;
             case RIGHT:
-                image_x_src = 0;
-                image_y_src = IMAGE_SIZE * 2;
+                image_y_src = IMAGE_HEIGHT * 2;
                 break;
             default: //FRONT
-                image_x_src = 0;
                 image_y_src = 0;
         }
 
-        context.drawImage(image, image_x_src,image_y_src, IMAGE_SIZE,IMAGE_SIZE, gameObject.getX() * World.tileSize , gameObject.getY() * World.tileSize,IMAGE_SIZE,IMAGE_SIZE);
+        image_x_src = (int) Math.floor(animation_part / 10) * IMAGE_WIDTH;
+
+        context.drawImage(image, image_x_src,image_y_src, IMAGE_HEIGHT, IMAGE_HEIGHT, gameObject.getX() * World.tileSize , gameObject.getY() * World.tileSize, IMAGE_HEIGHT, IMAGE_HEIGHT);
+        animation_part++;
     }
 }
