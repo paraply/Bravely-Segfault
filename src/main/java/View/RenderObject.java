@@ -14,6 +14,7 @@ public class RenderObject {
     private Image image;
     private final int IMAGE_HEIGHT = 32, IMAGE_WIDTH = 32;
     private int animation_part = 0;
+    private int x,y;
 
     public RenderObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName){
         this.gameObject = gameObject;
@@ -22,9 +23,7 @@ public class RenderObject {
     }
 
     public void draw(){
-        if (animation_part == 30){
-            animation_part = 0;
-        }
+
 
         int image_x_src, image_y_src ;
         switch (gameObject.getDirection()){
@@ -41,9 +40,28 @@ public class RenderObject {
                 image_y_src = 0;
         }
 
-        image_x_src = (int) Math.floor(animation_part / 10) * IMAGE_WIDTH;
+        if (gameObject.getTransitionTicks() > 0){
+            image_x_src = (animation_part % 3) * IMAGE_WIDTH;
+            if (gameObject.getTransitionTicks() % 4 == 0){
+                animation_part++;
+            }
+            switch (gameObject.getDirection()){
+                case BACK: y =  (gameObject.getY() * World.tileSize)   + gameObject.getTransitionTicks() ;
+                    break;
+                case FRONT: y =  (gameObject.getY() * World.tileSize)   - gameObject.getTransitionTicks();
+                    break;
+                case LEFT: x =  (gameObject.getX() * World.tileSize) +  gameObject.getTransitionTicks();
+                    break;
+                case RIGHT: x =  (gameObject.getX() * World.tileSize)  - gameObject.getTransitionTicks();
+                    break;
+            }
 
-        context.drawImage(image, image_x_src,image_y_src, IMAGE_HEIGHT, IMAGE_HEIGHT, gameObject.getX() * World.tileSize , gameObject.getY() * World.tileSize, IMAGE_HEIGHT, IMAGE_HEIGHT);
-        animation_part++;
+        }else{
+            image_x_src = 0;
+            x = gameObject.getX() * World.tileSize;
+            y =  gameObject.getY() * World.tileSize;
+        }
+
+        context.drawImage(image, image_x_src,image_y_src, IMAGE_HEIGHT, IMAGE_HEIGHT, x, y, IMAGE_HEIGHT, IMAGE_HEIGHT);
     }
 }

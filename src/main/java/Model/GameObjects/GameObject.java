@@ -8,7 +8,18 @@ public class GameObject {
     private int y;
     //Should contain collision
 
-    public static enum Direction {
+    private int transition_ticks = 0;
+
+
+    private void start_transition(){
+        transition_ticks = 32;
+    }
+
+    public int getTransitionTicks(){
+        return transition_ticks;
+    }
+
+    public enum Direction {
         FRONT,
         BACK,
         RIGHT,
@@ -29,11 +40,23 @@ public class GameObject {
     public int getY(){return y;}
 
     protected void setX(int _x){
-        x = _x;
+        if (transition_ticks == 0) {
+            x = _x;
+            start_transition();
+        }
     }
 
     protected void setY(int _y){
-        y = _y;
+        if (transition_ticks == 0) {
+            y = _y;
+            start_transition();
+        }
+    }
+
+    public void update(){
+        if (transition_ticks > 0){
+            transition_ticks--;
+        }
     }
 
     public GameObject(int startX, int startY)

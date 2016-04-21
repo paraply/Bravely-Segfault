@@ -30,9 +30,11 @@ public class Game_Loop extends AnimationTimer {
     @Override
     public void handle(long now) {
         Render.getInstance().redraw();
+        player.update();
 
         if (counting_down > 0){  // used to add a delay (better than sleep) to user movement
             counting_down--;
+
         }else{
             User_Input user_input = User_Input.getInstance();
             KeyCode latest_movement_request = user_input.getLatestMovementKey();
