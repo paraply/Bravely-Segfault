@@ -14,8 +14,8 @@ public class Game_Loop extends AnimationTimer {
     // Could probably use inspiration from
     // https://carlfx.wordpress.com/2012/04/09/javafx-2-gametutorial-part-2/
 
-    private final int COUNTDOWN = 10; //Its the final countdown
-    private int counting_down = COUNTDOWN;
+    public final static int FREQUENCY = 16;
+    private int counting_down = FREQUENCY;
 
     private World world;
     private Character player;
@@ -30,7 +30,6 @@ public class Game_Loop extends AnimationTimer {
     @Override
     public void handle(long now) {
         Render.getInstance().redraw();
-        player.update();
 
         if (counting_down > 0){  // used to add a delay (better than sleep) to user movement
             counting_down--;
@@ -70,7 +69,7 @@ public class Game_Loop extends AnimationTimer {
             }
 
 
-            counting_down = COUNTDOWN;
+            counting_down = FREQUENCY;
         }
     }
 }

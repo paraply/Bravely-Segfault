@@ -26,28 +26,25 @@ public class Character extends GameObject {
         world = _world;
     }
 
-    public void Update() {
-
-    }
 
     public void Move(World.MovementDirection direction) {
         if(world.Move(getY(), getX(), direction)) {
             switch(direction) {
                 case UP:
                     setY(getY() - 1);
-                    setDirection(Direction.BACK);
+                    setDirection(World.MovementDirection.UP);
                     break;
                 case DOWN:
                     setY(getY() + 1);
-                    setDirection(Direction.FRONT);
+                    setDirection(World.MovementDirection.DOWN);
                     break;
                 case LEFT:
                     setX(getX() - 1);
-                    setDirection(Direction.LEFT);
+                    setDirection(World.MovementDirection.LEFT);
                     break;
                 case RIGHT:
                     setX(getX() + 1);
-                    setDirection(Direction.RIGHT);
+                    setDirection(World.MovementDirection.RIGHT);
                     break;
             }
         }

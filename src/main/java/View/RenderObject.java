@@ -6,15 +6,17 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 /**
- * Created by mike on 2016-04-21.
+ * Created by paraply on 2016-04-21.
  */
 public class RenderObject {
-    private GameObject gameObject;
-    private GraphicsContext context;
-    private Image image;
-    private final int IMAGE_HEIGHT = 32, IMAGE_WIDTH = 32;
-    private int animation_part = 0;
-    private int x,y;
+    protected GameObject gameObject;
+    protected GraphicsContext context;
+    protected Image image;
+
+    protected final int IMAGE_HEIGHT = 32, IMAGE_WIDTH = 32; // Currently hardcoded. Could possibly be specified in XML.
+    protected int x,y; // Objects position in the world
+    protected int image_src_X, image_src_Y; // Where from the the tileset should be used as source.
+
 
     public RenderObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName){
         this.gameObject = gameObject;
@@ -22,46 +24,32 @@ public class RenderObject {
         image = new Image( imageSection + "/" + imageName + ".png");
     }
 
-    public void draw(){
 
+    private void calculateX(){
+        image_src_X = 0;
+        x = gameObject.getX() * World.tileSize;
+        y =  gameObject.getY() * World.tileSize;
+    }
 
-        int image_x_src, image_y_src ;
+    protected void calculateY(){
         switch (gameObject.getDirection()){
-            case BACK:
-                image_y_src = IMAGE_HEIGHT * 3;
+            case UP:
+                image_src_Y = IMAGE_HEIGHT * 3;
                 break;
             case LEFT:
-                image_y_src = IMAGE_HEIGHT;
+                image_src_Y = IMAGE_HEIGHT;
                 break;
             case RIGHT:
-                image_y_src = IMAGE_HEIGHT * 2;
+                image_src_Y = IMAGE_HEIGHT * 2;
                 break;
-            default: //FRONT
-                image_y_src = 0;
+            default: //DOWN
+                image_src_Y = 0;
         }
+    }
 
-        if (gameObject.getTransitionTicks() > 0){
-            image_x_src = (animation_part % 3) * IMAGE_WIDTH;
-            if (gameObject.getTransitionTicks() % 4 == 0){
-                animation_part++;
-            }
-            switch (gameObject.getDirection()){
-                case BACK: y =  (gameObject.getY() * World.tileSize)   + gameObject.getTransitionTicks() ;
-                    break;
-                case FRONT: y =  (gameObject.getY() * World.tileSize)   - gameObject.getTransitionTicks();
-                    break;
-                case LEFT: x =  (gameObject.getX() * World.tileSize) +  gameObject.getTransitionTicks();
-                    break;
-                case RIGHT: x =  (gameObject.getX() * World.tileSize)  - gameObject.getTransitionTicks();
-                    break;
-            }
-
-        }else{
-            image_x_src = 0;
-            x = gameObject.getX() * World.tileSize;
-            y =  gameObject.getY() * World.tileSize;
-        }
-
-        context.drawImage(image, image_x_src,image_y_src, IMAGE_HEIGHT, IMAGE_HEIGHT, x, y, IMAGE_HEIGHT, IMAGE_HEIGHT);
+    public void draw(){
+        calculateX();
+        calculateY();
+        context.drawImage(image, image_src_X,image_src_Y, IMAGE_HEIGHT, IMAGE_HEIGHT, x, y, IMAGE_HEIGHT, IMAGE_HEIGHT);
     }
 }

@@ -12,7 +12,7 @@ public class Render {
     private static Render render; // Used by getInstance
     private GraphicsContext context;
     private World world; // World model provides information about what should be drawn
-    private RenderObject renderObject;
+    private AnimatedObject renderObject;
 
     private boolean has_loaded_images;
     Image images[] = new Image[100];
@@ -28,7 +28,7 @@ public class Render {
     }
 
     public void addGameObject(GameObject gameObject){
-        renderObject = new RenderObject(gameObject, context, "Characters", "cat");
+        renderObject = new AnimatedObject(gameObject, context, "Characters", "cat");
     }
 
     //This class is currently singleton, since its instance needs to be accessed by both WindowController and the Model. May change...
