@@ -1,0 +1,39 @@
+﻿Date: 2016-04-18
+
+Facilitator: Anton
+
+Participants: Anton, Philip, Mikael, Stefan
+
+1. Objectives
+* Look at code skeleton
+* Delegate work
+1. Reports 
+* Anton:
+   * Has integrated JUnit into the project
+   * Has created a World class and tests for it
+* Mike:
+   * Nothing
+* Stefan:
+   * Nothing
+* Philip:
+   * Nothing
+1. Discussion items
+* Maven → JUnit
+   * Ask supervisor on Thursday
+* Check code skeleton
+   * Add try-catch in move-tests for IndexOutOfBounds
+   * Before-tests for World exception-behavior
+   * Tilemap size: 16x16
+      * Each tile is 32x32 pixels
+   * Immutable Point class needed
+      * Also test for immutability
+* Work delegation
+1. Outcomes and assignments
+* Anton: Entity-Component system
+* Mike: World graphics
+* Stefan: World + Point setup
+   * Point class (immutable, with tests for immutability)
+   * Only-one-world-exception (avoid it in tests)
+   * Try-catch in move-edge-tests for IndexOutOfBounds
+* Philip: Level-parsing + TileTypes.xml
+1. Wrap up
