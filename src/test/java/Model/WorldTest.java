@@ -67,22 +67,40 @@ public class WorldTest {
     //Should these tests consider indexOutOfBounds-exceptions?
     @Test
     public void moveUpEdge() {
-        assertFalse(world.Move(0, 0, World.MovementDirection.UP));
+        try{
+            world.Move(0, 0, World.MovementDirection.UP);
+        }catch(ArrayIndexOutOfBoundsException e){
+            assertNull(e);
+        }
     }
 
     @Test
     public void moveDownEdge() {
-        assertFalse(world.Move(World.mapSize-1, 0, World.MovementDirection.DOWN));
+    try{
+        world.Move(World.mapSize-1, 0, World.MovementDirection.DOWN);
+    }catch(ArrayIndexOutOfBoundsException e){
+        assertNull(e);
     }
+
+}
 
     @Test
     public void moveLeftEdge() {
-        assertFalse(world.Move(0, 0, World.MovementDirection.LEFT));
+       try{
+            world.Move(0, 0, World.MovementDirection.LEFT);
+       }catch(ArrayIndexOutOfBoundsException e){
+            assertNull(e);
     }
+
+}
 
     @Test
     public void moveRightEdge() {
-        assertFalse(world.Move(0, World.mapSize-1, World.MovementDirection.RIGHT));
+        try{
+            world.Move(0, World.mapSize-1, World.MovementDirection.RIGHT);
+        }catch(ArrayIndexOutOfBoundsException e){
+            assertNull(e);
+        }
     }
 
 }
