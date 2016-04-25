@@ -13,7 +13,7 @@ public class WorldTest {
         World world = new World();
         Point p = new Point(1,1);
         Point newP = world.CheckMovement(p, World.MovementDirection.UP);
-        assertFalse(p.equals(newP));
+        assertTrue(p.equals(newP));
     }
 
     @Test
@@ -21,7 +21,7 @@ public class WorldTest {
         World world = new World();
         Point p = new Point(1,World.mapSize-2);
         Point newP = world.CheckMovement(p, World.MovementDirection.DOWN);
-        assertFalse(p.equals(newP));
+        assertTrue(p.equals(newP));
     }
 
     @Test
@@ -29,7 +29,7 @@ public class WorldTest {
         World world = new World();
         Point p = new Point(1,1);
         Point newP = world.CheckMovement(p, World.MovementDirection.LEFT);
-        assertFalse(p.equals(newP));
+        assertTrue(p.equals(newP));
     }
 
     @Test
@@ -37,7 +37,7 @@ public class WorldTest {
         World world = new World();
         Point p = new Point(World.mapSize-2, 1);
         Point newP = world.CheckMovement(p, World.MovementDirection.RIGHT);
-        assertFalse(p.equals(newP));
+        assertTrue(p.equals(newP));
     }
 
     @Test

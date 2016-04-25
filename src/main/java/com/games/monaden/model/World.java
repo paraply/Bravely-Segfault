@@ -70,7 +70,7 @@ public class World{
         }
         if(newPoint.getY() < 0 || newPoint.getY() >= mapSize
                 || newPoint.getX() < 0 || newPoint.getX() >= mapSize
-                || CheckSolidTile(tileMap[p.getY()][p.getX()]))
+                || CheckSolidTile(tileMap[newPoint.getY()][newPoint.getX()]))
             return p;
 
         return newPoint;
