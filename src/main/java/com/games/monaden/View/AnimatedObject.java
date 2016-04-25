@@ -8,7 +8,7 @@ import javafx.scene.canvas.GraphicsContext;
 /**
  * Created by paraply on 2016-04-22.
  */
-public class AnimatedObject extends RenderObject {
+class AnimatedObject extends RenderObject {
     private int gameObject_old_X, gameObject_old_Y;
     private int inTransition = 0;
     private int animation_part = 0;
@@ -18,19 +18,19 @@ public class AnimatedObject extends RenderObject {
     private final int REAL_ANIMATION_SPEED = ANIMATION_SPEED * TRANSITION_SPEED;
 
 
-    public AnimatedObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName) {
-        super(gameObject, graphicsContext, imageSection, imageName);
+    AnimatedObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName,int width, int height) {
+        super(gameObject, graphicsContext, imageSection, imageName,width,height);
         gameObject_old_X = gameObject.getX();
         gameObject_old_Y = gameObject.getY();
     }
 
     public void draw(){
-        calculateX();
-        super.calculateY();
-        context.drawImage(image, image_src_X,image_src_Y, IMAGE_HEIGHT, IMAGE_HEIGHT, x, y, IMAGE_HEIGHT, IMAGE_HEIGHT);
+        calculateSourceX();
+        super.calculateSourceY();
+        context.drawImage(image, image_src_X,image_src_Y, image_height, image_height, x, y, image_height, image_height);
     }
 
-    private void calculateX(){
+    private void calculateSourceX(){
         if (inTransition == 0){ // Is currently not animating and moving
             if ((gameObject.getX() != gameObject_old_X ) || (gameObject.getY() != gameObject_old_Y) ){ // Check if object should move
                 inTransition = World.tileSize; // Start transition
@@ -44,7 +44,7 @@ public class AnimatedObject extends RenderObject {
             }
         }else{
             inTransition -=TRANSITION_SPEED;
-            image_src_X = (animation_part % ANIMAMATION_FRAMES) * IMAGE_WIDTH;
+            image_src_X = (animation_part % ANIMAMATION_FRAMES) * image_width;
             if ((World.tileSize - inTransition) % REAL_ANIMATION_SPEED == 0){
                 animation_part++;
             }

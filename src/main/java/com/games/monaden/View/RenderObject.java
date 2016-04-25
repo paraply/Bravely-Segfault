@@ -20,7 +20,7 @@ class RenderObject {
     GraphicsContext context;
     Image image;
 
-    final int IMAGE_HEIGHT = 32, IMAGE_WIDTH = 32; // Currently hardcoded. Could possibly be specified in XML.
+    int image_height, image_width ;
     int x,y; // Objects position in the world
     int image_src_X, image_src_Y; // Coordinates to get a specific picture from the tileset
 
@@ -29,10 +29,12 @@ class RenderObject {
     // A RenderObject must know where to draw = graphicsContext
     // It must know which imageSection to get the image such as "Characters"
     // It must have a imageFile which is accessed in the imageSection folder in resources,
-    RenderObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName){
+    RenderObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName, int width, int height){
         this.gameObject = gameObject;
         context = graphicsContext;
         image = new Image( imageSection + "/" + imageName + ".png");
+        image_width = width;
+        image_height = height;
     }
 
 
@@ -53,13 +55,13 @@ class RenderObject {
     void calculateSourceY(){
         switch (gameObject.getDirection()){
             case UP:
-                image_src_Y = IMAGE_HEIGHT * 3;
+                image_src_Y = image_height * 3;
                 break;
             case LEFT:
-                image_src_Y = IMAGE_HEIGHT;
+                image_src_Y = image_height;
                 break;
             case RIGHT:
-                image_src_Y = IMAGE_HEIGHT * 2;
+                image_src_Y = image_height * 2;
                 break;
             default: //DOWN
                 image_src_Y = 0;
@@ -71,6 +73,6 @@ class RenderObject {
         calculateWorldCoordinates();
         calculateSourceX();
         calculateSourceY();
-        context.drawImage(image, image_src_X,image_src_Y, IMAGE_HEIGHT, IMAGE_HEIGHT, x, y, IMAGE_HEIGHT, IMAGE_HEIGHT);
+        context.drawImage(image, image_src_X,image_src_Y, image_height, image_height, x, y, image_height, image_height);
     }
 }
