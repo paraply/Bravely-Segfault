@@ -1,4 +1,4 @@
-package Control;
+package com.games.monaden.Control;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -9,12 +9,12 @@ import javafx.scene.input.KeyEvent;
 /**
  * Created by paraply on 2016-04-13.
  */
-public class User_Input implements EventHandler<Event> {
-    private static User_Input user_input;
+public class UserInput implements EventHandler<Event> {
+    private static UserInput user_input;
     private KeyCode movement_key;
     private KeyCode function_key;
 
-    private User_Input(){}
+    private UserInput(){}
 
     @Override
     public void handle(Event event) {
@@ -53,9 +53,9 @@ public class User_Input implements EventHandler<Event> {
         return key;
     }
 
-    public static synchronized User_Input getInstance(){
+    public static synchronized UserInput getInstance(){
         if (user_input == null){
-            user_input = new User_Input();
+            user_input = new UserInput();
         }
         return user_input;
     }

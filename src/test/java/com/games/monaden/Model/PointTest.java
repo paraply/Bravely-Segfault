@@ -1,6 +1,6 @@
 
 
-package Model;
+package com.games.monaden.Model;
 
 
 import static org.junit.Assert.assertFalse;

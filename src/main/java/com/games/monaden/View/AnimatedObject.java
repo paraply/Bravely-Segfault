@@ -1,8 +1,8 @@
-package View;
+package com.games.monaden.View;
 
-import Control.Game_Loop;
-import Model.GameObjects.GameObject;
-import Model.World;
+import com.games.monaden.Control.Game_Loop;
+import com.games.monaden.Model.GameObjects.GameObject;
+import com.games.monaden.Model.World;
 import javafx.scene.canvas.GraphicsContext;
 
 /**
@@ -12,9 +12,9 @@ public class AnimatedObject extends RenderObject {
     private int gameObject_old_X, gameObject_old_Y;
     private int inTransition = 0;
     private int animation_part = 0;
-    private final int ANIMAMTION_FRAMES = 3; // How many pictures X-wise in the tileset. Could possibly be specified in XML later.
+    private final int ANIMAMATION_FRAMES = 3; // How many pictures X-wise in the tileset. Could possibly be specified in XML later.
     private final int TRANSITION_SPEED = Game_Loop.FREQUENCY == 32 ? 1 : 2 ; // Transistion speed should be 2 if Game_Loop frequency is 16. Should Be 1 if Game_Loop frequency is 32.
-    private final int ANIMATION_SPEED = 3; // Using mod of the inTransition number.
+    private final int ANIMATION_SPEED = 3; // Uses a mod of the inTransition number.
     private final int REAL_ANIMATION_SPEED = ANIMATION_SPEED * TRANSITION_SPEED;
 
 
@@ -44,18 +44,18 @@ public class AnimatedObject extends RenderObject {
             }
         }else{
             inTransition -=TRANSITION_SPEED;
-            image_src_X = (animation_part % ANIMAMTION_FRAMES) * IMAGE_WIDTH;
+            image_src_X = (animation_part % ANIMAMATION_FRAMES) * IMAGE_WIDTH;
             if ((World.tileSize - inTransition) % REAL_ANIMATION_SPEED == 0){
                 animation_part++;
             }
             switch (gameObject.getDirection()){
-                case UP: y =  (gameObject.getY() * World.tileSize)   + inTransition ;
+                case UP: y =  (gameObject.getY() * World.tileSize) + inTransition; // Move up step by step
                     break;
-                case DOWN: y =  (gameObject.getY() * World.tileSize)   - inTransition;
+                case DOWN: y =  (gameObject.getY() * World.tileSize)   - inTransition; // Move down step by step
                     break;
-                case LEFT: x =  (gameObject.getX() * World.tileSize) +  inTransition;
+                case LEFT: x =  (gameObject.getX() * World.tileSize) +  inTransition; // Move left step by step
                     break;
-                case RIGHT: x =  (gameObject.getX() * World.tileSize)  - inTransition;
+                case RIGHT: x =  (gameObject.getX() * World.tileSize)  - inTransition; // Move right step by step
                     break;
             }
 

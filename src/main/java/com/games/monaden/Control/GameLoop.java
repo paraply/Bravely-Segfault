@@ -1,15 +1,15 @@
-package Control;
+package com.games.monaden.Control;
 
-import Model.GameObjects.Character;
-import Model.World;
-import View.Render;
+import com.games.monaden.Model.GameObjects.Character;
+import com.games.monaden.Model.World;
+import com.games.monaden.View.Render;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
 
 /**
  * Created by paraply on 2016-04-13.
  */
-public class Game_Loop extends AnimationTimer {
+public class GameLoop extends AnimationTimer {
 
     // Could probably use inspiration from
     // https://carlfx.wordpress.com/2012/04/09/javafx-2-gametutorial-part-2/

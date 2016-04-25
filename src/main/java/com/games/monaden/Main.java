@@ -1,4 +1,6 @@
-import Control.Game_Loop;
+package com.games.monaden;
+
+import com.games.monaden.Control.Game_Loop;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

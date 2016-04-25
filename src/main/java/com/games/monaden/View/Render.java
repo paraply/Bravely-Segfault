@@ -1,7 +1,7 @@
-package View;
+package com.games.monaden.View;
 
-import Model.GameObjects.GameObject;
-import Model.World;
+import com.games.monaden.Model.GameObjects.GameObject;
+import com.games.monaden.Model.World;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -31,7 +31,7 @@ public class Render {
         renderObject = new AnimatedObject(gameObject, context, "Characters", "cat");
     }
 
-    //This class is currently singleton, since its instance needs to be accessed by both WindowController and the Model. May change...
+    //This class is currently singleton, since its instance needs to be accessed by both WindowController and the com.games.monaden.Model. May change...
     public static synchronized Render getInstance(){
         if (render == null){
             render = new Render();
