@@ -35,7 +35,7 @@ public class GameLoop extends AnimationTimer {
             counting_down--;
 
         }else{
-            User_Input user_input = User_Input.getInstance();
+            UserInput user_input = UserInput.getInstance();
             KeyCode latest_movement_request = user_input.getLatestMovementKey();
             if (latest_movement_request != null) {
                 switch (latest_movement_request) {

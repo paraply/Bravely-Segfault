@@ -1,6 +1,6 @@
 package com.games.monaden.View;
 
-import com.games.monaden.Control.Game_Loop;
+import com.games.monaden.Control.GameLoop;
 import com.games.monaden.Model.GameObjects.GameObject;
 import com.games.monaden.Model.World;
 import javafx.scene.canvas.GraphicsContext;
@@ -13,7 +13,7 @@ public class AnimatedObject extends RenderObject {
     private int inTransition = 0;
     private int animation_part = 0;
     private final int ANIMAMATION_FRAMES = 3; // How many pictures X-wise in the tileset. Could possibly be specified in XML later.
-    private final int TRANSITION_SPEED = Game_Loop.FREQUENCY == 32 ? 1 : 2 ; // Transistion speed should be 2 if Game_Loop frequency is 16. Should Be 1 if Game_Loop frequency is 32.
+    private final int TRANSITION_SPEED = GameLoop.FREQUENCY == 32 ? 1 : 2 ; // Transistion speed should be 2 if GameLoop frequency is 16. Should Be 1 if GameLoop frequency is 32.
     private final int ANIMATION_SPEED = 3; // Uses a mod of the inTransition number.
     private final int REAL_ANIMATION_SPEED = ANIMATION_SPEED * TRANSITION_SPEED;
 

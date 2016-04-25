@@ -28,7 +28,7 @@
 * Issue tracking system
    * Trello will be used for issue tracking
 * Technical things
-   * Model
+   * com.games.monaden.Model
       * Grid-based movement system will be based on a 2D array
       * Each tile (cell in the 2D array) will contain a value that represents what type of tile/object it is
       * The player character needs a current position (x,y) in the 2D array
