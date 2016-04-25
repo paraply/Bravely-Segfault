@@ -1,6 +1,6 @@
-package com.games.monaden.Model.GameObjects;
+package com.games.monaden.model.gameObjects;
 
-import com.games.monaden.Model.World;
+import com.games.monaden.model.World;
 
 /**
  * Created by Anton on 2016-04-19.

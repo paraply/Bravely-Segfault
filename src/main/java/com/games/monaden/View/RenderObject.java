@@ -1,7 +1,7 @@
-package com.games.monaden.View;
+package com.games.monaden.view;
 
-import com.games.monaden.Model.GameObjects.GameObject;
-import com.games.monaden.Model.World;
+import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.World;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -21,13 +21,13 @@ class RenderObject {
     Image image;
 
     int image_height, image_width ;
-    int x,y; // Objects position in the world
+    int x,y; // objects position in the world
     int image_src_X, image_src_Y; // Coordinates to get a specific picture from the tileset
 
 
     // Create a new instance of the RenderObject
     // A RenderObject must know where to draw = graphicsContext
-    // It must know which imageSection to get the image such as "Characters"
+    // It must know which imageSection to get the image such as "characters"
     // It must have a imageFile which is accessed in the imageSection folder in resources,
     RenderObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName, int width, int height){
         this.gameObject = gameObject;

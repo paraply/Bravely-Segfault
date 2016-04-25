@@ -1,7 +1,7 @@
-package com.games.monaden.View;
+package com.games.monaden.view;
 
-import com.games.monaden.Model.GameObjects.GameObject;
-import com.games.monaden.Model.World;
+import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.World;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -13,6 +13,7 @@ public class Render {
     private GraphicsContext context;
     private World world; // World model provides information about what should be drawn
     private AnimatedObject renderObject;
+    private RenderObject renderObject2;
 
     private boolean has_loaded_images;
     Image images[] = new Image[100];
@@ -27,11 +28,16 @@ public class Render {
         this.world = world;
     }
 
-    public void addGameObject(GameObject gameObject){
-        renderObject = new AnimatedObject(gameObject, context, "Characters", "cat");
+    public void addCat(GameObject gameObject){
+        renderObject = new AnimatedObject(gameObject, context, "characters", "cat",32,32, true);
     }
 
-    //This class is currently singleton, since its instance needs to be accessed by both WindowController and the com.games.monaden.Model. May change...
+    public void addTree(GameObject gameObject){
+        renderObject2 = new AnimatedObject(gameObject, context, "objects", "tree",192,192,false);
+    }
+
+
+    //This class is currently singleton, since its instance needs to be accessed by both WindowController and model. May change...
     public static synchronized Render getInstance(){
         if (render == null){
             render = new Render();
@@ -51,6 +57,7 @@ public class Render {
         load_images();
         draw_ground_tiles();
         renderObject.draw();
+        renderObject2.draw();
     }
 
     private void draw_ground_tiles(){

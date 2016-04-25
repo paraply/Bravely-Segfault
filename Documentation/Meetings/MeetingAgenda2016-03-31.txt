@@ -10,7 +10,7 @@
  continue.
 
 Start to create: 
-* com.games.monaden.Model
+* com.games.monaden.model
 * RAD 
 * Use case
 * Sequence diagram for main use case

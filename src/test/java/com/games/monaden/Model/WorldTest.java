@@ -1,4 +1,4 @@
-package com.games.monaden.Model;
+package com.games.monaden.model;
 
 import org.junit.Test;
 

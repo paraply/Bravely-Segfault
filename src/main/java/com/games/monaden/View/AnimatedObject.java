@@ -1,8 +1,8 @@
-package com.games.monaden.View;
+package com.games.monaden.view;
 
-import com.games.monaden.Control.GameLoop;
-import com.games.monaden.Model.GameObjects.GameObject;
-import com.games.monaden.Model.World;
+import com.games.monaden.control.GameLoop;
+import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.World;
 import javafx.scene.canvas.GraphicsContext;
 
 /**
@@ -18,7 +18,7 @@ class AnimatedObject extends RenderObject {
     private final int REAL_ANIMATION_SPEED = ANIMATION_SPEED * TRANSITION_SPEED;
 
 
-    AnimatedObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName,int width, int height) {
+    AnimatedObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName,int width, int height, boolean movable) {
         super(gameObject, graphicsContext, imageSection, imageName,width,height);
         gameObject_old_X = gameObject.getX();
         gameObject_old_Y = gameObject.getY();

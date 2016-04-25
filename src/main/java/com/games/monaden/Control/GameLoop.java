@@ -1,8 +1,9 @@
-package com.games.monaden.Control;
+package com.games.monaden.control;
 
-import com.games.monaden.Model.GameObjects.Character;
-import com.games.monaden.Model.World;
-import com.games.monaden.View.Render;
+import com.games.monaden.model.gameObjects.Character;
+import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.World;
+import com.games.monaden.view.Render;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
 
@@ -19,12 +20,15 @@ public class GameLoop extends AnimationTimer {
 
     private World world;
     private Character player;
+    private GameObject tree;
 
     public void initialize_game(){
         world = new World();
         player = new Character(1,1, world);
+        tree = new GameObject(4,8);
         Render.getInstance().setWorld(world);
-        Render.getInstance().addGameObject(player);
+        Render.getInstance().addCat(player);
+        Render.getInstance().addTree(tree);
     }
 
     @Override

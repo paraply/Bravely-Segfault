@@ -1,4 +1,4 @@
-package com.games.monaden.Control;
+package com.games.monaden.control;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
