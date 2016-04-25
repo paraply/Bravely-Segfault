@@ -52,27 +52,28 @@ public class World{
     /** Checks if a movement in one Direction in the tilemap is possible or not
      *  Returns the new position after movement, and also handles potential new screen
      */
-    public boolean Move(int y, int x, MovementDirection direction) {
+    public Point CheckMovement(Point p, MovementDirection direction) {
+        Point newPoint = p;
         switch(direction){
             case UP:
-                if(y == 0)
-                    return false;
-                return !CheckSolidTile(tileMap[y-1][x]);
+                newPoint = new Point(p.getX(), p.getY() - 1);
+                break;
             case DOWN:
-                if(y == mapSize - 1)
-                    return false;
-                return !CheckSolidTile(tileMap[y+1][x]);
+                newPoint = new Point(p.getX(), p.getY() + 1);
+                break;
             case LEFT:
-                if(x == 0)
-                    return false;
-                return !CheckSolidTile(tileMap[y][x-1]);
+                newPoint = new Point(p.getX() - 1, p.getY());
+                break;
             case RIGHT:
-                if(x == mapSize - 1)
-                    return false;
-                return !CheckSolidTile(tileMap[y][x+1]);
-            default:
-                return false;
+                newPoint = new Point(p.getX() + 1, p.getY());
+                break;
         }
+        if(newPoint.getY() < 0 || newPoint.getY() >= mapSize
+                || newPoint.getX() < 0 || newPoint.getX() >= mapSize
+                || CheckSolidTile(tileMap[p.getY()][p.getX()]))
+            return p;
+
+        return newPoint;
     }
 
     /** Temporary helper function for tilemap solidity

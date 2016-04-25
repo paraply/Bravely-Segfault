@@ -40,8 +40,8 @@ class RenderObject {
 
     // x,y values specifies where in the world the character should be drawn
     private void calculateWorldCoordinates(){
-        x = gameObject.getX() * World.tileSize;
-        y =  gameObject.getY() * World.tileSize;
+        x = gameObject.getPosition().getX() * World.tileSize;
+        y =  gameObject.getPosition().getY() * World.tileSize;
     }
 
     // The X value from the source image is always 0 in an RenderObject without animation.

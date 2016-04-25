@@ -20,8 +20,8 @@ class AnimatedObject extends RenderObject {
 
     AnimatedObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName,int width, int height, boolean movable) {
         super(gameObject, graphicsContext, imageSection, imageName,width,height);
-        gameObject_old_X = gameObject.getX();
-        gameObject_old_Y = gameObject.getY();
+        gameObject_old_X = gameObject.getPosition().getX();
+        gameObject_old_Y = gameObject.getPosition().getY();
     }
 
     public void draw(){
@@ -32,15 +32,15 @@ class AnimatedObject extends RenderObject {
 
     private void calculateSourceX(){
         if (inTransition == 0){ // Is currently not animating and moving
-            if ((gameObject.getX() != gameObject_old_X ) || (gameObject.getY() != gameObject_old_Y) ){ // Check if object should move
+            if ((gameObject.getPosition().getX() != gameObject_old_X ) || (gameObject.getPosition().getY() != gameObject_old_Y) ){ // Check if object should move
                 inTransition = World.tileSize; // Start transition
                 image_src_X = 0;
                 x = gameObject_old_X * World.tileSize; // Stand still for now, we want to change direction first. Start moving in next transition.
                 y =  gameObject_old_Y * World.tileSize;
             }else{ // Object is standing still
                 image_src_X = 0;
-                x = gameObject.getX() * World.tileSize;
-                y =  gameObject.getY() * World.tileSize;
+                x = gameObject.getPosition().getX() * World.tileSize;
+                y =  gameObject.getPosition().getY() * World.tileSize;
             }
         }else{
             inTransition -=TRANSITION_SPEED;
@@ -49,19 +49,19 @@ class AnimatedObject extends RenderObject {
                 animation_part++;
             }
             switch (gameObject.getDirection()){
-                case UP: y =  (gameObject.getY() * World.tileSize) + inTransition; // Move up step by step
+                case UP: y =  (gameObject.getPosition().getY() * World.tileSize) + inTransition; // Move up step by step
                     break;
-                case DOWN: y =  (gameObject.getY() * World.tileSize)   - inTransition; // Move down step by step
+                case DOWN: y =  (gameObject.getPosition().getY() * World.tileSize)   - inTransition; // Move down step by step
                     break;
-                case LEFT: x =  (gameObject.getX() * World.tileSize) +  inTransition; // Move left step by step
+                case LEFT: x =  (gameObject.getPosition().getX() * World.tileSize) +  inTransition; // Move left step by step
                     break;
-                case RIGHT: x =  (gameObject.getX() * World.tileSize)  - inTransition; // Move right step by step
+                case RIGHT: x =  (gameObject.getPosition().getX() * World.tileSize)  - inTransition; // Move right step by step
                     break;
             }
 
             if (inTransition == 0){ // transition is done now
-                gameObject_old_Y = gameObject.getY();
-                gameObject_old_X = gameObject.getX();
+                gameObject_old_Y = gameObject.getPosition().getY();
+                gameObject_old_X = gameObject.getPosition().getX();
             }
         }
 
