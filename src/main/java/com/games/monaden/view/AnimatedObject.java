@@ -14,6 +14,7 @@ import javafx.scene.canvas.GraphicsContext;
  */
 class AnimatedObject extends RenderObject {
     private Point previousPosition;
+
     private int inTransition = 0;
     private int animation_part = 0;
     private final int ANIMATION_FRAMES = 3; // How many pictures X-wise in the tileset. Could possibly be specified in XML later.
@@ -22,8 +23,8 @@ class AnimatedObject extends RenderObject {
     private final int REAL_ANIMATION_SPEED = ANIMATION_SPEED * TRANSITION_SPEED;
 
 
-    AnimatedObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName,int width, int height, boolean movable) {
-        super(gameObject, graphicsContext, imageSection, imageName, width,height);
+    AnimatedObject(GameObject gameObject) {
+        super(gameObject);
         previousPosition = gameObject.getPosition();
     }
 
@@ -47,7 +48,7 @@ class AnimatedObject extends RenderObject {
             }
         }else{
             inTransition -=TRANSITION_SPEED;
-            image_src_X = (animation_part % ANIMATION_FRAMES) * image_width;
+            image_src_X = (animation_part % ANIMATION_FRAMES) * gameObject.getWidth();
             if ((World.tileSize - inTransition) % REAL_ANIMATION_SPEED == 0){
                 animation_part++;
             }

@@ -25,11 +25,9 @@ public class GameLoop extends AnimationTimer {
 
     public void initialize_game(){
         world = new World();
-        tree = new GameObject(new Point(4,8));
-        player = new Character(new Point(1,1), world);
+        player = new Character(new Point(1,1), world, "characters", "cat.png", 32,32);
         Render.getInstance().setWorld(world);
-        Render.getInstance().addCat(player);
-        Render.getInstance().addTree(tree);
+        Render.getInstance().setPlayerCharacter(player);
     }
 
     @Override

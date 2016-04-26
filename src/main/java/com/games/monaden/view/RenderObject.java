@@ -17,10 +17,7 @@ import javafx.scene.image.Image;
 
 class RenderObject {
     GameObject gameObject;
-    GraphicsContext context;
-    Image image;
-
-    int image_height, image_width ;
+    private Image image;
     int x,y; // objects position in the world
     int image_src_X, image_src_Y; // Coordinates to get a specific picture from the tileset
 
@@ -29,12 +26,9 @@ class RenderObject {
     // A RenderObject must know where to draw = graphicsContext
     // It must know which imageSection to get the image such as "characters"
     // It must have a imageFile which is accessed in the imageSection folder in resources,
-    RenderObject(GameObject gameObject, GraphicsContext graphicsContext, String imageSection, String imageName, int width, int height){
+    RenderObject(GameObject gameObject){
         this.gameObject = gameObject;
-        context = graphicsContext;
-        image = new Image( imageSection + "/" + imageName + ".png");
-        image_width = width;
-        image_height = height;
+        image = new Image( gameObject.getImagePath() );
     }
 
     // x,y values specifies where in the world the character should be drawn
@@ -53,14 +47,14 @@ class RenderObject {
     // and use the top image from the tileset.
     void calculateSourceY(){
         switch (gameObject.getDirection()){
-            case UP:
-                image_src_Y = image_height * 3;
-                break;
             case LEFT:
-                image_src_Y = image_height;
+                image_src_Y = gameObject.getHeight();
                 break;
             case RIGHT:
-                image_src_Y = image_height * 2;
+                image_src_Y = gameObject.getHeight() * 2;
+                break;
+            case UP:
+                image_src_Y = gameObject.getHeight() * 3;
                 break;
             default: //DOWN
                 image_src_Y = 0;
@@ -75,8 +69,8 @@ class RenderObject {
         drawToContext();
     }
 
-    // Draw the image on the canvas
+    // Call render to draw the image on the canvas
     void drawToContext(){
-        context.drawImage(image, image_src_X,image_src_Y, image_height, image_height, x, y, image_height, image_height);
+        Render.getInstance().drawImage(image, image_src_X,image_src_Y, gameObject.getWidth(), gameObject.getHeight(), x, y, gameObject.getWidth(), gameObject.getHeight());
     }
 }

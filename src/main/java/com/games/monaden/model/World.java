@@ -23,6 +23,10 @@ public class World{
         return tileMap;
     }
 
+    public List<GameObject> getObjects(){
+        return objects;
+    }
+
     public World() {
         if(instantiated) {
             System.out.println("A world object has already been instantiated!");
@@ -51,10 +55,12 @@ public class World{
         for(int y = 0; y < mapSize; y++) {
             for(int x = 0; x < mapSize; x++) {
                 if(CheckSolidTile(tileMap[y][x])){
-                    objects.add(new GameObject(new Point(x,y)));
+                    objects.add(new GameObject(new Point(x,y), "objects", "wall.png",32,32));
                 }
             }
         }
+
+        objects.add(new GameObject(new Point(5,8), "objects", "tree.png",192,192));
     }
 
     public enum MovementDirection {
