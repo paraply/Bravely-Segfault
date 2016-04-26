@@ -1,12 +1,13 @@
 package Model;
 
+import com.games.monaden.model.Tile;
+import com.games.monaden.model.TileParser;
 import org.junit.Before;
 import org.junit.Test;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;

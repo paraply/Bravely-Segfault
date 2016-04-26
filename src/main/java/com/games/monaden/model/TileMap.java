@@ -1,4 +1,4 @@
-package Model;
+package com.games.monaden.model;
 
 
 /**
