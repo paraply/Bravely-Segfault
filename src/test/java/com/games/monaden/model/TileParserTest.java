@@ -38,7 +38,7 @@ public class TileParserTest {
     @Test
     public void testSize () {
         try {
-            tileFile = new File("src/main/resources/Test.xml");
+            tileFile = new File("src/main/resources/parseTests/TileTest1.xml");
             parser.parse(tileFile, tileParser);
             tileList = tileParser.getTiles();
             assertTrue(tileList.size() == 2);
