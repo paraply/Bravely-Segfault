@@ -37,7 +37,6 @@ class RenderObject {
         image_height = height;
     }
 
-
     // x,y values specifies where in the world the character should be drawn
     private void calculateWorldCoordinates(){
         x = gameObject.getPosition().getX() * World.tileSize;
