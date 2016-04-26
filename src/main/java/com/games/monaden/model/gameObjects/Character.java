@@ -16,5 +16,6 @@ public class Character extends GameObject {
 
     public void Move(World.MovementDirection direction) {
         setPosition(world.CheckMovement(getPosition(), direction));
+        setDirection(direction);
     }
 }
