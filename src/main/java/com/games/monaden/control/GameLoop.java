@@ -1,30 +1,34 @@
-package Control;
+package com.games.monaden.control;
 
-import Model.GameObjects.Character;
-import Model.World;
-import View.Render;
+import com.games.monaden.model.gameObjects.Character;
+import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.World;
+import com.games.monaden.view.Render;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
 
 /**
  * Created by paraply on 2016-04-13.
  */
-public class Game_Loop extends AnimationTimer {
+public class GameLoop extends AnimationTimer {
 
     // Could probably use inspiration from
     // https://carlfx.wordpress.com/2012/04/09/javafx-2-gametutorial-part-2/
 
-    private final int COUNTDOWN = 10; //Its the final countdown
-    private int counting_down = COUNTDOWN;
+    public final static int FREQUENCY = 16;
+    private int counting_down = FREQUENCY;
 
     private World world;
     private Character player;
+    private GameObject tree;
 
     public void initialize_game(){
         world = new World();
         player = new Character(1,1, world);
+        tree = new GameObject(4,8);
         Render.getInstance().setWorld(world);
-        Render.getInstance().addGameObject(player);
+        Render.getInstance().addCat(player);
+        Render.getInstance().addTree(tree);
     }
 
     @Override
@@ -33,8 +37,9 @@ public class Game_Loop extends AnimationTimer {
 
         if (counting_down > 0){  // used to add a delay (better than sleep) to user movement
             counting_down--;
+
         }else{
-            User_Input user_input = User_Input.getInstance();
+            UserInput user_input = UserInput.getInstance();
             KeyCode latest_movement_request = user_input.getLatestMovementKey();
             if (latest_movement_request != null) {
                 switch (latest_movement_request) {
@@ -68,7 +73,7 @@ public class Game_Loop extends AnimationTimer {
             }
 
 
-            counting_down = COUNTDOWN;
+            counting_down = FREQUENCY;
         }
     }
 }
