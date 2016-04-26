@@ -26,8 +26,8 @@ class AnimatedObject extends RenderObject {
 
     public void draw(){
         calculateSourceX();
-        super.calculateSourceY();
-        context.drawImage(image, image_src_X,image_src_Y, image_height, image_height, x, y, image_height, image_height);
+        calculateSourceY();
+        drawToContext();
     }
 
     private void calculateSourceX(){

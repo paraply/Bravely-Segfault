@@ -73,6 +73,11 @@ class RenderObject {
         calculateWorldCoordinates();
         calculateSourceX();
         calculateSourceY();
+        drawToContext();
+    }
+
+    // Draw the image on the canvas
+    void drawToContext(){
         context.drawImage(image, image_src_X,image_src_Y, image_height, image_height, x, y, image_height, image_height);
     }
 }
