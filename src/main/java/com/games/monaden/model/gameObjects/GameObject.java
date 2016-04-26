@@ -1,13 +1,13 @@
 package com.games.monaden.model.gameObjects;
 
 import com.games.monaden.model.World;
+import com.games.monaden.model.Point;
 
 /**
  * Created by Anton on 2016-04-19.
  */
 public class GameObject {
-    private int x;
-    private int y;
+    private Point position;
     //Should contain collision
 
     private World.MovementDirection object_direction = World.MovementDirection.DOWN;
@@ -21,20 +21,12 @@ public class GameObject {
     }
 
 
-    public int getX(){return x;}
-    public int getY(){return y;}
+    public Point getPosition(){return position;}
 
-    protected void setX(int _x){
-            x = _x;
-    }
+    protected void setPosition(Point p){ position = p; }
 
-    protected void setY(int _y){
-            y = _y;
-    }
-
-    public GameObject(int startX, int startY)
+    public GameObject(Point startPos)
     {
-        x = startX;
-        y = startY;
+        position = startPos;
     }
 }
