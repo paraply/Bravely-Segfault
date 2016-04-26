@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Model.GameObjects.GameObject;
-import Model.World;
+import model.gameObjects.GameObject;
+import model.World;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 

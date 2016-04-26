@@ -1,4 +1,4 @@
-package Model.GameObjects;
+package model.gameObjects;
 
 /**
  * Created by Anton on 2016-04-19.
