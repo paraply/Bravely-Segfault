@@ -3,6 +3,7 @@ package com.games.monaden.control;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.model.World;
+import com.games.monaden.model.Point;
 import com.games.monaden.view.Render;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
@@ -24,8 +25,8 @@ public class GameLoop extends AnimationTimer {
 
     public void initialize_game(){
         world = new World();
-        player = new Character(1,1, world);
-        tree = new GameObject(4,8);
+        tree = new GameObject(new Point(4,8));
+        player = new Character(new Point(1,1), world);
         Render.getInstance().setWorld(world);
         Render.getInstance().addCat(player);
         Render.getInstance().addTree(tree);

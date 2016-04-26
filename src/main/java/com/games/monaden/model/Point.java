@@ -15,7 +15,7 @@ public class Point {
     private final int y;
 
 
-    Point(int x, int y) {
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
         }
@@ -27,5 +27,12 @@ public class Point {
     
     public int getY(){
         return this.y;
+    }
+
+    public boolean equals(Object o) {
+        if(!(o instanceof Point)) return super.equals(o);
+
+        Point p = (Point)o;
+        return p.getX() == x && p.getY() == y;
     }
 }
