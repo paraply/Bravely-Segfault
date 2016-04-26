@@ -1,4 +1,4 @@
-package Model;
+package com.games.monaden.model;
 
 import com.games.monaden.model.Tile;
 import com.games.monaden.model.TileParser;
