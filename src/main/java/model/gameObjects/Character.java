@@ -1,6 +1,6 @@
-package Model.GameObjects;
+package model.gameObjects;
 
-import Model.World;
+import model.World;
 
 /**
  * Created by Anton on 2016-04-19.

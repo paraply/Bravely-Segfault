@@ -1,10 +1,10 @@
-package Control;
+package control;
 
 /**
  * Created by paraply on 2016-04-13.
  */
 
-import View.Render;
+import view.Render;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;

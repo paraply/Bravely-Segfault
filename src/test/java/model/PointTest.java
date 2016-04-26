@@ -1,6 +1,6 @@
 
 
-package Model;
+package model;
 
 
 import static org.junit.Assert.assertFalse;

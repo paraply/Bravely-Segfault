@@ -1,7 +1,7 @@
-package View;
+package view;
 
-import Model.GameObjects.GameObject;
-import Model.World;
+import model.gameObjects.GameObject;
+import model.World;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -31,7 +31,7 @@ public class Render {
         renderObject = new RenderObject(gameObject, context, "Characters", "cat");
     }
 
-    //This class is currently singleton, since its instance needs to be accessed by both WindowController and the Model. May change...
+    //This class is currently singleton, since its instance needs to be accessed by both WindowController and the model. May change...
     public static synchronized Render getInstance(){
         if (render == null){
             render = new Render();

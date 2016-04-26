@@ -1,8 +1,8 @@
-package Control;
+package control;
 
-import Model.GameObjects.Character;
-import Model.World;
-import View.Render;
+import model.gameObjects.Character;
+import model.World;
+import view.Render;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
 
