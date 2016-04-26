@@ -1,6 +1,6 @@
 package com.games.monaden.model;
 
-import Model.GameObjects.GameObject;
+import com.games.monaden.model.gameObjects.GameObject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class World{
     public static final int tileSize = 32;
     public static final int mapSize = 16;
 
-    private List<GameObject> objects = new ArrayList<GameObject>();
+    private List<GameObject> objects = new ArrayList<>();
 
     //Temporarily hardcoded here, should always load a map from a file
     private int[][] tileMap = new int[mapSize][mapSize];
