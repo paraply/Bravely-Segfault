@@ -67,4 +67,13 @@ public class GameObject {
         this.imageWidth = imageWidth;
         this.imageHeight = imageHeight;
     }
+
+    public GameObject(Point startPos, String imageSection, String imageFile)
+    {
+        position = startPos;
+        this.imageSection = imageSection;
+        this.imageFile = imageFile;
+        this.imageWidth = World.tileSize;
+        this.imageHeight = World.tileSize;
+    }
 }
