@@ -85,8 +85,14 @@ public class World{
     }
 
     public String CheckInteraction(Point p, MovementDirection direction) {
-        
-        return "No interaction system is written yet";
+        Point newPoint = p.nextTo(direction);
+
+        for(GameObject g : interactables) {
+            if(g.getPosition().equals(newPoint))
+                return "There is an interactive object in front of the player. Start interaction.";
+        }
+
+        return "There was nothing to interact with.";
     }
 
     /** Temporary helper function for tilemap solidity
