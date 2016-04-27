@@ -1,10 +1,8 @@
 package com.games.monaden.view;
 
-import com.games.monaden.control.GameLoop;
 import com.games.monaden.model.Point;
-import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.model.World;
-import javafx.scene.canvas.GraphicsContext;
+import com.games.monaden.model.gameObjects.GameObject;
 
 /**
  * Created by paraply on 2016-04-22.
@@ -25,9 +23,10 @@ class AnimatedObject extends RenderObject {
 
 
     // ** Variables used for transitioning **
-    private int currentTransitionStep = 0;  // 0 = object is not moving or has finished moving to the new coordinate
-                                             // Otherwise the object is currently moving to another coordinate.
-    private final int PIXELS_PER_STEP = 2;  // If we move a pixel at a time it will be to slow. This can be adjusted here.
+    private int currentTransitionStep = 0;      // 0 = object is not moving or has finished moving to the new coordinate
+                                                // Otherwise the object is currently moving to another coordinate.
+    private final int PIXELS_PER_STEP = 2;      // If we move a pixel at a time it will be to slow. This can be adjusted here.
+                                                // REMEMBER: The tilesets size has to be divisible by this number
 
     AnimatedObject(GameObject gameObject) {
         super(gameObject);
