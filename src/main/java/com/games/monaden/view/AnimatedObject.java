@@ -18,7 +18,7 @@ class AnimatedObject extends RenderObject {
                                                 // This will loop 0 1 2 3 ... ANIMATION_FREQUENCY
                                                 // When reached ANIMATION_FREQUENCY-value then animate.
     private final int ANIMATION_FREQUENCY = 8;  // Which frequency that a new animation frame will be drawn. The higher number the slower animation.
-    private final int ANIMATION_FRAMES = 2;     // How many pictures X-wise in the animation tileset. Could possibly be specified in XML later. Remember that this is counted from ZERO!
+//    private final int ANIMATION_FRAMES = 2;     // How many pictures X-wise in the animation tileset. Could possibly be specified in XML later. Remember that this is counted from ZERO!
     private int currentAnimationFrame = 0;      // We need to keep track of which animation frame we have rendered
 
 
@@ -90,7 +90,7 @@ class AnimatedObject extends RenderObject {
             animationTicks = 0;
         }
         if (animationTicks == ANIMATION_FREQUENCY){         // Now we should animate
-            if (currentAnimationFrame == ANIMATION_FRAMES){ // Check if we draw the last frame previously. Then we should loop to the begining and draw the first frame
+            if (currentAnimationFrame == gameObject.getAnimationFrames()){ // Check if we draw the last frame previously. Then we should loop to the begining and draw the first frame
                 currentAnimationFrame = 0;
             }else{
                 currentAnimationFrame++;                    // Draw the next frame this time

@@ -60,12 +60,22 @@ public class World{
             }
         }
         GameObject tree = new GameObject(new Point(5,8), "objects", "tree.png",192,192);
-        tree.setContinuousAnimation(true);
         objects.add(tree);
 
         GameObject fire = new GameObject(new Point(10,8), "objects", "fire.png",32,32);
         fire.setContinuousAnimation(true);
         objects.add(fire);
+
+
+        GameObject fire2 = new GameObject(new Point(11,8), "objects", "fire.png",32,32);
+        fire2.setContinuousAnimation(true);
+        objects.add(fire2);
+
+        GameObject explosion = new GameObject(new Point(5,5), "objects", "explosion.png",160,160);
+        explosion.setContinuousAnimation(true);
+        explosion.setAnimationFrames(9);
+        objects.add(explosion);
+
     }
 
     public enum MovementDirection {
