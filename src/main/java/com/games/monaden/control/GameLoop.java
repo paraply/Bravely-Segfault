@@ -68,6 +68,11 @@ public class GameLoop extends AnimationTimer {
                         System.out.println("ESCAPE");
                         System.exit(0);
                         break;
+                    case SPACE:
+                        //Temporarily a string since no dialogue system written yet
+                        String temp = world.CheckInteraction(player.getPosition(), player.getDirection());
+                        System.out.println(temp);
+                        break;
                 }
             }
 
