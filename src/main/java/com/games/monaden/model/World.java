@@ -16,6 +16,7 @@ public class World{
     public static final int mapSize = 16;
 
     private List<GameObject> objects = new ArrayList<>();
+    private List<GameObject> interactables = new ArrayList<>();
 
     //Temporarily hardcoded here, should always load a map from a file
     private int[][] tileMap = new int[mapSize][mapSize];
@@ -70,28 +71,22 @@ public class World{
      *  Returns the new position after movement, and also handles potential new screen
      */
     public Point CheckMovement(Point p, MovementDirection direction) {
-        Point newPoint = p;
-        switch(direction){
-            case UP:
-                newPoint = new Point(p.getX(), p.getY() - 1);
-                break;
-            case DOWN:
-                newPoint = new Point(p.getX(), p.getY() + 1);
-                break;
-            case LEFT:
-                newPoint = new Point(p.getX() - 1, p.getY());
-                break;
-            case RIGHT:
-                newPoint = new Point(p.getX() + 1, p.getY());
-                break;
-        }
+        Point newPoint = p.nextTo(direction);
+
         if(newPoint.getY() < 0 || newPoint.getY() >= mapSize
                 || newPoint.getX() < 0 || newPoint.getX() >= mapSize)
             return p;
+
         for(GameObject g : objects) {
             if(g.getPosition().equals(newPoint)) return p;
         }
+
         return newPoint;
+    }
+
+    public String CheckInteraction(Point p, MovementDirection direction) {
+        
+        return "No interaction system is written yet";
     }
 
     /** Temporary helper function for tilemap solidity

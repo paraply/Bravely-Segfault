@@ -14,19 +14,31 @@ public class Point {
     private final int x;
     private final int y;
 
+    public int getX(){
+        return this.x;
+    }
+    public int getY(){
+        return this.y;
+    }
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
-        }
-    
-    public int getX(){
-        return this.x;
     }
-    
-    
-    public int getY(){
-        return this.y;
+
+    public Point nextTo(World.MovementDirection direction){
+        switch(direction){
+            case UP:
+                return new Point(x, y - 1);
+            case DOWN:
+                return new Point(x, y + 1);
+            case LEFT:
+                return new Point(x - 1, y);
+            case RIGHT:
+                return new Point(x + 1, y);
+            default:
+                return this;
+        }
     }
 
     public boolean equals(Object o) {
