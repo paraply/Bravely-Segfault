@@ -17,7 +17,7 @@ import org.junit.Test;
  */
 public class DialogTest {
     
-    private static DialogTree house;
+    static Dialog frontDoor;
     
     @BeforeClass
     public static void initTest(){
@@ -31,7 +31,7 @@ public class DialogTest {
         String livingRoomDialog = "This is the livingroom";
 
         //create Dialog
-        Dialog frontDoor = new Dialog(frontDoorDialog);
+        frontDoor = new Dialog(frontDoorDialog);
         Dialog hall = new Dialog(hallDialog);
         Dialog kitchen = new Dialog(kitchenDialog);
         Dialog bathRoom = new Dialog(bathRoomDialog);
@@ -54,13 +54,7 @@ public class DialogTest {
         hall.readInChoices(goToLivingRoom, livingRoom);
         
     }
-    
-    DialogTree testHouse;
-    @Before
-    public void init(){
-        testHouse = house;
-    }
-    
+        
     @Test
     public void testMovingToHall(){
         
