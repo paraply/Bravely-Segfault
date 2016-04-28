@@ -35,7 +35,7 @@ public class World{
         instantiated = true;
 
         tileMap = new int[][]{
-                {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+                {1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1},
                 {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
                 {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
                 {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -47,21 +47,36 @@ public class World{
                 {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
                 {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
                 {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1},
+                {1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1},
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
         };
 
         for(int y = 0; y < mapSize; y++) {
             for(int x = 0; x < mapSize; x++) {
                 if(CheckSolidTile(tileMap[y][x])){
-                    objects.add(new GameObject(new Point(x,y), "objects", "wall.png",32,32));
+                    objects.add(new GameObject(new Point(x,y), "objects", "wall.png"));
                 }
             }
         }
+        GameObject tree = new GameObject(new Point(5,8), "objects", "tree.png",192,192);
+        objects.add(tree);
 
-        objects.add(new GameObject(new Point(5,8), "objects", "tree.png",192,192));
+        GameObject fire = new GameObject(new Point(10,8), "objects", "fire.png");
+        fire.setContinuousAnimation(true);
+        objects.add(fire);
+
+
+        GameObject fire2 = new GameObject(new Point(11,8), "objects", "fire.png");
+        fire2.setContinuousAnimation(true);
+        objects.add(fire2);
+
+        GameObject explosion = new GameObject(new Point(5,5), "objects", "explosion.png",160,160);
+        explosion.setContinuousAnimation(true);
+        explosion.setAnimationFrames(9);
+        objects.add(explosion);
+
     }
 
     public enum MovementDirection {

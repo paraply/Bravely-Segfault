@@ -14,6 +14,8 @@ public class GameObject {
     private boolean continuousAnimation;
     //Should contain collision
 
+    private int animationFrames = 2;    //Counted from ZERO!
+
     public int getHeight(){
         return imageHeight;
     }
@@ -32,6 +34,14 @@ public class GameObject {
 
     public void setContinuousAnimation(boolean animationStatus){
         continuousAnimation = animationStatus;
+    }
+
+    public void setAnimationFrames(int animationFrames){
+        this.animationFrames = animationFrames;
+    }
+
+    public int getAnimationFrames(){
+        return animationFrames;
     }
 
     private World.MovementDirection object_direction = World.MovementDirection.DOWN;
@@ -56,5 +66,14 @@ public class GameObject {
         this.imageFile = imageFile;
         this.imageWidth = imageWidth;
         this.imageHeight = imageHeight;
+    }
+
+    public GameObject(Point startPos, String imageSection, String imageFile)
+    {
+        position = startPos;
+        this.imageSection = imageSection;
+        this.imageFile = imageFile;
+        this.imageWidth = World.tileSize;
+        this.imageHeight = World.tileSize;
     }
 }

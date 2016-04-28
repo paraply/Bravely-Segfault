@@ -18,14 +18,11 @@ import javafx.scene.image.Image;
 class RenderObject {
     GameObject gameObject;
     private Image image;
-    int x,y; // objects position in the world
-    int image_src_X, image_src_Y; // Coordinates to get a specific picture from the tileset
+    int x,y;                        // objects position in the world
+    int image_src_X, image_src_Y;   // Coordinates to get a specific picture from the tileset
 
 
     // Create a new instance of the RenderObject
-    // A RenderObject must know where to draw = graphicsContext
-    // It must know which imageSection to get the image such as "characters"
-    // It must have a imageFile which is accessed in the imageSection folder in resources,
     RenderObject(GameObject gameObject){
         this.gameObject = gameObject;
         image = new Image( gameObject.getImagePath() );
