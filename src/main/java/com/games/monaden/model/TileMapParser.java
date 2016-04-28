@@ -85,7 +85,7 @@ public class TileMapParser extends DefaultHandler {
     @Override
     public void endElement (String uri, String localName, String qName) throws SAXException{
         switch (qName.toLowerCase()) {
-            case "line":
+            case "tilemap":
                 if (row != 16) {
                     try {
                         throw new Exception("The XML file does not contain 16 lines of tiles!");
