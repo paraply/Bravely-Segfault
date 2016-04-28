@@ -6,22 +6,24 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by Philip on 2016-04-21.
+ * Parses
  */
 public class TileParser extends DefaultHandler {
-    boolean bName = false;
-    boolean bGraphics = false;
-    boolean bSolid = false;
+    private boolean bName = false;
+    private boolean bGraphics = false;
+    private boolean bSolid = false;
 
-    int id;
-    String name;
-    File filepath;
-    boolean solidness = false;
+    private int id;
+    private String name;
+    private File filepath;
+    private boolean solidness = false;
 
-    List<Tile> tileList = new ArrayList<Tile>();
+    private List<Tile> tileList = new ArrayList<>();
 
     @Override
     public void startElement (String uri, String localName, String qName,
@@ -38,7 +40,7 @@ public class TileParser extends DefaultHandler {
     }
 
     @Override
-    public void endElement (String uri, String localName, String qName) throws SAXException{
+    public void endElement (String uri, String localName, String qName) throws SAXException {
         if (qName.equalsIgnoreCase("tile")) {
             createTile();
         }
@@ -75,10 +77,11 @@ public class TileParser extends DefaultHandler {
     }
 
     /**
-     * Should be called after fully parsing all tiles from a file
-     * @return the list of all parsed tiles
+     * Should be called after fully parsing all tiles from a file.
+     * @return a sorted copy of the list of all parsed tiles.
      */
     public List<Tile> getTiles () {
-        return tileList;
+        Collections.sort(tileList);
+        return new ArrayList<>(tileList);
     }
 }
