@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Philip on 2016-04-26.
  * A SAXParser for Tilemaps. After parsing, the parser will create objects to get.
  */
-public class TileMapParser extends DefaultHandler {
+public class LevelParser extends DefaultHandler {
 
     //TODO: Missing handling of frame count, dialogue, and transitions.
 
@@ -34,7 +34,7 @@ public class TileMapParser extends DefaultHandler {
 
     private List<GameObject> characters = new ArrayList<>();
 
-    public TileMapParser (World world) {
+    public LevelParser(World world) {
         super();
         this.world = world;
     }

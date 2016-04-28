@@ -13,10 +13,10 @@ import static org.junit.Assert.*;
 /**
  * Created by Philip on 2016-04-28.
  */
-public class TileMapParserTest {
+public class LevelParserTest {
     SAXParserFactory factory = SAXParserFactory.newInstance();
     SAXParser parser;
-    TileMapParser tileMapParser;
+    LevelParser levelParser;
     World world;
     File mapFile;
 
@@ -28,7 +28,7 @@ public class TileMapParserTest {
             e.printStackTrace();
         }
         world = new World();
-        tileMapParser = new TileMapParser(world);
+        levelParser = new LevelParser(world);
     }
 
     /**
@@ -38,8 +38,8 @@ public class TileMapParserTest {
     public void testSize () {
         mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
         try {
-            parser.parse(mapFile, tileMapParser);
-            int[][] tileMap = tileMapParser.getTileMap();
+            parser.parse(mapFile, levelParser);
+            int[][] tileMap = levelParser.getTileMap();
             int i;
             for (i = 0; i < World.mapSize; i++) {
                 if (tileMap[i].length != 16) {
