@@ -17,9 +17,9 @@ public class Render {
     private World world; // World model provides information about what should be drawn
     private AnimatedObject player;
     private List<RenderObject> objects = new ArrayList<>();
-
-    private boolean has_loaded_images;
-    Image images[] = new Image[100];
+//
+//    private boolean has_loaded_images;
+//    Image images[] = new Image[100];
 
     // graphics context = main-canvas context
     // this is set by WindowController in its initialization
@@ -50,40 +50,40 @@ public class Render {
         return render;
     }
 
-    private void load_images(){
-        if (!has_loaded_images){
-            images[0] = new Image("grass.png");
-            has_loaded_images = true;
-        }
-    }
+//    private void load_images(){
+////        if (!has_loaded_images){
+////            images[0] = new Image("grass.png");
+////            has_loaded_images = true;
+////        }
+//    }
 
     public void redraw(){
-        load_images();
-        draw_ground_tiles();
-        player.draw();
+//        load_images();
+//        draw_ground_tiles();
+
         for (RenderObject ro : objects){
             ro.draw();
         }
-
+        player.draw();
     }
 
-    private void draw_ground_tiles(){
-        for (int y = 0; y < World.mapSize; y++){
-            for (int x = 0; x < World.mapSize; x++){
-                if (world.getTileMap()[y][x] == 0){
-                    draw_tile(0,x,y);
-                }
-            }
-        }
-    }
+//    private void draw_ground_tiles(){
+//        for (int y = 0; y < World.mapSize; y++){
+//            for (int x = 0; x < World.mapSize; x++){
+//                if (world.getTileMap()[y][x] == 0){
+//                    draw_tile(0,x,y);
+//                }
+//            }
+//        }
+//    }
 
     // Used by renderObjects to draw on screen
     void drawImage(Image img, double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh){
         context.drawImage(img, sx,sy,sw,sh,dx,dy,dw,dh);
     }
 
-    private void draw_tile(int index, int tile_x, int tile_y){
-        context.drawImage(images[index], tile_x * World.tileSize , tile_y * World.tileSize);
-    }
+//    private void draw_tile(int index, int tile_x, int tile_y){
+//        context.drawImage(images[index], tile_x * World.tileSize , tile_y * World.tileSize);
+//    }
 
 }

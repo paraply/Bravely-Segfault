@@ -9,4 +9,9 @@
 		<graphics>wall.png</graphics>
 		<solidness>solid</solidness>
 	</tile>
+	<tile id="2">
+		<name>fire</name>
+		<graphics>fire.png</graphics>
+		<solidness>solid</solidness>
+	</tile>
 </class>
