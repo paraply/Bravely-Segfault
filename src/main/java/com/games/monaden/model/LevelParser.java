@@ -32,7 +32,7 @@ public class LevelParser extends DefaultHandler {
     private Point charPos;
     private String imageFile;
 
-    private List<GameObject> characters = new ArrayList<>();
+    private List<GameObject> interactables = new ArrayList<>();
 
     public LevelParser(World world) {
         super();
@@ -54,6 +54,7 @@ public class LevelParser extends DefaultHandler {
 
             case "character":
                 charName = attributes.getValue("name");
+                bCharName = true;
                 break;
 
             case "position":
@@ -95,7 +96,11 @@ public class LevelParser extends DefaultHandler {
                 }
                 break;
             case "character":
-                characters.add(new Character(charPos, world, imageFile));
+                Character character = new Character(charPos, world, imageFile);
+                if (charName != null) {
+                    character.setName(charName);
+                }
+                interactables.add(character);
                 break;
         }
     }
@@ -114,9 +119,6 @@ public class LevelParser extends DefaultHandler {
             }
             row++;
             bLine = false;
-        } else if (bCharName) {
-            charName = new String(ch, start, length);
-            bCharName = false;
         } else if (bCharPos) {
             String [] point = new String(ch, start, length).split(",");
             charPos = new Point(Integer.parseInt(point[0])
@@ -132,8 +134,8 @@ public class LevelParser extends DefaultHandler {
      * Returns a copy of the character list
      * @return a copy of the character list
      */
-    public List<GameObject> getCharacters () {
-        return new ArrayList<>(this.characters);
+    public List<GameObject> getInteractables() {
+        return new ArrayList<>(this.interactables);
     }
 
     /**
@@ -152,7 +154,7 @@ public class LevelParser extends DefaultHandler {
      * Clears the character list
      */
     public void clearCharacters () {
-        characters.clear();
+        interactables.clear();
     }
 
     /**

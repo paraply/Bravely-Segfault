@@ -1,5 +1,6 @@
 package com.games.monaden.model;
 
+import com.games.monaden.model.gameObjects.Character;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -106,6 +107,35 @@ public class LevelParserTest {
                 assertTrue(column[0] == i);
                 i++;
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Checks that the amount of interactable
+     */
+    @Test
+    public void testCharacterListSize () {
+        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
+        try {
+            parser.parse(mapFile, levelParser);
+            assertTrue(levelParser.getInteractables().size() == 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Checks that the character in the character list is who they should be
+     */
+    @Test
+    public void testCharacterContent () {
+        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
+        try {
+            parser.parse(mapFile, levelParser);
+            Character character = (Character)levelParser.getInteractables().get(0);
+            assertTrue(character.getName().equals("Philip"));
         } catch (Exception e) {
             e.printStackTrace();
         }
