@@ -8,6 +8,7 @@ import com.games.monaden.model.Point;
  */
 public class Character extends GameObject {
     private World world;
+    private String name;
 
     public Character(Point startPos, World _world, String imageFile, int imageWidth, int imageHeight) {
         super(startPos, "characters", imageFile, imageWidth, imageHeight);
@@ -23,4 +24,13 @@ public class Character extends GameObject {
         setPosition(world.CheckMovement(getPosition(), direction));
         setDirection(direction);
     }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }
