@@ -147,4 +147,21 @@ public class LevelParser extends DefaultHandler {
         }
         return mapCopy;
     }
+
+    /**
+     * Clears the character list
+     */
+    public void clearCharacters () {
+        characters.clear();
+    }
+
+    /**
+     * Clears the tilemap by setting all cells in the matrix to 0
+     */
+    public void clearTilemap () {
+        int[] empty = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        for (int i = 0; i < World.mapSize; i++) {
+            tileMap[i] = empty.clone();
+        }
+    }
 }
