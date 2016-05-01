@@ -8,12 +8,12 @@ Anton, Mikael, Stefan
 1. Objectives
 * Assign new work to members
 * Upload documents to GitHub
-1. Reports
+2. Reports
 * Mike: Animations and transitions
 * Stefan: Points class
 * Anton: Character, GameObject, World classes
 * Philip: XML-parsing library
-1. Discussion items
+3. Discussion items
 * Refactor to use the point class in World
 * Only one instance of World in tests
 * Collision detection in GameObjects
@@ -22,12 +22,12 @@ Anton, Mikael, Stefan
 * Only one direction
 * AnimationObject in view
 * Test character, gameObject
-1. Outcomes and assignments
+4. Outcomes and assignments
 * Philip: XML-parsing
 * Mike: Refactor everything to Java Standard! (try PMD) and fix animation
 * Anton: Refactor world, collision. Write tests for gameobject and character.
         Update domain model
 * Stefan: Stuff from tuesday meeting
         Update use-case move with transitions between levels
-   1. Wrap up
-   * Next meeting tuesday 10:00 - 11:45
+5. Wrap up
+* Next meeting tuesday 10:00 - 11:45

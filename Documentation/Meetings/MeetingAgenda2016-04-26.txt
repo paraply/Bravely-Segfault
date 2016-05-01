@@ -1,0 +1,25 @@
+Date: 2016-04-26
+
+Facilitator: Mikael
+
+Participants: Philip, Anton, Stefan
+
+1.Objectives
+* Merge active branches into master
+* New work assignments
+2.Reports
+* Mike: Worked on refactoring and animation
+* Stefan: Completed tasks from last meeting (2016-04-22)
+* Anton: Completed tasks from last meeting (2016-04-22)
+* Philip: Finished parsing of tile objects
+3.Discussion items
+* Get project to work on Linux
+    * Works on Stefan’s Linux system
+* What to work on after move user case
+4.Outcomes and assignments
+* Mike: Render objects from parsed XML
+* Philip: Implement parsing of tilemap and help Mike with his assignment
+* Anton: Begin on Start Interaction user case
+* Stefan: Create skeleton code for dialogue trees
+5.Wrap up
+* Meeting on Thursday 13.15-15.00
