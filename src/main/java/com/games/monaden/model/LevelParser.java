@@ -20,8 +20,6 @@ public class LevelParser extends DefaultHandler {
 
     private World world;
 
-    private boolean bGraphics = false;
-
     private boolean bLine = false;
     private boolean bCharName = false;
     private boolean bCharPos = false;
@@ -100,8 +98,10 @@ public class LevelParser extends DefaultHandler {
                 break;
             case "character":
                 Character character = new Character(charPos, world, imageFile);
-                if (charName != null) {
+                if (bCharName && charName != null) {
                     character.setName(charName);
+                    bCharName = false;
+                    charName = null;
                 }
                 interactables.add(character);
                 break;
@@ -134,8 +134,8 @@ public class LevelParser extends DefaultHandler {
     }
 
     /**
-     * Returns a copy of the character list
-     * @return a copy of the character list
+     * Returns a copy of the interactables list
+     * @return a copy of the interactables list
      */
     public List<GameObject> getInteractables() {
         return new ArrayList<>(this.interactables);
@@ -154,7 +154,7 @@ public class LevelParser extends DefaultHandler {
     }
 
     /**
-     * Clears the character list
+     * Clears the interactables list
      */
     public void clearInteractables() {
         interactables.clear();
