@@ -1,4 +1,6 @@
-import Control.Game_Loop;
+package com.games.monaden;
+
+import com.games.monaden.control.GameLoop;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,7 +21,7 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
         primaryStage.setOnCloseRequest(event -> System.out.println("USER CLOSED APPLICATION WINDOW"));
-        Game_Loop game_loop = new Game_Loop();
+        GameLoop game_loop = new GameLoop();
         game_loop.initialize_game();
         game_loop.start(); // starts the animation timer that calls handle() continuously
     }
