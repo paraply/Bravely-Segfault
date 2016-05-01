@@ -1,6 +1,10 @@
 package com.games.monaden.model;
 
 import com.games.monaden.model.gameObjects.GameObject;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +18,10 @@ public class World{
 
     public static final int tileSize = 32;
     public static final int mapSize = 16;
+
+    private SAXParserFactory factory;
+    private SAXParser parser;
+    private LevelParser levelParser;
 
     private List<GameObject> objects = new ArrayList<>();
     private List<GameObject> interactables = new ArrayList<>();
@@ -33,6 +41,15 @@ public class World{
             System.out.println("A world object has already been instantiated!");
         }
         instantiated = true;
+
+        // Initiate levelParser with this world as argument
+        try {
+            factory = SAXParserFactory.newInstance();
+            parser = factory.newSAXParser();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        levelParser = new LevelParser(this);
 
         tileMap = new int[][]{
                 {1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1},
@@ -77,6 +94,24 @@ public class World{
         explosion.setAnimationFrames(9);
         objects.add(explosion);
 
+    }
+
+    /**
+     * Sets the current level to the given XML-file
+     * @param mapFile XML-file that describes the level
+     */
+    public void setLevel (File mapFile) {
+        try {
+            levelParser.clearTilemap();
+            levelParser.clearInteractables();
+            parser.parse(mapFile, levelParser);
+
+            tileMap = levelParser.getTileMap();
+            interactables = levelParser.getInteractables();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public enum MovementDirection {
