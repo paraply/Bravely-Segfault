@@ -7,7 +7,7 @@ Participants: Anton, Philip, Mikael, Stefan
 1. Objectives
 * Look at code skeleton
 * Delegate work
-1. Reports 
+2. Reports 
 * Anton:
    * Has integrated JUnit into the project
    * Has created a World class and tests for it
@@ -17,7 +17,7 @@ Participants: Anton, Philip, Mikael, Stefan
    * Nothing
 * Philip:
    * Nothing
-1. Discussion items
+3. Discussion items
 * Maven → JUnit
    * Ask supervisor on Thursday
 * Check code skeleton
@@ -28,7 +28,7 @@ Participants: Anton, Philip, Mikael, Stefan
    * Immutable Point class needed
       * Also test for immutability
 * Work delegation
-1. Outcomes and assignments
+4. Outcomes and assignments
 * Anton: Entity-Component system
 * Mike: World graphics
 * Stefan: World + Point setup
@@ -36,4 +36,4 @@ Participants: Anton, Philip, Mikael, Stefan
    * Only-one-world-exception (avoid it in tests)
    * Try-catch in move-edge-tests for IndexOutOfBounds
 * Philip: Level-parsing + TileTypes.xml
-1. Wrap up
+5. Wrap up
