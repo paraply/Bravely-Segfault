@@ -113,7 +113,7 @@ public class LevelParserTest {
     }
 
     /**
-     * Checks that the amount of interactable
+     * Checks that the amount of interactable objects in the list is correct (1)
      */
     @Test
     public void testCharacterListSize () {
@@ -136,6 +136,8 @@ public class LevelParserTest {
             parser.parse(mapFile, levelParser);
             Character character = (Character)levelParser.getInteractables().get(0);
             assertTrue(character.getName().equals("Philip"));
+            assertTrue(character.getPosition().equals(new Point(5,2)));
+            assertTrue(character.getImagePath().equals("characters/philip-tan.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }

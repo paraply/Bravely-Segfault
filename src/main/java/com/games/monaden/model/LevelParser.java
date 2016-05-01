@@ -8,6 +8,7 @@ import org.xml.sax.SAXException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 /**
  * Created by Philip on 2016-04-26.
@@ -18,6 +19,8 @@ public class LevelParser extends DefaultHandler {
     //TODO: Missing handling of frame count, dialogue, and transitions.
 
     private World world;
+
+    private boolean bGraphics = false;
 
     private boolean bLine = false;
     private boolean bCharName = false;
@@ -61,11 +64,11 @@ public class LevelParser extends DefaultHandler {
                 bCharPos = true;
                 break;
 
-            case "graphics":
-                //bGraphics = true;
-                break;
+//            case "graphics":
+//                bGraphics = true;
+//                break;
 
-            case "fileName":
+            case "filename":
                 bFile = true;
                 break;
 
