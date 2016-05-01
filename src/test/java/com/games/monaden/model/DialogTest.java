@@ -1,0 +1,89 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.games.monaden.model;
+
+import java.util.ArrayList;
+import java.util.List;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+/**
+ *
+ * @author Stefan
+ */
+public class DialogTest {
+    
+    static Dialog frontDoor;
+    static Dialog hall;
+    static Dialog kitchen;
+    static Dialog bedRoom;
+    
+    @BeforeClass
+    public static void initTest(){
+        //create dialogs: id, dialog, choses
+        //create dialog text
+        String frontDoorDialog = "This is the front door";
+        String hallDialog = "This is the hall";
+        String kitchenDialog = "This is the kitchen";
+        String bedRoomDialog = "This is the bedroom";
+
+        //create Dialog
+        frontDoor = new Dialog(frontDoorDialog);
+        hall = new Dialog(hallDialog);
+        kitchen = new Dialog(kitchenDialog);
+        bedRoom = new Dialog(bedRoomDialog);
+
+        
+        //create choice text
+
+        String goToHall = "11 Go to the hall";
+        String goToKitchen = "111 Go to the kitchen";
+        String goToBedRoom = "113 Go to the bedroom";
+
+        
+        //Reading in choices
+        frontDoor.readInChoices(goToHall, hall); // hall in index 0
+
+        hall.readInChoices(goToKitchen, kitchen);// kitchen in index 0
+        hall.readInChoices(goToBedRoom, bedRoom);// bedRoom in index 1
+
+        
+    }
+        
+    @Test
+    public void testMovingToHall(){
+        Dialog firstChoice = frontDoor.makeAChoice(0);
+        assertTrue(firstChoice.getDialog().equals(hall.getDialog()));
+    }
+    
+    @Test
+    public void testMovingToKitchen(){
+        Dialog firstChoice = frontDoor.makeAChoice(0);
+        Dialog secondChoice = firstChoice.makeAChoice(0);
+        assertTrue(secondChoice.getDialog().equals(kitchen.getDialog()));
+    }
+
+    
+    @Test
+    public void testMovingToBedRoom(){
+        Dialog firstChoice = frontDoor.makeAChoice(0);
+        Dialog secondChoice = firstChoice.makeAChoice(1);
+        assertTrue(secondChoice.getDialog().equals(bedRoom.getDialog()));
+    }
+    
+    
+    @Test
+    public void testChangeValues(){
+        Dialog firstChoice = frontDoor.makeAChoice(0);
+        String text = firstChoice.getDialog();
+        text = text + " [This have changed!]";
+        assertTrue(firstChoice.getDialog().equals("This is the hall"));
+    }
+
+}
