@@ -25,7 +25,7 @@ public class GameLoop extends AnimationTimer {
 
     public void initialize_game(){
         world = new World();
-        player = new Character(new Point(1,1), world, "characters", "cat.png", 32,32);
+        player = new Character(new Point(1,1), world, "cat.png", 32,32);
         Render.getInstance().setWorld(world);
         Render.getInstance().setPlayerCharacter(player);
     }
@@ -67,6 +67,11 @@ public class GameLoop extends AnimationTimer {
                     case ESCAPE:
                         System.out.println("ESCAPE");
                         System.exit(0);
+                        break;
+                    case SPACE:
+                        //Temporarily a string since no dialogue system written yet
+                        String temp = world.CheckInteraction(player.getPosition(), player.getDirection());
+                        System.out.println(temp);
                         break;
                 }
             }

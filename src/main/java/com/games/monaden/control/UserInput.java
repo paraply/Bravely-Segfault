@@ -38,6 +38,9 @@ public class UserInput implements EventHandler<Event> {
             case ENTER:
                 function_key = KeyCode.ENTER;
                 break;
+            case SPACE:
+                function_key = KeyCode.SPACE;
+                break;
         }
     }
 

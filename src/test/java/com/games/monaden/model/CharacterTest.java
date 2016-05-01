@@ -25,7 +25,7 @@ public class CharacterTest {
 
     @Test
     public void testPositionUpdated() {
-        Character character = new Character(new Point(1,1), world, "characters","cat",32,32);
+        Character character = new Character(new Point(1,1), world,"cat");
         character.Move(World.MovementDirection.DOWN);
         assertTrue(character.getPosition().equals(new Point(1,2)));
     }
@@ -33,7 +33,7 @@ public class CharacterTest {
     @Test
     public void testPositionNotUpdated() {
         Point position = new Point(1,1);
-        Character character = new Character(position, world, "characters","cat",32,32);
+        Character character = new Character(position, world,"cat");
         character.Move(World.MovementDirection.UP);
         assertTrue(character.getPosition().equals(position));
     }
@@ -41,7 +41,7 @@ public class CharacterTest {
 
     @Test
     public void testDirectionUpdated() {
-        Character character = new Character(new Point(1,1), world,"characters","cat",32,32);
+        Character character = new Character(new Point(1,1), world,"cat");
         character.Move(World.MovementDirection.UP);
         assertTrue(character.getDirection().equals(World.MovementDirection.UP));
     }

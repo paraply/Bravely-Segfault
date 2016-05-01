@@ -5,8 +5,10 @@ import java.io.File;
 
 /**
  * Created by Philip on 2016-04-21.
+ * Tiles consist of an ID, name, filepath to its graphical image, and its solidness.
+ * Tiles are comparable by their ID.
  */
-public class Tile {
+public class Tile implements Comparable<Tile>{
 
     private int id;
     private String name;
@@ -61,5 +63,17 @@ public class Tile {
      */
     public File getFilepath() {
         return filepath;
+    }
+
+    @Override
+    public int compareTo(Tile t) {
+        int otherId = t.getId();
+        if (id == otherId) {
+            return 0;
+        } else if (id > otherId) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }

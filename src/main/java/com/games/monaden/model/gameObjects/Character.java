@@ -9,8 +9,13 @@ import com.games.monaden.model.Point;
 public class Character extends GameObject {
     private World world;
 
-    public Character(Point startPos, World _world,  String imageSection, String imageFile, int imageWidth, int imageHeight) {
-        super(startPos, imageSection, imageFile, imageWidth, imageHeight);
+    public Character(Point startPos, World _world, String imageFile, int imageWidth, int imageHeight) {
+        super(startPos, "characters", imageFile, imageWidth, imageHeight);
+        world = _world;
+    }
+
+    public Character(Point startPos, World _world, String imageFile) {
+        super(startPos, "characters", imageFile);
         world = _world;
     }
 

@@ -6,22 +6,24 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by Philip on 2016-04-21.
+ * Parses
  */
 public class TileParser extends DefaultHandler {
-    boolean bName = false;
-    boolean bGraphics = false;
-    boolean bSolid = false;
+    private boolean bName = false;
+    private boolean bGraphics = false;
+    private boolean bSolid = false;
 
-    int id;
-    String name;
-    File filepath;
-    boolean solidness = false;
+    private int id;
+    private String name;
+    private File filepath;
+    private boolean solidness = false;
 
-    List<Tile> tileList = new ArrayList<Tile>();
+    private List<Tile> tileList = new ArrayList<>();
 
     @Override
     public void startElement (String uri, String localName, String qName,
@@ -38,7 +40,7 @@ public class TileParser extends DefaultHandler {
     }
 
     @Override
-    public void endElement (String uri, String localName, String qName) throws SAXException{
+    public void endElement (String uri, String localName, String qName) throws SAXException {
         if (qName.equalsIgnoreCase("tile")) {
             createTile();
         }
@@ -75,10 +77,49 @@ public class TileParser extends DefaultHandler {
     }
 
     /**
-     * Should be called after fully parsing all tiles from a file
-     * @return the list of all parsed tiles
+     * Should be called after fully parsing all tiles from a file.
+     * @return a sorted copy of the list of all parsed tiles.
      */
     public List<Tile> getTiles () {
-        return tileList;
+        Collections.sort(tileList);
+        return new ArrayList<>(tileList);
+    }
+
+    public void clearTiles () {
+        tileList.clear();
+    }
+
+    /**
+     * Checks if the parsed content contains duplicate IDs.
+     * Prints a message with the found duplicates if true.
+     * @return true if two or more tiles share the IDs
+     */
+    public boolean checkDuplicateID () {
+        boolean duplicate = false;
+        StringBuilder errorMessage = new StringBuilder();
+        errorMessage.append("Duplicates found:\n");
+        Collections.sort(tileList);
+        for (int i = 0; i < tileList.size() - 1; i++){
+            if (tileList.get(i).getId() == tileList.get(i+1).getId()) {
+                int id = tileList.get(i).getId();
+                duplicate = true;
+                errorMessage.append("ID: ");
+                errorMessage.append(id);
+                errorMessage.append("\tNames: ");
+                errorMessage.append(tileList.get(i).getName());
+                for (int j = i+1; j < tileList.size() && tileList.get(j).getId() == id; j++) {
+                    errorMessage.append(", ");
+                    errorMessage.append(tileList.get(j).getName());
+                    i = j;
+                }
+                errorMessage.append('\n');
+            }
+        }
+
+        if (duplicate) {
+            System.out.println(errorMessage.toString());
+        }
+
+        return duplicate;
     }
 }

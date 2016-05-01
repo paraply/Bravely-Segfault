@@ -70,7 +70,7 @@ public class Render {
     private void draw_ground_tiles(){
         for (int y = 0; y < World.mapSize; y++){
             for (int x = 0; x < World.mapSize; x++){
-                if (world.getTileMap()[x][y] == 0){
+                if (world.getTileMap()[y][x] == 0){
                     draw_tile(0,x,y);
                 }
             }

@@ -3,6 +3,7 @@ package com.games.monaden.model;
 import com.games.monaden.model.Tile;
 import com.games.monaden.model.TileParser;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.xml.parsers.SAXParser;
@@ -16,11 +17,16 @@ import static org.junit.Assert.*;
  * Created by Philip on 2016-04-25.
  */
 public class TileParserTest {
-    File tileFile;
-    SAXParserFactory factory = SAXParserFactory.newInstance();
-    SAXParser parser;
-    List<Tile> tileList;
-    TileParser tileParser;
+    private File tileFile;
+    private SAXParserFactory factory = SAXParserFactory.newInstance();
+    private SAXParser parser;
+    private List<Tile> tileList;
+    private static TileParser tileParser;
+
+    @BeforeClass
+    public static void initClass () {
+        tileParser = new TileParser();
+    }
 
     @Before
     public void init () {
@@ -29,7 +35,7 @@ public class TileParserTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        tileParser = new TileParser();
+        tileParser.clearTiles();
     }
 
     /**
@@ -38,10 +44,24 @@ public class TileParserTest {
     @Test
     public void testSize () {
         try {
-            tileFile = new File("src/main/resources/Test.xml");
+            tileFile = new File("src/main/resources/parseTests/TileTest1.xml");
             parser.parse(tileFile, tileParser);
             tileList = tileParser.getTiles();
             assertTrue(tileList.size() == 2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Test file has two duplicate IDs. The test tests the checkDuplicateID method.
+     */
+    @Test
+    public void testDuplicates () {
+        try {
+            tileFile = new File ("src/main/resources/parseTests/TileTestDuplicate.xml");
+            parser.parse(tileFile, tileParser);
+            assertTrue(tileParser.checkDuplicateID());
         } catch (Exception e) {
             e.printStackTrace();
         }

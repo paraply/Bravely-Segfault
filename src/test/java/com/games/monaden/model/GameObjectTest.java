@@ -12,7 +12,7 @@ public class GameObjectTest {
     private GameObject gameObject;
     @Before
     public void init(){
-        gameObject = new GameObject(new Point(0,0),"characters","cat",32,32);
+        gameObject = new GameObject(new Point(0,0),"characters","cat");
     }
 
     @Test
