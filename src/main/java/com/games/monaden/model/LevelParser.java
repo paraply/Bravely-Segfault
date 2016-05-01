@@ -156,7 +156,7 @@ public class LevelParser extends DefaultHandler {
     /**
      * Clears the character list
      */
-    public void clearCharacters () {
+    public void clearInteractables() {
         interactables.clear();
     }
 

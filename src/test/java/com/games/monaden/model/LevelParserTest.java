@@ -9,7 +9,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import java.io.File;
-import java.rmi.server.ExportException;
 import java.util.Arrays;
 
 import static org.junit.Assert.*;
@@ -38,7 +37,7 @@ public class LevelParserTest {
         }
         levelParser = new LevelParser(world);
         levelParser.clearTilemap();
-        levelParser.clearCharacters();
+        levelParser.clearInteractables();
     }
 
     /**
