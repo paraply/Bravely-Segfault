@@ -12,6 +12,7 @@
 	<tile id="2">
 		<name>fire</name>
 		<graphics>fire.png</graphics>
+		<animation>animated</animation>
 		<solidness>solid</solidness>
 	</tile>
 </class>

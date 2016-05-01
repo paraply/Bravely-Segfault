@@ -17,11 +17,13 @@ public class TileParser extends DefaultHandler {
     private boolean bName = false;
     private boolean bGraphics = false;
     private boolean bSolid = false;
+    private boolean bAnimated = false;
 
     private int id;
     private String name;
     private File filepath;
     private boolean solidness = false;
+    private boolean animated = false;
 
     private List<Tile> tileList = new ArrayList<>();
 
@@ -36,7 +38,9 @@ public class TileParser extends DefaultHandler {
             bGraphics = true;
         } else if (qName.equalsIgnoreCase("solidness")) {
             bSolid = true;
-        }
+        }   else if (qName.equalsIgnoreCase("animation")) {
+            bAnimated = true;
+    }
     }
 
     @Override
@@ -62,6 +66,12 @@ public class TileParser extends DefaultHandler {
             }
 //            System.out.println("Solidness found: " + solidness);
             bSolid = false;
+        } else if (bAnimated){
+            if ("animated".equalsIgnoreCase(new String(ch, start, length))) {
+                this.animated = true;
+            }
+//            System.out.println("Animated found: " + animated + " " + name);
+            bAnimated = false;
         }
     }
 
@@ -70,7 +80,7 @@ public class TileParser extends DefaultHandler {
      */
     private void createTile () {
         try {
-            tileList.add(new Tile(id, name, solidness, filepath));
+            tileList.add(new Tile(id, name, solidness, filepath, animated));
         } catch (NullPointerException e) {
             System.err.println("Something was missing when creating a tile");
         }

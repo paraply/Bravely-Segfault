@@ -88,7 +88,10 @@ public class World{
         for(int y = 0; y < mapSize; y++) {
             for(int x = 0; x < mapSize; x++) {
                 Tile currentTile =  tileList.get(tileMap[y][x]);
-                objects.add(new GameObject(new Point(x,y) ,"objects",  currentTile.getFilepath().toString(), currentTile.getSolidness() ));
+                GameObject newGameObject = new GameObject(new Point(x,y) ,"objects",  currentTile.getFilepath().toString(), currentTile.getSolidness() );
+                newGameObject.setContinuousAnimation(currentTile.getAnimated());
+                System.out.println(currentTile.getAnimated());
+                objects.add(newGameObject);
 //                System.out.println( tileList.get(tileMap[y][x]).getFilepath().toString() );
 //                System.out.print(tileMap[y][x] + " " +   tileList.get(tileMap[y][x]).getName());
             }
