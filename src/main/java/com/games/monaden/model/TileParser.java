@@ -84,4 +84,42 @@ public class TileParser extends DefaultHandler {
         Collections.sort(tileList);
         return new ArrayList<>(tileList);
     }
+
+    public void clearTiles () {
+        tileList.clear();
+    }
+
+    /**
+     * Checks if the parsed content contains duplicate IDs.
+     * Prints a message with the found duplicates if true.
+     * @return true if two or more tiles share the IDs
+     */
+    public boolean checkDuplicateID () {
+        boolean duplicate = false;
+        StringBuilder errorMessage = new StringBuilder();
+        errorMessage.append("Duplicates found:\n");
+        Collections.sort(tileList);
+        for (int i = 0; i < tileList.size() - 1; i++){
+            if (tileList.get(i).getId() == tileList.get(i+1).getId()) {
+                int id = tileList.get(i).getId();
+                duplicate = true;
+                errorMessage.append("ID: ");
+                errorMessage.append(id);
+                errorMessage.append("\tNames: ");
+                errorMessage.append(tileList.get(i).getName());
+                for (int j = i+1; j < tileList.size() && tileList.get(j).getId() == id; j++) {
+                    errorMessage.append(", ");
+                    errorMessage.append(tileList.get(j).getName());
+                    i = j;
+                }
+                errorMessage.append('\n');
+            }
+        }
+
+        if (duplicate) {
+            System.out.println(errorMessage.toString());
+        }
+
+        return duplicate;
+    }
 }
