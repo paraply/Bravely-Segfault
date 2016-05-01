@@ -7,6 +7,8 @@ package com.games.monaden.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -18,6 +20,9 @@ import org.junit.Test;
 public class DialogTest {
     
     static Dialog frontDoor;
+    static Dialog hall;
+    static Dialog kitchen;
+    static Dialog bedRoom;
     
     @BeforeClass
     public static void initTest(){
@@ -27,52 +32,58 @@ public class DialogTest {
         String hallDialog = "This is the hall";
         String kitchenDialog = "This is the kitchen";
         String bedRoomDialog = "This is the bedroom";
-        String bathRoomDialog = "This is the bathroom";
-        String livingRoomDialog = "This is the livingroom";
 
         //create Dialog
         frontDoor = new Dialog(frontDoorDialog);
-        Dialog hall = new Dialog(hallDialog);
-        Dialog kitchen = new Dialog(kitchenDialog);
-        Dialog bathRoom = new Dialog(bathRoomDialog);
-        Dialog bedRoom = new Dialog(bedRoomDialog);
-        Dialog livingRoom = new Dialog(livingRoomDialog);
+        hall = new Dialog(hallDialog);
+        kitchen = new Dialog(kitchenDialog);
+        bedRoom = new Dialog(bedRoomDialog);
+
         
         //create choice text
-        String goToFrontDoor = "1 Go to the front door";
+
         String goToHall = "11 Go to the hall";
         String goToKitchen = "111 Go to the kitchen";
-        String goToBathRoom = "112 Go to the bathroom";
         String goToBedRoom = "113 Go to the bedroom";
-        String goToLivingRoom = "114 Go to the living room";
+
         
         //Reading in choices
-        frontDoor.readInChoices(goToHall, hall);
-        hall.readInChoices(goToKitchen, kitchen);
-        hall.readInChoices(goToBathRoom, bathRoom);    
-        hall.readInChoices(goToBedRoom, bedRoom);
-        hall.readInChoices(goToLivingRoom, livingRoom);
+        frontDoor.readInChoices(goToHall, hall); // hall in index 0
+
+        hall.readInChoices(goToKitchen, kitchen);// kitchen in index 0
+        hall.readInChoices(goToBedRoom, bedRoom);// bedRoom in index 1
+
         
     }
         
     @Test
     public void testMovingToHall(){
-        
-    }
-    
-    @Test
-    public void testMovingToBedRoom(){
-        
+        Dialog firstChoice = frontDoor.makeAChoice(0);
+        assertTrue(firstChoice.getDialog().equals(hall.getDialog()));
     }
     
     @Test
     public void testMovingToKitchen(){
-        
+        Dialog firstChoice = frontDoor.makeAChoice(0);
+        Dialog secondChoice = firstChoice.makeAChoice(0);
+        assertTrue(secondChoice.getDialog().equals(kitchen.getDialog()));
     }
+
+    
+    @Test
+    public void testMovingToBedRoom(){
+        Dialog firstChoice = frontDoor.makeAChoice(0);
+        Dialog secondChoice = firstChoice.makeAChoice(1);
+        assertTrue(secondChoice.getDialog().equals(bedRoom.getDialog()));
+    }
+    
     
     @Test
     public void testChangeValues(){
-        
+        Dialog firstChoice = frontDoor.makeAChoice(0);
+        String text = firstChoice.getDialog();
+        text = text + " [This have changed!]";
+        assertTrue(firstChoice.getDialog().equals("This is the hall"));
     }
 
 }
