@@ -30,7 +30,7 @@ public class GameLoop extends AnimationTimer {
     private Character player;
 
     public void initialize_game(){
-        world = new World();
+        world = new World("src/main/resources/parseTests/start.xml" );
         player = new Character(new Point(5,14), world, "cat.png", 32,32);
         Render.getInstance().setWorld(world);
         Render.getInstance().setPlayerCharacter(player);

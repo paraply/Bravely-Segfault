@@ -15,7 +15,7 @@ public class CharacterTest {
 
     @BeforeClass
     public static void initClass(){
-        startWorld = new World();
+        startWorld = new World("src/main/resources/parseTests/start.xml" );
     }
 
     @Before

@@ -25,7 +25,7 @@ public class LevelParserTest {
 
     @BeforeClass
     public static void initClass () {
-        world = new World();
+        world = new World("src/main/resources/parseTests/start.xml");
     }
 
     @Before
