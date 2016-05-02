@@ -8,13 +8,14 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Observable;
 
 /**
  * Created by Anton on 2016-04-17.
  * There should only be a single instance of this class, but it should not have a global access point.
  * For now only sending a message to the console, should be handled in a better way
  */
-public class World{
+public class World implements Observable{
     private static boolean instantiated = false;
 
     public static final int tileSize = 32;
@@ -95,7 +96,6 @@ public class World{
         explosion.setContinuousAnimation(true);
         explosion.setAnimationFrames(9);
         objects.add(explosion);
-
     }
 
     /**
@@ -110,7 +110,7 @@ public class World{
 
             tileMap = levelParser.getTileMap();
             interactables = levelParser.getInteractables();
-
+            notifyObservers();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -119,6 +119,7 @@ public class World{
     public enum MovementDirection {
         UP, DOWN, LEFT, RIGHT
     }
+
     /** Checks if a movement in one Direction in the tilemap is possible or not
      *  Returns the new position after movement, and also handles potential new screen
      */
