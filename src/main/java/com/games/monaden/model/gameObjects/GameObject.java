@@ -10,6 +10,7 @@ public class GameObject {
     private Point position;
     private String imageFile;
     private String imageSection;
+    private boolean isSolid;
     private int imageWidth, imageHeight;
     private boolean continuousAnimation;
     //Should contain collision
@@ -44,6 +45,10 @@ public class GameObject {
         return animationFrames;
     }
 
+    public boolean getSolidness(){
+        return isSolid;
+    }
+
     private World.MovementDirection object_direction = World.MovementDirection.DOWN;
 
     public World.MovementDirection getDirection(){
@@ -76,4 +81,15 @@ public class GameObject {
         this.imageWidth = World.tileSize;
         this.imageHeight = World.tileSize;
     }
+
+    public GameObject(Point startPos, String imageSection, String imageFile, boolean isSolid)
+    {
+        position = startPos;
+        this.imageSection = imageSection;
+        this.imageFile = imageFile;
+        this.imageWidth = World.tileSize;
+        this.imageHeight = World.tileSize;
+        this.isSolid = isSolid;
+    }
+
 }
