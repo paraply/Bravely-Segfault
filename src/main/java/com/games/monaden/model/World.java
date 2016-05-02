@@ -110,7 +110,7 @@ public class World extends Observable{
 
             tileMap = levelParser.getTileMap();
             interactables = levelParser.getInteractables();
-            notifyObservers();
+            notifyObservers("transition");
         } catch (Exception e) {
             e.printStackTrace();
         }

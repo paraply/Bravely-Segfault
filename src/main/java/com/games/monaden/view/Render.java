@@ -32,12 +32,13 @@ public class Render implements Observer{
     public void setWorld(World world){
         this.world = world;
         for (GameObject go : world.getObjects()){
-                if (go.hasContinuousAnimation()){
-                    objects.add(new AnimatedObject(go));
-                }else{
-                    objects.add(new RenderObject(go));
-                }
+            if (go.hasContinuousAnimation()){
+                objects.add(new AnimatedObject(go));
+            }else{
+                objects.add(new RenderObject(go));
+            }
         }
+        world.addObserver(this);
     }
 
     public void setPlayerCharacter(GameObject player){
