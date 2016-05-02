@@ -15,7 +15,7 @@ import java.util.Observable;
  * There should only be a single instance of this class, but it should not have a global access point.
  * For now only sending a message to the console, should be handled in a better way
  */
-public class World implements Observable{
+public class World extends Observable{
     private static boolean instantiated = false;
 
     public static final int tileSize = 32;
