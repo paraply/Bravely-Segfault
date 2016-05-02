@@ -1,5 +1,6 @@
 package com.games.monaden.model;
 
+import com.games.monaden.model.gameObjects.Character;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -8,7 +9,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import java.io.File;
-import java.rmi.server.ExportException;
 import java.util.Arrays;
 
 import static org.junit.Assert.*;
@@ -37,7 +37,7 @@ public class LevelParserTest {
         }
         levelParser = new LevelParser(world);
         levelParser.clearTilemap();
-        levelParser.clearCharacters();
+        levelParser.clearInteractables();
     }
 
     /**
@@ -106,6 +106,37 @@ public class LevelParserTest {
                 assertTrue(column[0] == i);
                 i++;
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Checks that the amount of interactable objects in the list is correct (1)
+     */
+    @Test
+    public void testCharacterListSize () {
+        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
+        try {
+            parser.parse(mapFile, levelParser);
+            assertTrue(levelParser.getInteractables().size() == 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Checks that the character in the character list is who they should be
+     */
+    @Test
+    public void testCharacterContent () {
+        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
+        try {
+            parser.parse(mapFile, levelParser);
+            Character character = (Character)levelParser.getInteractables().get(0);
+            assertTrue(character.getName().equals("Philip"));
+            assertTrue(character.getPosition().equals(new Point(5,2)));
+            assertTrue(character.getImagePath().equals("characters/philip-tan.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }

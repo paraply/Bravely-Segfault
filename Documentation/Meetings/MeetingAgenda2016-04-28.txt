@@ -1,0 +1,29 @@
+Date: 2016-04-28
+
+Facilitator: Anton Josefsson
+
+Participants: Philip Tham, Mikael Ragnhult, Stefan Fritzon
+
+1.Objectives
+* More work assignments
+2.Reports
+* Mike: Explosions
+* Stefan: Dialogue Tree has been implemented. Making tests now.
+* Anton: Started implementing StartInteraction.
+* Philip: Finished parser for levels. Writing tests.
+3.Discussion items
+* CheckMovement no longer throws IndexOutOfBoundsExceptions, 
+    so this no longer needs to be tested
+      * Tests will be removed
+* Lombok
+      * We will try to integrate Lombok into IntelliJ
+* Large objects should be multiple tiles, for simplicity (e.g. solidity)
+      * Tile size should not be needed
+4.Outcomes and assignments
+* Next meeting: fix Maven stuff and models
+* Stefan: finish dialogue system and create levels
+* Anton: Level transitions, observer pattern skeleton, connect dialogues to interactions
+* Mike: Connect view to world and parsers for tile types
+* Philip: Connect parser to world
+5.Wrap up
+* Meeting on Tuesday 10.00 - 11.45

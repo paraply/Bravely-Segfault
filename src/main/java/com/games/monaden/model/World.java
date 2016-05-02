@@ -1,12 +1,10 @@
 package com.games.monaden.model;
 
 import com.games.monaden.model.gameObjects.GameObject;
-import org.xml.sax.SAXException;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +47,7 @@ public class World{
 //          Parser for levels. We need to provide this world object since a world object is required to create characters
             levelParser = new LevelParser(this);
             levelParser.clearTilemap();
-            levelParser.clearCharacters();
+//            levelParser.clearCharacters();
             mapFile = new File(levelfile);
             parser.parse(mapFile, levelParser);
 
@@ -60,13 +58,14 @@ public class World{
 
 //            Loop through the tilemap and create tiles for each
             for(int y = 0; y < mapSize; y++) {
-                for(int x = 0; x < mapSize; x++) {
-                    Tile currentTile =  tileList.get(levelParser.getTileMap()[y][x]);
-                    GameObject newGameObject = new GameObject(new Point(x,y) ,"objects",  currentTile.getFilepath().toString(), currentTile.getSolidness() );
+                for (int x = 0; x < mapSize; x++) {
+                    Tile currentTile = tileList.get(levelParser.getTileMap()[y][x]);
+                    GameObject newGameObject = new GameObject(new Point(x, y), "objects", currentTile.getFilepath().toString(), currentTile.getSolidness());
                     newGameObject.setContinuousAnimation(currentTile.getAnimated());
                     objects.add(newGameObject);
                 }
             }
+
 
         } catch (Exception e) {
             System.err.println("Error in world constructor: " + e.getMessage());

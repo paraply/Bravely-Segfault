@@ -8,6 +8,7 @@ import org.xml.sax.SAXException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
 /**
  * Created by Philip on 2016-04-26.
@@ -32,7 +33,7 @@ public class LevelParser extends DefaultHandler {
     private Point charPos;
     private String imageFile;
 
-    private List<GameObject> characters = new ArrayList<>();
+    private List<GameObject> interactables = new ArrayList<>();
 
     public LevelParser(World world) {
         super();
@@ -54,17 +55,18 @@ public class LevelParser extends DefaultHandler {
 
             case "character":
                 charName = attributes.getValue("name");
+                bCharName = true;
                 break;
 
             case "position":
                 bCharPos = true;
                 break;
 
-            case "graphics":
-                //bGraphics = true;
-                break;
+//            case "graphics":
+//                bGraphics = true;
+//                break;
 
-            case "fileName":
+            case "filename":
                 bFile = true;
                 break;
 
@@ -95,7 +97,13 @@ public class LevelParser extends DefaultHandler {
                 }
                 break;
             case "character":
-                characters.add(new Character(charPos, world, imageFile));
+                Character character = new Character(charPos, world, imageFile);
+                if (bCharName && charName != null) {
+                    character.setName(charName);
+                    bCharName = false;
+                    charName = null;
+                }
+                interactables.add(character);
                 break;
         }
     }
@@ -114,9 +122,6 @@ public class LevelParser extends DefaultHandler {
             }
             row++;
             bLine = false;
-        } else if (bCharName) {
-            charName = new String(ch, start, length);
-            bCharName = false;
         } else if (bCharPos) {
             String [] point = new String(ch, start, length).split(",");
             charPos = new Point(Integer.parseInt(point[0])
@@ -129,11 +134,11 @@ public class LevelParser extends DefaultHandler {
     }
 
     /**
-     * Returns a copy of the character list
-     * @return a copy of the character list
+     * Returns a copy of the interactables list
+     * @return a copy of the interactables list
      */
-    public List<GameObject> getCharacters () {
-        return new ArrayList<>(this.characters);
+    public List<GameObject> getInteractables() {
+        return new ArrayList<>(this.interactables);
     }
 
     /**
@@ -149,10 +154,10 @@ public class LevelParser extends DefaultHandler {
     }
 
     /**
-     * Clears the character list
+     * Clears the interactables list
      */
-    public void clearCharacters () {
-        characters.clear();
+    public void clearInteractables() {
+        interactables.clear();
     }
 
     /**

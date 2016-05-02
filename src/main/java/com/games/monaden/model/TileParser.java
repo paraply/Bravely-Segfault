@@ -102,7 +102,7 @@ public class TileParser extends DefaultHandler {
     /**
      * Checks if the parsed content contains duplicate IDs.
      * Prints a message with the found duplicates if true.
-     * @return true if two or more tiles share the IDs
+     * @return true if two or more tiles share IDs
      */
     public boolean checkDuplicateID () {
         boolean duplicate = false;
