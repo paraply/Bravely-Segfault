@@ -6,6 +6,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -25,6 +26,7 @@ public class World{
 
     private List<GameObject> objects = new ArrayList<>();
     private List<GameObject> interactables = new ArrayList<>();
+    private HashMap<Point, String> transitions = new HashMap<>();
 
     //Temporarily hardcoded here, should always load a map from a file
     private int[][] tileMap = new int[mapSize][mapSize];
@@ -129,6 +131,12 @@ public class World{
 
         for(GameObject g : objects) {
             if(g.getPosition().equals(newPoint)) return p;
+        }
+
+        if(transitions.containsKey(p)){
+            //Should call for a levelparse using the filepath in transitions.get(p)
+            //Should set the character at the new position from the level-file
+            return p;
         }
 
         return newPoint;
