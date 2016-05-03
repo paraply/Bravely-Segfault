@@ -1,0 +1,36 @@
+<level>
+    <tilemap>
+        <line>1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1</line>
+        <line>1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1</line>
+        <line>1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1</line>
+        <line>1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1</line>
+        <line>1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1</line>
+        <line>1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1</line>
+        <line>1,0,0,1,1,1,1,1,1,1,1,1,1,0,0,1</line>
+        <line>1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1</line>
+        <line>1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1</line>
+        <line>1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1</line>
+        <line>1,0,1,1,1,0,0,0,0,0,0,0,0,0,0,1</line>
+        <line>1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1</line>
+        <line>1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1</line>
+        <line>1,0,0,0,0,0,0,0,0,0,0,0,0,2,2,1</line>
+        <line>1,0,0,0,0,0,0,0,0,0,0,0,0,2,2,1</line>
+        <line>1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1</line>
+    </tilemap>
+    <characters>
+        <character name="Philip">
+            <position>5,2</position>
+            <graphics>
+                <fileName>characters/philip-tan.png</fileName>
+                <frameCount>4</frameCount>
+            </graphics>
+            <dialogue>tutorialPhilip.xml</dialogue>
+        </character>
+    </characters>
+    <transitions>
+        <transition>
+            <levelName>monadenKitchen.xml</levelName>
+            <position>8,5</position>
+        </transition>
+    </transitions>
+</level>

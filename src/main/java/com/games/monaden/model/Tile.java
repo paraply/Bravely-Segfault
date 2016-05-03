@@ -14,6 +14,7 @@ public class Tile implements Comparable<Tile>{
     private String name;
     private File filepath;
     private boolean solidness;
+    private boolean animated;
 
 //    public Tile () {
 //
@@ -26,11 +27,23 @@ public class Tile implements Comparable<Tile>{
      * @param solidness
      * @param filepath
      */
-    public Tile (int id, String name, boolean solidness, File filepath) {
+//    public Tile (int id, String name, boolean solidness, File filepath) {
+//        this.id = id;
+//        this.name = name;
+//        this.solidness = solidness;
+//        this.filepath = filepath;
+//    }
+
+    public Tile (int id, String name, boolean solidness, File filepath, boolean animated) {
         this.id = id;
         this.name = name;
         this.solidness = solidness;
         this.filepath = filepath;
+        this.animated = animated;
+    }
+
+    public boolean getAnimated(){
+        return animated;
     }
 
     /**
