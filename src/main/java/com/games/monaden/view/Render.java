@@ -7,11 +7,13 @@ import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observer;
+import java.util.Observable;
 
 /**
  * Created by paraply on 2016-04-19.
  */
-public class Render {
+public class Render implements Observer{
     private static Render render; // Used by getInstance
     private GraphicsContext context;
     private World world; // World model provides information about what should be drawn
@@ -28,12 +30,13 @@ public class Render {
     public void setWorld(World world){
         this.world = world;
         for (GameObject go : world.getObjects()){
-                if (go.hasContinuousAnimation()){
-                    objects.add(new AnimatedObject(go));
-                }else{
-                    objects.add(new RenderObject(go));
-                }
+            if (go.hasContinuousAnimation()){
+                objects.add(new AnimatedObject(go));
+            }else{
+                objects.add(new RenderObject(go));
+            }
         }
+        world.addObserver(this);
     }
 
     public void setPlayerCharacter(GameObject player){
@@ -61,4 +64,21 @@ public class Render {
         context.drawImage(img, sx,sy,sw,sh,dx,dy,dw,dh);
     }
 
+
+    @Override
+    public void update(Observable observable, Object arg)
+    {
+        //Should probably be refactored later
+        if(observable == world) {
+            if(arg == "transition"){
+                for (GameObject go : world.getObjects()){
+                    if (go.hasContinuousAnimation()){
+                        objects.add(new AnimatedObject(go));
+                    }else{
+                        objects.add(new RenderObject(go));
+                    }
+                }
+            }
+        }
+    }
 }

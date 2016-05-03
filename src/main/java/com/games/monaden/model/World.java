@@ -6,14 +6,16 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Observable;
 
 /**
  * Created by Anton on 2016-04-17.
  * There should only be a single instance of this class, but it should not have a global access point.
  * For now only sending a message to the console, should be handled in a better way
  */
-public class World{
+public class World extends Observable{
     private static boolean instantiated = false;
 
     public static final int tileSize = 32;
@@ -21,6 +23,7 @@ public class World{
 
     private List<GameObject> objects = new ArrayList<>();
     private List<GameObject> interactables = new ArrayList<>();
+    private HashMap<Point, String> transitions = new HashMap<>();
 
     public List<GameObject> getObjects(){
         return objects;
@@ -51,6 +54,8 @@ public class World{
             mapFile = new File(levelfile);
             parser.parse(mapFile, levelParser);
 
+            interactables = levelParser.getInteractables();
+            notifyObservers("transition");
             tileParser = new TileParser();
             tileFile = new File("src/main/resources/parseTests/TileTest1.xml");
             parser.parse(tileFile, tileParser);
@@ -76,6 +81,7 @@ public class World{
     public enum MovementDirection {
         UP, DOWN, LEFT, RIGHT
     }
+
     /** Checks if a movement in one Direction in the tilemap is possible or not
      *  Returns the new position after movement, and also handles potential new screen
      */
@@ -94,6 +100,12 @@ public class World{
                     return p;
                 }
             }
+        }
+
+        if(transitions.containsKey(p)){
+            //Should call for a levelparse using the filepath in transitions.get(p)
+            //Should set the character at the new position from the level-file
+            return p;
         }
 
         return newPoint;
