@@ -39,7 +39,7 @@ public class TileParserTest {
     }
 
     /**
-     * Test file has two tiles. The test checks if the parser returns a list with 2 elements.
+     * Test file has two tiles. The test checks if the parser returns a list with 3 elements.
      */
     @Test
     public void testSize () {
@@ -47,7 +47,7 @@ public class TileParserTest {
             tileFile = new File("src/main/resources/parseTests/TileTest1.xml");
             parser.parse(tileFile, tileParser);
             tileList = tileParser.getTiles();
-            assertTrue(tileList.size() == 2);
+            assertTrue(tileList.size() == 3);
         } catch (Exception e) {
             e.printStackTrace();
         }
