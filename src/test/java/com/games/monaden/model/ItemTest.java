@@ -24,21 +24,22 @@ public class ItemTest {
 
     @Test
     public void testConsumableItem(){
+
         assertTrue(item1.getConsumable() && !item2.getConsumable());
     }
 
     @Test
     public void testKeyItem(){
-
+        assertTrue(item2.getKeyItem() && !item1.getKeyItem());
     }
 
     @Test
     public void testGetDescription(){
-
+        assertTrue(item1.getDescription().equals("First Item"));
     }
 
     @Test
     public void testUseItem() {
-
+        //??
     }
 }
