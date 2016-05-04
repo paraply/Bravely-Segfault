@@ -5,11 +5,13 @@ package com.games.monaden.model;
  */
 public class Item {
 
+    private final String name;
     private boolean consumable = false;
     private boolean keyItem = false;
     private final String description;
 
-    public Item(String description) {
+    public Item(String name, String description) {
+        this.name = name;
         this.description = description;
     }
 
