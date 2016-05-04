@@ -1,5 +1,7 @@
-package com.games.monaden.model;
+package com.games.monaden.services.levelParser;
 
+import com.games.monaden.model.Point;
+import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import org.xml.sax.helpers.DefaultHandler;
@@ -18,8 +20,6 @@ public class LevelParser extends DefaultHandler {
 
     //TODO: Missing handling of frame count, dialogue, and transitions.
 
-    private World world;
-
     private boolean bLine = false;
     private boolean bCharName = false;
     private boolean bCharPos = false;
@@ -35,9 +35,8 @@ public class LevelParser extends DefaultHandler {
 
     private List<GameObject> interactables = new ArrayList<>();
 
-    public LevelParser(World world) {
+    public LevelParser() {
         super();
-        this.world = world;
     }
 
     @Override
@@ -97,7 +96,7 @@ public class LevelParser extends DefaultHandler {
                 }
                 break;
             case "character":
-                Character character = new Character(charPos, world, imageFile);
+                Character character = new Character(charPos, imageFile);
                 if (bCharName && charName != null) {
                     character.setName(charName);
                     bCharName = false;

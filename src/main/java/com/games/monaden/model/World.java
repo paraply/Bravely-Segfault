@@ -1,6 +1,9 @@
 package com.games.monaden.model;
 
 import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.services.levelParser.LevelParser;
+import com.games.monaden.services.tileParser.Tile;
+import com.games.monaden.services.tileParser.TileParser;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -29,13 +32,9 @@ public class World extends Observable{
         return objects;
     }
 
-
-    private SAXParserFactory factory = SAXParserFactory.newInstance();
     private SAXParser parser;
     private LevelParser levelParser;
-    private File mapFile,tileFile;
     private List<Tile> tileList;
-    private static TileParser tileParser;
 
     public World(String levelfile) {
         if(instantiated) {
@@ -43,26 +42,31 @@ public class World extends Observable{
         }
         instantiated = true;
         try {
-
-//          Parser that will read XML-files with map and tile data
+            SAXParserFactory factory = SAXParserFactory.newInstance();
             parser = factory.newSAXParser();
-
-//          Parser for levels. We need to provide this world object since a world object is required to create characters
-            levelParser = new LevelParser(this);
-            levelParser.clearTilemap();
-//            levelParser.clearCharacters();
-            mapFile = new File(levelfile);
-            parser.parse(mapFile, levelParser);
-
-            interactables = levelParser.getInteractables();
-            notifyObservers("transition");
-            tileParser = new TileParser();
-            tileFile = new File("src/main/resources/parseTests/TileTest1.xml");
+            levelParser = new LevelParser();
+            TileParser tileParser = new TileParser();
+            File tileFile = new File("src/main/resources/parseTests/TileTest1.xml");
             parser.parse(tileFile, tileParser);
             tileList = tileParser.getTiles();
 
-//            Loop through the tilemap and create tiles for each
-            for(int y = 0; y < mapSize; y++) {
+            loadLevel(levelfile);
+        } catch (Exception e) {
+            System.err.println("Error in world constructor: " + e.getMessage());
+        }
+    }
+
+    private void loadLevel(String levelFile){
+        try {
+            levelParser.clearTilemap();
+            //levelParser.clearCharacters();
+            File level = new File(levelFile);
+            parser.parse(level, levelParser);
+
+            interactables = levelParser.getInteractables();
+
+            //Loop through the tilemap and create tiles for each
+            for (int y = 0; y < mapSize; y++) {
                 for (int x = 0; x < mapSize; x++) {
                     Tile currentTile = tileList.get(levelParser.getTileMap()[y][x]);
                     GameObject newGameObject = new GameObject(new Point(x, y), "objects", currentTile.getFilepath().toString(), currentTile.getSolidness());
@@ -71,11 +75,12 @@ public class World extends Observable{
                 }
             }
 
-
-        } catch (Exception e) {
-            System.err.println("Error in world constructor: " + e.getMessage());
+            notifyObservers("transition");
         }
-
+        catch(Exception e)
+        {
+            System.err.println("Error loading level: " + e.getMessage());
+        }
     }
 
     public enum MovementDirection {
