@@ -47,8 +47,8 @@ public class World extends Observable{
 //          Parser that will read XML-files with map and tile data
             parser = factory.newSAXParser();
 
-//          Parser for levels. We need to provide this world object since a world object is required to create characters
-            levelParser = new LevelParser(this);
+//          Parser for levels.
+            levelParser = new LevelParser();
             levelParser.clearTilemap();
 //            levelParser.clearCharacters();
             mapFile = new File(levelfile);

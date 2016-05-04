@@ -18,8 +18,6 @@ public class LevelParser extends DefaultHandler {
 
     //TODO: Missing handling of frame count, dialogue, and transitions.
 
-    private World world;
-
     private boolean bLine = false;
     private boolean bCharName = false;
     private boolean bCharPos = false;
@@ -35,9 +33,8 @@ public class LevelParser extends DefaultHandler {
 
     private List<GameObject> interactables = new ArrayList<>();
 
-    public LevelParser(World world) {
+    public LevelParser() {
         super();
-        this.world = world;
     }
 
     @Override
@@ -97,7 +94,7 @@ public class LevelParser extends DefaultHandler {
                 }
                 break;
             case "character":
-                Character character = new Character(charPos, world, imageFile);
+                Character character = new Character(charPos, imageFile);
                 if (bCharName && charName != null) {
                     character.setName(charName);
                     bCharName = false;

@@ -35,7 +35,7 @@ public class LevelParserTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        levelParser = new LevelParser(world);
+        levelParser = new LevelParser();
         levelParser.clearTilemap();
         levelParser.clearInteractables();
     }
