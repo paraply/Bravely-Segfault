@@ -16,9 +16,9 @@ public class ItemTest {
 
     @Before
     public void init(){
-        item1 = new Item("First Item");
+        item1 = new Item("Item1","First Item");
         item1.setConsumable(true);
-        item2 = new Item("Second Item");
+        item2 = new Item("Item2","Second Item");
         item2.setKeyItem(true);
     }
 

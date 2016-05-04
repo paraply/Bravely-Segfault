@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.util.LinkedList;
 import java.util.List;
 
+import static org.junit.Assert.assertTrue;
+
 /*
  *  The player will have a Inventory with Items
  *  You want to be able to show all items, add a item, get a item,
@@ -17,41 +19,61 @@ import java.util.List;
 public class InventoryTest {
 
     Inventory inventory;
+    List<Item> itemList;
+    Item item;
 
     @Before
     public void init(){
-        List<Item> itemList = new LinkedList<>();
+        itemList = new LinkedList<>();
         inventory = new Inventory(itemList);
-
+        item = new Item("Item","This is a item");
     }
 
     @Test
     public void testGetList(){
-
+        List<Item> givenList = inventory.getItemList();
+        assertTrue(givenList.equals(itemList) && givenList != null);
     }
 
     @Test
     public void testAddItem(){
-
+        inventory.addItem(item);
+        List<Item> givenList = inventory.getItemList();
+        assertTrue(givenList.contains(item) && givenList.size() == 1);
     }
 
     @Test
     public void testGetItem(){
-
+        inventory.addItem(item);
+        List<Item> givenList = inventory.getItemList();
+        Item givenItem = inventory.getItem("Item");
+        assertTrue(givenItem.equals(item));
     }
 
     @Test
-    public void testMoveItem(){
+    public void testMoveItem() {
+        inventory.addItem(item);
+        Item newItem = new Item("new Item","This is a new item");
+        inventory.addItem(newItem);
+        List<Item> givenList = inventory.getItemList();
+        inventory.moveItem("Item",1);
+        assertTrue(itemList.get(0).equals(newItem) && givenList.get(1).equals(newItem) &&
+                    itemList.get(1).equals(item) && givenList.get(0).equals(item));
 
     }
 
-    @Test
+        @Test
     public void testRemoveItem(){
-
+        inventory.addItem(item);
+        Item newItem = new Item("new Item","This is a new item");
+        inventory.addItem(newItem);
+        boolean removed = inventory.removeItem(item);
+        assertTrue(removed == true && itemList.size() == 1 &&
+                itemList.contains(newItem) && !itemList.contains(item));
     }
 
     @Test
     public void testCombineItem(){
-
+        // Do we want this?
     }
 }
