@@ -1,7 +1,8 @@
 package com.games.monaden.model;
 
 /**
- * Created by Admin on 2016-05-03.
+ * Item is things in the game you can either trigger effects or use in the game.
+ * It contains name, description and if it a consumable och/or a KeyItem.
  */
 public class Item {
 
@@ -10,6 +11,11 @@ public class Item {
     private boolean keyItem = false;
     private final String description;
 
+    /**
+     * Constructor for Item with a given name and description
+     * @param name
+     * @param description
+     */
     public Item(String name, String description) {
         this.name = name;
         this.description = description;
@@ -36,5 +42,9 @@ public class Item {
 
     public String getDescription() {
         return description;
+    }
+
+    public String getName() {
+        return name;
     }
 }
