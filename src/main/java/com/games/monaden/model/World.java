@@ -32,13 +32,9 @@ public class World extends Observable{
         return objects;
     }
 
-
-    private SAXParserFactory factory = SAXParserFactory.newInstance();
     private SAXParser parser;
     private LevelParser levelParser;
-    private File tileFile;
     private List<Tile> tileList;
-    private static TileParser tileParser;
 
     public World(String levelfile) {
         if(instantiated) {
@@ -46,10 +42,11 @@ public class World extends Observable{
         }
         instantiated = true;
         try {
+            SAXParserFactory factory = SAXParserFactory.newInstance();
             parser = factory.newSAXParser();
             levelParser = new LevelParser();
-            tileParser = new TileParser();
-            tileFile = new File("src/main/resources/parseTests/TileTest1.xml");
+            TileParser tileParser = new TileParser();
+            File tileFile = new File("src/main/resources/parseTests/TileTest1.xml");
             parser.parse(tileFile, tileParser);
             tileList = tileParser.getTiles();
 
