@@ -1,19 +1,11 @@
 package com.games.monaden.control;
 
-import com.games.monaden.model.LevelParser;
 import com.games.monaden.model.gameObjects.Character;
-import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.model.World;
 import com.games.monaden.model.Point;
 import com.games.monaden.view.Render;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by paraply on 2016-04-13.

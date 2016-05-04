@@ -1,5 +1,7 @@
-package com.games.monaden.model;
+package com.games.monaden.services.levelParser;
 
+import com.games.monaden.model.Point;
+import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import org.xml.sax.helpers.DefaultHandler;

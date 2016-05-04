@@ -1,6 +1,9 @@
 package com.games.monaden.model;
 
 import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.services.levelParser.LevelParser;
+import com.games.monaden.services.tileParser.Tile;
+import com.games.monaden.services.tileParser.TileParser;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -44,13 +47,13 @@ public class World extends Observable{
         instantiated = true;
         try {
 
-//          Parser that will read XML-files with map and tile data
+            //Parser that will read XML-files with map and tile data
             parser = factory.newSAXParser();
 
-//          Parser for levels.
+            //Parser for levels.
             levelParser = new LevelParser();
             levelParser.clearTilemap();
-//            levelParser.clearCharacters();
+            //levelParser.clearCharacters();
             mapFile = new File(levelfile);
             parser.parse(mapFile, levelParser);
 
@@ -61,7 +64,7 @@ public class World extends Observable{
             parser.parse(tileFile, tileParser);
             tileList = tileParser.getTiles();
 
-//            Loop through the tilemap and create tiles for each
+            //Loop through the tilemap and create tiles for each
             for(int y = 0; y < mapSize; y++) {
                 for (int x = 0; x < mapSize; x++) {
                     Tile currentTile = tileList.get(levelParser.getTileMap()[y][x]);

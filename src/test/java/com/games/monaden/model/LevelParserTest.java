@@ -1,6 +1,7 @@
 package com.games.monaden.model;
 
 import com.games.monaden.model.gameObjects.Character;
+import com.games.monaden.services.levelParser.LevelParser;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
