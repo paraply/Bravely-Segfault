@@ -39,7 +39,8 @@ public class ItemTest {
     }
 
     @Test
-    public void testUseItem() {
-        //??
+    public void testGetItemName(){
+        assertTrue(item1.getName().equals("Item1"));
     }
+
 }

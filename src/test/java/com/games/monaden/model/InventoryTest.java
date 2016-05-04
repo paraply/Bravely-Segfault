@@ -45,11 +45,12 @@ public class InventoryTest {
     @Test
     public void testGetItem(){
         inventory.addItem(item);
-        List<Item> givenList = inventory.getItemList();
         Item givenItem = inventory.getItem("Item");
+        System.out.println(givenItem.getName() + " is " + item.getName());
         assertTrue(givenItem.equals(item));
     }
 
+    // Do we need this functionality?
     @Test
     public void testMoveItem() {
         inventory.addItem(item);
@@ -70,10 +71,5 @@ public class InventoryTest {
         boolean removed = inventory.removeItem(item);
         assertTrue(removed == true && itemList.size() == 1 &&
                 itemList.contains(newItem) && !itemList.contains(item));
-    }
-
-    @Test
-    public void testCombineItem(){
-        // Do we want this?
     }
 }
