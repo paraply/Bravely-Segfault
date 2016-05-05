@@ -20,12 +20,13 @@ class RenderObject {
     private Image image;
     int x,y;                        // objects position in the world
     int image_src_X, image_src_Y;   // Coordinates to get a specific picture from the tileset
-
+    private GraphicsContext context;
 
     // Create a new instance of the RenderObject
-    RenderObject(GameObject gameObject){
+    RenderObject(GameObject gameObject, GraphicsContext context){
         this.gameObject = gameObject;
         image = new Image( gameObject.getImagePath() );
+        this.context = context;
     }
 
     // x,y values specifies where in the world the character should be drawn
@@ -66,8 +67,8 @@ class RenderObject {
         drawToContext();
     }
 
-    // Call render to draw the image on the canvas
+    // Call JavaFX canvas to draw the image on the canvas
     void drawToContext(){
-        Render.getInstance().drawImage(image, image_src_X,image_src_Y, gameObject.getWidth(), gameObject.getHeight(), x, y, gameObject.getWidth(), gameObject.getHeight());
+        context.drawImage(image, image_src_X,image_src_Y, gameObject.getWidth(), gameObject.getHeight(), x, y, gameObject.getWidth(), gameObject.getHeight());
     }
 }
