@@ -45,7 +45,7 @@ public class LevelParserTest {
             parser.parse(mapFile, levelParser);
             int[][] tileMap = levelParser.getTileMap();
             int i;
-            for (i = 0; i < World.mapSize; i++) {
+            for (i = 0; i < World.MAP_SIZE; i++) {
                 if (tileMap[i].length != 16) {
                     assertTrue(false);
                     break;
@@ -69,7 +69,7 @@ public class LevelParserTest {
         try {
             parser.parse(mapFile, levelParser);
             int [][] tilemap = levelParser.getTileMap();
-            for (int i = 0; i < World.mapSize; i++) {
+            for (int i = 0; i < World.MAP_SIZE; i++) {
                 assertFalse(Arrays.equals(tilemap[i], empty));  //tilemap should not be empty
             }
 
@@ -77,7 +77,7 @@ public class LevelParserTest {
             levelParser.clearTilemap();
             tilemap = levelParser.getTileMap();
 
-            for (int i = 0; i < World.mapSize; i++) {
+            for (int i = 0; i < World.MAP_SIZE; i++) {
                 assertTrue(Arrays.equals(tilemap[i], empty));   //tilemap should be empty
             }
 

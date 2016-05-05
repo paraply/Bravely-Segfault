@@ -25,12 +25,12 @@ public class ItemTest {
     @Test
     public void testConsumableItem(){
 
-        assertTrue(item1.getConsumable() && !item2.getConsumable());
+        assertTrue(item1.isConsumable() && !item2.isConsumable());
     }
 
     @Test
     public void testKeyItem(){
-        assertTrue(item2.getKeyItem() && !item1.getKeyItem());
+        assertTrue(item2.isKeyItem() && !item1.isKeyItem());
     }
 
     @Test

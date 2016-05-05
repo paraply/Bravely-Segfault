@@ -31,12 +31,12 @@ public class Item {
         this.keyItem = keyItem;
     }
 
-    public boolean getConsumable() {
+    public boolean isConsumable() {
 
         return consumable;
     }
 
-    public boolean getKeyItem() {
+    public boolean isKeyItem() {
         return keyItem;
     }
 

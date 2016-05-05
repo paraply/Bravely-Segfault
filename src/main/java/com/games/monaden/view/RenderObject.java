@@ -2,7 +2,6 @@ package com.games.monaden.view;
 
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.model.World;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 
@@ -31,8 +30,8 @@ class RenderObject {
 
     // x,y values specifies where in the world the character should be drawn
     private void calculateWorldCoordinates(){
-        x = gameObject.getPosition().getX() * World.tileSize;
-        y =  gameObject.getPosition().getY() * World.tileSize;
+        x = gameObject.getPosition().getX() * World.TILE_SIZE;
+        y =  gameObject.getPosition().getY() * World.TILE_SIZE;
     }
 
     // The X value from the source image is always 0 in an RenderObject without animation.

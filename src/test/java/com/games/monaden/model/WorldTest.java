@@ -31,56 +31,56 @@ public class WorldTest {
     public void moveUpBlocked() {
 
         Point p = new Point(1,1);
-        Point newP = world.CheckMovement(p, World.MovementDirection.UP);
+        Point newP = world.checkMovement(p, World.MovementDirection.UP);
         assertTrue(p.equals(newP));
     }
 
     @Test
     public void moveDownBlocked() {
-        Point p = new Point(1,World.mapSize-2);
-        Point newP = world.CheckMovement(p, World.MovementDirection.DOWN);
+        Point p = new Point(1,World.MAP_SIZE-2);
+        Point newP = world.checkMovement(p, World.MovementDirection.DOWN);
         assertTrue(p.equals(newP));
     }
 
     @Test
     public void moveLeftBlocked() {
         Point p = new Point(1,1);
-        Point newP = world.CheckMovement(p, World.MovementDirection.LEFT);
+        Point newP = world.checkMovement(p, World.MovementDirection.LEFT);
         assertTrue(p.equals(newP));
     }
 
     @Test
     public void moveRightBlocked() {
-        Point p = new Point(World.mapSize-2, 1);
-        Point newP = world.CheckMovement(p, World.MovementDirection.RIGHT);
+        Point p = new Point(World.MAP_SIZE-2, 1);
+        Point newP = world.checkMovement(p, World.MovementDirection.RIGHT);
         assertTrue(p.equals(newP));
     }
 
     @Test
     public void moveUpUnblocked() {
         Point p = new Point(1,2);
-        Point newP = world.CheckMovement(p, World.MovementDirection.UP);
+        Point newP = world.checkMovement(p, World.MovementDirection.UP);
         assertFalse(p.equals(newP));
     }
 
     @Test
     public void moveDownUnblocked() {
         Point p = new Point(1,1);
-        Point newP = world.CheckMovement(p, World.MovementDirection.DOWN);
+        Point newP = world.checkMovement(p, World.MovementDirection.DOWN);
         assertFalse(p.equals(newP));
     }
 
     @Test
     public void moveLeftUnblocked() {
         Point p = new Point(2,1);
-        Point newP = world.CheckMovement(p, World.MovementDirection.LEFT);
+        Point newP = world.checkMovement(p, World.MovementDirection.LEFT);
         assertFalse(p.equals(newP));
     }
 
     @Test
     public void moveRightUnblocked() {
         Point p = new Point(1,1);
-        Point newP = world.CheckMovement(p, World.MovementDirection.RIGHT);
+        Point newP = world.checkMovement(p, World.MovementDirection.RIGHT);
         assertFalse(p.equals(newP));
     }
 
@@ -88,28 +88,28 @@ public class WorldTest {
     @Test
     public void moveUpEdge() {
         Point p = new Point(0,0);
-        Point newP = world.CheckMovement(p, World.MovementDirection.UP);
+        Point newP = world.checkMovement(p, World.MovementDirection.UP);
         assertTrue(p.equals(newP));
     }
 
     @Test
     public void moveDownEdge() {
-        Point p = new Point(0,World.mapSize-1);
-        Point newP = world.CheckMovement(p, World.MovementDirection.DOWN);
+        Point p = new Point(0,World.MAP_SIZE-1);
+        Point newP = world.checkMovement(p, World.MovementDirection.DOWN);
         assertTrue(p.equals(newP));
     }
 
     @Test
     public void moveLeftEdge() {
         Point p = new Point(0,0);
-        Point newP = world.CheckMovement(p, World.MovementDirection.LEFT);
+        Point newP = world.checkMovement(p, World.MovementDirection.LEFT);
         assertTrue(p.equals(newP));
     }
 
     @Test
     public void moveRightEdge() {
-        Point p = new Point(World.mapSize-1,0);
-        Point newP = world.CheckMovement(p, World.MovementDirection.RIGHT);
+        Point p = new Point(World.MAP_SIZE-1,0);
+        Point newP = world.checkMovement(p, World.MovementDirection.RIGHT);
         assertTrue(p.equals(newP));
     }
 
@@ -118,7 +118,7 @@ public class WorldTest {
         Point p = new Point(0,0);
         ArrayIndexOutOfBoundsException check = null;
         try{
-            world.CheckMovement(p, World.MovementDirection.UP);
+            world.checkMovement(p, World.MovementDirection.UP);
         }catch(ArrayIndexOutOfBoundsException e){
             check = e;
         }
@@ -126,10 +126,10 @@ public class WorldTest {
     }
     @Test
     public void DownEdgeException() {
-        Point p = new Point(0,World.mapSize-1);
+        Point p = new Point(0,World.MAP_SIZE-1);
         ArrayIndexOutOfBoundsException check = null;
         try{
-            world.CheckMovement(p, World.MovementDirection.DOWN);
+            world.checkMovement(p, World.MovementDirection.DOWN);
         }catch(ArrayIndexOutOfBoundsException e){
             check = e;
         }
@@ -140,7 +140,7 @@ public class WorldTest {
         Point p = new Point(0,0);
         ArrayIndexOutOfBoundsException check = null;
         try{
-            world.CheckMovement(p, World.MovementDirection.LEFT);
+            world.checkMovement(p, World.MovementDirection.LEFT);
         }catch(ArrayIndexOutOfBoundsException e){
             check = e;
         }
@@ -150,10 +150,10 @@ public class WorldTest {
 
     @Test
     public void RightEdgeException() {
-        Point p = new Point(World.mapSize-1,0);
+        Point p = new Point(World.MAP_SIZE-1,0);
         ArrayIndexOutOfBoundsException check = null;
         try{
-            world.CheckMovement(p, World.MovementDirection.RIGHT);
+            world.checkMovement(p, World.MovementDirection.RIGHT);
         }catch(ArrayIndexOutOfBoundsException e){
             check = e;
         }
