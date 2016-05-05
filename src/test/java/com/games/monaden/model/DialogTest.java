@@ -5,11 +5,9 @@
  */
 package com.games.monaden.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import org.junit.Before;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -59,14 +57,14 @@ public class DialogTest {
     @Test
     public void testMovingToHall(){
         Dialog firstChoice = frontDoor.makeAChoice(0);
-        assertTrue(firstChoice.getDialog().equals(hall.getDialog()));
+        assertTrue(firstChoice.getDialogText().equals(hall.getDialogText()));
     }
     
     @Test
     public void testMovingToKitchen(){
         Dialog firstChoice = frontDoor.makeAChoice(0);
         Dialog secondChoice = firstChoice.makeAChoice(0);
-        assertTrue(secondChoice.getDialog().equals(kitchen.getDialog()));
+        assertTrue(secondChoice.getDialogText().equals(kitchen.getDialogText()));
     }
 
     
@@ -74,16 +72,16 @@ public class DialogTest {
     public void testMovingToBedRoom(){
         Dialog firstChoice = frontDoor.makeAChoice(0);
         Dialog secondChoice = firstChoice.makeAChoice(1);
-        assertTrue(secondChoice.getDialog().equals(bedRoom.getDialog()));
+        assertTrue(secondChoice.getDialogText().equals(bedRoom.getDialogText()));
     }
     
     
     @Test
     public void testChangeValues(){
         Dialog firstChoice = frontDoor.makeAChoice(0);
-        String text = firstChoice.getDialog();
+        String text = firstChoice.getDialogText();
         text = text + " [This have changed!]";
-        assertTrue(firstChoice.getDialog().equals("This is the hall"));
+        assertTrue(firstChoice.getDialogText().equals("This is the hall"));
     }
 
 }

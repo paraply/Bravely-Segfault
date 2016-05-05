@@ -10,56 +10,56 @@ import javafx.scene.input.KeyEvent;
  * Created by paraply on 2016-04-13.
  */
 public class UserInput implements EventHandler<Event> {
-    private static UserInput user_input;
-    private KeyCode movement_key;
-    private KeyCode function_key;
+    private static UserInput userInput;
+    private KeyCode movementKey;
+    private KeyCode functionKey;
 
     private UserInput(){}
 
     @Override
     public void handle(Event event) {
-        KeyEvent e = (KeyEvent) event;
-        switch (e.getCode()){
+        KeyEvent keyEvent = (KeyEvent) event;
+        switch (keyEvent.getCode()){
             case UP:
-                movement_key = KeyCode.UP;
+                movementKey = KeyCode.UP;
                 break;
             case DOWN:
-                movement_key = KeyCode.DOWN;
+                movementKey = KeyCode.DOWN;
                 break;
             case LEFT:
-                movement_key = KeyCode.LEFT;
+                movementKey = KeyCode.LEFT;
                 break;
             case RIGHT:
-                movement_key = KeyCode.RIGHT;
+                movementKey = KeyCode.RIGHT;
                 break;
             case ESCAPE:
-                function_key = KeyCode.ESCAPE;
+                functionKey = KeyCode.ESCAPE;
                 break;
             case ENTER:
-                function_key = KeyCode.ENTER;
+                functionKey = KeyCode.ENTER;
                 break;
             case SPACE:
-                function_key = KeyCode.SPACE;
+                functionKey = KeyCode.SPACE;
                 break;
         }
     }
 
     public KeyCode getLatestMovementKey(){
-        KeyCode key = movement_key;
-        movement_key = null;
+        KeyCode key = movementKey;
+        movementKey = null;
         return key;
     }
 
     public KeyCode getLatestFunctionKey(){
-        KeyCode key = function_key;
-        function_key = null;
+        KeyCode key = functionKey;
+        functionKey = null;
         return key;
     }
 
     public static synchronized UserInput getInstance(){
-        if (user_input == null){
-            user_input = new UserInput();
+        if (userInput == null){
+            userInput = new UserInput();
         }
-        return user_input;
+        return userInput;
     }
 }

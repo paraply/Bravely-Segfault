@@ -14,12 +14,12 @@ import java.util.List;
  */
 public class Dialog {
     
-    private final String dialog;
+    private final String dialogText;
     private final List<String> text;
     private final List<Dialog> choices;
 
-    Dialog(String dialog){
-        this.dialog = dialog;    
+    Dialog(String dialogText){
+        this.dialogText = dialogText;
         this.text = new ArrayList<>();
         this.choices = new ArrayList<>();
     }
@@ -37,8 +37,8 @@ public class Dialog {
         return text.get(id);
     }
     
-    public String getDialog(){
-        return dialog;
+    public String getDialogText(){
+        return dialogText;
     }
     
     

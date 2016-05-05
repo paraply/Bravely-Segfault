@@ -13,14 +13,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class WindowController implements Initializable{
-    @FXML private Canvas main_canvas; // Our canvas where the game will be drawn
+    @FXML private Canvas mainCanvas; // Our canvas where the game will be drawn
 
     // Called when JavaFX initialized the window.
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        main_canvas.setFocusTraversable(true); // May be necessary to get key events
-        main_canvas.setOnKeyPressed(UserInput.getInstance());
-        Render.getInstance().setGraphicsContext(main_canvas.getGraphicsContext2D()); // Get the canvas context and send it to Render
+        mainCanvas.setFocusTraversable(true); // May be necessary to get key events
+        mainCanvas.setOnKeyPressed(UserInput.getInstance());
+        Render.getInstance().setGraphicsContext(mainCanvas.getGraphicsContext2D()); // Get the canvas context and send it to Render
     }
 
 }

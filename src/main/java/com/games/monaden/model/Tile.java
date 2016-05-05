@@ -1,4 +1,4 @@
-package com.games.monaden.services.tileParser;
+package com.games.monaden.model;
 
 
 import java.io.File;
@@ -42,7 +42,7 @@ public class Tile implements Comparable<Tile>{
         this.animated = animated;
     }
 
-    public boolean getAnimated(){
+    public boolean isAnimated(){
         return animated;
     }
 
@@ -66,7 +66,7 @@ public class Tile implements Comparable<Tile>{
      * Returns assigned solidness
      * @return true if tile is solid, false if not
      */
-    public boolean getSolidness () {
+    public boolean isSolid() {
         return solidness;
     }
 

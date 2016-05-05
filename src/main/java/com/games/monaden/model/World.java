@@ -2,7 +2,6 @@ package com.games.monaden.model;
 
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.services.levelParser.LevelParser;
-import com.games.monaden.services.tileParser.Tile;
 import com.games.monaden.services.tileParser.TileParser;
 
 import javax.xml.parsers.SAXParser;
@@ -21,8 +20,8 @@ import java.util.Observable;
 public class World extends Observable{
     private static boolean instantiated = false;
 
-    public static final int tileSize = 32;
-    public static final int mapSize = 16;
+    public static final int TILE_SIZE = 32;
+    public static final int MAP_SIZE = 16;
 
     private List<GameObject> objects = new ArrayList<>();
     private List<GameObject> interactables = new ArrayList<>();
@@ -31,6 +30,10 @@ public class World extends Observable{
     public List<GameObject> getObjects(){
         return objects;
     }
+    public List<GameObject> getInteractables(){
+        return interactables;
+    }
+    public HashMap<Point, String> getTransitions() { return transitions; }
 
     private SAXParser parser;
     private LevelParser levelParser;
@@ -66,11 +69,11 @@ public class World extends Observable{
             interactables = levelParser.getInteractables();
 
             //Loop through the tilemap and create tiles for each
-            for (int y = 0; y < mapSize; y++) {
-                for (int x = 0; x < mapSize; x++) {
+            for (int y = 0; y < MAP_SIZE; y++) {
+                for (int x = 0; x < MAP_SIZE; x++) {
                     Tile currentTile = tileList.get(levelParser.getTileMap()[y][x]);
-                    GameObject newGameObject = new GameObject(new Point(x, y), "objects", currentTile.getFilepath().toString(), currentTile.getSolidness());
-                    newGameObject.setContinuousAnimation(currentTile.getAnimated());
+                    GameObject newGameObject = new GameObject(new Point(x, y), "objects", currentTile.getFilepath().toString(), currentTile.isSolid());
+                    newGameObject.setContinuousAnimation(currentTile.isAnimated());
                     objects.add(newGameObject);
                 }
             }
@@ -86,45 +89,4 @@ public class World extends Observable{
     public enum MovementDirection {
         UP, DOWN, LEFT, RIGHT
     }
-
-    /** Checks if a movement in one Direction in the tilemap is possible or not
-     *  Returns the new position after movement, and also handles potential new screen
-     */
-    public Point CheckMovement(Point p, MovementDirection direction) {
-        Point newPoint = p.nextTo(direction);
-
-        if(newPoint.getY() < 0 || newPoint.getY() >= mapSize
-                || newPoint.getX() < 0 || newPoint.getX() >= mapSize)
-            return p;
-
-//      Loop through every object and find the one at the position we want to move to
-//      If that object is solid then it will not be possible
-        for(GameObject g : objects) {
-            if(g.getPosition().equals(newPoint)){
-                if (g.getSolidness()){
-                    return p;
-                }
-            }
-        }
-
-        if(transitions.containsKey(p)){
-            //Should call for a levelparse using the filepath in transitions.get(p)
-            //Should set the character at the new position from the level-file
-            return p;
-        }
-
-        return newPoint;
-    }
-
-    public String CheckInteraction(Point p, MovementDirection direction) {
-        Point newPoint = p.nextTo(direction);
-
-        for(GameObject g : interactables) {
-            if(g.getPosition().equals(newPoint))
-                return "There is an interactive object in front of the player. Start interaction.";
-        }
-
-        return "There was nothing to interact with.";
-    }
-
 }

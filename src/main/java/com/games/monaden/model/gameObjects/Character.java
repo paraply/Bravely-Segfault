@@ -1,6 +1,5 @@
 package com.games.monaden.model.gameObjects;
 
-import com.games.monaden.model.World;
 import com.games.monaden.model.Point;
 
 /**
