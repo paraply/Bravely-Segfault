@@ -39,7 +39,7 @@ public class World extends Observable{
     private LevelParser levelParser;
     private List<Tile> tileList;
 
-    public World(String levelfile) {
+    public World(String startLevel) {
         if(instantiated) {
             System.out.println("A world object has already been instantiated!");
         }
@@ -49,21 +49,23 @@ public class World extends Observable{
             parser = factory.newSAXParser();
             levelParser = new LevelParser();
             TileParser tileParser = new TileParser();
-            File tileFile = new File("src/main/resources/parseTests/TileTest1.xml");
+//            File tileFile = new File( "src/main/resources/parseTests/TileTest1.xml");
+            // Use a relative path to get the filelist file in tiles folder
+            File tileFile =  new File(this.getClass().getResource("/tiles/tilelist.xml").getPath());
             parser.parse(tileFile, tileParser);
             tileList = tileParser.getTiles();
 
-            loadLevel(levelfile);
+            loadLevel(startLevel);
         } catch (Exception e) {
             System.err.println("Error in world constructor: " + e.getMessage());
         }
     }
 
-    private void loadLevel(String levelFile){
+    private void loadLevel(String levelName){
         try {
             levelParser.clearTilemap();
             //levelParser.clearCharacters();
-            File level = new File(levelFile);
+            File level = new File(this.getClass().getResource("/maps/" + levelName + ".xml").getPath());
             parser.parse(level, levelParser);
 
             interactables = levelParser.getInteractables();
@@ -72,7 +74,7 @@ public class World extends Observable{
             for (int y = 0; y < MAP_SIZE; y++) {
                 for (int x = 0; x < MAP_SIZE; x++) {
                     Tile currentTile = tileList.get(levelParser.getTileMap()[y][x]);
-                    GameObject newGameObject = new GameObject(new Point(x, y), "objects", currentTile.getFilepath().toString(), currentTile.isSolid());
+                    GameObject newGameObject = new GameObject(new Point(x, y), "tiles", currentTile.getFilepath().toString(), currentTile.isSolid());
                     newGameObject.setContinuousAnimation(currentTile.isAnimated());
                     objects.add(newGameObject);
                 }

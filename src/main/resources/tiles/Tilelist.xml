@@ -1,0 +1,18 @@
+<class>
+    <tile id="0">
+        <name>grass</name>
+        <graphics>grass.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="1">
+        <name>wall</name>
+        <graphics>wall.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="2">
+        <name>fire</name>
+        <graphics>fire.png</graphics>
+        <animation>animated</animation>
+        <solidness>solid</solidness>
+    </tile>
+</class>
