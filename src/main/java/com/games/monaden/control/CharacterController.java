@@ -18,9 +18,9 @@ public class CharacterController {
         Render.getInstance().setPlayerCharacter(player);
     }
 
-    public void handleMovement(KeyCode latest_movement_request, World world) {
+    public void handleMovement(KeyCode moveReq, World world) {
         World.MovementDirection dir = World.MovementDirection.UP;
-        switch (latest_movement_request) {
+        switch (moveReq) {
             case UP:
                 dir = World.MovementDirection.UP;
                 System.out.println("MOVE UP");
@@ -38,19 +38,19 @@ public class CharacterController {
                 System.out.println("MOVE RIGHT");
                 break;
         }
-        CheckMovement(player.getPosition(), dir, world);
+        checkMovement(player.getPosition(), dir, world);
         player.setDirection(dir);
     }
 
-    public void handleInteractions(KeyCode latest_function_request, World world){
-        switch (latest_function_request) {
+    public void handleInteractions(KeyCode funcReq, World world){
+        switch (funcReq) {
             case ESCAPE:
                 System.out.println("ESCAPE");
                 System.exit(0);
                 break;
             case SPACE:
                 //Temporarily a string since no dialogue system written yet
-                String temp = CheckInteraction(player.getPosition(), player.getDirection(), world);
+                String temp = checkInteraction(player.getPosition(), player.getDirection(), world);
                 System.out.println(temp);
                 break;
         }
@@ -60,24 +60,22 @@ public class CharacterController {
     /** Checks if a movement in one Direction in the tilemap is possible or not
      *  Returns the new position after movement, and also handles potential new screen
      */
-    public void CheckMovement(Point p, World.MovementDirection direction, World world) {
-        Point newPoint = p.nextTo(direction);
+    public void checkMovement(Point currentPoint, World.MovementDirection direction, World world) {
+        Point newPoint = currentPoint.nextTo(direction);
 
-        if(newPoint.getY() < 0 || newPoint.getY() >= World.mapSize
-                || newPoint.getX() < 0 || newPoint.getX() >= World.mapSize)
+        if(newPoint.getY() < 0 || newPoint.getY() >= World.MAP_SIZE
+                || newPoint.getX() < 0 || newPoint.getX() >= World.MAP_SIZE)
             return;
 
 //      Loop through every object and find the one at the position we want to move to
 //      If that object is solid then it will not be possible
         for(GameObject g : world.getObjects()) {
-            if(g.getPosition().equals(newPoint)){
-                if (g.getSolidness()){
-                    return;
-                }
+            if(g.getPosition().equals(newPoint) && g.isSolid()){
+                return;
             }
         }
 
-        if(world.getTransitions().containsKey(p)){
+        if(world.getTransitions().containsKey(currentPoint)){
             //Should call for a levelparse using the filepath in transitions.get(p)
             //Should set the character at the new position from the level-file
             return;
@@ -86,8 +84,8 @@ public class CharacterController {
         player.setPosition(newPoint);
     }
 
-    public String CheckInteraction(Point p, World.MovementDirection direction, World world) {
-        Point newPoint = p.nextTo(direction);
+    public String checkInteraction(Point currentPoint, World.MovementDirection direction, World world) {
+        Point newPoint = currentPoint.nextTo(direction);
 
         for(GameObject g : world.getInteractables()) {
             if(g.getPosition().equals(newPoint))

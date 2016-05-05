@@ -10,7 +10,6 @@ import org.xml.sax.SAXException;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringJoiner;
 
 /**
  * Created by Philip on 2016-04-26.
@@ -28,7 +27,7 @@ public class LevelParser extends DefaultHandler {
     private boolean bDialogue = false;
 
     private int row = 0;
-    private int [][] tileMap = new int [World.mapSize][World.mapSize];
+    private int [][] tileMap = new int [World.MAP_SIZE][World.MAP_SIZE];
     private String charName;
     private Point charPos;
     private String imageFile;
@@ -145,8 +144,8 @@ public class LevelParser extends DefaultHandler {
      * @return a copy of the tilemap
      */
     public int[][] getTileMap () {
-        int [][] mapCopy = new int[World.mapSize][World.mapSize];
-        for (int i = 0; i < World.mapSize; i++) {
+        int [][] mapCopy = new int[World.MAP_SIZE][World.MAP_SIZE];
+        for (int i = 0; i < World.MAP_SIZE; i++) {
             mapCopy[i] = tileMap[i].clone();
         }
         return mapCopy;
@@ -164,7 +163,7 @@ public class LevelParser extends DefaultHandler {
      */
     public void clearTilemap () {
         int[] empty = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-        for (int i = 0; i < World.mapSize; i++) {
+        for (int i = 0; i < World.MAP_SIZE; i++) {
             tileMap[i] = empty.clone();
         }
     }

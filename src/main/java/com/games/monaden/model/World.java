@@ -20,8 +20,8 @@ import java.util.Observable;
 public class World extends Observable{
     private static boolean instantiated = false;
 
-    public static final int tileSize = 32;
-    public static final int mapSize = 16;
+    public static final int TILE_SIZE = 32;
+    public static final int MAP_SIZE = 16;
 
     private List<GameObject> objects = new ArrayList<>();
     private List<GameObject> interactables = new ArrayList<>();
@@ -69,11 +69,11 @@ public class World extends Observable{
             interactables = levelParser.getInteractables();
 
             //Loop through the tilemap and create tiles for each
-            for (int y = 0; y < mapSize; y++) {
-                for (int x = 0; x < mapSize; x++) {
+            for (int y = 0; y < MAP_SIZE; y++) {
+                for (int x = 0; x < MAP_SIZE; x++) {
                     Tile currentTile = tileList.get(levelParser.getTileMap()[y][x]);
-                    GameObject newGameObject = new GameObject(new Point(x, y), "objects", currentTile.getFilepath().toString(), currentTile.getSolidness());
-                    newGameObject.setContinuousAnimation(currentTile.getAnimated());
+                    GameObject newGameObject = new GameObject(new Point(x, y), "objects", currentTile.getFilepath().toString(), currentTile.isSolid());
+                    newGameObject.setContinuousAnimation(currentTile.isAnimated());
                     objects.add(newGameObject);
                 }
             }
