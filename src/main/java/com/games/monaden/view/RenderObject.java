@@ -19,7 +19,7 @@ class RenderObject {
     GameObject gameObject;
     private Image image;
     int x,y;                        // objects position in the world
-    int image_src_X, image_src_Y;   // Coordinates to get a specific picture from the tileset
+    int imageSrcX, imageSrcY;   // Coordinates to get a specific picture from the tileset
     private GraphicsContext context;
 
     // Create a new instance of the RenderObject
@@ -37,7 +37,7 @@ class RenderObject {
 
     // The X value from the source image is always 0 in an RenderObject without animation.
     private void calculateSourceX(){
-        image_src_X = 0;
+        imageSrcX = 0;
     }
 
     // The Y value depends on which direction the object is facing.
@@ -46,16 +46,16 @@ class RenderObject {
     void calculateSourceY(){
         switch (gameObject.getDirection()){
             case LEFT:
-                image_src_Y = gameObject.getHeight();
+                imageSrcY = gameObject.getHeight();
                 break;
             case RIGHT:
-                image_src_Y = gameObject.getHeight() * 2;
+                imageSrcY = gameObject.getHeight() * 2;
                 break;
             case UP:
-                image_src_Y = gameObject.getHeight() * 3;
+                imageSrcY = gameObject.getHeight() * 3;
                 break;
             default: //DOWN
-                image_src_Y = 0;
+                imageSrcY = 0;
         }
     }
 
@@ -69,6 +69,6 @@ class RenderObject {
 
     // Call JavaFX canvas to draw the image on the canvas
     void drawToContext(){
-        context.drawImage(image, image_src_X,image_src_Y, gameObject.getWidth(), gameObject.getHeight(), x, y, gameObject.getWidth(), gameObject.getHeight());
+        context.drawImage(image, imageSrcX, imageSrcY, gameObject.getWidth(), gameObject.getHeight(), x, y, gameObject.getWidth(), gameObject.getHeight());
     }
 }
