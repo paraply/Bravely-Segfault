@@ -3,6 +3,7 @@ package com.games.monaden.view;
 import com.games.monaden.model.Point;
 import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.GameObject;
+import javafx.scene.canvas.GraphicsContext;
 
 /**
  * Created by paraply on 2016-04-22.
@@ -28,8 +29,8 @@ class AnimatedObject extends RenderObject {
     private final int PIXELS_PER_STEP = 2;      // If we move a pixel at a time it will be to slow. This can be adjusted here.
                                                 // REMEMBER: The tilesets size has to be divisible by this number
 
-    AnimatedObject(GameObject gameObject) {
-        super(gameObject);
+    AnimatedObject(GameObject gameObject, GraphicsContext context) {
+        super(gameObject, context);
         previousPosition = gameObject.getPosition();
 //        if (gameObject.hasContinuousAnimation() == false){
 //            ANIMATION_FREQUENCY = ANIMATION_FREQUENCY / 2;
