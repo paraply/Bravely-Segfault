@@ -2,6 +2,7 @@ package com.games.monaden.view;
 
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.model.World;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 
