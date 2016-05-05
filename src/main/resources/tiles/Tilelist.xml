@@ -1,18 +1,84 @@
 <class>
     <tile id="0">
-        <name>grass</name>
-        <graphics>grass.png</graphics>
+        <name>satan</name>
+        <graphics>black.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
     <tile id="1">
-        <name>wall</name>
-        <graphics>wall.png</graphics>
-        <solidness>solid</solidness>
+        <name>sidewalk horizontal</name>
+        <graphics>sidewalks/sidewalkh.png</graphics>
+        <solidness>non-solid</solidness>
     </tile>
     <tile id="2">
-        <name>fire</name>
-        <graphics>fire.png</graphics>
-        <animation>animated</animation>
-        <solidness>solid</solidness>
+        <name>sidewalk vertical</name>
+        <graphics>sidewalks/sidewalkv.png</graphics>
+        <solidness>non-solid</solidness>
     </tile>
+    <tile id="3">
+        <name>horizontal road top part</name>
+        <graphics>roadh/1.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="4">
+        <name>horizontal road middle part</name>
+        <graphics>roadh/2.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="5">
+        <name>horizontal road bottom part</name>
+        <graphics>roadh/3.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="6">
+        <name>vertical road left part</name>
+        <graphics>roadv/1.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="7">
+        <name>vertical road middle part</name>
+        <graphics>roadv/2.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="8">
+        <name>vertical road right part</name>
+        <graphics>roadv/3.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="9">
+        <name>crossing on horizontal road top part</name>
+        <graphics>crossingh/1.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="10">
+        <name>crossing on horizontal road middle part</name>
+        <graphics>crossingh/2.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="11">
+        <name>crossing on horizontal road bottom part</name>
+        <graphics>crossingh/3.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="12">
+        <name>crossing on vertical road top part</name>
+        <graphics>crossingv/1.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="13">
+        <name>crossing on vertical road middle part</name>
+        <graphics>crossingv/2.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="14">
+        <name>crossing on vertical road bottom part</name>
+        <graphics>crossingv/3.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+
+    <tile id="15">
+        <name>ground stone</name>
+        <graphics>groundstone.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+
 </class>
