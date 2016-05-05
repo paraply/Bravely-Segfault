@@ -15,7 +15,7 @@
         <line>1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1</line>
         <line>1,0,0,0,0,0,0,0,0,0,0,0,0,2,2,1</line>
         <line>1,0,0,0,0,0,0,0,0,0,0,0,0,2,2,1</line>
-        <line>1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1</line>
+        <line>1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1</line>
     </tilemap>
     <characters>
         <character name="Philip">
@@ -29,7 +29,12 @@
     </characters>
     <transitions>
         <transition>
-            <filename>src/main/resources/parseTests/second.xml</filename>
+            <filename>start.xml</filename>
+            <position>1,15</position>
+            <newPosition>13,0</newPosition>
+        </transition>
+        <transition>
+            <filename>second.xml</filename>
             <position>13,0</position>
             <newPosition>1,15</newPosition>
         </transition>

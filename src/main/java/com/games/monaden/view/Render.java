@@ -59,11 +59,12 @@ public class Render implements Observer{
     }
 
     @Override
-    public void update(Observable observable, Object arg)
-    {
+    public void update(Observable observable, Object arg) {
         //Should probably be refactored later
         if(observable == world) {
             if(arg == "transition"){
+                System.out.println("View got transistion updae req");
+                player.startTransition();
                 objects.clear();
                 for (GameObject go : world.getObjects()){
                     if (go.hasContinuousAnimation()){

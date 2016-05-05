@@ -29,6 +29,8 @@ class AnimatedObject extends RenderObject {
     private final int PIXELS_PER_STEP = 2;      // If we move a pixel at a time it will be to slow. This can be adjusted here.
                                                 // REMEMBER: The tilesets size has to be divisible by this number
 
+    private boolean inTransition;
+
     AnimatedObject(GameObject gameObject, GraphicsContext context) {
         super(gameObject, context);
         previousPosition = gameObject.getPosition();
@@ -36,6 +38,11 @@ class AnimatedObject extends RenderObject {
 //            animationFrequency = animationFrequency / 2;
 //        }
     }
+
+    public void startTransition(){
+        inTransition = true;
+    }
+
 
     public void draw(){
         calculateSourceX();
@@ -55,6 +62,13 @@ class AnimatedObject extends RenderObject {
         }else{ // Else if object does not have a continuous animation. Then it should only be animated during transition.
             if (currentTransitionStep == 0){                                // We are currently not in a moving state
                 if (!gameObject.getPosition().equals(previousPosition)){    // Check if we should be in a moving state (e.g the objects coordinates has changed since last time)
+                    System.out.println("Object moved from: " + previousPosition.getX() + "," + previousPosition.getY() + " to " + gameObject.getPosition().getX() + "," + gameObject.getPosition().getY());
+                    if (inTransition){
+                        System.out.println("however i am in transition");
+                        previousPosition = gameObject.getPosition();
+                        inTransition = false;
+                        return;
+                    }
                     currentTransitionStep = World.TILE_SIZE;                 // If we have a 32-bit TILE_SIZE, then we should move to another tile in maximum 32 steps.
                     imageSrcX = 0;                                        // Do not animate first. We want to change the objects direction this time.
                     x = previousPosition.getX() * World.TILE_SIZE;           // Stand still for now, we want to change direction first. Start moving in next transition.
