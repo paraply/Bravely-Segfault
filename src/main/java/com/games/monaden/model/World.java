@@ -30,6 +30,10 @@ public class World extends Observable{
     public List<GameObject> getObjects(){
         return objects;
     }
+    public List<GameObject> getInteractables(){
+        return interactables;
+    }
+    public HashMap<Point, String> getTransitions() { return transitions; }
 
     private SAXParser parser;
     private LevelParser levelParser;
@@ -85,45 +89,4 @@ public class World extends Observable{
     public enum MovementDirection {
         UP, DOWN, LEFT, RIGHT
     }
-
-    /** Checks if a movement in one Direction in the tilemap is possible or not
-     *  Returns the new position after movement, and also handles potential new screen
-     */
-    public Point CheckMovement(Point p, MovementDirection direction) {
-        Point newPoint = p.nextTo(direction);
-
-        if(newPoint.getY() < 0 || newPoint.getY() >= mapSize
-                || newPoint.getX() < 0 || newPoint.getX() >= mapSize)
-            return p;
-
-//      Loop through every object and find the one at the position we want to move to
-//      If that object is solid then it will not be possible
-        for(GameObject g : objects) {
-            if(g.getPosition().equals(newPoint)){
-                if (g.getSolidness()){
-                    return p;
-                }
-            }
-        }
-
-        if(transitions.containsKey(p)){
-            //Should call for a levelparse using the filepath in transitions.get(p)
-            //Should set the character at the new position from the level-file
-            return p;
-        }
-
-        return newPoint;
-    }
-
-    public String CheckInteraction(Point p, MovementDirection direction) {
-        Point newPoint = p.nextTo(direction);
-
-        for(GameObject g : interactables) {
-            if(g.getPosition().equals(newPoint))
-                return "There is an interactive object in front of the player. Start interaction.";
-        }
-
-        return "There was nothing to interact with.";
-    }
-
 }
