@@ -1,4 +1,4 @@
-package com.games.monaden.services.tileParser;
+package com.games.monaden.model;
 
 
 import java.io.File;

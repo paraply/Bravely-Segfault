@@ -2,7 +2,6 @@ package com.games.monaden.model;
 
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.services.levelParser.LevelParser;
-import com.games.monaden.services.tileParser.Tile;
 import com.games.monaden.services.tileParser.TileParser;
 
 import javax.xml.parsers.SAXParser;
