@@ -81,4 +81,38 @@
         <solidness>non-solid</solidness>
     </tile>
 
+    <tile id="16">
+        <name>Blue bench on stone vertical top</name>
+        <graphics>bluebenchonstonev/1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="17">
+        <name>Blue bench on stone vertical middle</name>
+        <graphics>bluebenchonstonev/2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="18">
+        <name>Blue bench on stone vertical bottom</name>
+        <graphics>bluebenchonstonev/3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+    <tile id="19">
+        <name>Blue bench on stone horizontal left</name>
+        <graphics>bluebenchonstoneh/1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="20">
+        <name>Blue bench on stone horizontal middle</name>
+        <graphics>bluebenchonstoneh/2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="21">
+        <name>Blue bench on stone horizontal right</name>
+        <graphics>bluebenchonstoneh/3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+
+
 </class>
