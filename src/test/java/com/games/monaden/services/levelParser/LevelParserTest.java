@@ -1,8 +1,9 @@
-package com.games.monaden.model;
+package com.games.monaden.services.levelParser;
 
+import com.games.monaden.model.Point;
+import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.Character;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import javax.xml.parsers.SAXParser;
@@ -20,13 +21,7 @@ public class LevelParserTest {
     private SAXParserFactory factory = SAXParserFactory.newInstance();
     private SAXParser parser;
     private LevelParser levelParser;
-    private static World world;
     private File mapFile;
-
-    @BeforeClass
-    public static void initClass () {
-        world = new World("src/main/resources/parseTests/start.xml");
-    }
 
     @Before
     public void init () {
@@ -35,7 +30,7 @@ public class LevelParserTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        levelParser = new LevelParser(world);
+        levelParser = new LevelParser();
         levelParser.clearTilemap();
         levelParser.clearInteractables();
     }
@@ -50,7 +45,7 @@ public class LevelParserTest {
             parser.parse(mapFile, levelParser);
             int[][] tileMap = levelParser.getTileMap();
             int i;
-            for (i = 0; i < World.mapSize; i++) {
+            for (i = 0; i < World.MAP_SIZE; i++) {
                 if (tileMap[i].length != 16) {
                     assertTrue(false);
                     break;
@@ -74,7 +69,7 @@ public class LevelParserTest {
         try {
             parser.parse(mapFile, levelParser);
             int [][] tilemap = levelParser.getTileMap();
-            for (int i = 0; i < World.mapSize; i++) {
+            for (int i = 0; i < World.MAP_SIZE; i++) {
                 assertFalse(Arrays.equals(tilemap[i], empty));  //tilemap should not be empty
             }
 
@@ -82,7 +77,7 @@ public class LevelParserTest {
             levelParser.clearTilemap();
             tilemap = levelParser.getTileMap();
 
-            for (int i = 0; i < World.mapSize; i++) {
+            for (int i = 0; i < World.MAP_SIZE; i++) {
                 assertTrue(Arrays.equals(tilemap[i], empty));   //tilemap should be empty
             }
 

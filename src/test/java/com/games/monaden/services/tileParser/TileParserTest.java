@@ -1,7 +1,6 @@
-package com.games.monaden.model;
+package com.games.monaden.services.tileParser;
 
 import com.games.monaden.model.Tile;
-import com.games.monaden.model.TileParser;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;

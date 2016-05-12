@@ -1,5 +1,7 @@
-package com.games.monaden.model;
+package com.games.monaden.services.levelParser;
 
+import com.games.monaden.model.Point;
+import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import org.xml.sax.helpers.DefaultHandler;
@@ -8,7 +10,6 @@ import org.xml.sax.SAXException;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringJoiner;
 
 /**
  * Created by Philip on 2016-04-26.
@@ -18,8 +19,6 @@ public class LevelParser extends DefaultHandler {
 
     //TODO: Missing handling of frame count, dialogue, and transitions.
 
-    private World world;
-
     private boolean bLine = false;
     private boolean bCharName = false;
     private boolean bCharPos = false;
@@ -28,16 +27,15 @@ public class LevelParser extends DefaultHandler {
     private boolean bDialogue = false;
 
     private int row = 0;
-    private int [][] tileMap = new int [World.mapSize][World.mapSize];
+    private int [][] tileMap = new int [World.MAP_SIZE][World.MAP_SIZE];
     private String charName;
     private Point charPos;
     private String imageFile;
 
     private List<GameObject> interactables = new ArrayList<>();
 
-    public LevelParser(World world) {
+    public LevelParser() {
         super();
-        this.world = world;
     }
 
     @Override
@@ -97,7 +95,7 @@ public class LevelParser extends DefaultHandler {
                 }
                 break;
             case "character":
-                Character character = new Character(charPos, world, imageFile);
+                Character character = new Character(charPos, imageFile);
                 if (bCharName && charName != null) {
                     character.setName(charName);
                     bCharName = false;
@@ -146,8 +144,8 @@ public class LevelParser extends DefaultHandler {
      * @return a copy of the tilemap
      */
     public int[][] getTileMap () {
-        int [][] mapCopy = new int[World.mapSize][World.mapSize];
-        for (int i = 0; i < World.mapSize; i++) {
+        int [][] mapCopy = new int[World.MAP_SIZE][World.MAP_SIZE];
+        for (int i = 0; i < World.MAP_SIZE; i++) {
             mapCopy[i] = tileMap[i].clone();
         }
         return mapCopy;
@@ -165,7 +163,7 @@ public class LevelParser extends DefaultHandler {
      */
     public void clearTilemap () {
         int[] empty = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-        for (int i = 0; i < World.mapSize; i++) {
+        for (int i = 0; i < World.MAP_SIZE; i++) {
             tileMap[i] = empty.clone();
         }
     }

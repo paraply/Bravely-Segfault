@@ -17,6 +17,26 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.6</version>
+				<configuration>
+				    <rulesets>
+						<ruleset>/rulesets/java/naming.xml</ruleset>
+				    </rulesets>
+				</configuration>
+			</plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <executable>maven</executable>
+                    <mainClass>com.games.monaden.Main</mainClass>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
     <dependencies>

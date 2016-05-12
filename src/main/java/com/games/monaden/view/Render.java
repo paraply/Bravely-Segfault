@@ -31,16 +31,16 @@ public class Render implements Observer{
         this.world = world;
         for (GameObject go : world.getObjects()){
             if (go.hasContinuousAnimation()){
-                objects.add(new AnimatedObject(go));
+                objects.add(new AnimatedObject(go,context));
             }else{
-                objects.add(new RenderObject(go));
+                objects.add(new RenderObject(go, context));
             }
         }
         world.addObserver(this);
     }
 
     public void setPlayerCharacter(GameObject player){
-        this.player = new AnimatedObject(player);
+        this.player = new AnimatedObject(player,context);
     }
 
     //This class is currently singleton, since its instance needs to be accessed by WindowController, RenderObjects. May change...
@@ -51,19 +51,12 @@ public class Render implements Observer{
         return render;
     }
 
-
     public void redraw(){
         for (RenderObject ro : objects){
             ro.draw();
         }
         player.draw();
     }
-
-    // Used by renderObjects to draw on screen
-    void drawImage(Image img, double sx, double sy, double sw, double sh, double dx, double dy, double dw, double dh){
-        context.drawImage(img, sx,sy,sw,sh,dx,dy,dw,dh);
-    }
-
 
     @Override
     public void update(Observable observable, Object arg)
@@ -73,9 +66,9 @@ public class Render implements Observer{
             if(arg == "transition"){
                 for (GameObject go : world.getObjects()){
                     if (go.hasContinuousAnimation()){
-                        objects.add(new AnimatedObject(go));
+                        objects.add(new AnimatedObject(go,context));
                     }else{
-                        objects.add(new RenderObject(go));
+                        objects.add(new RenderObject(go,context));
                     }
                 }
             }
