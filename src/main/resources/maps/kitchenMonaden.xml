@@ -1,6 +1,6 @@
-Kitchen Monaden
-
-<line>22,22,22,22,22,22,22,22,22,22,22,22,22,22,0,0</line>
+<level>
+    <tilemap>
+	 <line>22,22,22,22,22,22,22,22,22,22,22,22,22,22,0,0</line>
 <line>22,49,37,33,34,33,34,38,48,48,48,48,15,22,0,0</line>
 <line>15,15,15,35,35,35,35,15,15,15,15,15,15,22,0,0</line>
 <line>22,15,15,15,15,15,15,15,15,15,15,15,15,22,0,0</line>
@@ -16,20 +16,21 @@ Kitchen Monaden
 <line>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</line>
 <line>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</line>
 <line>0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0</line>
-
-0 = Nothing
-22 = Walls						
-15 = Ground
-42 = Dish-Washing machine
-43 = Sink
-44 = Coffe
-45 = Stove
-46 = Tea
-33 = Table horisontiel left
-34 = Table horisontiel right
-47 = Fridges
-48 = Microwave
-49 = Poerty wall
-35 = chairs up
-37 = chairs right
-38 = chairs left
+    </tilemap>
+    <characters>
+        <character name="Philip">
+            <position>2,12</position>
+            <graphics>
+                <fileName>characters/philip-tan.png</fileName>
+                <frameCount>4</frameCount>
+            </graphics>
+            <dialogue>tutorialPhilip.xml</dialogue>
+        </character>
+    </characters>
+    <transitions>
+        <transition>
+            <levelName></levelName>
+            <position></position>
+        </transition>
+    </transitions>
+</level>

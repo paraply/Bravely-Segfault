@@ -29,8 +29,8 @@
     </characters>
     <transitions>
         <transition>
-            <levelName>monadenHall.xml</levelName>
-            <position>2,13</position>
+            <levelName></levelName>
+            <position></position>
         </transition>
     </transitions>
 </level>
