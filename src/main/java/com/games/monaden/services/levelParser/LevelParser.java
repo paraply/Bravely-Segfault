@@ -9,6 +9,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -33,6 +34,7 @@ public class LevelParser extends DefaultHandler {
     private String imageFile;
 
     private List<GameObject> interactables = new ArrayList<>();
+    private HashMap<Point, String> transitions = new HashMap<>();
 
     public LevelParser() {
         super();
@@ -139,6 +141,16 @@ public class LevelParser extends DefaultHandler {
         return new ArrayList<>(this.interactables);
     }
 
+
+    /**
+     * Returns a copy of the interactables list
+     * @return a copy of the interactables list
+     */
+    public HashMap<Point, String> getTransitions() {
+        return new HashMap<>(this.transitions);
+    }
+
+
     /**
      * Clones every row of the tilemap and returns these rows as a copy of the tilemap.
      * @return a copy of the tilemap
@@ -156,6 +168,13 @@ public class LevelParser extends DefaultHandler {
      */
     public void clearInteractables() {
         interactables.clear();
+    }
+
+    /**
+     * Clears the interactables list
+     */
+    public void clearTransitions() {
+        transitions.clear();
     }
 
     /**

@@ -31,6 +31,7 @@
         <transition>
             <levelName>monadenKitchen.xml</levelName>
             <position>8,5</position>
+			<newPosition>2,2</newPosition>
         </transition>
     </transitions>
 </level>
