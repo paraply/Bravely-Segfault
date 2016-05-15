@@ -69,7 +69,6 @@ public class World extends Observable{
 
             interactables = levelParser.getInteractables();
             transitions = levelParser.getTransitions();
-            System.out.println(transitions.get(0).newPos);
             objects.clear();
             //Loop through the tilemap and create tiles for each
             for (int y = 0; y < MAP_SIZE; y++) {
