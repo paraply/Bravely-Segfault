@@ -1,6 +1,7 @@
 package com.games.monaden.services.levelParser;
 
 import com.games.monaden.model.Point;
+import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
@@ -24,6 +25,8 @@ public class LevelParser extends DefaultHandler {
     private boolean bCharName = false;
     private boolean bCharPos = false;
     private boolean bFile = false;
+    private boolean bTransition = false;
+    private boolean bTransPos = false;
     private boolean bFrame = false;
     private boolean bDialogue = false;
 
@@ -31,10 +34,11 @@ public class LevelParser extends DefaultHandler {
     private int [][] tileMap = new int [World.MAP_SIZE][World.MAP_SIZE];
     private String charName;
     private Point charPos;
+    private Point transPos;
     private String imageFile;
 
     private List<GameObject> interactables = new ArrayList<>();
-    private HashMap<Point, String> transitions = new HashMap<>();
+    private List<Transition> transitions = new ArrayList<>();
 
     public LevelParser() {
         super();
@@ -79,7 +83,11 @@ public class LevelParser extends DefaultHandler {
                 break;
 
             case "transition":
-                //TODO: ???
+                bTransition = true;
+                break;
+
+            case "newPosition":
+                bTransPos = true;
                 break;
         }
     }
@@ -104,6 +112,9 @@ public class LevelParser extends DefaultHandler {
                     charName = null;
                 }
                 interactables.add(character);
+                break;
+            case "transition":
+                transitions.add(new Transition(charPos, transPos, imageFile));
                 break;
         }
     }
@@ -130,6 +141,10 @@ public class LevelParser extends DefaultHandler {
         } else if (bFile) {
             imageFile = new String(ch, start, length);
             bFile = false;
+        } else if(bTransPos){
+            String [] point = new String(ch, start, length).split(",");
+            transPos = new Point(Integer.parseInt(point[0])
+                    , Integer.parseInt(point[1]));
         }
     }
 
@@ -143,11 +158,11 @@ public class LevelParser extends DefaultHandler {
 
 
     /**
-     * Returns a copy of the interactables list
-     * @return a copy of the interactables list
+     * Returns a copy of the transitions list
+     * @return a copy of the transitions list
      */
-    public HashMap<Point, String> getTransitions() {
-        return new HashMap<>(this.transitions);
+    public List<Transition> getTransitions() {
+        return new ArrayList<>(this.transitions);
     }
 
 

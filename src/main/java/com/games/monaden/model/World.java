@@ -8,7 +8,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
 
@@ -25,7 +24,7 @@ public class World extends Observable{
 
     private List<GameObject> objects = new ArrayList<>();
     private List<GameObject> interactables = new ArrayList<>();
-    private HashMap<Point, String> transitions = new HashMap<>();
+    private List<Transition> transitions = new ArrayList<>();
 
     public List<GameObject> getObjects(){
         return objects;
@@ -33,7 +32,7 @@ public class World extends Observable{
     public List<GameObject> getInteractables(){
         return interactables;
     }
-    public HashMap<Point, String> getTransitions() { return transitions; }
+    public List<Transition> getTransitions() { return transitions; }
 
     private SAXParser parser;
     private LevelParser levelParser;
@@ -108,10 +107,11 @@ public class World extends Observable{
             }
         }
 
-        if(getTransitions().containsKey(currentPoint)){
-            //Should call for a levelparse using the filepath in transitions.get(p)
-            //Should set the character at the new position from the level-file
-            return currentPoint;
+        for(Transition t : getTransitions()){
+            if(t.pos.equals(newPoint)) {
+                //Should call for a levelparse using the filepath in t
+                return t.newPos;
+            }
         }
 
         return newPoint;

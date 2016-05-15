@@ -33,6 +33,7 @@ public class LevelParserTest {
         levelParser = new LevelParser();
         levelParser.clearTilemap();
         levelParser.clearInteractables();
+        levelParser.clearTransitions();
     }
 
     /**
