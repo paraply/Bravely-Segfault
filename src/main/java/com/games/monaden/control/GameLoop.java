@@ -28,7 +28,6 @@ public class GameLoop extends AnimationTimer {
     @Override
     public void handle(long now) {
         Render.getInstance().redraw();
-
         if (countDown > 0){  // used to add a delay (better than sleep) to user movement
             countDown--;
         }else{

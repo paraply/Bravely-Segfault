@@ -79,7 +79,7 @@ public class World extends Observable{
                     objects.add(newGameObject);
                 }
             }
-
+            setChanged();
             notifyObservers("transition");
         }
         catch(Exception e)

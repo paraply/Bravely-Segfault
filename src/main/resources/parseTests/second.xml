@@ -33,5 +33,10 @@
             <position>1,15</position>
             <newPosition>13,0</newPosition>
         </transition>
+        <transition>
+            <filename>src/main/resources/parseTests/second.xml</filename>
+            <position>13,0</position>
+            <newPosition>1,15</newPosition>
+        </transition>
     </transitions>
 </level>
