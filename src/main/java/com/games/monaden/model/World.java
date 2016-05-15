@@ -60,6 +60,7 @@ public class World extends Observable{
 
     private void loadLevel(String levelFile){
         try {
+            System.out.println("Parsing: " + levelFile);
             levelParser.clearTilemap();
             levelParser.clearInteractables();
             levelParser.clearTransitions();
@@ -68,7 +69,7 @@ public class World extends Observable{
 
             interactables = levelParser.getInteractables();
             transitions = levelParser.getTransitions();
-
+            System.out.println(transitions.get(0).newPos);
             //Loop through the tilemap and create tiles for each
             for (int y = 0; y < MAP_SIZE; y++) {
                 for (int x = 0; x < MAP_SIZE; x++) {
@@ -84,6 +85,7 @@ public class World extends Observable{
         catch(Exception e)
         {
             System.err.println("Error loading level: " + e.getMessage());
+            System.err.println(e.getStackTrace());
         }
     }
 
@@ -112,6 +114,7 @@ public class World extends Observable{
         for(Transition t : getTransitions()){
             if(t.pos.equals(newPoint)) {
                 //Should call for a levelparse using the filepath in t
+                loadLevel(t.newLevel);
                 return t.newPos;
             }
         }

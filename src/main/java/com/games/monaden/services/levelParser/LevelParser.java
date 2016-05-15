@@ -201,5 +201,6 @@ public class LevelParser extends DefaultHandler {
         for (int i = 0; i < World.MAP_SIZE; i++) {
             tileMap[i] = empty.clone();
         }
+        row = 0;
     }
 }

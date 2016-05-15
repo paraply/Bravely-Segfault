@@ -29,9 +29,9 @@
     </characters>
     <transitions>
         <transition>
-            <levelName>start.xml</levelName>
+            <filename>src/main/resources/parseTests/second.xml</filename>
             <position>13,0</position>
-            <newPosition>14,0</newPosition>
+            <newPosition>1,15</newPosition>
         </transition>
     </transitions>
 </level>
