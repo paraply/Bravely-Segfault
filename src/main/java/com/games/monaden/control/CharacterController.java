@@ -38,7 +38,7 @@ public class CharacterController {
                 System.out.println("MOVE RIGHT");
                 break;
         }
-        checkMovement(player.getPosition(), dir, world);
+        player.setPosition(world.checkMovement(player.getPosition(), dir));
         player.setDirection(dir);
     }
 
@@ -50,48 +50,9 @@ public class CharacterController {
                 break;
             case SPACE:
                 //Temporarily a string since no dialogue system written yet
-                String temp = checkInteraction(player.getPosition(), player.getDirection(), world);
+                String temp = world.checkInteraction(player.getPosition(), player.getDirection());
                 System.out.println(temp);
                 break;
         }
-    }
-
-
-    /** Checks if a movement in one Direction in the tilemap is possible or not
-     *  Returns the new position after movement, and also handles potential new screen
-     */
-    public void checkMovement(Point currentPoint, World.MovementDirection direction, World world) {
-        Point newPoint = currentPoint.nextTo(direction);
-
-        if(newPoint.getY() < 0 || newPoint.getY() >= World.MAP_SIZE
-                || newPoint.getX() < 0 || newPoint.getX() >= World.MAP_SIZE)
-            return;
-
-//      Loop through every object and find the one at the position we want to move to
-//      If that object is solid then it will not be possible
-        for(GameObject g : world.getObjects()) {
-            if(g.getPosition().equals(newPoint) && g.isSolid()){
-                return;
-            }
-        }
-
-        if(world.getTransitions().containsKey(currentPoint)){
-            //Should call for a levelparse using the filepath in transitions.get(p)
-            //Should set the character at the new position from the level-file
-            return;
-        }
-
-        player.setPosition(newPoint);
-    }
-
-    public String checkInteraction(Point currentPoint, World.MovementDirection direction, World world) {
-        Point newPoint = currentPoint.nextTo(direction);
-
-        for(GameObject g : world.getInteractables()) {
-            if(g.getPosition().equals(newPoint))
-                return "There is an interactive object in front of the player. Start interaction.";
-        }
-
-        return "There was nothing to interact with.";
     }
 }

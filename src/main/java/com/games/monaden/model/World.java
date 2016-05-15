@@ -89,4 +89,42 @@ public class World extends Observable{
     public enum MovementDirection {
         UP, DOWN, LEFT, RIGHT
     }
+
+    /** Checks if a movement in one Direction in the tilemap is possible or not
+     *  Returns the new position after movement, and also handles potential new screen
+     */
+    public Point checkMovement(Point currentPoint, World.MovementDirection direction) {
+        Point newPoint = currentPoint.nextTo(direction);
+
+        if(newPoint.getY() < 0 || newPoint.getY() >= World.MAP_SIZE
+                || newPoint.getX() < 0 || newPoint.getX() >= World.MAP_SIZE)
+            return currentPoint;
+
+//      Loop through every object and find the one at the position we want to move to
+//      If that object is solid then it will not be possible
+        for(GameObject g : getObjects()) {
+            if(g.getPosition().equals(newPoint) && g.isSolid()){
+                return currentPoint;
+            }
+        }
+
+        if(getTransitions().containsKey(currentPoint)){
+            //Should call for a levelparse using the filepath in transitions.get(p)
+            //Should set the character at the new position from the level-file
+            return currentPoint;
+        }
+
+        return newPoint;
+    }
+
+    public String checkInteraction(Point currentPoint, World.MovementDirection direction) {
+        Point newPoint = currentPoint.nextTo(direction);
+
+        for(GameObject g : getInteractables()) {
+            if(g.getPosition().equals(newPoint))
+                return "There is an interactive object in front of the player. Start interaction.";
+        }
+
+        return "There was nothing to interact with.";
+    }
 }

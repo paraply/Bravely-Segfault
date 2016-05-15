@@ -6,13 +6,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Anton on 2016-04-17.
- */
-
-
-
-
 public class WorldTest {
 
     private static World startWorld;
@@ -26,7 +19,7 @@ public class WorldTest {
     public void initTest(){
         world = startWorld;
     }
-    /*
+
     @Test
     public void moveUpBlocked() {
 
@@ -159,5 +152,4 @@ public class WorldTest {
         }
         assertNull(check);
     }
-    */
 }
