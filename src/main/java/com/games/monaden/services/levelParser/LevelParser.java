@@ -86,7 +86,7 @@ public class LevelParser extends DefaultHandler {
                 bTransition = true;
                 break;
 
-            case "newPosition":
+            case "newposition":
                 bTransPos = true;
                 break;
         }
@@ -145,6 +145,7 @@ public class LevelParser extends DefaultHandler {
             String [] point = new String(ch, start, length).split(",");
             transPos = new Point(Integer.parseInt(point[0])
                     , Integer.parseInt(point[1]));
+            bTransPos = false;
         }
     }
 

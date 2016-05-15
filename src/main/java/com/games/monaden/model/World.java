@@ -61,11 +61,13 @@ public class World extends Observable{
     private void loadLevel(String levelFile){
         try {
             levelParser.clearTilemap();
-            //levelParser.clearCharacters();
+            levelParser.clearInteractables();
+            levelParser.clearTransitions();
             File level = new File(levelFile);
             parser.parse(level, levelParser);
 
             interactables = levelParser.getInteractables();
+            transitions = levelParser.getTransitions();
 
             //Loop through the tilemap and create tiles for each
             for (int y = 0; y < MAP_SIZE; y++) {

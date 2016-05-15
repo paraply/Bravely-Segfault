@@ -1,6 +1,7 @@
 package com.games.monaden.services.levelParser;
 
 import com.games.monaden.model.Point;
+import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.Character;
 import org.junit.Before;
@@ -133,6 +134,37 @@ public class LevelParserTest {
             assertTrue(character.getName().equals("Philip"));
             assertTrue(character.getPosition().equals(new Point(5,2)));
             assertTrue(character.getImagePath().equals("characters/philip-tan.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Checks that the amount of transitions in the list is correct (1)
+     */
+    @Test
+    public void testTransitionListSize(){
+        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
+        try {
+            parser.parse(mapFile, levelParser);
+            assertTrue(levelParser.getTransitions().size() == 1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Checks that the character in the character list is who they should be
+     */
+    @Test
+    public void testTransitionContent () {
+        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
+        try {
+            parser.parse(mapFile, levelParser);
+            Transition transition = levelParser.getTransitions().get(0);
+            assertTrue(transition.pos.equals(new Point(8,5)));
+            assertTrue(transition.newPos.equals(new Point(2,2)));
+            assertTrue(transition.newLevel.equals("monadenKitchen.xml"));
         } catch (Exception e) {
             e.printStackTrace();
         }
