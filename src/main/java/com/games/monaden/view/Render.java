@@ -45,9 +45,7 @@ public class Render implements Observer{
     }
 
     public void redraw(){
-        for (RenderObject ro : objects){
-            ro.draw();
-        }
+        objects.forEach(RenderObject::draw);
         player.draw();
     }
 
@@ -61,6 +59,9 @@ public class Render implements Observer{
         }
     }
 
+    /**
+     *  Delete all objects and create new
+     */
     private void transition(){
         objects.clear();
         addWorldObjects();

@@ -12,7 +12,7 @@ public class WorldTest {
     private World world;
     @BeforeClass
     public static void initClass(){
-        startWorld = new World("src/main/resources/parseTests/start.xml" );
+        startWorld = new World("test.xml" );
     }
 
     @Before
