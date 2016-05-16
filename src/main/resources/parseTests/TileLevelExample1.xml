@@ -29,8 +29,9 @@
     </characters>
     <transitions>
         <transition>
-            <levelName>monadenKitchen.xml</levelName>
+            <filename>monadenKitchen.xml</filename>
             <position>8,5</position>
+			<newPosition>2,2</newPosition>
         </transition>
     </transitions>
 </level>

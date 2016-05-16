@@ -64,6 +64,7 @@ public class Render implements Observer{
         //Should probably be refactored later
         if(observable == world) {
             if(arg == "transition"){
+                objects.clear();
                 for (GameObject go : world.getObjects()){
                     if (go.hasContinuousAnimation()){
                         objects.add(new AnimatedObject(go,context));

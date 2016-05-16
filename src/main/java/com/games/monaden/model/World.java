@@ -8,7 +8,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
 
@@ -25,7 +24,7 @@ public class World extends Observable{
 
     private List<GameObject> objects = new ArrayList<>();
     private List<GameObject> interactables = new ArrayList<>();
-    private HashMap<Point, String> transitions = new HashMap<>();
+    private List<Transition> transitions = new ArrayList<>();
 
     public List<GameObject> getObjects(){
         return objects;
@@ -33,7 +32,7 @@ public class World extends Observable{
     public List<GameObject> getInteractables(){
         return interactables;
     }
-    public HashMap<Point, String> getTransitions() { return transitions; }
+    public List<Transition> getTransitions() { return transitions; }
 
     private SAXParser parser;
     private LevelParser levelParser;
@@ -61,13 +60,16 @@ public class World extends Observable{
 
     private void loadLevel(String levelFile){
         try {
+            System.out.println("Parsing: " + levelFile);
             levelParser.clearTilemap();
-            //levelParser.clearCharacters();
+            levelParser.clearInteractables();
+            levelParser.clearTransitions();
             File level = new File(levelFile);
             parser.parse(level, levelParser);
 
             interactables = levelParser.getInteractables();
-
+            transitions = levelParser.getTransitions();
+            objects.clear();
             //Loop through the tilemap and create tiles for each
             for (int y = 0; y < MAP_SIZE; y++) {
                 for (int x = 0; x < MAP_SIZE; x++) {
@@ -77,16 +79,57 @@ public class World extends Observable{
                     objects.add(newGameObject);
                 }
             }
-
+            setChanged();
             notifyObservers("transition");
         }
         catch(Exception e)
         {
             System.err.println("Error loading level: " + e.getMessage());
+            System.err.println(e.getStackTrace());
         }
     }
 
     public enum MovementDirection {
         UP, DOWN, LEFT, RIGHT
+    }
+
+    /** Checks if a movement in one Direction in the tilemap is possible or not
+     *  Returns the new position after movement, and also handles potential new screen
+     */
+    public Point checkMovement(Point currentPoint, World.MovementDirection direction) {
+        Point newPoint = currentPoint.nextTo(direction);
+
+        if(newPoint.getY() < 0 || newPoint.getY() >= World.MAP_SIZE
+                || newPoint.getX() < 0 || newPoint.getX() >= World.MAP_SIZE)
+            return currentPoint;
+
+//      Loop through every object and find the one at the position we want to move to
+//      If that object is solid then it will not be possible
+        for(GameObject g : getObjects()) {
+            if(g.getPosition().equals(newPoint) && g.isSolid()){
+                return currentPoint;
+            }
+        }
+
+        for(Transition t : getTransitions()){
+            if(t.pos.equals(newPoint)) {
+                //Should call for a levelparse using the filepath in t
+                loadLevel(t.newLevel);
+                return t.newPos;
+            }
+        }
+
+        return newPoint;
+    }
+
+    public String checkInteraction(Point currentPoint, World.MovementDirection direction) {
+        Point newPoint = currentPoint.nextTo(direction);
+
+        for(GameObject g : getInteractables()) {
+            if(g.getPosition().equals(newPoint))
+                return "There is an interactive object in front of the player. Start interaction.";
+        }
+
+        return "There was nothing to interact with.";
     }
 }
