@@ -119,6 +119,51 @@
         <solidness>solid</solidness>
     </tile>
 
+    <tile id="23">
+        <name>Sakura 1</name>
+        <graphics>sakura/1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="24">
+        <name>Sakura 2</name>
+        <graphics>sakura/2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="25">
+        <name>Sakura 3</name>
+        <graphics>sakura/3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="26">
+        <name>Sakura 4</name>
+        <graphics>sakura/4.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="27">
+        <name>Sakura 5</name>
+        <graphics>sakura/5.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="28">
+        <name>Sakura 6</name>
+        <graphics>sakura/6.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="29">
+        <name>Sakura 7</name>
+        <graphics>sakura/7.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="30">
+        <name>Sakura 8</name>
+        <graphics>sakura/8.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="31">
+        <name>Sakura 9</name>
+        <graphics>sakura/9.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
 
 
 </class>
