@@ -1,10 +1,26 @@
 .pane-background {
-    -fx-background-color: rgb(225, 228, 203);
+    -fx-background-color: rgb(10, 20, 10);
 
 }
 
 .canvas-border{
-    -fx-background-color: rgb(240, 240, 240);
+    -fx-background-color: rgb(0, 240, 0);
         -fx-border-width: 2px;
-        -fx-border-color: #413e4a;
+        -fx-border-color: rgb(0,0,0);
+}
+
+.dialog-box{
+    -fx-background-color: rgba(10,10,10,0.9);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 2px;
+    -fx-border-color: white;
+}
+
+.dialog-choice{
+    -fx-text-fill:rgb(240,100,100);
+}
+
+.dialog-title{
+    -fx-text-fill:rgb(240,200,200);
 }

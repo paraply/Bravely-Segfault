@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="pane-background" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.games.monaden.control.WindowController">
+<Pane fx:id="main_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="pane-background" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.games.monaden.control.WindowController">
     <stylesheets>
         <URL value="@window_style.css" />
     </stylesheets>
@@ -12,6 +19,51 @@
       <Pane layoutX="144.0" layoutY="44.0" prefHeight="516.0" prefWidth="516.0" styleClass="canvas-border">
          <children>
               <Canvas fx:id="mainCanvas" height="512.0" layoutX="2.0" layoutY="2.0" width="512.0" />
+            <VBox fx:id="dialogbox" layoutX="13.0" layoutY="353.0" prefHeight="152.0" prefWidth="490.0" styleClass="dialog-box" visible="false">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Label fx:id="question" prefHeight="17.0" prefWidth="487.0" styleClass="dialog-title" text="Sarosh gillar sakura trees" visible="false">
+                     <font>
+                        <Font name="Pixel Azure Bonds" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="answer1" prefHeight="15.0" prefWidth="487.0" styleClass="dialog-choice" text="Ja det gör han" visible="false">
+                     <font>
+                        <Font name="Pixel Azure Bonds" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets top="6.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="answer2" prefHeight="17.0" prefWidth="487.0" styleClass="dialog-choice" text="Fuck sakura trees #björk" visible="false">
+                     <font>
+                        <Font name="Pixel Azure Bonds" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets top="2.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="answer3" prefHeight="17.0" prefWidth="487.0" styleClass="dialog-choice" text="Vad fan är sakura trees?" visible="false">
+                     <font>
+                        <Font name="Pixel Azure Bonds" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets left="10.0" top="2.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </Pane>
     </children>

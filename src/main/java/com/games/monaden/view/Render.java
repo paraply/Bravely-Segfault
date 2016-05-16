@@ -3,7 +3,8 @@ package com.games.monaden.view;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.model.World;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,7 @@ public class Render implements Observer{
     private World world; // World model provides information about what should be drawn
     private AnimatedObject player;
     private List<RenderObject> objects = new ArrayList<>();
+    public RenderDialog renderDialog;
 
 
     // graphics context = main-canvas context
@@ -29,14 +31,12 @@ public class Render implements Observer{
 
     public void setWorld(World world){
         this.world = world;
-        for (GameObject go : world.getObjects()){
-            if (go.hasContinuousAnimation()){
-                objects.add(new AnimatedObject(go,context));
-            }else{
-                objects.add(new RenderObject(go, context));
-            }
-        }
         world.addObserver(this);
+        addWorldObjects();
+    }
+
+    public void setDialogObjects(VBox dialog, Label q, Label a1, Label a2, Label a3){
+        renderDialog = new RenderDialog(dialog,q,a1,a2,a3);
     }
 
     public void setPlayerCharacter(GameObject player){
@@ -52,18 +52,36 @@ public class Render implements Observer{
     }
 
     public void redraw(){
-        for (RenderObject ro : objects){
-            ro.draw();
-        }
+        objects.forEach(RenderObject::draw);
         player.draw();
     }
 
+    private void addWorldObjects(){
+        for (GameObject go : world.getObjects()){
+            if (go.hasContinuousAnimation()){
+                objects.add(new AnimatedObject(go,context));
+            }else{
+                objects.add(new RenderObject(go, context));
+            }
+        }
+    }
+
+    /**
+     *  Delete all objects and create new
+     */
+    private void transition(){
+        objects.clear();
+        addWorldObjects();
+        player.hasTransitioned();
+        redraw();
+    }
+
     @Override
-    public void update(Observable observable, Object arg)
-    {
+    public void update(Observable observable, Object arg) {
         //Should probably be refactored later
         if(observable == world) {
             if(arg == "transition"){
+                player.startTransition();
                 objects.clear();
                 for (GameObject go : world.getObjects()){
                     if (go.hasContinuousAnimation()){
@@ -72,6 +90,7 @@ public class Render implements Observer{
                         objects.add(new RenderObject(go,context));
                     }
                 }
+                transition();
             }
         }
     }
