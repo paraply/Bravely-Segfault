@@ -74,7 +74,6 @@ public class Render implements Observer{
         if(observable == world) {
             System.out.println("UPDATE: " + arg);
             if(arg == "transition"){
-                System.out.println("View got transistion updae req");
                 player.startTransition();
                 objects.clear();
                 for (GameObject go : world.getObjects()){
