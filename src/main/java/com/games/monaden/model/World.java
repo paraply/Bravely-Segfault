@@ -64,17 +64,12 @@ public class World extends Observable{
         try {
             System.out.println("Parsing: " + levelName);
             levelParser.clearTilemap();
-<<<<<<< HEAD
             levelParser.clearInteractables();
             levelParser.clearTransitions();
-//            File level = new File(levelFile);
-//            levelParser.clearCharacters();
+//          levelParser.clearCharacters();
+
+//          using relative paths for tiles and maps. renamed objects folder to tiles
             File level = new File(this.getClass().getResource("/maps/" + levelName ).getPath());
-// using relative paths for tiles and maps. renamed objects folder to tiles
-=======
-            //levelParser.clearCharacters();
-            File level = new File(this.getClass().getResource("/maps/" + levelName + ".xml").getPath());
->>>>>>> bfa8d88e6a4397e7f669bff1632e48edaf59bbc5
             parser.parse(level, levelParser);
 
             interactables = levelParser.getInteractables();

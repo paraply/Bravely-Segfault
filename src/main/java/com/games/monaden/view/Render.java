@@ -72,9 +72,7 @@ public class Render implements Observer{
     public void update(Observable observable, Object arg) {
         //Should probably be refactored later
         if(observable == world) {
-            System.out.println("UPDATE: " + arg);
             if(arg == "transition"){
-<<<<<<< HEAD
                 player.startTransition();
                 objects.clear();
                 for (GameObject go : world.getObjects()){
@@ -84,8 +82,6 @@ public class Render implements Observer{
                         objects.add(new RenderObject(go,context));
                     }
                 }
-=======
->>>>>>> bfa8d88e6a4397e7f669bff1632e48edaf59bbc5
                 transition();
             }
         }

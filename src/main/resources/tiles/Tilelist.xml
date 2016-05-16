@@ -113,16 +113,12 @@
         <solidness>solid</solidness>
     </tile>
 
-<<<<<<< HEAD
     <tile id="22">
         <name>Brick wall</name>
         <graphics>brickwall.png</graphics>
         <solidness>solid</solidness>
     </tile>
 
-
-=======
->>>>>>> bfa8d88e6a4397e7f669bff1632e48edaf59bbc5
 
 
 </class>
