@@ -5,6 +5,9 @@ import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.GameObject;
 import javafx.scene.canvas.GraphicsContext;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by paraply on 2016-04-22.
  *
@@ -68,6 +71,10 @@ class AnimatedObject extends RenderObject {
         }else{ // Else if object does not have a continuous animation. Then it should only be animated during transition.
             if (currentTransitionStep == 0){                                // We are currently not in a moving state
                 if (!gameObject.getPosition().equals(previousPosition)){    // Check if we should be in a moving state (e.g the objects coordinates has changed since last time)
+                    List<String> answers = new ArrayList<>();
+                    answers.add("Från: X:" + previousPosition.getX() + " Y:" + previousPosition.getY() );
+                    answers.add("Till: X:" + gameObject.getPosition().getX() + " Y:" + gameObject.getPosition().getY());
+                    Render.getInstance().renderDialog.showDialog("moving", answers);
                     if (inTransition){
                         previousPosition = gameObject.getPosition();
                         inTransition = false;

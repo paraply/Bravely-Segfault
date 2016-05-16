@@ -3,6 +3,8 @@ package com.games.monaden.view;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.model.World;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ public class Render implements Observer{
     private World world; // World model provides information about what should be drawn
     private AnimatedObject player;
     private List<RenderObject> objects = new ArrayList<>();
+    public RenderDialog renderDialog;
 
 
     // graphics context = main-canvas context
@@ -30,6 +33,10 @@ public class Render implements Observer{
         this.world = world;
         world.addObserver(this);
         addWorldObjects();
+    }
+
+    public void setDialogObjects(VBox dialog, Label q, Label a1, Label a2, Label a3){
+        renderDialog = new RenderDialog(dialog,q,a1,a2,a3);
     }
 
     public void setPlayerCharacter(GameObject player){
