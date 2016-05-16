@@ -3,7 +3,6 @@ package com.games.monaden.view;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.model.World;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,14 +28,8 @@ public class Render implements Observer{
 
     public void setWorld(World world){
         this.world = world;
-        for (GameObject go : world.getObjects()){
-            if (go.hasContinuousAnimation()){
-                objects.add(new AnimatedObject(go,context));
-            }else{
-                objects.add(new RenderObject(go, context));
-            }
-        }
         world.addObserver(this);
+        addWorldObjects();
     }
 
     public void setPlayerCharacter(GameObject player){
@@ -58,19 +51,30 @@ public class Render implements Observer{
         player.draw();
     }
 
+    private void addWorldObjects(){
+        for (GameObject go : world.getObjects()){
+            if (go.hasContinuousAnimation()){
+                objects.add(new AnimatedObject(go,context));
+            }else{
+                objects.add(new RenderObject(go, context));
+            }
+        }
+    }
+
+    private void transition(){
+        objects.clear();
+        addWorldObjects();
+        player.hasTransitioned();
+        redraw();
+    }
+
     @Override
-    public void update(Observable observable, Object arg)
-    {
+    public void update(Observable observable, Object arg) {
         //Should probably be refactored later
         if(observable == world) {
+            System.out.println("UPDATE: " + arg);
             if(arg == "transition"){
-                for (GameObject go : world.getObjects()){
-                    if (go.hasContinuousAnimation()){
-                        objects.add(new AnimatedObject(go,context));
-                    }else{
-                        objects.add(new RenderObject(go,context));
-                    }
-                }
+                transition();
             }
         }
     }
