@@ -1,0 +1,27 @@
+<class>
+    <dialog id="0" childSize="2">
+        <text>
+            This is the first line. No choices.
+        </text>
+        <text>
+            This is the second line. There should be two choices here.
+        </text>
+        <response condition="has_item()==book" nextDialog="1">
+            Read this book and git gud.
+        </response>
+        <response condition="True" nextDialog="2">
+            Git göj.
+        </response>
+    </dialog>
+
+    <dialog id="1" childSize="0">
+        <text>
+            I don't have time for books. Hearthstone! Yeaaah!
+        </text>
+    </dialog>
+    <dialog id="2" childSize="0">
+        <text>
+            Git göj.
+        </text>
+    </dialog>
+</class>
