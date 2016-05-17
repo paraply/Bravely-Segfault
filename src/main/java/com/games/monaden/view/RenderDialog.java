@@ -28,12 +28,9 @@ public class RenderDialog {
         dialog.getChildren().clear();
         if (avatarName != null){
             ImageView imageView = new ImageView();
-            imageView.resize(100,100);
             imageView.setImage(new Image("avatars/" + avatarName ));
             dialog.getChildren().add(imageView);
         }
-
-
 
         labelBox = new VBox();
         question = new Label();
@@ -88,7 +85,7 @@ public class RenderDialog {
     private void select(int answerIndex){
         if (selected != -1){
             answer[selected].getStyleClass().remove("dialog-choice-selected"); // Remove old selection
-            answer[selected].setText(answerText.get(answerIndex));
+            answer[selected].setText(answerText.get(selected));
         }
         selected = answerIndex;
         answer[selected].getStyleClass().add("dialog-choice-selected");
