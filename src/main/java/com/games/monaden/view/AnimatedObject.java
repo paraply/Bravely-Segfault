@@ -74,7 +74,8 @@ class AnimatedObject extends RenderObject {
                     List<String> answers = new ArrayList<>();
                     answers.add("Från: X:" + previousPosition.getX() + " Y:" + previousPosition.getY() );
                     answers.add("Till: X:" + gameObject.getPosition().getX() + " Y:" + gameObject.getPosition().getY());
-                    Render.getInstance().renderDialog.showDialog("moving", answers);
+                    answers.add("Duktig katt");
+                    Render.getInstance().renderDialog.showDialog("meowing", answers);
                     if (inTransition){
                         previousPosition = gameObject.getPosition();
                         inTransition = false;
