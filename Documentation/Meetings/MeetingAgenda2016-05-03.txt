@@ -1,0 +1,25 @@
+﻿Date: 2016-05-03
+
+Facilitator: Stefan
+
+Participants: Philip, Mikael, Anton
+
+
+
+1. Objectives
+* SDD
+* Work assignments
+* Lombok
+* Ta bort onödiga tester
+* Update domain model
+* Add run-stuff to maven (or manifest run)
+1. Reports
+* Everybody has done their work
+1. Discussion items
+* Design model
+1. Outcomes and assignments
+* Move parser out of model
+* Character not dependent of world?
+* Stefan - inventory
+1. Wrap up
+* Meeting again tomorrow 13.15 - 15.00

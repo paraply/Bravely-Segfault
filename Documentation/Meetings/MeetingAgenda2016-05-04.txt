@@ -1,0 +1,34 @@
+﻿Date: 2016-05-04
+
+Facilitator: Philip
+
+Participants: Mikael, Stefan, Anton
+
+1. Objectives
+* SDD
+* Manifest run or Maven exec
+* Lombok
+* Pmd
+* Level txt files to xml files
+1. Reports
+* Mike: ಠ_ಠ
+* Stefan: Worked on inventory and item
+* Anton: Refactored 
+* Philip: ᶘ ᵒᴥᵒᶅ
+1. Discussion items
+* UML
+   * Discussed and partial draft on board
+* Transitioning
+* Refactoring
+* Pmd:ing
+* Move CheckMovement and CheckInteraction to control
+1. Outcomes and assignments
+* Anton: Refactor, pmd, lombok. Transitions.
+* Mike: Fix mutual dependencies in render.(After refactoring)
+Maven exec
+Render handle new worlds
+Find tiles, sound, music.
+* Philip: UML, start on SDD
+* Stefan: Finish inventory, make XML from TXT
+   1. Wrap up
+   * Next meeting Tuesday 10.00 - 11.45

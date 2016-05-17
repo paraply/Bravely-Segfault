@@ -1,0 +1,25 @@
+﻿Date: 2016-05-13
+
+Facilitator:Anton
+
+Participants: Philip, Mike, Philip, Stefan
+
+1. Objectives
+* Assign work
+1. Reports
+* Mike: Some transition shit I dunno wtf he’s on about, downloaded tiles
+* Stefan: Made some levels and UML diagram, added graphics tiles files with smiles
+* Anton: ANTON! WHAT IS HE GOOD FOR? ABSOLUTELY NOTHING. Also refactored
+* Philip Matilda: Has not attended a meeting for a year. FOR SHAME
+* Fejkphilip: Made some UML yeaaaah. Hearthstone. 
+1. Discussion items
+* Add transitions
+* Show dialogues
+* Audio
+1. Outcomes and assignments
+* Mike: ThePhilipDialogRenderSystemBeanFactoryWorkerObserver ©☢®
+* Anton: Transitions
+* Sarosh: Knas
+* Stefan: Audio (use observer) gameprogrammingpatterns.com
+1. Wrap up
+Meeting Tuesday at 10
