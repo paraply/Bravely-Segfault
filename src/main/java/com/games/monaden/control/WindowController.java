@@ -18,7 +18,6 @@ import java.util.ResourceBundle;
 public class WindowController implements Initializable{
     @FXML private Canvas mainCanvas; // Our canvas where the game will be drawn
     @FXML private HBox dialogbox;
-    @FXML private VBox labelbox;
 
     // Called when JavaFX initialized the window.
     @Override
@@ -26,7 +25,7 @@ public class WindowController implements Initializable{
         mainCanvas.setFocusTraversable(true); // May be necessary to get key events
         mainCanvas.setOnKeyPressed(UserInput.getInstance());
         Render.getInstance().setGraphicsContext(mainCanvas.getGraphicsContext2D()); // Get the canvas context and send it to Render
-        Render.getInstance().setDialogObjects(dialogbox, labelbox);
+        Render.getInstance().setDialogObjects(dialogbox);
     }
 
 }
