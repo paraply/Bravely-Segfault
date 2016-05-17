@@ -4,8 +4,11 @@
 }
 
 .pane-background {
-    -fx-background-color: rgb(10, 20, 10);
+    -fx-background-color: rgb(240, 240, 240);
+}
 
+.mainCanvas{
+ -fx-background-color: red;
 }
 
 .canvas-border{

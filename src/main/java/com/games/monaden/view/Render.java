@@ -36,8 +36,8 @@ public class Render implements Observer{
         addWorldObjects();
     }
 
-    public void setDialogObjects(HBox dialog, VBox labelBox){
-        renderDialog = new RenderDialog(dialog, labelBox);
+    public void setDialogObjects(HBox dialog){
+        renderDialog = new RenderDialog(dialog);
     }
 
     public void setPlayerCharacter(GameObject player){
