@@ -11,11 +11,11 @@ import java.util.List;
  */
 public class RenderDialog {
     private VBox dialog;
-     private  Label question, a1,a2,a3;
-
+    private Label question, a1,a2,a3;
+    private int selected;
+    private List<String> answers;
 
     public RenderDialog(VBox dialog, Label q, Label a1, Label a2, Label a3){
-
         this.dialog = dialog;
         this.question = q;
         this.a1 = a1;
@@ -42,7 +42,8 @@ public class RenderDialog {
             a1.setVisible(true);
             a1.setText(answers.get(0));
         }
-
+        this.answers = answers;
+        select(0);
         dialog.setVisible(true);
     }
 
@@ -51,6 +52,26 @@ public class RenderDialog {
         a3.setVisible(false);
         a2.setVisible(false);
         a1.setVisible(false);
+    }
+
+    public void selectPreviousAnswer(){
+        if (selected != 0){
+            select(selected--);
+        }
+    }
+
+    public void selectNextAnswer(){
+        if (selected < answers.size()-1){
+            select(selected++);
+        }
+    }
+
+    private void select(int answer){
+        selected = answer;
+    }
+
+    public void choose() {
+
     }
 
 }
