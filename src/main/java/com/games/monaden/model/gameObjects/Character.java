@@ -1,5 +1,6 @@
 package com.games.monaden.model.gameObjects;
 
+import com.games.monaden.model.Dialog;
 import com.games.monaden.model.Point;
 
 /**
@@ -7,6 +8,7 @@ import com.games.monaden.model.Point;
  */
 public class Character extends GameObject {
     private String name;
+    private Dialog dialog;
 
     public void setPosition(Point p){super.setPosition(p);}
 
@@ -25,4 +27,6 @@ public class Character extends GameObject {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Dialog getDialog(){return dialog;}
 }

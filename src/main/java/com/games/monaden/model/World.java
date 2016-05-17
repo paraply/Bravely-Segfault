@@ -1,5 +1,6 @@
 package com.games.monaden.model;
 
+import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.services.levelParser.LevelParser;
 import com.games.monaden.services.tileParser.TileParser;
@@ -23,13 +24,13 @@ public class World extends Observable{
     public static final int MAP_SIZE = 16;
 
     private List<GameObject> objects = new ArrayList<>();
-    private List<GameObject> interactables = new ArrayList<>();
+    private List<Character> interactables = new ArrayList<>();
     private List<Transition> transitions = new ArrayList<>();
 
     public List<GameObject> getObjects(){
         return objects;
     }
-    public List<GameObject> getInteractables(){
+    public List<Character> getInteractables(){
         return interactables;
     }
     public List<Transition> getTransitions() { return transitions; }
@@ -127,14 +128,14 @@ public class World extends Observable{
         return newPoint;
     }
 
-    public String checkInteraction(Point currentPoint, World.MovementDirection direction) {
+    public Dialog checkInteraction(Point currentPoint, World.MovementDirection direction) {
         Point newPoint = currentPoint.nextTo(direction);
 
-        for(GameObject g : getInteractables()) {
-            if(g.getPosition().equals(newPoint))
-                return "There is an interactive object in front of the player. Start interaction.";
+        for(Character c : getInteractables()) {
+            if(c.getPosition().equals(newPoint))
+                return c.getDialog();
         }
 
-        return "There was nothing to interact with.";
+        return null;
     }
 }

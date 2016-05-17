@@ -1,5 +1,6 @@
 package com.games.monaden.control;
 
+import com.games.monaden.model.Dialog;
 import com.games.monaden.model.Point;
 import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.Character;
@@ -50,8 +51,10 @@ public class CharacterController {
                 break;
             case SPACE:
                 //Temporarily a string since no dialogue system written yet
-                String temp = world.checkInteraction(player.getPosition(), player.getDirection());
-                System.out.println(temp);
+                Dialog dialog = world.checkInteraction(player.getPosition(), player.getDirection());
+                if(dialog != null) {
+                    System.out.println(dialog.getDialogText());
+                }
                 break;
         }
     }
