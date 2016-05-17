@@ -111,217 +111,217 @@
     </tile>
     <tile id="522">
         <name>walls</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>brickwall.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="523">
         <name>rightside sofa horisontial</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="024">
         <name>middelside sofs horisontial</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
     <tile id="525">
         <name>leftside sofa horisontal</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="526">
         <name>upside sofa vertical</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="027">
         <name>midelside sofa vertical</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
     <tile id="528">
         <name>downside sofa vertical</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="529">
         <name>speaker down</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="530">
         <name>table up vertical</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="531">
         <name>table middle vertical</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="532">
         <name>table down vertical</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="533">
         <name>table right horisontial</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="534">
         <name>table left horisontial</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="035">
         <name>chairs up</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
     <tile id="036">
         <name>chairs down</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
     <tile id="037">
         <name>chairs right</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
     <tile id="038">
         <name>chairs left</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
     <tile id="539">
         <name>air condition left</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="540">
         <name>air condition down</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="541">
         <name>computer/stereo left</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="542">
         <name>Dish-Washing machine up</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="543">
         <name>sink up</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="544">
         <name>coffe up</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="545">
         <name>Stove up</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="546">
         <name>Tea up</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="547">
         <name>Fridge up</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="548">
         <name>Microwave down</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="549">
         <name>Poerty wall down</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="550">
         <name>doors vertical</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="551">
         <name>door horisontiell</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="552">
         <name>lockers right</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="553">
         <name>trash</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="554">
         <name>black board on wall left</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="056">
         <name>sand</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
     <tile id="557">
         <name>tree</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="058">
         <name>stairs up</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
     <tile id="059">
         <name>staris down</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
     <tile id="560">
         <name>bookshelf right</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="561">
         <name>bookshelf left</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="562">
         <name>whiteboard down</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="563">
         <name>whiteboard up</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="564">
         <name>whiteboard left</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="565">
         <name>whiteboard right</name>
-        <graphics>164_questionmark.png</graphics>
+        <graphics>164questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="22">

@@ -1,3 +1,4 @@
+<!-- big room in Monaden -->
 <level>
     <tilemap>
 	 <line>522,522,522,522,522,522,522,522,522,522,522,522,522,522,522,522</line>
@@ -31,7 +32,7 @@
         <transition>
             <levelName>monadenHall.xml</levelName>
             <position>12,2</position>
-	    <newPosition>2,13</newPosition>
+	    <newPosition>11,10</newPosition>
         </transition>
     </transitions>
 </level>

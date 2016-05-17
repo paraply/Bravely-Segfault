@@ -1,3 +1,4 @@
+<!-- kitchen in Monaden -->
 <level>
     <tilemap>
 	<line>522,522,522,522,522,522,522,522,522,522,522,522,522,522,000,000</line>
@@ -21,7 +22,7 @@
         <character name="Philip">
             <position>2,1</position>
             <graphics>
-                <fileName>characters/cap.png</fileName>
+                <fileName>characters/cat.png</fileName>
                 <frameCount>4</frameCount>
             </graphics>
             <dialogue>tutorialPhilip.xml</dialogue>
@@ -30,8 +31,8 @@
     <transitions>
         <transition>
             <levelName>hallMonaden.xml</levelName>
-            <position>1,2</position>
-	    <newPosition></newPosition>
+            <position>0,2</position>
+	    <newPosition>13,3</newPosition>
         </transition>
     </transitions>
 </level>
