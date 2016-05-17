@@ -1,3 +1,8 @@
+@font-face {
+   font-family: 'Pixel Azure Bonds';
+   src: url('pixel.otf');
+}
+
 .pane-background {
     -fx-background-color: rgb(10, 20, 10);
 
@@ -19,6 +24,7 @@
 
 .dialog-choice{
     -fx-text-fill:rgb(240,100,100);
+    -fx-font-family:'Pixel Azure Bonds';
 }
 
 .dialog-choice-selected{
@@ -27,4 +33,5 @@
 
 .dialog-title{
     -fx-text-fill:rgb(240,200,200);
+    -fx-font-family:'Pixel Azure Bonds';
 }
