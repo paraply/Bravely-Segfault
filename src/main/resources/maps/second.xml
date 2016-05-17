@@ -1,16 +1,16 @@
 <level>
     <tilemap>
         <line>22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22</line>
-        <line>22,3,3,3,3,3,3,3,3,3,3,9,3,3,3,3</line>
-        <line>22,4,4,4,4,4,4,4,4,4,4,10,4,4,4,4</line>
-        <line>22,5,5,5,5,5,5,5,5,5,5,11,5,5,5,5</line>
-        <line>22,1,1,1,1,1,1,1,1,1,1,15,12,13,14,15</line>
+        <line>3,3,3,3,3,3,3,3,3,3,3,9,3,3,3,22</line>
+        <line>4,4,4,4,4,4,4,4,4,4,4,10,4,4,4,22</line>
+        <line>5,5,5,5,5,5,5,5,5,5,5,11,5,5,5,22</line>
+        <line>15,1,1,1,1,1,1,1,1,1,1,15,12,13,14,22</line>
         <line>22,15,15,15,15,15,15,15,15,15,15,2,6,7,8,22</line>
         <line>22,16,15,15,15,15,15,15,15,15,15,2,6,7,8,22</line>
         <line>22,17,15,15,15,15,15,15,15,15,15,2,6,7,8,22</line>
-        <line>22,18,15,15,15,15,15,15,15,15,15,2,6,7,8,22</line>
-        <line>22,15,15,15,15,15,15,15,15,15,15,2,6,7,8,22</line>
-        <line>22,16,15,15,15,15,15,15,15,15,15,2,6,7,8,22</line>
+        <line>22,18,15,15,15,23,24,25,15,15,15,2,6,7,8,22</line>
+        <line>22,15,15,15,15,26,27,28,15,15,15,2,6,7,8,22</line>
+        <line>22,16,15,15,15,29,30,31,15,15,15,2,6,7,8,22</line>
         <line>22,17,15,15,15,15,15,15,15,15,15,2,6,7,8,22</line>
         <line>22,18,15,15,15,15,15,15,15,15,15,2,6,7,8,22</line>
         <line>22,15,15,15,15,15,15,15,15,15,15,2,6,7,8,22</line>
@@ -29,24 +29,24 @@
     </characters>
     <transitions>
         <transition>
-            <filename>second.xml</filename>
-            <position>15,1</position>
-            <newPosition>1,1</newPosition>
+            <filename>start.xml</filename>
+            <position>0,1</position>
+            <newPosition>14,1</newPosition>
         </transition>
         <transition>
-            <filename>second.xml</filename>
-            <position>15,2</position>
-            <newPosition>1,2</newPosition>
+            <filename>start.xml</filename>
+            <position>0,2</position>
+            <newPosition>14,2</newPosition>
         </transition>
         <transition>
-            <filename>second.xml</filename>
-            <position>15,3</position>
-            <newPosition>1,3</newPosition>
+            <filename>start.xml</filename>
+            <position>0,3</position>
+            <newPosition>14,3</newPosition>
         </transition>
         <transition>
-            <filename>second.xml</filename>
-            <position>15,4</position>
-            <newPosition>1,4</newPosition>
+            <filename>start.xml</filename>
+            <position>0,4</position>
+            <newPosition>14,4</newPosition>
         </transition>
     </transitions>
 </level>

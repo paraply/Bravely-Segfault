@@ -8,3 +8,19 @@
         -fx-border-width: 2px;
         -fx-border-color: rgb(0,0,0);
 }
+
+.dialog-box{
+    -fx-background-color: rgba(10,10,10,0.9);
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 2px;
+    -fx-border-color: white;
+}
+
+.dialog-choice{
+    -fx-text-fill:rgb(240,100,100);
+}
+
+.dialog-title{
+    -fx-text-fill:rgb(240,200,200);
+}

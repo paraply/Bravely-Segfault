@@ -20,7 +20,7 @@ public class GameLoop extends AnimationTimer {
     CharacterController playerCharacter;
 
     public void initializeGame(){
-        world = new World("start" );
+        world = new World("second.xml" );
         Render.getInstance().setWorld(world);
         playerCharacter = new CharacterController();
     }
@@ -28,7 +28,6 @@ public class GameLoop extends AnimationTimer {
     @Override
     public void handle(long now) {
         Render.getInstance().redraw();
-
         if (countDown > 0){  // used to add a delay (better than sleep) to user movement
             countDown--;
         }else{

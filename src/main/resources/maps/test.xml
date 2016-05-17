@@ -1,0 +1,37 @@
+<level>
+    <tilemap>
+        <line>22,22,22,22,22,22,22,22,22,22,22,22,22,0,0,22</line>
+        <line>22,0,0,22,22,22,22,22,22,22,22,22,22,0,0,22</line>
+        <line>22,0,0,22,22,22,22,22,22,22,22,22,22,0,0,22</line>
+        <line>22,0,0,22,22,22,22,22,22,22,22,22,22,0,0,22</line>
+        <line>22,0,0,22,22,22,22,22,22,22,22,22,22,0,0,22</line>
+        <line>22,0,0,22,22,22,22,22,22,22,22,22,22,0,0,22</line>
+        <line>22,0,0,22,22,22,22,22,22,22,22,22,22,0,0,22</line>
+        <line>22,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22</line>
+        <line>22,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22</line>
+        <line>22,0,22,22,22,0,0,0,0,0,0,0,0,0,0,22</line>
+        <line>22,0,22,22,22,0,0,0,0,0,0,0,0,0,0,22</line>
+        <line>22,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22</line>
+        <line>22,0,0,0,0,0,0,0,0,0,0,0,0,0,0,22</line>
+        <line>22,0,0,0,0,0,0,0,0,0,0,0,0,22,22,22</line>
+        <line>22,0,0,0,0,0,0,0,0,0,0,0,0,22,22,22</line>
+        <line>22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22</line>
+    </tilemap>
+    <characters>
+        <character name="Philip">
+            <position>5,2</position>
+            <graphics>
+                <fileName>characters/philip-tan.png</fileName>
+                <frameCount>4</frameCount>
+            </graphics>
+            <dialogue>tutorialPhilip.xml</dialogue>
+        </character>
+    </characters>
+    <transitions>
+        <transition>
+            <filename>src/main/resources/parseTests/second.xml</filename>
+            <position>13,0</position>
+            <newPosition>1,15</newPosition>
+        </transition>
+    </transitions>
+</level>

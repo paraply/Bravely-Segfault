@@ -324,4 +324,55 @@
         <graphics>164_questionmark.png</graphics>
         <solidness>solid</solidness>
     </tile>
+    <tile id="122">
+        <name>Brick wall</name>
+        <graphics>brickwall.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+    <tile id="123">
+        <name>Sakura 1</name>
+        <graphics>sakura/1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="124">
+        <name>Sakura 2</name>
+        <graphics>sakura/2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="125">
+        <name>Sakura 3</name>
+        <graphics>sakura/3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="126">
+        <name>Sakura 4</name>
+        <graphics>sakura/4.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="127">
+        <name>Sakura 5</name>
+        <graphics>sakura/5.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="128">
+        <name>Sakura 6</name>
+        <graphics>sakura/6.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="129">
+        <name>Sakura 7</name>
+        <graphics>sakura/7.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="130">
+        <name>Sakura 8</name>
+        <graphics>sakura/8.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="131">
+        <name>Sakura 9</name>
+        <graphics>sakura/9.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
 </class>
