@@ -28,6 +28,9 @@ public class DialogParser extends DefaultHandler{
         switch (qName.toLowerCase()) {
             case "dialog":
                 //TODO: Create dialog object, link to parent
+                if (!parents.empty()) {
+                    Dialog parent = parents.pop();
+                }
                 break;
         }
 
