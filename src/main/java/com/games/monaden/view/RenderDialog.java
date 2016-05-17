@@ -1,6 +1,7 @@
 package com.games.monaden.view;
 
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
@@ -9,30 +10,41 @@ import java.util.List;
  * Created by mike on 2016-05-16.
  */
 public class RenderDialog {
-    private VBox dialog;
+    private HBox dialog;
+    private VBox labelBox;
     private Label question;
     private Label[] answer;
     private int selected;
     private List<String> answerText;
 
-    public RenderDialog(VBox dialog, Label q, Label a1, Label a2, Label a3){
-        this.dialog = dialog;
-        this.question = q;
-        answer = new Label[3];
-        answer[0] = a1;
-        answer[1] = a2;
-        answer[2] = a3;
+    public RenderDialog(HBox dialogBox, VBox labelBox){
+        this.dialog = dialogBox;
+        this.labelBox = labelBox;
     }
 
-    public void showDialog(String questionText, List<String> answers){
-        dialog.setVisible(true);
-        question.setVisible(true);
+    public void newDialog(String questionText, List<String> answers){
+        labelBox.getChildren().clear();
+
+        question = new Label();
         question.setText(questionText);
+        question.getStyleClass().add("dialog-question");
+        question.setWrapText(true);
+        labelBox.getChildren().add(question);
+
+        answer = new Label[answers.size()];
+
 
         for (int i = 0; i < answers.size(); i++){
-            answer[i].setVisible(true);
-            answer[i].setText(answers.get(i));
+//            answer[i].setVisible(true);
+//            answer[i].setText(answers.get(i));
+//            answer[i].getStyleClass().remove("dialog-choice-selected"); // If any dialog was shown before, one was selected. Unselect that one.
+            Label l = new Label();
+            l.setText(answers.get(i));
+            l.getStyleClass().add("dialog-choice");
+            labelBox.getChildren().add(l);
+            answer[i] = l;
         }
+        selected = -1; // This is used to say that no answer was selected before
 
         this.answerText = answers;
         select(0);
@@ -41,7 +53,7 @@ public class RenderDialog {
 
     public void hideDialog(){
         dialog.setVisible(false);
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < answerText.size() - 1; i++){
             answer[i].setVisible(false);
         }
     }
@@ -53,17 +65,19 @@ public class RenderDialog {
     }
 
     public void selectNextAnswer(){
-        if (selected < answerText.size()-1){
-            select(selected++);
+        if (selected < answerText.size() - 1){
+            select(selected+1);
         }
     }
 
     private void select(int answerIndex){
-        for (int i = 0; i < 3; i++){
-            this.answer[i].getStyleClass().remove("dialog-choice-selected");
+        if (selected != -1){
+            answer[selected].getStyleClass().remove("dialog-choice-selected"); // Remove old selection
+            answer[selected].setText(answerText.get(answerIndex));
         }
-        answer[answerIndex].getStyleClass().add("dialog-choice-selected");
         selected = answerIndex;
+        answer[selected].getStyleClass().add("dialog-choice-selected");
+        answer[selected].setText("> " + answerText.get(selected));
     }
 
     public void choose() {
