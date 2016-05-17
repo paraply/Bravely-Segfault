@@ -20,7 +20,7 @@ public class Render implements Observer{
     private World world; // World model provides information about what should be drawn
     private AnimatedObject player;
     private List<RenderObject> objects = new ArrayList<>();
-    public RenderDialog renderDialog;
+    public RenderDialog renderDialog; //TODO CHANGE TO PRIVATE AFTER TESTING
 
 
     // graphics context = main-canvas context
