@@ -74,16 +74,22 @@ class AnimatedObject extends RenderObject {
                     List<String> answers = new ArrayList<>();
                     answers.add("Från: X:" + previousPosition.getX() + " Y:" + previousPosition.getY() );
                     answers.add("Till: X:" + gameObject.getPosition().getX() + " Y:" + gameObject.getPosition().getY());
-                    answers.add("Duktig katt");
-                    Render.getInstance().renderDialog.showDialog("meowing", answers);
+                    Render.getInstance().renderDialog.newDialog("meowing mjau mjau mjau mjau mjau mjau mjau mjau mjau mjau", answers);
+                    if (gameObject.getDirection() == World.MovementDirection.UP) {
+                        Render.getInstance().renderDialog.selectPreviousAnswer();
+                    }else if (gameObject.getDirection() == World.MovementDirection.DOWN){
+                        Render.getInstance().renderDialog.selectNextAnswer();
+                    }else{
+                        Render.getInstance().renderDialog.hideDialog();
+                    }
                     if (inTransition){
                         previousPosition = gameObject.getPosition();
                         inTransition = false;
                         return;
                     }
-                    currentTransitionStep = World.TILE_SIZE;                 // If we have a 32-bit TILE_SIZE, then we should move to another tile in maximum 32 steps.
-                    imageSrcX = 0;                                        // Do not animate first. We want to change the objects direction this time.
-                    x = previousPosition.getX() * World.TILE_SIZE;           // Stand still for now, we want to change direction first. Start moving in next transition.
+                    currentTransitionStep = World.TILE_SIZE;                    // If we have a 32-bit TILE_SIZE, then we should move to another tile in maximum 32 steps.
+                    imageSrcX = 0;                                              // Do not animate first. We want to change the objects direction this time.
+                    x = previousPosition.getX() * World.TILE_SIZE;              // Stand still for now, we want to change direction first. Start moving in next transition.
                     y =  previousPosition.getY() * World.TILE_SIZE;
                 }else{ // Object is standing still
                     imageSrcX = 0;

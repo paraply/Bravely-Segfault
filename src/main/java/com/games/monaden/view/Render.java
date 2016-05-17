@@ -1,15 +1,16 @@
 package com.games.monaden.view;
 
-import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.model.World;
+import com.games.monaden.model.gameObjects.GameObject;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observer;
 import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Created by paraply on 2016-04-19.
@@ -35,8 +36,8 @@ public class Render implements Observer{
         addWorldObjects();
     }
 
-    public void setDialogObjects(VBox dialog, Label q, Label a1, Label a2, Label a3){
-        renderDialog = new RenderDialog(dialog,q,a1,a2,a3);
+    public void setDialogObjects(HBox dialog, VBox labelBox){
+        renderDialog = new RenderDialog(dialog, labelBox);
     }
 
     public void setPlayerCharacter(GameObject player){
