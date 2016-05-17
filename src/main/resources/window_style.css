@@ -21,6 +21,10 @@
     -fx-text-fill:rgb(240,100,100);
 }
 
+.dialog-choice-selected{
+   -fx-text-fill:rgb(240,240,240);
+}
+
 .dialog-title{
     -fx-text-fill:rgb(240,200,200);
 }
