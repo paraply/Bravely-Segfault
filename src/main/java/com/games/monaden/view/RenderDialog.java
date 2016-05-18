@@ -36,16 +36,18 @@ public class RenderDialog {
             return;
         }
         try {
-            String avatarName = "cat.png";
             this.dialogObject = dialogObject;
 
 
 
             dialog.getChildren().clear();
-            if (avatarName != null) {
+            if (dialogObject.getImageFile() != null) {
+                System.out.println(dialogObject.getImageFile().getPath());
                 ImageView imageView = new ImageView();
-                imageView.setImage(new Image("avatars/" + avatarName));
+                imageView.setImage(new Image("avatars/" + dialogObject.getImageFile().toString()));
                 dialog.getChildren().add(imageView);
+            }else{
+                System.out.println("No dialog picture");
             }
 
             labelBox = new VBox();

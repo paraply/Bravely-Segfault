@@ -61,6 +61,10 @@ public class Dialog {
         this.imageFile = file;
     }
 
+    public File getImageFile(){
+        return imageFile;
+    }
+
     /**
      * Sets a single child for when there is no choice.
      * @param child

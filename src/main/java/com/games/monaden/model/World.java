@@ -2,6 +2,7 @@ package com.games.monaden.model;
 
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.services.dialogParser.DialogParser;
 import com.games.monaden.services.levelParser.LevelParser;
 import com.games.monaden.services.tileParser.TileParser;
 
@@ -38,6 +39,7 @@ public class World extends Observable{
 
     private SAXParser parser;
     private LevelParser levelParser;
+    private DialogParser dialogParser;
     private HashMap<Integer, Tile> tileMap = new HashMap<>();
 
     public World(String startLevel) {
@@ -49,6 +51,7 @@ public class World extends Observable{
             SAXParserFactory factory = SAXParserFactory.newInstance();
             parser = factory.newSAXParser();
             levelParser = new LevelParser();
+            dialogParser = new DialogParser();
             TileParser tileParser = new TileParser();
             // Use a relative path to get the filelist file in tiles folder
             File tileFile =  new File(this.getClass().getResource("/tiles/tilelist.xml").getPath());
@@ -144,9 +147,16 @@ public class World extends Observable{
         for(Character c : getInteractables()) {
             if(c.getPosition().equals(newPoint)) {
                 //return c.getDialog();
-                Dialog temp = new Dialog("Hi, I'm Philip, an invisible level 24 typemancer");
-                temp.readInChoices("Fight me, you coward!", new Dialog("foo :: String -> String"));
-                temp.readInChoices("Okay bye", new Dialog(""));
+                File dialogFile = new File("src/main/resources/parseTests/DialogTest.xml");
+                try {
+                    parser.parse(dialogFile, dialogParser);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Dialog temp = dialogParser.getRoot();
+//                Dialog temp = new Dialog("Hi, I'm Philip, an invisible level 24 typemancer");
+//                temp.readInChoices("Fight me, you coward!", new Dialog("foo :: String -> String"));
+//                temp.readInChoices("Okay bye", new Dialog(""));
                 return temp;
             }
         }
