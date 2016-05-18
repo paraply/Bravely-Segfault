@@ -43,16 +43,7 @@ public class Inventory {
         }
         return new Item("No item","No item exist in the list!");
     }
-
-    /**
-     * The idea is to move a item up or down in the list of items.
-     * Feels like a funtion we don't need.
-     * @param item
-     * @param i
-     */
-    public void moveItem(String item, int i) {
-        //??
-    }
+    
 
     /**
      * Removes a item form the list
