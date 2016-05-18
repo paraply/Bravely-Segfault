@@ -13,10 +13,10 @@
                 </subdialog>
             </response>
             <response condition="True">
-                <choice>Git göj.</choice>
+                <choice>Wat.</choice>
                 <subdialog>
                     <image>cat.png</image>
-                    <text>Git göj.</text>
+                    <text>That's right.</text>
                 </subdialog>
             </response>
         </dialog>
