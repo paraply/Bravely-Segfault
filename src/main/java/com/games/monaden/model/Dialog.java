@@ -18,6 +18,8 @@ public class Dialog {
     private final List<String> text;
     private final List<Dialog> choices;
 
+    public int getChoiceCount(){return choices.size();}
+
     /**
      * Constructor for when there is no text yet. Text is to be added later.
      */
@@ -44,7 +46,7 @@ public class Dialog {
     public String getChoiceText(int id){
         return text.get(id);
     }
-    
+
     public String getDialogText(){
         return dialogText;
     }
