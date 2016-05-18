@@ -1,15 +1,16 @@
 package com.games.monaden.view;
 
-import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.model.World;
+import com.games.monaden.model.gameObjects.GameObject;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observer;
 import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Created by paraply on 2016-04-19.
@@ -20,7 +21,8 @@ public class Render implements Observer{
     private World world; // World model provides information about what should be drawn
     private AnimatedObject player;
     private List<RenderObject> objects = new ArrayList<>();
-    public RenderDialog renderDialog;
+    private List<RenderObject> interactables = new ArrayList<>();
+    public RenderDialog renderDialog; //TODO CHANGE TO PRIVATE AFTER TESTING
 
 
     // graphics context = main-canvas context
@@ -33,10 +35,11 @@ public class Render implements Observer{
         this.world = world;
         world.addObserver(this);
         addWorldObjects();
+        addInteractables();
     }
 
-    public void setDialogObjects(VBox dialog, Label q, Label a1, Label a2, Label a3){
-        renderDialog = new RenderDialog(dialog,q,a1,a2,a3);
+    public void setDialogObjects(HBox dialog){
+        renderDialog = new RenderDialog(dialog);
     }
 
     public void setPlayerCharacter(GameObject player){
@@ -53,6 +56,7 @@ public class Render implements Observer{
 
     public void redraw(){
         objects.forEach(RenderObject::draw);
+        interactables.forEach(RenderObject :: draw);
         player.draw();
     }
 
@@ -66,12 +70,27 @@ public class Render implements Observer{
         }
     }
 
+
+    private void addInteractables(){
+        for (GameObject go : world.getInteractables()){
+//            System.out.println("Adding interactable: " + go.getImagePath());
+            if (go.hasContinuousAnimation()){
+                interactables.add(new AnimatedObject(go,context));
+            }else{
+                interactables.add(new RenderObject(go, context));
+            }
+        }
+    }
+
     /**
      *  Delete all objects and create new
      */
     private void transition(){
+        player.startTransition();
         objects.clear();
+        interactables.clear();
         addWorldObjects();
+        addInteractables();
         player.hasTransitioned();
         redraw();
     }
@@ -81,15 +100,6 @@ public class Render implements Observer{
         //Should probably be refactored later
         if(observable == world) {
             if(arg == "transition"){
-                player.startTransition();
-                objects.clear();
-                for (GameObject go : world.getObjects()){
-                    if (go.hasContinuousAnimation()){
-                        objects.add(new AnimatedObject(go,context));
-                    }else{
-                        objects.add(new RenderObject(go,context));
-                    }
-                }
                 transition();
             }
         }
