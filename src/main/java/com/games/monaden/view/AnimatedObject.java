@@ -71,10 +71,6 @@ class AnimatedObject extends RenderObject {
         }else{ // Else if object does not have a continuous animation. Then it should only be animated during transition.
             if (currentTransitionStep == 0){                                // We are currently not in a moving state
                 if (!gameObject.getPosition().equals(previousPosition)){    // Check if we should be in a moving state (e.g the objects coordinates has changed since last time)
-                    List<String> answers = new ArrayList<>();
-                    answers.add("Kattmat?");
-                    answers.add("Jaga råtta");
-                    Render.getInstance().renderDialog.newDialog("meowing mjau mjau mjau mjau mjau mjau mjau mjau mjau mjau", answers, "cat.png");
                     if (gameObject.getDirection() == World.MovementDirection.UP) {
                         Render.getInstance().renderDialog.selectPreviousAnswer();
                     }else if (gameObject.getDirection() == World.MovementDirection.DOWN){
