@@ -31,6 +31,9 @@ public class RenderDialog {
     }
 
     public void newDialog(String questionText, List<String> answers, String avatarName){
+        if (dialog == null){
+            return;
+        }
         try {
             dialog.getChildren().clear();
             if (avatarName != null) {
