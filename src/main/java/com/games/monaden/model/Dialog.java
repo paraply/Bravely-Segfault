@@ -21,6 +21,7 @@ public class Dialog {
     private File imageFile;
 
     public int getChoiceCount(){return choices.size();}
+    public int getChoiceTextCount(){return text.size();}
 
     /**
      * Constructor for when there is no text yet. Text is to be added later.

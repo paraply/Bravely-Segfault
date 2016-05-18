@@ -58,10 +58,11 @@ public class RenderDialog {
             question.setWrapText(true);
             labelBox.getChildren().add(question);
 
-            if (dialogObject.getChoiceCount() != 0) {
-                answer = new Label[dialogObject.getChoiceCount()];
+            if (dialogObject.getChoiceTextCount() != 0) {
+                answer = new Label[dialogObject.getChoiceTextCount()];
 
-                for (int i = 0; i < dialogObject.getChoiceCount(); i++) {
+                for (int i = 0; i < dialogObject.getChoiceTextCount(); i++) {
+                    System.out.println("CHOICE " + i + " " + dialogObject.getChoiceTextCount());
                     Label l = new Label();
                     l.setText(dialogObject.getChoiceText(i));
                     l.getStyleClass().add("dialog-choice");
@@ -83,6 +84,7 @@ public class RenderDialog {
 
     public void hideDialog(){
         if (dialogFail){
+            System.err.println("Cannot hide failed dialog");
             return;
         }
         dialog.setVisible(false);
@@ -90,7 +92,7 @@ public class RenderDialog {
 
     public void selectPreviousAnswer(){
         if (dialogObject == null){
-            System.out.println("dialogObject == null");
+            System.err.println("selectPreviousAnswer: dialogObject == null");
             return;
         }
         if (selected > 0){
@@ -101,9 +103,10 @@ public class RenderDialog {
 
     public void selectNextAnswer(){
         if (dialogObject == null){
+            System.err.println("selectNextAnswer: dialogObject == null");
             return;
         }
-        if (selected < dialogObject.getChoiceCount() - 1){
+        if (selected < dialogObject.getChoiceTextCount() - 1){
             select(selected+1);
         }
     }

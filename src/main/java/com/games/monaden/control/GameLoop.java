@@ -11,9 +11,6 @@ import javafx.scene.input.KeyCode;
  */
 public class GameLoop extends AnimationTimer {
 
-    // Could probably use inspiration from
-    // https://carlfx.wordpress.com/2012/04/09/javafx-2-gametutorial-part-2/
-
     public final static int FREQUENCY = 16;
     private int countDown = FREQUENCY;
 
@@ -23,7 +20,6 @@ public class GameLoop extends AnimationTimer {
     private Dialog currentDialog;
     private enum InputState { MOVEMENT, DIALOG }
     private InputState inputState = InputState.MOVEMENT;
-    private int currentChoice = 0;
 
     public void initializeGame(){
         world = new World("second.xml" );
@@ -51,8 +47,7 @@ public class GameLoop extends AnimationTimer {
                 if(dialog != null){
                     currentDialog = dialog;
                     inputState = InputState.DIALOG;
-                    currentChoice = 0;
-//                    System.out.println(currentDialog.toString());
+                    System.out.println("Creating new dialog: " + dialog.getDialogText());
                     Render.getInstance().renderDialog.newDialog(dialog);
                 }
             }
@@ -63,22 +58,12 @@ public class GameLoop extends AnimationTimer {
             if (moveReq != null && currentDialog.getChoiceCount() != 0) {
                 if(moveReq == KeyCode.UP){
                     System.out.println("UPP");
-//                    currentChoice --;
-//                    if(currentChoice < 0){
-//                        currentChoice = currentDialog.getChoiceCount() - 1;
-                        Render.getInstance().renderDialog.selectPreviousAnswer();
-//                    }
-//                    System.out.println("\n> " + currentDialog.getChoiceText(currentChoice) + "\n");
+                    Render.getInstance().renderDialog.selectPreviousAnswer();
                     countDown = FREQUENCY;
                 }
                 else if(moveReq == KeyCode.DOWN) {
                     System.out.println("NER");
-//                    currentChoice++;
-//                    if (currentChoice >= currentDialog.getChoiceCount()) {
-//                        currentChoice = 0;
-//                    }
                     Render.getInstance().renderDialog.selectNextAnswer();
-//                    System.out.println("\n> " + currentDialog.getChoiceText(currentChoice) + "\n");
                     countDown = FREQUENCY;
                 }
             }
