@@ -8,9 +8,6 @@ import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.view.Render;
 import javafx.scene.input.KeyCode;
 
-/**
- * Created by Anton on 2016-05-05.
- */
 public class CharacterController {
 
     private Character player;
@@ -50,7 +47,6 @@ public class CharacterController {
                 System.exit(0);
                 break;
             case SPACE:
-                //Temporarily a string since no dialogue system written yet
                 Dialog dialog = world.checkInteraction(player.getPosition(), player.getDirection());
                 if(dialog != null) {
                     System.out.println(dialog.getDialogText());

@@ -74,6 +74,7 @@ public class World extends Observable{
             parser.parse(level, levelParser);
 
             interactables = levelParser.getInteractables();
+            System.out.println(interactables.get(0).getPosition().toString());
             transitions = levelParser.getTransitions();
             objects.clear();
             //Loop through the tilemap and create tiles for each
@@ -130,10 +131,13 @@ public class World extends Observable{
 
     public Dialog checkInteraction(Point currentPoint, World.MovementDirection direction) {
         Point newPoint = currentPoint.nextTo(direction);
-
         for(Character c : getInteractables()) {
-            if(c.getPosition().equals(newPoint))
-                return c.getDialog();
+            if(c.getPosition().equals(newPoint)) {
+                //return c.getDialog();
+                Dialog temp = new Dialog("Hi, I'm Philip, an invisible level 24 typemancer");
+                temp.readInChoices("Fight me, you coward!", new Dialog("foo :: String -> String"));
+                return temp;
+            }
         }
 
         return null;
