@@ -47,4 +47,8 @@ public class Point {
         Point p = (Point)o;
         return p.getX() == x && p.getY() == y;
     }
+
+    public String toString(){
+        return "X: " + x + " Y: " + y;
+    }
 }

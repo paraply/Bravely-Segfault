@@ -1,5 +1,6 @@
 package com.games.monaden.control;
 
+import com.games.monaden.model.Dialog;
 import com.games.monaden.model.Point;
 import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.Character;
@@ -7,12 +8,11 @@ import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.view.Render;
 import javafx.scene.input.KeyCode;
 
-/**
- * Created by Anton on 2016-05-05.
- */
 public class CharacterController {
 
     private Character player;
+
+
     public CharacterController() {
         player = new Character(new Point(5,14), "cat.png", 32,32);
         Render.getInstance().setPlayerCharacter(player);
@@ -42,17 +42,19 @@ public class CharacterController {
         player.setDirection(dir);
     }
 
-    public void handleInteractions(KeyCode funcReq, World world){
+    public Dialog handleInteractions(KeyCode funcReq, World world){
         switch (funcReq) {
             case ESCAPE:
                 System.out.println("ESCAPE");
                 System.exit(0);
                 break;
             case SPACE:
-                //Temporarily a string since no dialogue system written yet
-                String temp = world.checkInteraction(player.getPosition(), player.getDirection());
-                System.out.println(temp);
+                Dialog dialog = world.checkInteraction(player.getPosition(), player.getDirection());
+                if(dialog != null) {
+                    return dialog;
+                }
                 break;
         }
+        return null;
     }
 }

@@ -37,7 +37,7 @@ public class LevelParser extends DefaultHandler {
     private Point transPos;
     private String imageFile;
 
-    private List<GameObject> interactables = new ArrayList<>();
+    private List<Character> interactables = new ArrayList<>();
     private List<Transition> transitions = new ArrayList<>();
 
     public LevelParser() {
@@ -153,7 +153,7 @@ public class LevelParser extends DefaultHandler {
      * Returns a copy of the interactables list
      * @return a copy of the interactables list
      */
-    public List<GameObject> getInteractables() {
+    public List<Character> getInteractables() {
         return new ArrayList<>(this.interactables);
     }
 
