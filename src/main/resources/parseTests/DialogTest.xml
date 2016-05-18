@@ -1,17 +1,21 @@
 <class>
     <dialog>
+        <image>nokia.png</image>
         <text>This is the first line. No choices.</text>
         <dialog>
+            <image>cat.png</image>
             <text>This is the second line. There should be two choices here.</text>
             <response condition="has_item()==book">
                 <choice>Read this book and git gud.</choice>
                 <subdialog>
+                    <image>nokia.png</image>
                     <text>I don't have time for books. Hearthstone! Yeaaah!</text>
                 </subdialog>
             </response>
             <response condition="True">
                 <choice>Git göj.</choice>
                 <subdialog>
+                    <image>cat.png</image>
                     <text>Git göj.</text>
                 </subdialog>
             </response>

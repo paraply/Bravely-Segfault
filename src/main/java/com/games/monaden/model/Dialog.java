@@ -5,6 +5,7 @@
  */
 package com.games.monaden.model;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class Dialog {
     private String dialogText;
     private final List<String> text;
     private final List<Dialog> choices;
+    private File imageFile;
 
     public int getChoiceCount(){return choices.size();}
 
@@ -55,10 +57,22 @@ public class Dialog {
         this.dialogText = text;
     }
 
+    public void setImageFile (File file) {
+        this.imageFile = file;
+    }
+
+    /**
+     * Sets a single child for when there is no choice.
+     * @param child
+     */
     public void setChild (Dialog child) {
         choices.add(child);
     }
 
+    /**
+     * Used to move to the next child. Meant to be used if there is only one child (no choices).
+     * @return
+     */
     public Dialog traverse () {
         return choices.get(0);
     }
