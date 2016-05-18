@@ -1,0 +1,20 @@
+<class>
+    <dialog>
+        <text>This is the first line. No choices.</text>
+        <dialog>
+            <text>This is the second line. There should be two choices here.</text>
+            <response condition="has_item()==book">
+                <choice>Read this book and git gud.</choice>
+                <subdialog>
+                    <text>I don't have time for books. Hearthstone! Yeaaah!</text>
+                </subdialog>
+            </response>
+            <response condition="True">
+                <choice>Git göj.</choice>
+                <subdialog>
+                    <text>Git göj.</text>
+                </subdialog>
+            </response>
+        </dialog>
+    </dialog>
+</class>
