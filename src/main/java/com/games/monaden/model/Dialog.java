@@ -14,11 +14,19 @@ import java.util.List;
  */
 public class Dialog {
     
-    private final String dialogText;
+    private String dialogText;
     private final List<String> text;
     private final List<Dialog> choices;
 
-    Dialog(String dialogText){
+    /**
+     * Constructor for when there is no text yet. Text is to be added later.
+     */
+    public Dialog(){
+        this.text = new ArrayList<>();
+        this.choices = new ArrayList<>();
+    }
+
+    public Dialog(String dialogText){
         this.dialogText = dialogText;
         this.text = new ArrayList<>();
         this.choices = new ArrayList<>();
@@ -41,6 +49,16 @@ public class Dialog {
         return dialogText;
     }
     
-    
+    public void setDialogText(String text) {
+        this.dialogText = text;
+    }
+
+    public void setChild (Dialog child) {
+        choices.add(child);
+    }
+
+    public Dialog traverse () {
+        return choices.get(0);
+    }
     
 }
