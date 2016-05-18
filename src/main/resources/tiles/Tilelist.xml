@@ -154,14 +154,15 @@
         <graphics>sakura/7.png</graphics>
         <solidness>solid</solidness>
     </tile>
+    <tile id="310">
+        <name>Sakura 9</name>
+        <graphics>sakura/9.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
     <tile id="30">
         <name>Sakura 8</name>
         <graphics>sakura/8.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="31">
-        <name>Sakura 9</name>
-        <graphics>sakura/9.png</graphics>
         <solidness>solid</solidness>
     </tile>
 

@@ -11,9 +11,6 @@ import javafx.scene.input.KeyCode;
  */
 public class GameLoop extends AnimationTimer {
 
-    // Could probably use inspiration from
-    // https://carlfx.wordpress.com/2012/04/09/javafx-2-gametutorial-part-2/
-
     public final static int FREQUENCY = 16;
     private int countDown = FREQUENCY;
 
@@ -23,7 +20,6 @@ public class GameLoop extends AnimationTimer {
     private Dialog currentDialog;
     private enum InputState { MOVEMENT, DIALOG }
     private InputState inputState = InputState.MOVEMENT;
-    private int currentChoice = 0;
 
     public void initializeGame(){
         world = new World("second.xml" );
@@ -51,8 +47,8 @@ public class GameLoop extends AnimationTimer {
                 if(dialog != null){
                     currentDialog = dialog;
                     inputState = InputState.DIALOG;
-                    currentChoice = 0;
-                    System.out.println(currentDialog.toString());
+                    System.out.println("Creating new dialog: " + dialog.getDialogText());
+                    Render.getInstance().renderDialog.newDialog(dialog);
                 }
             }
         }
@@ -61,19 +57,13 @@ public class GameLoop extends AnimationTimer {
             KeyCode moveReq = userInput.getLatestMovementKey();
             if (moveReq != null && currentDialog.getChoiceCount() != 0) {
                 if(moveReq == KeyCode.UP){
-                    currentChoice --;
-                    if(currentChoice < 0){
-                        currentChoice = currentDialog.getChoiceCount() - 1;
-                    }
-                    System.out.println("\n> " + currentDialog.getChoiceText(currentChoice) + "\n");
+                    System.out.println("UPP");
+                    Render.getInstance().renderDialog.selectPreviousAnswer();
                     countDown = FREQUENCY;
                 }
                 else if(moveReq == KeyCode.DOWN) {
-                    currentChoice++;
-                    if (currentChoice >= currentDialog.getChoiceCount()) {
-                        currentChoice = 0;
-                    }
-                    System.out.println("\n> " + currentDialog.getChoiceText(currentChoice) + "\n");
+                    System.out.println("NER");
+                    Render.getInstance().renderDialog.selectNextAnswer();
                     countDown = FREQUENCY;
                 }
             }
@@ -82,14 +72,17 @@ public class GameLoop extends AnimationTimer {
             if (funcReq != null) {
                 if(funcReq == KeyCode.SPACE) {
                     if(currentDialog.getChoiceCount() == 0){
+                        Render.getInstance().renderDialog.hideDialog();
                         inputState = InputState.MOVEMENT;
                     }
                     else {
-                        currentDialog = currentDialog.makeAChoice(currentChoice);
+                        currentDialog = currentDialog.makeAChoice(Render.getInstance().renderDialog.getSelected());
                         if (currentDialog.getDialogText().equals("")) {
+                            Render.getInstance().renderDialog.hideDialog();
                             inputState = InputState.MOVEMENT;
                         } else {
-                            System.out.println(currentDialog.toString());
+                            Render.getInstance().renderDialog.newDialog(currentDialog);
+                            //System.out.println(currentDialog.toString());
                         }
                     }
                 }

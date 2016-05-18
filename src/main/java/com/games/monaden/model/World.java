@@ -2,6 +2,7 @@ package com.games.monaden.model;
 
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.services.dialogParser.DialogParser;
 import com.games.monaden.services.levelParser.LevelParser;
 import com.games.monaden.services.tileParser.TileParser;
 
@@ -9,6 +10,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
 
@@ -37,7 +39,8 @@ public class World extends Observable{
 
     private SAXParser parser;
     private LevelParser levelParser;
-    private List<Tile> tileList;
+    private DialogParser dialogParser;
+    private HashMap<Integer, Tile> tileMap = new HashMap<>();
 
     public World(String startLevel) {
         if(instantiated) {
@@ -48,16 +51,20 @@ public class World extends Observable{
             SAXParserFactory factory = SAXParserFactory.newInstance();
             parser = factory.newSAXParser();
             levelParser = new LevelParser();
+            dialogParser = new DialogParser();
             TileParser tileParser = new TileParser();
-//            File tileFile = new File( "src/main/resources/parseTests/TileTest1.xml");
             // Use a relative path to get the filelist file in tiles folder
             File tileFile =  new File(this.getClass().getResource("/tiles/tilelist.xml").getPath());
+
+            // Read in all the tiles from the HashMap
             parser.parse(tileFile, tileParser);
-            tileList = tileParser.getTiles();
+            for (Tile t : tileParser.getTiles()){
+                tileMap.put(t.getId(), t);
+            }
 
             loadLevel(startLevel);
         } catch (Exception e) {
-            System.err.println("Error in world constructor: " + e.getMessage());
+            System.err.println("World: Error in constructor: " + e.getMessage());
         }
     }
 
@@ -67,7 +74,6 @@ public class World extends Observable{
             levelParser.clearTilemap();
             levelParser.clearInteractables();
             levelParser.clearTransitions();
-//          levelParser.clearCharacters();
 
 //          using relative paths for tiles and maps. renamed objects folder to tiles
             File level = new File(this.getClass().getResource("/maps/" + levelName ).getPath());
@@ -80,18 +86,19 @@ public class World extends Observable{
             //Loop through the tilemap and create tiles for each
             for (int y = 0; y < MAP_SIZE; y++) {
                 for (int x = 0; x < MAP_SIZE; x++) {
-                    Tile currentTile = tileList.get(levelParser.getTileMap()[y][x]);
+                    Tile currentTile =  tileMap.get( levelParser.getTileMap()[y][x] );
                     GameObject newGameObject = new GameObject(new Point(x, y), "tiles", currentTile.getFilepath().toString(), currentTile.isSolid());
                     newGameObject.setContinuousAnimation(currentTile.isAnimated());
                     objects.add(newGameObject);
                 }
             }
+
             setChanged();
             notifyObservers("transition");
         }
         catch(Exception e)
         {
-            System.err.println("Error loading level: " + levelName + " - " + e.getMessage());
+            System.err.println("World: Error loading level: " + levelName + " - " + e.getMessage());
             System.err.println(e.getStackTrace());
         }
     }
@@ -118,6 +125,12 @@ public class World extends Observable{
             }
         }
 
+        for (GameObject g : getInteractables()){
+            if(g.getPosition().equals(newPoint) ){ // All interactables are solid
+                return currentPoint;
+            }
+        }
+
         for(Transition t : getTransitions()){
             if(t.pos.equals(newPoint)) {
                 //Should call for a levelparse using the filepath in t
@@ -134,9 +147,16 @@ public class World extends Observable{
         for(Character c : getInteractables()) {
             if(c.getPosition().equals(newPoint)) {
                 //return c.getDialog();
-                Dialog temp = new Dialog("Hi, I'm Philip, an invisible level 24 typemancer");
-                temp.readInChoices("Fight me, you coward!", new Dialog("foo :: String -> String"));
-                temp.readInChoices("Okay bye", new Dialog(""));
+                File dialogFile = new File("src/main/resources/parseTests/DialogTest.xml");
+                try {
+                    parser.parse(dialogFile, dialogParser);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Dialog temp = dialogParser.getRoot();
+//                Dialog temp = new Dialog("Hi, I'm Philip, an invisible level 24 typemancer");
+//                temp.readInChoices("Fight me, you coward!", new Dialog("foo :: String -> String"));
+//                temp.readInChoices("Okay bye", new Dialog(""));
                 return temp;
             }
         }

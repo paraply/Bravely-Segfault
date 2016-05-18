@@ -1,7 +1,11 @@
 package com.games.monaden.view;
 
 import com.games.monaden.model.Dialog;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
@@ -10,47 +14,124 @@ import java.util.List;
  * Created by mike on 2016-05-16.
  */
 public class RenderDialog {
-    private VBox dialog;
-     private  Label question, a1,a2,a3;
+    private HBox dialog;
+    private VBox labelBox;
+    private Label question;
+    private Label[] answer;
+    private int selected;
+    private Dialog dialogObject;
 
+    private boolean dialogFail;
 
-    public RenderDialog(VBox dialog, Label q, Label a1, Label a2, Label a3){
-
-        this.dialog = dialog;
-        this.question = q;
-        this.a1 = a1;
-        this.a2 = a2;
-        this.a3 = a3;
+    public RenderDialog(HBox dialogBox){
+        this.dialog = dialogBox;
+        if (dialogBox == null){
+            System.err.println("RenderDialog: Got null as dialogBox");
+            dialogFail = true;
+        }
     }
 
-    public void showDialog(String questionText, List<String> answers){
-        dialog.setVisible(true);
-        question.setVisible(true);
-        question.setText(questionText);
-
-        if (answers.size() == 3){
-            a3.setVisible(true);
-            a3.setText(answers.get(2));
+    public void newDialog(Dialog dialogObject){
+        if (dialog == null || dialogObject == null){
+            return;
         }
+        try {
+            this.dialogObject = dialogObject;
 
-        if (answers.size() >= 2){
-            a2.setVisible(true);
-            a2.setText(answers.get(1));
+
+
+            dialog.getChildren().clear();
+            if (dialogObject.getImageFile() != null) {
+                System.out.println(dialogObject.getImageFile().getPath());
+                ImageView imageView = new ImageView();
+                imageView.setImage(new Image("avatars/" + dialogObject.getImageFile().toString()));
+                dialog.getChildren().add(imageView);
+            }else{
+                System.out.println("No dialog picture");
+            }
+
+            labelBox = new VBox();
+            question = new Label();
+            question.setText(dialogObject.getDialogText());
+            question.getStyleClass().add("dialog-question");
+            question.setPadding(new Insets(0, 0, 3, 5));
+            question.setWrapText(true);
+            labelBox.getChildren().add(question);
+
+            if (dialogObject.getChoiceTextCount() != 0) {
+                answer = new Label[dialogObject.getChoiceTextCount()];
+
+                for (int i = 0; i < dialogObject.getChoiceTextCount(); i++) {
+                    System.out.println("CHOICE " + i + " " + dialogObject.getChoiceTextCount());
+                    Label l = new Label();
+                    l.setText(dialogObject.getChoiceText(i));
+                    l.getStyleClass().add("dialog-choice");
+                    l.setPadding(new Insets(0, 0, 0, 5));
+                    labelBox.getChildren().add(l);
+                    answer[i] = l;
+                }
+                selected = -1; // This is used to say that no answer was selected before
+
+                select(0);
+            }
+            dialog.getChildren().add(labelBox);
+            dialog.setVisible(true);
+        }catch (Exception e){
+            System.err.println("RenderDialog: Error creating new dialog" );
+            e.printStackTrace();
         }
-
-        if (answers.size() >= 1){
-            a1.setVisible(true);
-            a1.setText(answers.get(0));
-        }
-
-        dialog.setVisible(true);
     }
 
     public void hideDialog(){
+        if (dialogFail){
+            System.err.println("Cannot hide failed dialog");
+            return;
+        }
         dialog.setVisible(false);
-        a3.setVisible(false);
-        a2.setVisible(false);
-        a1.setVisible(false);
+    }
+
+    public void selectPreviousAnswer(){
+        if (dialogObject == null){
+            System.err.println("selectPreviousAnswer: dialogObject == null");
+            return;
+        }
+        if (selected > 0){
+            System.out.println("is okay");
+            select(selected-1);
+        }
+    }
+
+    public void selectNextAnswer(){
+        if (dialogObject == null){
+            System.err.println("selectNextAnswer: dialogObject == null");
+            return;
+        }
+        if (selected < dialogObject.getChoiceTextCount() - 1){
+            select(selected+1);
+        }
+    }
+
+    public int getSelected(){
+        return selected;
+    }
+
+    private void select(int answerIndex){
+        System.out.println("SELCT: " + answerIndex);
+        if (dialogFail){
+            return;
+        }
+        if (selected != -1){
+            System.out.println("Previously selected: " + selected);
+            answer[selected].getStyleClass().remove("dialog-choice-selected"); // Remove old selection
+            answer[selected].setText(dialogObject.getChoiceText(selected)) ;
+        }
+        selected = answerIndex;
+        answer[selected].getStyleClass().add("dialog-choice-selected");
+        answer[selected].setText("> " + dialogObject.getChoiceText(selected));
+    }
+
+    public void choose() {
+
     }
 
 }

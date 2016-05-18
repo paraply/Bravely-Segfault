@@ -1,6 +1,14 @@
-.pane-background {
-    -fx-background-color: rgb(10, 20, 10);
+@font-face {
+   font-family: 'Pixel Azure Bonds';
+   src: url('pixel.otf');
+}
 
+.pane-background {
+    -fx-background-color: rgb(240, 240, 240);
+}
+
+.mainCanvas{
+ -fx-background-color: red;
 }
 
 .canvas-border{
@@ -15,12 +23,20 @@
     -fx-border-radius: 10px;
     -fx-border-width: 2px;
     -fx-border-color: white;
+    -fx-font-family: 'Pixel Azure Bonds';
+    -fx-font-size: 16px;
+    }
+
+
+.dialog-question{
+    -fx-text-fill:rgb(90,85,120);
 }
 
 .dialog-choice{
-    -fx-text-fill:rgb(240,100,100);
+    -fx-text-fill:rgb(150,150,150);
 }
 
-.dialog-title{
-    -fx-text-fill:rgb(240,200,200);
+.dialog-choice-selected{
+   -fx-text-fill:rgb(230,230,230);
 }
+
