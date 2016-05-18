@@ -21,6 +21,7 @@ class RenderObject {
     int x,y;                        // objects position in the world
     int imageSrcX, imageSrcY;   // Coordinates to get a specific picture from the tileset
     private GraphicsContext context;
+    private boolean initFailed;
 
     // Create a new instance of the RenderObject
     RenderObject(GameObject gameObject, GraphicsContext context){
@@ -29,7 +30,8 @@ class RenderObject {
             image = new Image(gameObject.getImagePath());
             this.context = context;
         }catch (Exception e){
-//            System.err.println("RenderObject Constructor: " + e.getMessage());
+            System.err.println("RenderObject: Constructor cannot create image: " + gameObject.getImagePath());
+            initFailed = true;
         }
     }
 
@@ -65,6 +67,9 @@ class RenderObject {
 
     // Calculate coordinates and draw to context
     public void draw(){
+        if (initFailed){
+            return;
+        }
         calculateWorldCoordinates();
         calculateSourceX();
         calculateSourceY();
@@ -73,6 +78,9 @@ class RenderObject {
 
     // Call JavaFX canvas to draw the image on the canvas
     void drawToContext(){
+        if (context == null){
+            return;
+        }
         context.drawImage(image, imageSrcX, imageSrcY, gameObject.getWidth(), gameObject.getHeight(), x, y, gameObject.getWidth(), gameObject.getHeight());
     }
 }

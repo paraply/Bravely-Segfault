@@ -50,7 +50,6 @@ public class World extends Observable{
             parser = factory.newSAXParser();
             levelParser = new LevelParser();
             TileParser tileParser = new TileParser();
-//            File tileFile = new File( "src/main/resources/parseTests/TileTest1.xml");
             // Use a relative path to get the filelist file in tiles folder
             File tileFile =  new File(this.getClass().getResource("/tiles/tilelist.xml").getPath());
 
@@ -62,7 +61,7 @@ public class World extends Observable{
 
             loadLevel(startLevel);
         } catch (Exception e) {
-            System.err.println("Error in world constructor: " + e.getMessage());
+            System.err.println("World: Error in constructor: " + e.getMessage());
         }
     }
 
@@ -96,7 +95,7 @@ public class World extends Observable{
         }
         catch(Exception e)
         {
-            System.err.println("Error loading level: " + levelName + " - " + e.getMessage());
+            System.err.println("World: Error loading level: " + levelName + " - " + e.getMessage());
             System.err.println(e.getStackTrace());
         }
     }
