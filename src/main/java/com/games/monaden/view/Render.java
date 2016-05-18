@@ -29,6 +29,9 @@ public class Render implements Observer{
     // this is set by WindowController in its initialization
     public void setGraphicsContext(GraphicsContext context){
         this.context = context;
+        if (context == null){
+            System.err.println("Render: Got null as GraphicsContext");
+        }
     }
 
     public void setWorld(World world){
@@ -61,6 +64,9 @@ public class Render implements Observer{
     }
 
     private void addWorldObjects(){
+        if (world.getObjects() == null){
+            System.err.println("Render: addWorldObjects gets null from world.getObjects");
+        }
         for (GameObject go : world.getObjects()){
             if (go.hasContinuousAnimation()){
                 objects.add(new AnimatedObject(go,context));
@@ -72,6 +78,9 @@ public class Render implements Observer{
 
 
     private void addInteractables(){
+        if (world.getObjects() == null){
+            System.err.println("Render: addInteractables gets null from world.getInteractables");
+        }
         for (GameObject go : world.getInteractables()){
 //            System.out.println("Adding interactable: " + go.getImagePath());
             if (go.hasContinuousAnimation()){

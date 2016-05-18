@@ -20,47 +20,61 @@ public class RenderDialog {
     private int selected;
     private List<String> answerText;
 
+    private boolean dialogFail;
+
     public RenderDialog(HBox dialogBox){
         this.dialog = dialogBox;
+        if (dialogBox == null){
+            System.err.println("RenderDialog: Got null as dialogBox");
+            dialogFail = true;
+        }
     }
 
     public void newDialog(String questionText, List<String> answers, String avatarName){
-        dialog.getChildren().clear();
-        if (avatarName != null){
-            ImageView imageView = new ImageView();
-            imageView.setImage(new Image("avatars/" + avatarName ));
-            dialog.getChildren().add(imageView);
+        try {
+            dialog.getChildren().clear();
+            if (avatarName != null) {
+                ImageView imageView = new ImageView();
+                imageView.setImage(new Image("avatars/" + avatarName));
+                dialog.getChildren().add(imageView);
+            }
+
+            labelBox = new VBox();
+            question = new Label();
+            question.setText(questionText);
+            question.getStyleClass().add("dialog-question");
+            question.setPadding(new Insets(0, 0, 3, 5));
+            question.setWrapText(true);
+            labelBox.getChildren().add(question);
+
+            if (answers != null) {
+                answer = new Label[answers.size()];
+
+                for (int i = 0; i < answers.size(); i++) {
+                    Label l = new Label();
+                    l.setText(answers.get(i));
+                    l.getStyleClass().add("dialog-choice");
+                    l.setPadding(new Insets(0, 0, 0, 5));
+                    labelBox.getChildren().add(l);
+                    answer[i] = l;
+                }
+                selected = -1; // This is used to say that no answer was selected before
+
+                this.answerText = answers;
+                select(0);
+            }
+            dialog.getChildren().add(labelBox);
+            dialog.setVisible(true);
+        }catch (Exception e){
+            System.err.println("RenderDialog: Error creating new dialog" );
+            e.printStackTrace();
         }
-
-        labelBox = new VBox();
-        question = new Label();
-        question.setText(questionText);
-        question.getStyleClass().add("dialog-question");
-        question.setPadding(new Insets(0,0,3,5));
-        question.setWrapText(true);
-        labelBox.getChildren().add(question);
-
-        if (answers != null){
-        answer = new Label[answers.size()];
-
-        for (int i = 0; i < answers.size(); i++){
-            Label l = new Label();
-            l.setText(answers.get(i));
-            l.getStyleClass().add("dialog-choice");
-            l.setPadding(new Insets(0,0,0,5));
-            labelBox.getChildren().add(l);
-            answer[i] = l;
-        }
-        selected = -1; // This is used to say that no answer was selected before
-
-        this.answerText = answers;
-        select(0);
-        }
-        dialog.getChildren().add(labelBox);
-        dialog.setVisible(true);
     }
 
     public void hideDialog(){
+        if (dialogFail){
+            return;
+        }
         dialog.setVisible(false);
     }
 
@@ -83,6 +97,9 @@ public class RenderDialog {
     }
 
     private void select(int answerIndex){
+        if (dialogFail){
+            return;
+        }
         if (selected != -1){
             answer[selected].getStyleClass().remove("dialog-choice-selected"); // Remove old selection
             answer[selected].setText(answerText.get(selected));
