@@ -21,7 +21,7 @@
         <character name="Philip">
             <position>2,12</position>
             <graphics>
-                <fileName>characters/philip-tan.png</fileName>
+                <fileName>philip-tan.png</fileName>
                 <frameCount>4</frameCount>
             </graphics>
             <dialogue>tutorialPhilip.xml</dialogue>
@@ -29,7 +29,7 @@
     </characters>
     <transitions>
         <transition>
-            <levelName>hallmonaden.xml</levelName>
+            <filename>hallmonaden.xml</filename>
             <position>13,6</position>
 	    <nextPosition>1,1</nextPosition>
         </transition>

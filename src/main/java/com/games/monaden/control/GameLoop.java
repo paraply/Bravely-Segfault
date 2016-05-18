@@ -20,7 +20,7 @@ public class GameLoop extends AnimationTimer {
     CharacterController playerCharacter;
 
     public void initializeGame(){
-        world = new World("bigroommonaden.xml" );
+        world = new World("hallmonaden.xml" );
         Render.getInstance().setWorld(world);
         playerCharacter = new CharacterController();
     }

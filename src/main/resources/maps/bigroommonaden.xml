@@ -1,4 +1,3 @@
-<!-- big room in Monaden -->
 <level>
     <tilemap>
 	 <line>522,522,522,522,522,522,522,522,522,522,522,522,522,522,522,522</line>
@@ -22,17 +21,17 @@
         <character name="Philip">
             <position>12,13</position>
             <graphics>
-                <fileName>characters/cat.png</fileName>
+                <fileName>philip-tan.png</fileName>
                 <frameCount>4</frameCount>
             </graphics>
-            <dialogue></dialogue>
+            <dialogue>tutorialPhilip.xml</dialogue>
         </character>
     </characters>
     <transitions>
         <transition>
-            <levelName>monadenhall.xml</levelName>
-            <position>12,2</position>
-	    <newPosition>11,10</newPosition>
+            <filename>hallmonaden.xml</filename>
+            <position>13,2</position>
+	        <newPosition>11,10</newPosition>
         </transition>
     </transitions>
 </level>

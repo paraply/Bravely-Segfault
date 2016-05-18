@@ -22,7 +22,7 @@
         <character name="Philip">
             <position>2,1</position>
             <graphics>
-                <fileName>characters/cat.png</fileName>
+                <fileName>cat.png</fileName>
                 <frameCount>4</frameCount>
             </graphics>
             <dialogue>tutorialPhilip.xml</dialogue>
@@ -30,9 +30,9 @@
     </characters>
     <transitions>
         <transition>
-            <levelName>hallmonaden.xml</levelName>
+            <filename>hallmonaden.xml</filename>
             <position>0,2</position>
-	    <newPosition>13,3</newPosition>
+	        <newPosition>13,3</newPosition>
         </transition>
     </transitions>
 </level>

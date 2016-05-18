@@ -14,7 +14,7 @@ public class CharacterController {
 
     private Character player;
     public CharacterController() {
-        player = new Character(new Point(5,14), "cat.png", 32,32);
+        player = new Character(new Point(1,1), "cat.png", 32,32);
         Render.getInstance().setPlayerCharacter(player);
     }
 

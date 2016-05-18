@@ -22,7 +22,7 @@
         <character name="Philip">
             <position>2,2</position>
             <graphics>
-                <fileName>characters/cat.png</fileName>
+                <fileName>philip-tan.png</fileName>
                 <frameCount>4</frameCount>
             </graphics>
             <dialogue>tutorialPhilip.xml</dialogue>
@@ -30,24 +30,24 @@
     </characters>
     <transitions>
         <transition>
-            <levelName>outsidemonaden.xml</levelName>
+            <filename>outsidemonaden.xml</filename>
             <position>0,1</position>
-	    <newPosition>11,6</newPosition>
+	        <newPosition>11,6</newPosition>
         </transition>
         <transition>
-            <levelName>kitchenmonaden.xml</levelName>
+            <filename>kitchenmonaden.xml</filename>
             <position>14,3</position>
-	    <newPosition>1,2</newPosition>
+	        <newPosition>1,2</newPosition>
         </transition>
         <transition>
-            <levelName>smallroommonaden.xml</levelName>
+            <filename>smallroommonaden.xml</filename>
             <position>10,8</position>
-	    <newPosition>14,9</newPosition>
+	        <newPosition>14,9</newPosition>
         </transition>
         <transition>
-            <levelName>bigroommonaden.xml</levelName>
+            <filename>bigroommonaden.xml</filename>
             <position>10,10</position>
-	    <newPosition>11,2</newPosition>
+	        <newPosition>11,2</newPosition>
         </transition>
     </transitions>
 </level>
