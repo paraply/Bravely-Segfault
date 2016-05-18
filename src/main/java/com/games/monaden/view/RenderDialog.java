@@ -1,5 +1,6 @@
 package com.games.monaden.view;
 
+import com.games.monaden.model.Dialog;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -18,7 +19,7 @@ public class RenderDialog {
     private Label question;
     private Label[] answer;
     private int selected;
-    private List<String> answerText;
+    private Dialog dialogObject;
 
     private boolean dialogFail;
 
@@ -30,32 +31,40 @@ public class RenderDialog {
         }
     }
 
-    public void newDialog(String questionText, List<String> answers, String avatarName){
-        if (dialog == null){
+    public void newDialog(Dialog dialogObject){
+        if (dialog == null || dialogObject == null){
             return;
         }
         try {
+            this.dialogObject = dialogObject;
+
+
+
             dialog.getChildren().clear();
-            if (avatarName != null) {
+            if (dialogObject.getImageFile() != null) {
+                System.out.println(dialogObject.getImageFile().getPath());
                 ImageView imageView = new ImageView();
-                imageView.setImage(new Image("avatars/" + avatarName));
+                imageView.setImage(new Image("avatars/" + dialogObject.getImageFile().toString()));
                 dialog.getChildren().add(imageView);
+            }else{
+                System.out.println("No dialog picture");
             }
 
             labelBox = new VBox();
             question = new Label();
-            question.setText(questionText);
+            question.setText(dialogObject.getDialogText());
             question.getStyleClass().add("dialog-question");
             question.setPadding(new Insets(0, 0, 3, 5));
             question.setWrapText(true);
             labelBox.getChildren().add(question);
 
-            if (answers != null) {
-                answer = new Label[answers.size()];
+            if (dialogObject.getChoiceTextCount() != 0) {
+                answer = new Label[dialogObject.getChoiceTextCount()];
 
-                for (int i = 0; i < answers.size(); i++) {
+                for (int i = 0; i < dialogObject.getChoiceTextCount(); i++) {
+                    System.out.println("CHOICE " + i + " " + dialogObject.getChoiceTextCount());
                     Label l = new Label();
-                    l.setText(answers.get(i));
+                    l.setText(dialogObject.getChoiceText(i));
                     l.getStyleClass().add("dialog-choice");
                     l.setPadding(new Insets(0, 0, 0, 5));
                     labelBox.getChildren().add(l);
@@ -63,7 +72,6 @@ public class RenderDialog {
                 }
                 selected = -1; // This is used to say that no answer was selected before
 
-                this.answerText = answers;
                 select(0);
             }
             dialog.getChildren().add(labelBox);
@@ -76,40 +84,51 @@ public class RenderDialog {
 
     public void hideDialog(){
         if (dialogFail){
+            System.err.println("Cannot hide failed dialog");
             return;
         }
+        selected = 0;
         dialog.setVisible(false);
     }
 
     public void selectPreviousAnswer(){
-        if (answerText == null){
+        if (dialogObject == null){
+            System.err.println("selectPreviousAnswer: dialogObject == null");
             return;
         }
-        if (selected != 0){
-            select(selected--);
+        if (selected > 0){
+            System.out.println("is okay");
+            select(selected-1);
         }
     }
 
     public void selectNextAnswer(){
-        if (answerText == null){
+        if (dialogObject == null){
+            System.err.println("selectNextAnswer: dialogObject == null");
             return;
         }
-        if (selected < answerText.size() - 1){
+        if (selected < dialogObject.getChoiceTextCount() - 1){
             select(selected+1);
         }
     }
 
+    public int getSelected(){
+        return selected;
+    }
+
     private void select(int answerIndex){
+        System.out.println("SELCT: " + answerIndex);
         if (dialogFail){
             return;
         }
         if (selected != -1){
+            System.out.println("Previously selected: " + selected);
             answer[selected].getStyleClass().remove("dialog-choice-selected"); // Remove old selection
-            answer[selected].setText(answerText.get(selected));
+            answer[selected].setText(dialogObject.getChoiceText(selected)) ;
         }
         selected = answerIndex;
         answer[selected].getStyleClass().add("dialog-choice-selected");
-        answer[selected].setText("> " + answerText.get(selected));
+        answer[selected].setText("> " + dialogObject.getChoiceText(selected));
     }
 
     public void choose() {

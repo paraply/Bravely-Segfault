@@ -1,6 +1,8 @@
 package com.games.monaden.model;
 
+import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.services.dialogParser.DialogParser;
 import com.games.monaden.services.levelParser.LevelParser;
 import com.games.monaden.services.tileParser.TileParser;
 
@@ -24,19 +26,20 @@ public class World extends Observable{
     public static final int MAP_SIZE = 16;
 
     private List<GameObject> objects = new ArrayList<>();
-    private List<GameObject> interactables = new ArrayList<>();
+    private List<Character> interactables = new ArrayList<>();
     private List<Transition> transitions = new ArrayList<>();
 
     public List<GameObject> getObjects(){
         return objects;
     }
-    public List<GameObject> getInteractables(){
+    public List<Character> getInteractables(){
         return interactables;
     }
     public List<Transition> getTransitions() { return transitions; }
 
     private SAXParser parser;
     private LevelParser levelParser;
+    private DialogParser dialogParser;
     private HashMap<Integer, Tile> tileMap = new HashMap<>();
 
     public World(String startLevel) {
@@ -48,6 +51,7 @@ public class World extends Observable{
             SAXParserFactory factory = SAXParserFactory.newInstance();
             parser = factory.newSAXParser();
             levelParser = new LevelParser();
+            dialogParser = new DialogParser();
             TileParser tileParser = new TileParser();
             // Use a relative path to get the filelist file in tiles folder
             File tileFile =  new File(this.getClass().getResource("/tiles/tilelist.xml").getPath());
@@ -76,6 +80,7 @@ public class World extends Observable{
             parser.parse(level, levelParser);
 
             interactables = levelParser.getInteractables();
+            System.out.println(interactables.get(0).getPosition().toString());
             transitions = levelParser.getTransitions();
             objects.clear();
             //Loop through the tilemap and create tiles for each
@@ -137,14 +142,25 @@ public class World extends Observable{
         return newPoint;
     }
 
-    public String checkInteraction(Point currentPoint, World.MovementDirection direction) {
+    public Dialog checkInteraction(Point currentPoint, World.MovementDirection direction) {
         Point newPoint = currentPoint.nextTo(direction);
-
-        for(GameObject g : getInteractables()) {
-            if(g.getPosition().equals(newPoint))
-                return "There is an interactive object in front of the player. Start interaction.";
+        for(Character c : getInteractables()) {
+            if(c.getPosition().equals(newPoint)) {
+                //return c.getDialog();
+                File dialogFile = new File("src/main/resources/parseTests/DialogTest.xml");
+                try {
+                    parser.parse(dialogFile, dialogParser);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Dialog temp = dialogParser.getRoot();
+//                Dialog temp = new Dialog("Hi, I'm Philip, an invisible level 24 typemancer");
+//                temp.readInChoices("Fight me, you coward!", new Dialog("foo :: String -> String"));
+//                temp.readInChoices("Okay bye", new Dialog(""));
+                return temp;
+            }
         }
 
-        return "There was nothing to interact with.";
+        return null;
     }
 }
