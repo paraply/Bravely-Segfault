@@ -5,6 +5,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import java.io.File;
 import java.util.LinkedList;
 import java.util.Stack;
 import java.util.StringJoiner;
@@ -19,6 +20,7 @@ public class DialogParser extends DefaultHandler{
     private boolean bResponse;
     private boolean bChoice;
     private boolean bSubDialog;
+    private boolean bAvatar;
 
     private Dialog root;
     private boolean gotRoot = false;
@@ -36,6 +38,9 @@ public class DialogParser extends DefaultHandler{
         switch (qName.toLowerCase()) {
             case "dialog":
                 bDialog = true;
+                break;
+            case "image":
+                bAvatar = true;
                 break;
             case "text":
                 bText = true;
@@ -67,6 +72,9 @@ public class DialogParser extends DefaultHandler{
             }
                 currentDialog = child;
             bDialog = false;
+        } else if (bAvatar) {
+            currentDialog.setImageFile(new File(new String(ch, start, length)));
+            bAvatar = false;
         } else if(bText) {
             currentDialog.setDialogText(new String(ch, start, length));
             bText = false;
