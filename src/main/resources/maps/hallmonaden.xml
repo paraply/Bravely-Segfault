@@ -2,7 +2,7 @@
 <level>
     <tilemap>
 	    <line>522,522,522,522,522,522,522,522,522,522,522,522,551,522,522,000</line>
-	    <line>550,015,015,015,015,015,015,015,015,015,015,015,015,015,550,000</line>
+	    <line>015,015,015,015,015,015,015,015,015,015,015,015,015,015,550,000</line>
 	    <line>522,015,015,015,015,015,015,015,015,015,522,015,015,015,522,000</line>
 	    <line>522,522,522,522,522,522,522,522,522,522,522,015,015,015,015,000</line>
 	    <line>000,000,000,000,000,000,000,000,000,000,522,015,015,015,522,000</line>
@@ -30,22 +30,22 @@
     </characters>
     <transitions>
         <transition>
-            <levelName>outsideMonaden.xml</levelName>
+            <levelName>outsidemonaden.xml</levelName>
             <position>0,1</position>
 	    <newPosition>11,6</newPosition>
         </transition>
         <transition>
-            <levelName>kitchenMonaden.xml</levelName>
+            <levelName>kitchenmonaden.xml</levelName>
             <position>14,3</position>
 	    <newPosition>1,2</newPosition>
         </transition>
         <transition>
-            <levelName>smallRoomMonaden.xml</levelName>
+            <levelName>smallroommonaden.xml</levelName>
             <position>10,8</position>
 	    <newPosition>14,9</newPosition>
         </transition>
         <transition>
-            <levelName>bigRoomMonaden.xml</levelName>
+            <levelName>bigroommonaden.xml</levelName>
             <position>10,10</position>
 	    <newPosition>11,2</newPosition>
         </transition>

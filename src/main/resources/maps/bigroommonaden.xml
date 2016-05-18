@@ -30,7 +30,7 @@
     </characters>
     <transitions>
         <transition>
-            <levelName>monadenHall.xml</levelName>
+            <levelName>monadenhall.xml</levelName>
             <position>12,2</position>
 	    <newPosition>11,10</newPosition>
         </transition>
