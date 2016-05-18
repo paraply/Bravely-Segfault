@@ -66,7 +66,6 @@ public class World extends Observable{
             levelParser.clearTilemap();
             levelParser.clearInteractables();
             levelParser.clearTransitions();
-//          levelParser.clearCharacters();
 
 //          using relative paths for tiles and maps. renamed objects folder to tiles
             File level = new File(this.getClass().getResource("/maps/" + levelName ).getPath());
@@ -78,12 +77,14 @@ public class World extends Observable{
             //Loop through the tilemap and create tiles for each
             for (int y = 0; y < MAP_SIZE; y++) {
                 for (int x = 0; x < MAP_SIZE; x++) {
-                    Tile currentTile = tileList.get(levelParser.getTileMap()[y][x]);
+                    Tile currentTile = tileList.get(levelParser.getTileMap()[y][x]); //TODO Hashmap fix mike!
                     GameObject newGameObject = new GameObject(new Point(x, y), "tiles", currentTile.getFilepath().toString(), currentTile.isSolid());
                     newGameObject.setContinuousAnimation(currentTile.isAnimated());
                     objects.add(newGameObject);
                 }
             }
+
+
             setChanged();
             notifyObservers("transition");
         }
@@ -112,6 +113,12 @@ public class World extends Observable{
 //      If that object is solid then it will not be possible
         for(GameObject g : getObjects()) {
             if(g.getPosition().equals(newPoint) && g.isSolid()){
+                return currentPoint;
+            }
+        }
+
+        for (GameObject g : getInteractables()){
+            if(g.getPosition().equals(newPoint) ){ // All interactables are solid
                 return currentPoint;
             }
         }

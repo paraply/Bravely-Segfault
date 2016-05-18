@@ -24,9 +24,13 @@ class RenderObject {
 
     // Create a new instance of the RenderObject
     RenderObject(GameObject gameObject, GraphicsContext context){
-        this.gameObject = gameObject;
-        image = new Image( gameObject.getImagePath() );
-        this.context = context;
+        try {
+            this.gameObject = gameObject;
+            image = new Image(gameObject.getImagePath());
+            this.context = context;
+        }catch (Exception e){
+//            System.err.println("RenderObject Constructor: " + e.getMessage());
+        }
     }
 
     // x,y values specifies where in the world the character should be drawn
