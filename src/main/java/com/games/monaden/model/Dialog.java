@@ -62,5 +62,12 @@ public class Dialog {
     public Dialog traverse () {
         return choices.get(0);
     }
-    
+
+    public String toString(){
+        String result = getDialogText();
+        for(int i = 0; i < getChoiceCount(); i++){
+            result += "\n*" + getChoiceText(i);
+        }
+        return result;
+    }
 }

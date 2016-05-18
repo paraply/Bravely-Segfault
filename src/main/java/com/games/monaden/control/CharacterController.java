@@ -11,6 +11,8 @@ import javafx.scene.input.KeyCode;
 public class CharacterController {
 
     private Character player;
+
+
     public CharacterController() {
         player = new Character(new Point(5,14), "cat.png", 32,32);
         Render.getInstance().setPlayerCharacter(player);
@@ -40,7 +42,7 @@ public class CharacterController {
         player.setDirection(dir);
     }
 
-    public void handleInteractions(KeyCode funcReq, World world){
+    public Dialog handleInteractions(KeyCode funcReq, World world){
         switch (funcReq) {
             case ESCAPE:
                 System.out.println("ESCAPE");
@@ -49,9 +51,10 @@ public class CharacterController {
             case SPACE:
                 Dialog dialog = world.checkInteraction(player.getPosition(), player.getDirection());
                 if(dialog != null) {
-                    System.out.println(dialog.getDialogText());
+                    return dialog;
                 }
                 break;
         }
+        return null;
     }
 }

@@ -136,6 +136,7 @@ public class World extends Observable{
                 //return c.getDialog();
                 Dialog temp = new Dialog("Hi, I'm Philip, an invisible level 24 typemancer");
                 temp.readInChoices("Fight me, you coward!", new Dialog("foo :: String -> String"));
+                temp.readInChoices("Okay bye", new Dialog(""));
                 return temp;
             }
         }
