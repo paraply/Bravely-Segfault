@@ -87,6 +87,7 @@ public class RenderDialog {
             System.err.println("Cannot hide failed dialog");
             return;
         }
+        selected = 0;
         dialog.setVisible(false);
     }
 
