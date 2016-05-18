@@ -9,6 +9,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
 
@@ -37,7 +38,7 @@ public class World extends Observable{
 
     private SAXParser parser;
     private LevelParser levelParser;
-    private List<Tile> tileList;
+    private HashMap<Integer, Tile> tileMap = new HashMap<>();
 
     public World(String startLevel) {
         if(instantiated) {
@@ -52,8 +53,12 @@ public class World extends Observable{
 //            File tileFile = new File( "src/main/resources/parseTests/TileTest1.xml");
             // Use a relative path to get the filelist file in tiles folder
             File tileFile =  new File(this.getClass().getResource("/tiles/tilelist.xml").getPath());
+
+            // Read in all the tiles from the HashMap
             parser.parse(tileFile, tileParser);
-            tileList = tileParser.getTiles();
+            for (Tile t : tileParser.getTiles()){
+                tileMap.put(t.getId(), t);
+            }
 
             loadLevel(startLevel);
         } catch (Exception e) {
@@ -79,13 +84,12 @@ public class World extends Observable{
             //Loop through the tilemap and create tiles for each
             for (int y = 0; y < MAP_SIZE; y++) {
                 for (int x = 0; x < MAP_SIZE; x++) {
-                    Tile currentTile = tileList.get(levelParser.getTileMap()[y][x]); //TODO Hashmap fix mike!
+                    Tile currentTile =  tileMap.get( levelParser.getTileMap()[y][x] );
                     GameObject newGameObject = new GameObject(new Point(x, y), "tiles", currentTile.getFilepath().toString(), currentTile.isSolid());
                     newGameObject.setContinuousAnimation(currentTile.isAnimated());
                     objects.add(newGameObject);
                 }
             }
-
 
             setChanged();
             notifyObservers("transition");
