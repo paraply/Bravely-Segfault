@@ -41,38 +41,13 @@ public class World extends Observable{
         this.objects = gameObjects;
         this.interactables = interactables;
         this.transitions = transitions;
-        
+
         setChanged();
         notifyObservers();
     }
-
-//    public void addCharacterDialogs (List<Character> characters) {
-//
-//        for (Character c : characters) {
-//            try {
-//                ClassLoader classLoader = this.getClass().getClassLoader();
-//                InputStream is = classLoader.getResourceAsStream("dialogs/" + c.getDialogFile());
-//                parser.parse(is, dialogParser);
-//                c.setDialog(dialogParser.getRoot());
-//                dialogParser.reset();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
 
     public enum MovementDirection {
         UP, DOWN, LEFT, RIGHT
     }
 
-
-    public Dialog checkInteraction(Point currentPoint, World.MovementDirection direction) {
-        Point newPoint = currentPoint.nextTo(direction);
-        for(Character c : getInteractables()) {
-            if(c.getPosition().equals(newPoint)) {
-                return c.getDialog();
-            }
-        }
-        return null;
-    }
 }

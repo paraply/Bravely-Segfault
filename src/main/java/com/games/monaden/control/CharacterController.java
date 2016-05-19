@@ -96,9 +96,11 @@ public class CharacterController extends Observable {
                 System.exit(0);
                 break;
             case SPACE:
-                Dialog dialog = world.checkInteraction(player.getPosition(), player.getDirection());
-                if(dialog != null) {
-                    return dialog;
+                Point newPoint = player.getPosition().nextTo(player.getDirection());
+                for(Character c : world.getInteractables()) {
+                    if(c.getPosition().equals(newPoint)) {
+                        return c.getDialog();
+                    }
                 }
                 break;
         }

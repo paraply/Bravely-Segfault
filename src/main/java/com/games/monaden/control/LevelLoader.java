@@ -38,13 +38,14 @@ public class LevelLoader {
     }
 
     public void loadLevel (String levelName) {
-        try {
-            levelParser.clearTilemap();
-            levelParser.clearInteractables();
-            levelParser.clearTransitions();
 
-            ClassLoader classLoader = this.getClass().getClassLoader();
-            InputStream is = classLoader.getResourceAsStream("maps/" + levelName);
+        levelParser.clearTilemap();
+        levelParser.clearInteractables();
+        levelParser.clearTransitions();
+
+        ClassLoader classLoader = this.getClass().getClassLoader();
+        InputStream is = classLoader.getResourceAsStream("maps/" + levelName);
+        try {
             parser.parse(is, levelParser);
 
             interactables.clear();

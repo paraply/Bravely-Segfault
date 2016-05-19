@@ -69,7 +69,17 @@ public class GameLoop extends AnimationTimer implements Observer {
             }
         }
 
-        world.setCurrentLevel(gameObjects, levelLoader.getInteractables(), levelLoader.getTransitions());
+        List<Character> interactables = levelLoader.getInteractables();
+
+        DialogLoader dialogLoader = new DialogLoader();
+
+        for (Character c : interactables) {
+            c.setDialog(dialogLoader.parseDialog(c.getDialogFile().getPath()));
+        }
+
+
+
+        world.setCurrentLevel(gameObjects, interactables, levelLoader.getTransitions());
     }
 
 
@@ -77,6 +87,7 @@ public class GameLoop extends AnimationTimer implements Observer {
     private Tile findTile (int tileNr) {
         return tileMap.get(tileNr);
     }
+
 
     @Override
     public void handle(long now) {
