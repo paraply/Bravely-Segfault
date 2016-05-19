@@ -29,7 +29,7 @@ public class DialogParser extends DefaultHandler{
 
     private Dialog currentDialog;
 
-    private Stack<Dialog> parents= new Stack<>();
+    private Stack<Dialog> parents = new Stack<>();
     private String choiceText;
 
     @Override
@@ -111,6 +111,7 @@ public class DialogParser extends DefaultHandler{
                 if (!parents.empty()) {
                     currentDialog = parents.pop();
                 }
+                break;
         }
     }
 
@@ -120,5 +121,12 @@ public class DialogParser extends DefaultHandler{
      */
     public Dialog getRoot () {
         return this.root;
+    }
+    public void reset () {
+        gotRoot = false;
+        root = null;
+        currentDialog = null;
+        parents = new Stack<>();
+        choiceText = null;
     }
 }

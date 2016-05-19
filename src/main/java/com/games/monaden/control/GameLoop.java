@@ -1,10 +1,13 @@
 package com.games.monaden.control;
 
 import com.games.monaden.model.Dialog;
+import com.games.monaden.model.Tile;
 import com.games.monaden.model.World;
 import com.games.monaden.view.Render;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
+
+import java.util.HashMap;
 
 /**
  * Created by paraply on 2016-04-13.
@@ -22,7 +25,8 @@ public class GameLoop extends AnimationTimer {
     private InputState inputState = InputState.MOVEMENT;
 
     public void initializeGame(){
-        world = new World("second.xml" );
+        HashMap<Integer, Tile> tileMap = new TileLoader().loadTiles();
+        world = new World("second.xml", tileMap );
         Render.getInstance().setWorld(world);
         playerCharacter = new CharacterController();
     }

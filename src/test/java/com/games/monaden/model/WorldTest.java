@@ -1,8 +1,11 @@
 package com.games.monaden.model;
 
+import com.games.monaden.control.TileLoader;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.util.HashMap;
 
 import static org.junit.Assert.*;
 
@@ -12,7 +15,8 @@ public class WorldTest {
     private World world;
     @BeforeClass
     public static void initClass(){
-        startWorld = new World("test.xml" );
+        HashMap<Integer, Tile> tileMap = new TileLoader().loadTiles();
+        startWorld = new World("test.xml" , tileMap);
     }
 
     @Before
