@@ -9,6 +9,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -36,6 +37,7 @@ public class LevelParser extends DefaultHandler {
     private Point charPos;
     private Point transPos;
     private String imageFile;
+    private File dialogFile;
 
     private List<Character> interactables = new ArrayList<>();
     private List<Transition> transitions = new ArrayList<>();
@@ -111,6 +113,9 @@ public class LevelParser extends DefaultHandler {
                     bCharName = false;
                     charName = null;
                 }
+                if (dialogFile != null) {
+                    character.setDialogFile(dialogFile);
+                }
                 interactables.add(character);
                 break;
             case "transition":
@@ -141,6 +146,9 @@ public class LevelParser extends DefaultHandler {
         } else if (bFile) {
             imageFile = new String(ch, start, length);
             bFile = false;
+        } else if (bDialogue) {
+            dialogFile = new File (new String(ch, start, length));
+            bDialogue = false;
         } else if(bTransPos){
             String [] point = new String(ch, start, length).split(",");
             transPos = new Point(Integer.parseInt(point[0])
