@@ -1,20 +1,91 @@
 <class>
-    <tile id="0">
+<!-- COLORS -->
+    <tile id="000">
         <name>satan</name>
-        <graphics>black.png</graphics>
+        <graphics>colors/black.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
-    <tile id="1">
+    <tile id="001">
+        <name>ligh gray</name>
+        <graphics>colors/lightgray.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="002">
+        <name>dark gray</name>
+        <graphics>colors/darkgray.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+
+<!-- SOFA -->
+    <tile id="500">
+        <name>Sofa horizontal front 1</name>
+        <graphics>sofa/hf1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="501">
+        <name>Sofa horizontal front 2</name>
+        <graphics>sofa/hf2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="502">
+        <name>Sofa vertical left 1</name>
+        <graphics>sofa/vl1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="503">
+        <name>Sofa vertical left 2</name>
+        <graphics>sofa/vl2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="504">
+        <name>Sofa vertical right 1</name>
+        <graphics>sofa/vr1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="505">
+        <name>Sofa vertical right 2</name>
+        <graphics>sofa/vr2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+<!-- SMALL TABLE -->
+    <tile id="512">
+        <name>Small table vertical 1</name>
+        <graphics>smalltable/v1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="513">
+        <name>Small table vertical 3</name>
+        <graphics>smalltable/v2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+<!-- WALLS -->
+    <tile id="600">
+        <name>Brick wall</name>
+        <graphics>brickwall.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+
+
+
+
+
+
+
+<!-- PARKING -->
+    <tile id="401">
         <name>sidewalk horizontal</name>
         <graphics>sidewalks/sidewalkh.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
-    <tile id="2">
+    <tile id="402">
         <name>sidewalk vertical</name>
         <graphics>sidewalks/sidewalkv.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
-    <tile id="3">
+    <tile id="403">
         <name>horizontal road top part</name>
         <graphics>roadh/1.png</graphics>
         <solidness>non-solid</solidness>
