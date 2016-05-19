@@ -4,12 +4,9 @@ import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.services.dialogParser.DialogParser;
 import com.games.monaden.services.levelParser.LevelParser;
-import com.games.monaden.services.tileParser.TileParser;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.*;
 
@@ -69,9 +66,7 @@ public class World extends Observable{
             levelParser.clearTransitions();
 
             ClassLoader classLoader = this.getClass().getClassLoader();
-            InputStream is = new FileInputStream(classLoader.getResource("maps/" + levelName).getFile());
-//            File level = new File(classLoader.getResource("maps/" + levelName ).getFile());
-//            System.out.println(level.getPath());
+            InputStream is = classLoader.getResourceAsStream("maps/" + levelName);
             parser.parse(is, levelParser);
 
             interactables = levelParser.getInteractables();
@@ -102,14 +97,9 @@ public class World extends Observable{
     public void addCharacterDialogs (List<Character> characters) {
 
         for (Character c : characters) {
-//            File dialogFile = new File(this.getClass().getResource("/dialogs/" + c.getDialogFile()).getPath());
-//            System.out.println(dialogFile.getPath());
             try {
                 ClassLoader classLoader = this.getClass().getClassLoader();
-                InputStream is = new FileInputStream(classLoader.getResource("dialogs/" + c.getDialogFile()).getFile());
-//                InputStream is = new FileInputStream(classLoader.getResource("/dialogs/" + c.getDialogFile()).toString());
-//                Scanner scanner = new Scanner(is);
-//                System.out.println("Scan: " + scanner.nextLine());
+                InputStream is = classLoader.getResourceAsStream("dialogs/" + c.getDialogFile());
                 parser.parse(is, dialogParser);
                 c.setDialog(dialogParser.getRoot());
                 dialogParser.reset();

@@ -3,12 +3,10 @@ package com.games.monaden.control;
 
 import com.games.monaden.model.Tile;
 import com.games.monaden.services.tileParser.TileParser;
-import org.xml.sax.SAXException;
 
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import java.io.File;
+import java.io.InputStream;
 import java.util.HashMap;
 
 /**
@@ -22,15 +20,17 @@ public class TileLoader {
         try {
             parser = factory.newSAXParser();
             TileParser tileParser = new TileParser();
-            File tileFile =  new File(this.getClass().getResource("/tiles/tilelist.xml").getPath());
+            ClassLoader classLoader = this.getClass().getClassLoader();
+            InputStream is = classLoader.getResourceAsStream("tiles/tilelist.xml");
             // Read in all the tiles from the HashMap
-            parser.parse(tileFile, tileParser);
+            parser.parse(is, tileParser);
             for (Tile t : tileParser.getTiles()){
                 tileMap.put(t.getId(), t);
             }
             return tileMap;
         } catch (Exception e) {
-            System.out.println("TileLoader: Error in loadTiles");
+//            System.out.println("TileLoader: Error in loadTiles");
+            e.printStackTrace();
             return null;
         }
     }
