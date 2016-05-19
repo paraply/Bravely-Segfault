@@ -9,10 +9,9 @@ import com.games.monaden.services.tileParser.TileParser;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Observable;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.*;
 
 /**
  * Created by Anton on 2016-04-17.
@@ -69,7 +68,9 @@ public class World extends Observable{
             levelParser.clearInteractables();
             levelParser.clearTransitions();
 
-            File level = new File(this.getClass().getResource("/maps/" + levelName ).getFile());
+            ClassLoader classLoader = this.getClass().getClassLoader();
+            File level = new File(classLoader.getResource("maps/" + levelName ).getFile());
+            System.out.println(level.getPath());
             parser.parse(level, levelParser);
 
             interactables = levelParser.getInteractables();
@@ -93,13 +94,20 @@ public class World extends Observable{
         catch(Exception e)
         {
             System.err.println("World: Error loading level: " + levelName + " - " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
     public void addCharacterDialogs (List<Character> characters) {
         for (Character c : characters) {
-            File dialogFile = new File(this.getClass().getResource("/dialogs/" + c.getDialogFile()).getFile());
+            ClassLoader classLoader = this.getClass().getClassLoader();
+            File dialogFile = new File(classLoader.getResource("dialogs/" + c.getDialogFile()).getFile());
+
+//            System.out.println(dialogFile.getPath());
             try {
+                InputStream is = new FileInputStream(classLoader.getResource("/dialogs/" + c.getDialogFile()).getPath());
+                Scanner scanner = new Scanner(is);
+                System.out.println("Scan: " + scanner.nextLine());
                 parser.parse(dialogFile, dialogParser);
                 c.setDialog(dialogParser.getRoot());
                 dialogParser.reset();
