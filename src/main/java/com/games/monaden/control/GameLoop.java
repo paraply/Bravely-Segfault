@@ -26,7 +26,7 @@ public class GameLoop extends AnimationTimer {
 
     public void initializeGame(){
         HashMap<Integer, Tile> tileMap = new TileLoader().loadTiles();
-        world = new World("second.xml", tileMap );
+        world = new World("monadenbigroom.xml", tileMap );
         Render.getInstance().setWorld(world);
         playerCharacter = new CharacterController();
     }

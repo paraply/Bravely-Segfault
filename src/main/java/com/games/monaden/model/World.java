@@ -71,13 +71,17 @@ public class World extends Observable{
 
             interactables = levelParser.getInteractables();
             addCharacterDialogs(interactables);
-            System.out.println(interactables.get(0).getPosition().toString());
             transitions = levelParser.getTransitions();
             objects.clear();
             //Loop through the tilemap and create tiles for each
+            outerloop:
             for (int y = 0; y < MAP_SIZE; y++) {
                 for (int x = 0; x < MAP_SIZE; x++) {
                     Tile currentTile =  tileMap.get( levelParser.getTileMap()[y][x] );
+                    if (currentTile == null){
+                        System.err.println("Bad tile in map @ X: " + x + " Y: " + y +". I will not load more of the map until you fix.");
+                        break outerloop;
+                    }
                     GameObject newGameObject = new GameObject(new Point(x, y), "tiles", currentTile.getFilepath().toString(), currentTile.isSolid());
                     newGameObject.setContinuousAnimation(currentTile.isAnimated());
                     objects.add(newGameObject);
