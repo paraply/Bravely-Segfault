@@ -40,27 +40,27 @@ public class World extends Observable{
     private SAXParser parser;
     private LevelParser levelParser;
     private DialogParser dialogParser;
-    private HashMap<Integer, Tile> tileMap = new HashMap<>();
+    private HashMap<Integer, Tile> tileMap;
 
-    public World(String startLevel) {
+    public World(String startLevel, HashMap<Integer, Tile> tileMap) {
         if(instantiated) {
             System.out.println("A world object has already been instantiated!");
         }
         instantiated = true;
         try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
+            this.tileMap = tileMap;
             parser = factory.newSAXParser();
             levelParser = new LevelParser();
             dialogParser = new DialogParser();
-            TileParser tileParser = new TileParser();
-            // Use a relative path to get the filelist file in tiles folder
-            File tileFile =  new File(this.getClass().getResource("/tiles/tilelist.xml").getPath());
+//            TileParser tileParser = new TileParser();
+//            File tileFile =  new File(this.getClass().getResource("/tiles/tilelist.xml").getPath());
 
-            // Read in all the tiles from the HashMap
-            parser.parse(tileFile, tileParser);
-            for (Tile t : tileParser.getTiles()){
-                tileMap.put(t.getId(), t);
-            }
+//            // Read in all the tiles from the HashMap
+//            parser.parse(tileFile, tileParser);
+//            for (Tile t : tileParser.getTiles()){
+//                tileMap.put(t.getId(), t);
+//            }
 
             loadLevel(startLevel);
         } catch (Exception e) {
