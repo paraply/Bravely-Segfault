@@ -42,9 +42,11 @@ public class World extends Observable{
     private DialogParser dialogParser;
     private HashMap<Integer, Tile> tileMap;
 
+
+    // Start the game using a starting level and the tilemap that was loaded in GameLoop : initializeGame
     public World(String startLevel, HashMap<Integer, Tile> tileMap) {
         if(instantiated) {
-            System.out.println("A world object has already been instantiated!");
+            System.err.println("A world object has already been instantiated!");
         }
         instantiated = true;
         try {
@@ -53,14 +55,6 @@ public class World extends Observable{
             parser = factory.newSAXParser();
             levelParser = new LevelParser();
             dialogParser = new DialogParser();
-//            TileParser tileParser = new TileParser();
-//            File tileFile =  new File(this.getClass().getResource("/tiles/tilelist.xml").getPath());
-
-//            // Read in all the tiles from the HashMap
-//            parser.parse(tileFile, tileParser);
-//            for (Tile t : tileParser.getTiles()){
-//                tileMap.put(t.getId(), t);
-//            }
 
             loadLevel(startLevel);
         } catch (Exception e) {
@@ -70,17 +64,15 @@ public class World extends Observable{
 
     private void loadLevel(String levelName){
         try {
-            System.out.println("Parsing: " + levelName);
+            System.out.println("Parsing level: " + levelName);
             levelParser.clearTilemap();
             levelParser.clearInteractables();
             levelParser.clearTransitions();
 
-//          using relative paths for tiles and maps. renamed objects folder to tiles
-            File level = new File(this.getClass().getResource("/maps/" + levelName ).getPath());
+            File level = new File(this.getClass().getResource("/maps/" + levelName ).getFile());
             parser.parse(level, levelParser);
 
             interactables = levelParser.getInteractables();
-            System.out.println(interactables.get(0).getPosition().toString());
             transitions = levelParser.getTransitions();
             objects.clear();
             //Loop through the tilemap and create tiles for each
@@ -99,7 +91,6 @@ public class World extends Observable{
         catch(Exception e)
         {
             System.err.println("World: Error loading level: " + levelName + " - " + e.getMessage());
-            System.err.println(e.getStackTrace());
         }
     }
 
