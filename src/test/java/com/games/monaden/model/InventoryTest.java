@@ -50,19 +50,6 @@ public class InventoryTest {
         assertTrue(givenItem.equals(item));
     }
 
-    // Do we need this functionality?
-    @Test
-    public void testMoveItem() {
-        inventory.addItem(item);
-        Item newItem = new Item("new Item","This is a new item");
-        inventory.addItem(newItem);
-        List<Item> givenList = inventory.getItemList();
-        inventory.moveItem("Item",1);
-        assertTrue(itemList.get(0).equals(newItem) && givenList.get(1).equals(newItem) &&
-                    itemList.get(1).equals(item) && givenList.get(0).equals(item));
-
-    }
-
         @Test
     public void testRemoveItem(){
         inventory.addItem(item);
