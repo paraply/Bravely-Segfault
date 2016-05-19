@@ -98,7 +98,7 @@ public class World extends Observable{
 
     public void addCharacterDialogs (List<Character> characters) {
         for (Character c : characters) {
-            File dialogFile = new File(this.getClass().getResource("/dialogs/" + c.getDialogFile()).getPath());
+            File dialogFile = new File(this.getClass().getResource("/dialogs/" + c.getDialogFile()).getFile());
             try {
                 parser.parse(dialogFile, dialogParser);
                 c.setDialog(dialogParser.getRoot());
