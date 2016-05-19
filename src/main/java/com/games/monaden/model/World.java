@@ -69,9 +69,10 @@ public class World extends Observable{
             levelParser.clearTransitions();
 
             ClassLoader classLoader = this.getClass().getClassLoader();
-            File level = new File(classLoader.getResource("maps/" + levelName ).getFile());
-            System.out.println(level.getPath());
-            parser.parse(level, levelParser);
+            InputStream is = new FileInputStream(classLoader.getResource("maps/" + levelName).getFile());
+//            File level = new File(classLoader.getResource("maps/" + levelName ).getFile());
+//            System.out.println(level.getPath());
+            parser.parse(is, levelParser);
 
             interactables = levelParser.getInteractables();
             addCharacterDialogs(interactables);
@@ -99,16 +100,17 @@ public class World extends Observable{
     }
 
     public void addCharacterDialogs (List<Character> characters) {
-        for (Character c : characters) {
-            ClassLoader classLoader = this.getClass().getClassLoader();
-            File dialogFile = new File(classLoader.getResource("dialogs/" + c.getDialogFile()).getFile());
 
+        for (Character c : characters) {
+//            File dialogFile = new File(this.getClass().getResource("/dialogs/" + c.getDialogFile()).getPath());
 //            System.out.println(dialogFile.getPath());
             try {
-                InputStream is = new FileInputStream(classLoader.getResource("/dialogs/" + c.getDialogFile()).getPath());
-                Scanner scanner = new Scanner(is);
-                System.out.println("Scan: " + scanner.nextLine());
-                parser.parse(dialogFile, dialogParser);
+                ClassLoader classLoader = this.getClass().getClassLoader();
+                InputStream is = new FileInputStream(classLoader.getResource("dialogs/" + c.getDialogFile()).getFile());
+//                InputStream is = new FileInputStream(classLoader.getResource("/dialogs/" + c.getDialogFile()).toString());
+//                Scanner scanner = new Scanner(is);
+//                System.out.println("Scan: " + scanner.nextLine());
+                parser.parse(is, dialogParser);
                 c.setDialog(dialogParser.getRoot());
                 dialogParser.reset();
             } catch (Exception e) {
