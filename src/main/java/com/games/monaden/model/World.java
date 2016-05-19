@@ -80,6 +80,7 @@ public class World extends Observable{
             parser.parse(level, levelParser);
 
             interactables = levelParser.getInteractables();
+            addCharacterDialogs(interactables);
             System.out.println(interactables.get(0).getPosition().toString());
             transitions = levelParser.getTransitions();
             objects.clear();
@@ -100,6 +101,19 @@ public class World extends Observable{
         {
             System.err.println("World: Error loading level: " + levelName + " - " + e.getMessage());
             System.err.println(e.getStackTrace());
+        }
+    }
+
+    public void addCharacterDialogs (List<Character> characters) {
+        for (Character c : characters) {
+            File dialogFile = new File(this.getClass().getResource("/dialogs/" + c.getDialogFile()).getPath());
+            try {
+                parser.parse(dialogFile, dialogParser);
+                c.setDialog(dialogParser.getRoot());
+                dialogParser.reset();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -147,17 +161,18 @@ public class World extends Observable{
         for(Character c : getInteractables()) {
             if(c.getPosition().equals(newPoint)) {
                 //return c.getDialog();
-                File dialogFile = new File("src/main/resources/parseTests/DialogTest.xml");
-                try {
-                    parser.parse(dialogFile, dialogParser);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                Dialog temp = dialogParser.getRoot();
+//                File dialogFile = new File("src/main/resources/parseTests/DialogTest.xml");
+//                try {
+//                    parser.parse(dialogFile, dialogParser);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//                Dialog temp = dialogParser.getRoot();
 //                Dialog temp = new Dialog("Hi, I'm Philip, an invisible level 24 typemancer");
 //                temp.readInChoices("Fight me, you coward!", new Dialog("foo :: String -> String"));
 //                temp.readInChoices("Okay bye", new Dialog(""));
-                return temp;
+//                return temp;
+                return c.getDialog();
             }
         }
 
