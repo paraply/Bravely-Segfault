@@ -21,6 +21,15 @@ public class CharacterController extends Observable {
         Render.getInstance().setPlayerCharacter(player);
     }
 
+    /**
+     * Mainly used for tests.
+     * Should probably be removed after testing
+     * @param point
+     */
+    CharacterController(Point point) {
+        player = new Character(point, "cat.png", 32, 32);
+    }
+
     public void handleMovement(KeyCode moveReq, World world) {
         World.MovementDirection dir = World.MovementDirection.UP;
         switch (moveReq) {
@@ -50,6 +59,29 @@ public class CharacterController extends Observable {
         player.setDirection(dir);
     }
 
+    private boolean characterOnTile (Point point, World world) {
+        for (Character c : world.getInteractables()) {
+            if (c.getPosition().equals(point)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean objectOnTile (Point point, World world) {
+        for (GameObject g : world.getObjects()) {
+            if (g.getPosition().equals(point) && g.isSolid()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean tileIsOccupied (Point point, World world) {
+        return objectOnTile(point, world) || characterOnTile(point, world);
+    }
+
     private Point transitionIfPossible (World world, Point point) {
         for (Transition t : world.getTransitions()) {
             if (t.pos.equals(point)) {
@@ -62,19 +94,8 @@ public class CharacterController extends Observable {
         return point;
     }
 
-    private boolean tileIsOccupied (Point point, World world) {
-        for (GameObject g : world.getObjects()) {
-            if (g.getPosition().equals(point) && g.isSolid()) {
-                return true;
-            }
-        }
-
-        for (Character c : world.getInteractables()) {
-            if (c.getPosition().equals(point)) {
-                return true;
-            }
-        }
-        return false;
+    Point getPlayerPos () {
+        return new Point(player.getPosition().getX(), player.getPosition().getY());
     }
 
     private Point getPoint (Point currentPoint, World.MovementDirection direction) {
