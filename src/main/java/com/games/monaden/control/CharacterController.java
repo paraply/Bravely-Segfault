@@ -26,7 +26,7 @@ public class CharacterController extends Observable {
      * Should probably be removed after testing
      * @param point
      */
-    public CharacterController(Point point) {
+    CharacterController(Point point) {
         player = new Character(point, "cat.png", 32, 32);
     }
 
@@ -94,7 +94,7 @@ public class CharacterController extends Observable {
         return point;
     }
 
-    public Point getPlayerPos () {
+    Point getPlayerPos () {
         return new Point(player.getPosition().getX(), player.getPosition().getY());
     }
 

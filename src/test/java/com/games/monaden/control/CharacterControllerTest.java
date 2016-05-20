@@ -139,7 +139,7 @@ public class CharacterControllerTest {
     }
 
     @Test
-    public void UpEdgeException() {
+    public void upEdgeException() {
         characterController = new CharacterController(new Point(0,0));
         ArrayIndexOutOfBoundsException check = null;
         try{
@@ -151,7 +151,7 @@ public class CharacterControllerTest {
     }
 
     @Test
-    public void DownEdgeException() {
+    public void downEdgeException() {
         characterController = new CharacterController(new Point(0,World.MAP_SIZE-1));
         ArrayIndexOutOfBoundsException check = null;
         try{
@@ -163,7 +163,7 @@ public class CharacterControllerTest {
     }
 
     @Test
-    public void LeftEdgeException() {
+    public void leftEdgeException() {
         characterController = new CharacterController(new Point(0,0));
         ArrayIndexOutOfBoundsException check = null;
         try{
@@ -175,7 +175,7 @@ public class CharacterControllerTest {
     }
 
     @Test
-    public void RightEdgeException() {
+    public void rightEdgeException() {
         characterController = new CharacterController(new Point(World.MAP_SIZE-1,0));
         ArrayIndexOutOfBoundsException check = null;
         try{
@@ -187,8 +187,35 @@ public class CharacterControllerTest {
     }
 
     @Test
-    public void handleInteractions() throws Exception {
+    public void upInteraction() {
+        characterController = new CharacterController(new Point(10, 11));
+        characterController.handleMovement(KeyCode.UP, world);
+        Dialog dialog = characterController.handleInteractions(KeyCode.SPACE, world);
+        assertTrue(dialog.getDialogText().equals("Hello there."));
+    }
 
+    @Test
+    public void downInteraction() {
+        characterController = new CharacterController(new Point(10, 9));
+        characterController.handleMovement(KeyCode.DOWN, world);
+        Dialog dialog = characterController.handleInteractions(KeyCode.SPACE, world);
+        assertTrue(dialog.getDialogText().equals("Hello there."));
+    }
+
+    @Test
+    public void leftInteraction() {
+        characterController = new CharacterController(new Point(11, 10));
+        characterController.handleMovement(KeyCode.LEFT, world);
+        Dialog dialog = characterController.handleInteractions(KeyCode.SPACE, world);
+        assertTrue(dialog.getDialogText().equals("Hello there."));
+    }
+
+    @Test
+    public void rightInteraction() {
+        characterController = new CharacterController(new Point(9, 10));
+        characterController.handleMovement(KeyCode.RIGHT, world);
+        Dialog dialog = characterController.handleInteractions(KeyCode.SPACE, world);
+        assertTrue(dialog.getDialogText().equals("Hello there."));
     }
 
 }
