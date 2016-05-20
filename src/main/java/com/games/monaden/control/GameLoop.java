@@ -110,7 +110,7 @@ public class GameLoop extends AnimationTimer implements Observer {
                     currentDialog = dialog;
                     inputState = InputState.DIALOG;
                     System.out.println("Creating new dialog: " + dialog.getDialogText());
-                    Render.getInstance().renderDialog.newDialog(dialog);
+                    Render.getInstance().getDialog().newDialog(dialog);
                 }
             }
         }
@@ -120,12 +120,12 @@ public class GameLoop extends AnimationTimer implements Observer {
             if (moveReq != null && currentDialog.getChoiceCount() != 0) {
                 if(moveReq == KeyCode.UP){
                     System.out.println("UPP");
-                    Render.getInstance().renderDialog.selectPreviousAnswer();
+                    Render.getInstance().getDialog().selectPreviousAnswer();
                     countDown = FREQUENCY;
                 }
                 else if(moveReq == KeyCode.DOWN) {
                     System.out.println("NER");
-                    Render.getInstance().renderDialog.selectNextAnswer();
+                    Render.getInstance().getDialog().selectNextAnswer();
                     countDown = FREQUENCY;
                 }
             }
@@ -134,17 +134,16 @@ public class GameLoop extends AnimationTimer implements Observer {
             if (funcReq != null) {
                 if(funcReq == KeyCode.SPACE) {
                     if(currentDialog.getChoiceCount() == 0){
-                        Render.getInstance().renderDialog.hideDialog();
+                        Render.getInstance().getDialog().hideDialog();
                         inputState = InputState.MOVEMENT;
                     }
                     else {
-                        currentDialog = currentDialog.makeAChoice(Render.getInstance().renderDialog.getSelected());
+                        currentDialog = currentDialog.makeAChoice(Render.getInstance().getDialog().getSelected());
                         if (currentDialog.getDialogText().equals("")) {
-                            Render.getInstance().renderDialog.hideDialog();
+                            Render.getInstance().getDialog().hideDialog();
                             inputState = InputState.MOVEMENT;
                         } else {
-                            Render.getInstance().renderDialog.newDialog(currentDialog);
-                            //System.out.println(currentDialog.toString());
+                            Render.getInstance().getDialog().newDialog(currentDialog);
                         }
                     }
                 }
