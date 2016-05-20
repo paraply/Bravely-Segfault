@@ -4,16 +4,16 @@
         <text>Hej.</text>
         <dialog>
             <image>cat.png</image>
-            <text>Git göj.</text>
+            <text>...</text>
             <response condition="has_item()==book">
-                <choice>Sluta säga så.</choice>
+                <choice>:D</choice>
                 <subdialog>
                     <image>nokia.png</image>
                     <text>:(</text>
                 </subdialog>
             </response>
             <response condition="True">
-                <choice>Git göj.</choice>
+                <choice>D:</choice>
                 <subdialog>
                     <image>cat.png</image>
                     <text>:)</text>
