@@ -64,6 +64,8 @@ public class TileParser extends DefaultHandler {
         } else if (bSolid) {
             if ("solid".equalsIgnoreCase(new String(ch, start, length))) {
                 this.solidness = true;
+            } else {
+                this.solidness = false;
             }
 //            System.out.println("Solidness found: " + solidness);
             bSolid = false;
