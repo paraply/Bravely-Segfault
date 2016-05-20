@@ -20,6 +20,11 @@
         <graphics>floor/doorstepdarklighthb.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
+    <tile id="004">
+        <name>bathroom floor tiles</name>
+        <graphics>floor/bathroomtiles.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
 
 
 <!-- SOFA -->
