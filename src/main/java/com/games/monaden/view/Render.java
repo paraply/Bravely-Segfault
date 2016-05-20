@@ -95,12 +95,12 @@ public class Render implements Observer{
      *  Delete all objects and create new
      */
     private void transition(){
+        System.out.println("Render: transistion");
         player.startTransition();
         objects.clear();
         interactables.clear();
         addWorldObjects();
         addInteractables();
-        player.hasTransitioned();
         redraw();
     }
 
