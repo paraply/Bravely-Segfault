@@ -53,12 +53,6 @@ class AnimatedObject extends RenderObject {
         drawToContext();
     }
 
-    // We have to set the old coordinates to be the same as the new ones when we are transitioning
-    // Otherwise the character would animate since the coordinates has changed
-    public void hasTransitioned(){
-        previousPosition = new Point(x,y);
-    }
-
     private void calculateSourceX(){
 
         if (gameObject.hasContinuousAnimation()){ // This is used for objects that are not moving but still has an animation.
@@ -72,6 +66,8 @@ class AnimatedObject extends RenderObject {
             if (currentTransitionStep == 0){                                // We are currently not in a moving state
                 if (!gameObject.getPosition().equals(previousPosition)){    // Check if we should be in a moving state (e.g the objects coordinates has changed since last time)
                     if (inTransition){
+                        // We have to set the old coordinates to be the same as the new ones when we are transitioning
+                        // Otherwise the character would animate since the coordinates has changed
                         previousPosition = gameObject.getPosition();
                         inTransition = false;
                         return;
@@ -107,6 +103,10 @@ class AnimatedObject extends RenderObject {
 
             }
         }
+    }
+
+    public int getCurrentTransitionStep(){
+        return currentTransitionStep;
     }
 
     private void animationTick(){
