@@ -30,6 +30,16 @@
         <graphics>floor/bathroomtiles.png</graphics> <!--Replace with real file once found-->
         <solidness>non-solid</solidness>
     </tile>
+    <tile id="006">
+        <name>gravel</name>
+        <graphics>floor/gravel.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="007">
+        <name>outsidetile</name>
+        <graphics>floor/bathroomtiles.png</graphics>
+        <solidness></solidness>
+    </tile>
 
 
 <!-- SOFA -->
