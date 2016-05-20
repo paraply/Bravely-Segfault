@@ -44,6 +44,15 @@
             <position>5,5</position>
             <newPosition>5,11</newPosition>
         </transition>
-
+        <transition>
+            <filename>monadenkitchen.xml</filename>
+            <position>11,10</position>
+            <newPosition>11,2</newPosition>
+        </transition>
+        <transition>
+            <filename>monadenkitchen.xml</filename>
+            <position>12,10</position>
+            <newPosition>12,2</newPosition>
+        </transition>
     </transitions>
 </level>
