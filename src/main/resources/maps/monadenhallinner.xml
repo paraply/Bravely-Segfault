@@ -5,12 +5,12 @@
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
-        <line>600,600,600,600,002,002,600,600,002,600,600,600,600,002,002,600</line>
         <line>600,002,002,002,002,002,002,002,002,002,002,002,002,002,002,600</line>
+        <line>600,600,600,600,600,600,600,600,600,600,600,600,600,002,002,600</line>
         <line>600,002,002,002,002,002,002,002,002,002,002,002,002,002,002,002</line>
-        <line>600,002,002,002,002,002,002,002,002,002,002,002,002,002,002,600</line>
-        <line>600,600,600,600,600,600,600,600,600,600,600,600,002,600,002,600</line>
-        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>600,002,002,002,002,002,002,002,002,002,002,002,002,002,002,002</line>
+        <line>600,002,002,002,002,002,002,002,002,002,002,002,002,002,002,002</line>
+        <line>600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
@@ -20,18 +20,31 @@
     <transitions>
         <transition>
             <filename>monadenbigroom.xml</filename>
-            <position>4,5</position>
-            <newPosition>13,13</newPosition>
+            <position>13,6</position>
+            <newPosition>13,11</newPosition>
         </transition>
         <transition>
             <filename>monadenbigroom.xml</filename>
-            <position>5,5</position>
-            <newPosition>14,13</newPosition>
+            <position>14,6</position>
+            <newPosition>14,11</newPosition>
+        </transition>
+
+        <transition>
+            <filename>monadenhallouter.xml</filename>
+            <position>15,7</position>
+            <newPosition>1,7</newPosition>
         </transition>
         <transition>
-            <filename>monadensmallroom.xml</filename>
-            <position>8,5</position>
-            <newPosition>3,10</newPosition>
+            <filename>monadenhallouter.xml</filename>
+            <position>15,8</position>
+            <newPosition>1,8</newPosition>
         </transition>
+        <transition>
+            <filename>monadenhallouter.xml</filename>
+            <position>15,9</position>
+            <newPosition>1,9</newPosition>
+        </transition>
+
+
     </transitions>
 </level>

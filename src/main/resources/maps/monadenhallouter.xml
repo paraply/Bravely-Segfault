@@ -1,0 +1,49 @@
+<level>
+    <tilemap>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>600,600,002,002,002,002,002,002,002,002,002,002,600,002,002,600</line>
+        <line>600,600,600,600,002,002,600,600,600,600,600,600,600,002,002,600</line>
+        <line>002,002,002,002,002,002,002,002,002,002,002,002,002,002,002,600</line>
+        <line>002,002,002,002,002,002,002,002,002,002,002,002,002,002,002,002</line>
+        <line>002,002,002,002,002,002,002,002,002,002,002,002,002,002,002,600</line>
+        <line>600,600,600,600,600,600,600,600,600,600,600,002,002,600,002,600</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    </tilemap>
+    <transitions>
+        <transition>
+            <filename>monadenhallinner.xml</filename>
+            <position>0,7</position>
+            <newPosition>14,7</newPosition>
+        </transition>
+        <transition>
+            <filename>monadenhallinner.xml</filename>
+            <position>0,8</position>
+            <newPosition>14,8</newPosition>
+        </transition>
+        <transition>
+            <filename>monadenhallinner.xml</filename>
+            <position>0,9</position>
+            <newPosition>14,9</newPosition>
+        </transition>
+
+        <transition>
+            <filename>monadensmallroom.xml</filename>
+            <position>4,6</position>
+            <newPosition>4,11</newPosition>
+        </transition>
+        <transition>
+            <filename>monadensmallroom.xml</filename>
+            <position>5,6</position>
+            <newPosition>5,11</newPosition>
+        </transition>
+
+    </transitions>
+</level>

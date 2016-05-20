@@ -6,7 +6,7 @@
         <solidness>non-solid</solidness>
     </tile>
     <tile id="001">
-        <name>ligh gray</name>
+        <name>light gray</name>
         <graphics>colors/lightgray.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
