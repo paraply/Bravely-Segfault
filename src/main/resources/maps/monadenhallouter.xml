@@ -45,5 +45,11 @@
             <newPosition>5,11</newPosition>
         </transition>
 
+        <transition>
+            <filename>monadenbathroom.xml</filename>
+            <position>15,8</position>
+            <newPosition>3,8</newPosition>
+        </transition>
+
     </transitions>
 </level>
