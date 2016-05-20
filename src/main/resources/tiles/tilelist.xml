@@ -42,6 +42,7 @@
     </tile>
 
 
+
 <!-- SOFA -->
     <tile id="500">
         <name>Sofa horizontal front 1</name>
@@ -85,6 +86,9 @@
         <graphics>smalltable/v2.png</graphics>
         <solidness>solid</solidness>
     </tile>
+
+<!-- BATHROOM -->
+
 
 <!-- WALLS -->
     <tile id="600">
