@@ -16,7 +16,7 @@
         <solidness>non-solid</solidness>
     </tile>
     <tile id="003">
-        <name>doorstep between dark and light gray</name>
+        <name>doorstep between dark and light gray bottom</name> <!-- MOVE TOGETHER -->
         <graphics>floor/doorstepdarklighthb.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
@@ -38,6 +38,11 @@
     <tile id="007">
         <name>outsidetile</name>
         <graphics>floor/groundstone.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="008">
+        <name>doorstep between dark and light gray top</name>  <!-- MOVE TOGETHER -->
+        <graphics>floor/doorstepdarklightht.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
 
