@@ -22,7 +22,7 @@ public class Render implements Observer{
     private AnimatedObject player;
     private List<RenderObject> objects = new ArrayList<>();
     private List<RenderObject> interactables = new ArrayList<>();
-    public RenderDialog renderDialog; //TODO CHANGE TO PRIVATE AFTER TESTING
+    private RenderDialog renderDialog;
 
 
     // graphics context = main-canvas context
@@ -39,6 +39,11 @@ public class Render implements Observer{
         world.addObserver(this);
         addWorldObjects();
         addInteractables();
+    }
+
+//  The dialog needs to be accessed by the controller
+    public RenderDialog getDialog(){
+        return renderDialog;
     }
 
     public void setDialogObjects(HBox dialog){
@@ -82,7 +87,6 @@ public class Render implements Observer{
             System.err.println("Render: addInteractables gets null from world.getInteractables");
         }
         for (GameObject go : world.getInteractables()){
-//            System.out.println("Adding interactable: " + go.getImagePath());
             if (go.hasContinuousAnimation()){
                 interactables.add(new AnimatedObject(go,context));
             }else{
@@ -95,7 +99,6 @@ public class Render implements Observer{
      *  Delete all objects and create new
      */
     private void transition(){
-        System.out.println("Render: transistion");
         player.startTransition();
         objects.clear();
         interactables.clear();
@@ -106,10 +109,9 @@ public class Render implements Observer{
 
     @Override
     public void update(Observable observable, Object arg) {
-        //Should probably be refactored later
         if(observable == world) {
 //            if(arg == "transition"){
-                transition();
+            transition();
 //            }
         }
     }
