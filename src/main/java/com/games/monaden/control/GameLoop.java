@@ -45,7 +45,7 @@ public class GameLoop extends AnimationTimer implements Observer {
     public void initializeGame(){
         tileMap = new TileLoader().loadTiles();
         world = new World();
-        setLevel("monadenkitchen.xml");
+        setLevel("monadenbigroom.xml");
         Render.getInstance().setWorld(world);
     }
 

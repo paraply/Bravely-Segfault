@@ -17,7 +17,7 @@ public class CharacterController extends Observable {
 
 
     public CharacterController() {
-        player = new Character(new Point(11,3), "player.png", 32,32);
+        player = new Character(new Point(10,10), "player.png", 32,32);
         Render.getInstance().setPlayerCharacter(player);
     }
 
