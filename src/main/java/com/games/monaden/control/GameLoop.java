@@ -60,9 +60,14 @@ public class GameLoop extends AnimationTimer implements Observer {
 
         List<GameObject> gameObjects = new ArrayList<>();
 
+        outerloop:
         for (int y = 0; y < World.MAP_SIZE; y++) {
             for (int x = 0; x < World.MAP_SIZE; x++) {
                 Tile currentTile =  findTile(primTileMap[y][x]);
+                if (currentTile == null){
+                    System.err.println("Bad tile @ X" + x + " Y:" + y);
+                    break outerloop;
+                }
                 GameObject newGameObject = new GameObject(new Point(x, y), "tiles", currentTile.getFilepath().toString(), currentTile.isSolid());
                 newGameObject.setContinuousAnimation(currentTile.isAnimated());
                 gameObjects.add(newGameObject);
@@ -119,12 +124,10 @@ public class GameLoop extends AnimationTimer implements Observer {
             KeyCode moveReq = userInput.getLatestMovementKey();
             if (moveReq != null && currentDialog.getChoiceCount() != 0) {
                 if(moveReq == KeyCode.UP){
-                    System.out.println("UPP");
                     Render.getInstance().getDialog().selectPreviousAnswer();
                     countDown = FREQUENCY;
                 }
                 else if(moveReq == KeyCode.DOWN) {
-                    System.out.println("NER");
                     Render.getInstance().getDialog().selectNextAnswer();
                     countDown = FREQUENCY;
                 }
