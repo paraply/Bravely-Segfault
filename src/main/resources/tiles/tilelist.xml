@@ -1,20 +1,26 @@
 <class>
-<!-- COLORS -->
+<!-- BLACK AND FLOOR -->
     <tile id="000">
         <name>satan</name>
-        <graphics>colors/black.png</graphics>
+        <graphics>black.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="001">
-        <name>light gray</name>
-        <graphics>colors/lightgray.png</graphics>
+        <name>light gray floor</name>
+        <graphics>floor/lightgray.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
     <tile id="002">
-        <name>dark gray</name>
-        <graphics>colors/darkgray.png</graphics>
+        <name>dark gray floor</name>
+        <graphics>floor/darkgray.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
+    <tile id="003">
+        <name>doorstep between dark and light gray</name>
+        <graphics>floor/doorstepdarklighthb.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+
 
 <!-- SOFA -->
     <tile id="500">
@@ -71,171 +77,6 @@
 
 
 
-
-
-
-<!-- PARKING -->
-    <tile id="401">
-        <name>sidewalk horizontal</name>
-        <graphics>sidewalks/sidewalkh.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="402">
-        <name>sidewalk vertical</name>
-        <graphics>sidewalks/sidewalkv.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="403">
-        <name>horizontal road top part</name>
-        <graphics>roadh/1.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="4">
-        <name>horizontal road middle part</name>
-        <graphics>roadh/2.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="5">
-        <name>horizontal road bottom part</name>
-        <graphics>roadh/3.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="6">
-        <name>vertical road left part</name>
-        <graphics>roadv/1.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="7">
-        <name>vertical road middle part</name>
-        <graphics>roadv/2.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="8">
-        <name>vertical road right part</name>
-        <graphics>roadv/3.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="9">
-        <name>crossing on horizontal road top part</name>
-        <graphics>crossingh/1.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="10">
-        <name>crossing on horizontal road middle part</name>
-        <graphics>crossingh/2.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="11">
-        <name>crossing on horizontal road bottom part</name>
-        <graphics>crossingh/3.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="12">
-        <name>crossing on vertical road top part</name>
-        <graphics>crossingv/1.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="13">
-        <name>crossing on vertical road middle part</name>
-        <graphics>crossingv/2.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="14">
-        <name>crossing on vertical road bottom part</name>
-        <graphics>crossingv/3.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-
-    <tile id="15">
-        <name>ground stone</name>
-        <graphics>groundstone.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-
-    <tile id="16">
-        <name>Blue bench on stone vertical top</name>
-        <graphics>bluebenchonstonev/1.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="17">
-        <name>Blue bench on stone vertical middle</name>
-        <graphics>bluebenchonstonev/2.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="18">
-        <name>Blue bench on stone vertical bottom</name>
-        <graphics>bluebenchonstonev/3.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-
-    <tile id="19">
-        <name>Blue bench on stone horizontal left</name>
-        <graphics>bluebenchonstoneh/1.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="20">
-        <name>Blue bench on stone horizontal middle</name>
-        <graphics>bluebenchonstoneh/2.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="21">
-        <name>Blue bench on stone horizontal right</name>
-        <graphics>bluebenchonstoneh/3.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-
-    <tile id="22">
-        <name>Brick wall</name>
-        <graphics>brickwall.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-
-    <tile id="23">
-        <name>Sakura 1</name>
-        <graphics>sakura/1.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="24">
-        <name>Sakura 2</name>
-        <graphics>sakura/2.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="25">
-        <name>Sakura 3</name>
-        <graphics>sakura/3.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="26">
-        <name>Sakura 4</name>
-        <graphics>sakura/4.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="27">
-        <name>Sakura 5</name>
-        <graphics>sakura/5.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="28">
-        <name>Sakura 6</name>
-        <graphics>sakura/6.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="29">
-        <name>Sakura 7</name>
-        <graphics>sakura/7.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="310">
-        <name>Sakura 9</name>
-        <graphics>sakura/9.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-
-    <tile id="30">
-        <name>Sakura 8</name>
-        <graphics>sakura/8.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
 
 
 </class>
