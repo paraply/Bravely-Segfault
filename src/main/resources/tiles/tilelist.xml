@@ -3,7 +3,7 @@
     <tile id="000">
         <name>satan</name>
         <graphics>colors/black.png</graphics>
-        <solidness>non-solid</solidness>
+        <solidness>solid</solidness>
     </tile>
     <tile id="001">
         <name>light gray</name>
