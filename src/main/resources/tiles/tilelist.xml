@@ -188,7 +188,36 @@
         <solidness>solid</solidness>
     </tile>
 
-
+    <tile id="620">
+        <name>green wall up</name>
+        <graphics>wall/green/up.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="621">
+        <name>green wall down</name>
+        <graphics>wall/green/down.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="622">
+        <name>green wall right corner up</name>
+        <graphics>wall/green/rightup.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="623">
+        <name>green wall right corner down</name>
+        <graphics>wall/green/rightdown.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="624">
+        <name>green wall left corner up</name>
+        <graphics>wall/green/lefttup.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="625">
+        <name>green wall right corner down</name>
+        <graphics>wall/green/leftdown.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
 
 
     <!-- BORDERS -->
