@@ -25,6 +25,11 @@
         <graphics>floor/bathroomtiles.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
+    <tile id="005">
+        <name>entrance floor tiles</name>
+        <graphics>floor/bathroomtiles.png</graphics> <!--Replace with real file once found-->
+        <solidness>non-solid</solidness>
+    </tile>
 
 
 <!-- SOFA -->

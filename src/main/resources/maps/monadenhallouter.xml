@@ -61,5 +61,15 @@
             <newPosition>3,8</newPosition>
         </transition>
 
+        <transition>
+            <filename>monadenentrance.xml</filename>
+            <position>13,5</position>
+            <newPosition>7,12</newPosition>
+        </transition>
+        <transition>
+            <filename>monadenentrance.xml</filename>
+            <position>14,5</position>
+            <newPosition>8,12</newPosition>
+        </transition>
     </transitions>
 </level>
