@@ -139,12 +139,117 @@
 <!-- WALLS -->
     <tile id="600">
         <name>Brick wall</name>
-        <graphics>brickwall.png</graphics>
+        <graphics>wall/brickwall.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="601">
+        <name>Window pane</name>
+        <graphics>wall/windowpane.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="602">
+        <name>White wall down</name>
+        <graphics>wall/white/whitedown.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="603">
+        <name>White wall left</name>
+        <graphics>wall/white/whiteleft.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="604">
+        <name>White wall right</name>
+        <graphics>wall/white/whiteright.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="605">
+        <name>White wall up</name>
+        <graphics>wall/white/whiteup.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="606">
+        <name>White wall double down-left</name>
+        <graphics>wall/white/double1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="607">
+        <name>White wall double up-left</name>
+        <graphics>wall/white/double2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="608">
+        <name>White wall double up-right</name>
+        <graphics>wall/white/double3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="609">
+        <name>White wall double down-right</name>
+        <graphics>wall/white/double4.png</graphics>
         <solidness>solid</solidness>
     </tile>
 
 
-
+    <!-- BORDERS -->
+    <tile id="900">
+        <name>Border Up</name>
+        <graphics>wall/border/up1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="901">
+        <name>Border Down</name>
+        <graphics>wall/border/down1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="902">
+        <name>Border Left</name>
+        <graphics>wall/border/left1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="903">
+        <name>Border Right</name>
+        <graphics>wall/border/right1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="904">
+        <name>Border Corner Down-Left</name>
+        <graphics>wall/border/corner1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="905">
+        <name>Border Corner Up-Left</name>
+        <graphics>wall/border/corner2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="906">
+        <name>Border Corner Up-Right</name>
+        <graphics>wall/border/corner3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="907">
+        <name>Border Corner Down-Right</name>
+        <graphics>wall/border/corner4.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="908">
+        <name>Border Double Down-Left</name>
+        <graphics>wall/border/double1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="909">
+        <name>Border Double Up-Left</name>
+        <graphics>wall/border/double2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="910">
+        <name>Border Double Up-Right</name>
+        <graphics>wall/border/Double3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="911">
+        <name>Border Double Down-Right</name>
+        <graphics>wall/border/Double4.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
 
 
 
