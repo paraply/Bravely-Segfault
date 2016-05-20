@@ -27,7 +27,7 @@
     </tile>
     <tile id="005">
         <name>entrance floor tiles</name>
-        <graphics>floor/bathroomtiles.png</graphics> <!--Replace with real file once found-->
+        <graphics>floor/entrance.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
 
