@@ -45,6 +45,16 @@
         <graphics>floor/doorstepdarklightht.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
+    <tile id="009">
+        <name>doorstep between dark and light gray right</name>  <!-- MOVE TOGETHER -->
+        <graphics>floor/doorstepdarklightvr.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="010">
+        <name>doorstep between dark and light gray left</name>  <!-- MOVE TOGETHER -->
+        <graphics>floor/doorstepdarklightvl.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
 
 <!-- Sakura Tree -->
     <tile id="23">
@@ -193,6 +203,7 @@
         <solidness>solid</solidness>
     </tile>
 
+    <!--GREEN WALL-->
     <tile id="620">
         <name>green wall up</name>
         <graphics>wall/green/up.png</graphics>
@@ -221,6 +232,18 @@
     <tile id="625">
         <name>green wall right corner down</name>
         <graphics>wall/green/leftdown.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+    <!--BATHROOM TILED WALL-->
+    <tile id="630">
+        <name>green wall up</name>
+        <graphics>wall/tiled/up.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="631">
+        <name>green wall down</name>
+        <graphics>wall/tiled/down.png</graphics>
         <solidness>solid</solidness>
     </tile>
 
