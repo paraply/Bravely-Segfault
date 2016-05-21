@@ -1,0 +1,1 @@
+package com.games.monaden.control;import com.games.monaden.services.audioPlayer.AudioPlayer;/** * Created by Admin on 2016-05-21. */public class AudioController {    AudioPlayer musicPlayer;    public AudioController(){        musicPlayer = new AudioPlayer();    }    public void playMusic(String filepath){        musicPlayer.PlayMusic(filepath);    }}

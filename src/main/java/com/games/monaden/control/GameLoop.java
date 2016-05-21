@@ -16,6 +16,7 @@ public class GameLoop extends AnimationTimer {
 
     private World world;
     CharacterController playerCharacter;
+    AudioController audioController;
 
     private Dialog currentDialog;
     private enum InputState { MOVEMENT, DIALOG }
@@ -25,6 +26,7 @@ public class GameLoop extends AnimationTimer {
         world = new World("second.xml" );
         Render.getInstance().setWorld(world);
         playerCharacter = new CharacterController();
+        audioController = new AudioController();
     }
 
     @Override
