@@ -13,6 +13,7 @@ public class GameLoop extends AnimationTimer {
 
     public final static int FREQUENCY = 16;
     private int countDown = FREQUENCY;
+    private double volume = 0.0;
 
     private World world;
     CharacterController playerCharacter;
@@ -27,8 +28,7 @@ public class GameLoop extends AnimationTimer {
         Render.getInstance().setWorld(world);
         playerCharacter = new CharacterController();
         audioController = new AudioController();
-        String music = "file:/C:/Users/Admin/Documents/Git/Bravely-Segfault/src/main/resources/music/testMusic.mp3";
-        audioController.playMusic(music);
+        audioController.playMusic(0);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class GameLoop extends AnimationTimer {
         if (countDown > 0){  // used to add a delay (better than sleep) to user movement
             countDown--;
         }
-        else if(inputState == InputState.MOVEMENT){
+        else if(inputState == InputState.MOVEMENT) {
             UserInput userInput = UserInput.getInstance();
             KeyCode moveReq = userInput.getLatestMovementKey();
             if (moveReq != null) {
@@ -46,13 +46,29 @@ public class GameLoop extends AnimationTimer {
             }
 
             KeyCode funcReq = userInput.getLatestFunctionKey();
+
             if (funcReq != null) {
+                System.out.println(funcReq);
                 Dialog dialog = playerCharacter.handleInteractions(funcReq, world);
-                if(dialog != null){
+                if (dialog != null) {
                     currentDialog = dialog;
                     inputState = InputState.DIALOG;
                     System.out.println("Creating new dialog: " + dialog.getDialogText());
                     Render.getInstance().renderDialog.newDialog(dialog);
+                }else if (funcReq == KeyCode.PLUS) {
+
+                    System.out.println("pressed: +");
+                    volume = audioController.volumeUp();
+                } else if (funcReq == KeyCode.MINUS) {
+
+                    System.out.println("pressed: -");
+                    volume = audioController.volumeDown();
+
+                } else if (funcReq == KeyCode.N) {
+                    audioController.stopMusic();
+                    System.out.println("pressed: N");
+                    audioController.playMusic(1);
+
                 }
             }
         }
