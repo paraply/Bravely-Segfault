@@ -5,9 +5,9 @@
         <line>903,605,605,605,605,605,605,605,605,605,605,605,605,605,605,902</line>
         <line>903,602,602,602,602,602,602,602,602,602,602,602,602,602,602,902</line>
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
-        <line>903,002,002,002,002,002,002,002,002,002,002,500,501,002,002,902</line>
-        <line>903,002,002,002,002,002,002,002,002,002,502,512,512,504,002,902</line>
-        <line>903,002,002,002,002,002,002,002,002,002,503,513,513,505,002,902</line>
+        <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
+        <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
+        <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
@@ -105,5 +105,60 @@
             </graphics>
             <solidness>non-solid</solidness>
         </gameobject>
+
+        <!-- SOFA HORIZONTAL-->
+        <gameobject>
+            <position>11,5</position>
+            <graphics>
+                <fileName>tiles/sofa/front/1.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>12,5</position>
+            <graphics>
+                <fileName>tiles/sofa/front/2.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>13,5</position>
+            <graphics>
+                <fileName>tiles/sofa/front/3.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+
+        <!-- SOFA VERTICAL TURNED LEFT-->
+        <gameobject>
+            <position>10,6</position>
+            <graphics>
+                <fileName>tiles/sofa/left/1.png</fileName>
+                <zOrder>1</zOrder>
+            </graphics>
+            <solidness>non-solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>10,7</position>
+            <graphics>
+                <fileName>tiles/sofa/left/2.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>10,8</position>
+            <graphics>
+                <fileName>tiles/sofa/left/3.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+
+
+
     </gameobjects>
 </level>

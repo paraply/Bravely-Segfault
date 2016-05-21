@@ -62,100 +62,6 @@
         <solidness>non-solid</solidness>
     </tile>
 
-<!-- Sakura Tree -->
-    <tile id="23">
-        <name>Sakura 1</name>
-        <graphics>sakura/1.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="24">
-        <name>Sakura 2</name>
-        <graphics>sakura/2.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="25">
-        <name>Sakura 3</name>
-        <graphics>sakura/3.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="26">
-        <name>Sakura 4</name>
-        <graphics>sakura/4.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="27">
-        <name>Sakura 5</name>
-        <graphics>sakura/5.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="28">
-        <name>Sakura 6</name>
-        <graphics>sakura/6.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="29">
-        <name>Sakura 7</name>
-        <graphics>sakura/7.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="30">
-        <name>Sakura 8</name>
-        <graphics>sakura/8.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="31">
-        <name>Sakura 9</name>
-        <graphics>sakura/9.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-
-
-<!-- SOFA -->
-    <tile id="500">
-        <name>Sofa horizontal front 1</name>
-        <graphics>sofa/hf1.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="501">
-        <name>Sofa horizontal front 2</name>
-        <graphics>sofa/hf2.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="502">
-        <name>Sofa vertical left 1</name>
-        <graphics>sofa/vl1.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="503">
-        <name>Sofa vertical left 2</name>
-        <graphics>sofa/vl2.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="504">
-        <name>Sofa vertical right 1</name>
-        <graphics>sofa/vr1.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="505">
-        <name>Sofa vertical right 2</name>
-        <graphics>sofa/vr2.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-
-<!-- SMALL TABLE -->
-    <tile id="512">
-        <name>Small table vertical 1</name>
-        <graphics>smalltable/v1.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="513">
-        <name>Small table vertical 3</name>
-        <graphics>smalltable/v2.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-
-<!-- BATHROOM -->
-
 
 <!-- WALLS -->
     <tile id="600">
@@ -256,32 +162,32 @@
     <!--BEIGE WALL-->
     <tile id="640">
         <name>beige wall up</name>
-        <graphics>wall/beige/up.png</graphics>
+        <graphics>wall/beige/2.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="641">
         <name>beige wall down</name>
-        <graphics>wall/beige/down.png</graphics>
+        <graphics>wall/beige/5.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="642">
         <name>beige wall right corner up</name>
-        <graphics>wall/beige/rightup.png</graphics>
+        <graphics>wall/beige/3.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="643">
         <name>beige wall right corner down</name>
-        <graphics>wall/beige/rightdown.png</graphics>
+        <graphics>wall/beige/6.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="644">
         <name>beige wall left corner up</name>
-        <graphics>wall/beige/leftup.png</graphics>
+        <graphics>wall/beige/1.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="645">
         <name>beige wall right corner down</name>
-        <graphics>wall/beige/leftdown.png</graphics>
+        <graphics>wall/beige/4.png</graphics>
         <solidness>solid</solidness>
     </tile>
 

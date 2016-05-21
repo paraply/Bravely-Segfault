@@ -63,19 +63,11 @@ public class Render implements Observer{
     }
 
     public void redraw(){
-        for (RenderObject ro : objects){
-             if (ro.zOrder() == 0){
-                 ro.draw();
-             }
-        }
+        objects.stream().filter(ro -> ro.zOrder() == 0).forEach(RenderObject::draw);
         interactables.forEach(RenderObject :: draw);
         player.draw();
 
-        for (RenderObject ro : objects){
-            if (ro.zOrder() == 1){
-                ro.draw();
-            }
-        }
+        objects.stream().filter(ro -> ro.zOrder() == 1).forEach(RenderObject::draw);
     }
 
     private void addWorldObjects(){
