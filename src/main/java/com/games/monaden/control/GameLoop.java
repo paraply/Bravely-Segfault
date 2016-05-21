@@ -27,6 +27,8 @@ public class GameLoop extends AnimationTimer {
         Render.getInstance().setWorld(world);
         playerCharacter = new CharacterController();
         audioController = new AudioController();
+        String music = "file:/C:/Users/Admin/Documents/Git/Bravely-Segfault/src/main/resources/music/testMusic.mp3";
+        audioController.playMusic(music);
     }
 
     @Override
