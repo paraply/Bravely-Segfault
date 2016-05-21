@@ -348,6 +348,22 @@
         <graphics>wall/border/double4.png</graphics>
         <solidness>solid</solidness>
     </tile>
+    <tile id="913">
+        <name>Border Double vertical middle</name>
+        <graphics>wall/border/doubleverticalmiddle.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="914">
+        <name>Border double vertical down</name>
+        <graphics>wall/border/doubleverticaldown.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+    <tile id="916">
+        <name>Border corner double bottom</name>
+        <graphics>wall/border/cornerdoublebottom.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
 
 
 
