@@ -83,4 +83,6 @@ class RenderObject {
         }
         context.drawImage(image, imageSrcX, imageSrcY, gameObject.getWidth(), gameObject.getHeight(), x, y, gameObject.getWidth(), gameObject.getHeight());
     }
+
+
 }

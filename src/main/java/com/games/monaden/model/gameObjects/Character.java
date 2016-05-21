@@ -23,6 +23,10 @@ public class Character extends GameObject {
         super(startPos, "characters", imageFile);
     }
 
+    public Character(Point startPos, String imageFile, int zOrder) {
+        super(startPos, "characters", imageFile, true, zOrder);
+    }
+
     public String getName() {
         return this.name;
     }
