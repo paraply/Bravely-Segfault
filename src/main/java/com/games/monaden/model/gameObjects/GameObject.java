@@ -29,7 +29,7 @@ public class GameObject {
     }
 
     public String getImagePath(){
-        return imageSection + "/" + imageFile;
+        return pathForWindows(imageSection + "/" + imageFile);
     }
 
     public boolean hasContinuousAnimation(){
@@ -105,6 +105,13 @@ public class GameObject {
     public GameObject(Point startPos, String imageSection, String imageFile, boolean solid, int zOrder) {
         this(startPos, imageSection, imageFile, solid);
         this.zOrder = zOrder;
+    }
+
+    private String pathForWindows (String string) {
+        if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+            return string.replace("\\", "/");
+        }
+        return string;
     }
 
 }
