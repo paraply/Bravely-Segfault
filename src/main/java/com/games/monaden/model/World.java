@@ -54,7 +54,7 @@ public class World extends Observable{
             dialogParser = new DialogParser();
             TileParser tileParser = new TileParser();
             // Use a relative path to get the filelist file in tiles folder
-            File tileFile =  new File(this.getClass().getResource("/tiles/tilelist.xml").getPath());
+            File tileFile =  new File(this.getClass().getResource("/tiles/tilelist2.xml").getPath());
 
             // Read in all the tiles from the HashMap
             parser.parse(tileFile, tileParser);
