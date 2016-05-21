@@ -5,6 +5,7 @@ import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
+import org.xml.sax.InputSource;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -27,6 +28,7 @@ public class LevelParser extends DefaultHandler {
     private boolean bPosition = false;
     private boolean bFile = false;
     private boolean bSolidness = false;
+    private boolean bZOrder = false;
     private boolean bTransition = false;
     private boolean bTransPos = false;
     private boolean bFrame = false;
@@ -35,6 +37,7 @@ public class LevelParser extends DefaultHandler {
     private int row = 0;
     private int [][] tileMap = new int [World.MAP_SIZE][World.MAP_SIZE];
     private boolean solidness = false;
+    private int zOrder = 0;
     private String charName;
     private Point position;
     private Point transPos;
@@ -84,12 +87,16 @@ public class LevelParser extends DefaultHandler {
                 break;
 
             case "frameCount":
-                bFrame = true;
+            bFrame = true;
+            break;
+
+            case "zorder":
+                bZOrder = true;
                 break;
 
             case "solidness":
-                bSolidness = true;
-                break;
+            bSolidness = true;
+            break;
 
             case "dialogue":
                 bDialogue = true;
@@ -118,11 +125,12 @@ public class LevelParser extends DefaultHandler {
                 }
                 break;
             case "gameobject":
-                GameObject gameObject = new GameObject(position, "", imageFile, solidness);
+                GameObject gameObject = new GameObject(position, imageFile, solidness, zOrder);
                 gameObjects.add(gameObject);
+                zOrder = 0;
                 break;
             case "character":
-                Character character = new Character(position, imageFile);
+                Character character = new Character(position, imageFile, zOrder);
                 if (bCharName && charName != null) {
                     character.setName(charName);
                     bCharName = false;
@@ -132,6 +140,7 @@ public class LevelParser extends DefaultHandler {
                     character.setDialogFile(dialogFile);
                 }
                 interactables.add(character);
+                zOrder = 0;
                 break;
             case "transition":
                 transitions.add(new Transition(position, transPos, imageFile));
@@ -161,6 +170,9 @@ public class LevelParser extends DefaultHandler {
         } else if (bFile) {
             imageFile = new String(ch, start, length);
             bFile = false;
+        } else if (bZOrder) {
+            zOrder = Integer.parseInt(new String(ch, start, length));
+            bZOrder = false;
         } else if (bSolidness) {
             String solidString = new String(ch, start, length);
             if (solidString.equals("solid")) {

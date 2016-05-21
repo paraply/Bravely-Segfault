@@ -23,6 +23,7 @@
             <graphics>
                 <fileName>philip-tan.png</fileName>
                 <frameCount>4</frameCount>
+                <zOrder>9001</zOrder>
             </graphics>
             <dialogue>DialogTest.xml</dialogue>
         </character>

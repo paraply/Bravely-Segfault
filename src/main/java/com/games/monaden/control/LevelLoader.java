@@ -43,6 +43,7 @@ public class LevelLoader {
     public void loadLevel (String levelName) {
 
         levelParser.clearTilemap();
+        levelParser.clearGameObjects();
         levelParser.clearInteractables();
         levelParser.clearTransitions();
 

@@ -23,56 +23,63 @@
             <graphics>
                 <fileName>tiles/sakura/1.png</fileName>
                 <frameCount>4</frameCount>
-                <solidness>solid</solidness>
+                <zOrder>1</zOrder>
             </graphics>
+            <solidness>solid</solidness>
         </gameobject>
         <gameobject>
             <position>6,7</position>
             <graphics>
                 <fileName>tiles/sakura/2.png</fileName>
                 <frameCount>4</frameCount>
-                <solidness>solid</solidness>
+                <zOrder>2</zOrder>
             </graphics>
+            <solidness>solid</solidness>
         </gameobject>
         <gameobject>
             <position>7,7</position>
             <graphics>
                 <fileName>tiles/sakura/3.png</fileName>
                 <frameCount>4</frameCount>
-                <solidness>solid</solidness>
+                <zOrder>3</zOrder>
             </graphics>
+            <solidness>solid</solidness>
         </gameobject>
         <gameobject>
             <position>5,8</position>
             <graphics>
                 <fileName>tiles/sakura/4.png</fileName>
                 <frameCount>4</frameCount>
-                <solidness>solid</solidness>
+                <zOrder>4</zOrder>
             </graphics>
+            <solidness>solid</solidness>
         </gameobject>
         <gameobject>
             <position>6,8</position>
             <graphics>
                 <fileName>tiles/sakura/5.png</fileName>
                 <frameCount>4</frameCount>
-                <solidness>solid</solidness>
+                <zOrder>5</zOrder>
             </graphics>
+            <solidness>solid</solidness>
         </gameobject>
         <gameobject>
             <position>7,8</position>
             <graphics>
                 <fileName>tiles/sakura/6.png</fileName>
                 <frameCount>4</frameCount>
-                <solidness>solid</solidness>
+                <zOrder>6</zOrder>
             </graphics>
+            <solidness>solid</solidness>
         </gameobject>
         <gameobject>
             <position>5,9</position>
             <graphics>
                 <fileName>tiles/sakura/7.png</fileName>
                 <frameCount>4</frameCount>
-                <solidness>solid</solidness>
+                <zOrder>7</zOrder>
             </graphics>
+            <solidness>solid</solidness>
         </gameobject>
         <!--<gameobject>-->
             <!--<position>6,9</position>-->
@@ -87,8 +94,9 @@
             <graphics>
                 <fileName>tiles/sakura/9.png</fileName>
                 <frameCount>4</frameCount>
-                <solidness>solid</solidness>
+                <zOrder>9</zOrder>
             </graphics>
+            <solidness>solid</solidness>
         </gameobject>
     </gameobjects>
     <characters>
