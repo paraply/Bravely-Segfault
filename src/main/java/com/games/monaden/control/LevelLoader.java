@@ -3,6 +3,7 @@ package com.games.monaden.control;
 import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.Character;
+import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.services.levelParser.LevelParser;
 
 import javax.xml.parsers.SAXParser;
@@ -17,6 +18,7 @@ import java.util.List;
 public class LevelLoader {
 
     private int [][] tileMap;
+    private List<GameObject> gameObjects;
     private List<Character> interactables;
     private List<Transition> transitions;
 
@@ -27,6 +29,7 @@ public class LevelLoader {
 
     public LevelLoader () {
         tileMap = new int[World.MAP_SIZE][World.TILE_SIZE];
+        gameObjects = new ArrayList<>();
         interactables = new ArrayList<>();
         levelParser = new LevelParser();
         transitions = new ArrayList<>();
@@ -48,6 +51,9 @@ public class LevelLoader {
         try {
             parser.parse(is, levelParser);
 
+            gameObjects.clear();
+            gameObjects = levelParser.getGameObjects();
+
             interactables.clear();
             interactables = levelParser.getInteractables();
 
@@ -63,6 +69,10 @@ public class LevelLoader {
 
     int[][] getTileMap () {
         return this.tileMap;
+    }
+
+    List<GameObject> getGameObjects () {
+        return this.gameObjects;
     }
 
     List<Character> getInteractables () {

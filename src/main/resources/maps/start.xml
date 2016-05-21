@@ -17,6 +17,80 @@
         <line>22,15,19,20,21,15,15,19,20,21,15,2,6,7,8,22</line>
         <line>22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,22</line>
     </tilemap>
+    <gameobjects>
+        <gameobject>
+            <position>5,7</position>
+            <graphics>
+                <fileName>tiles/sakura/1.png</fileName>
+                <frameCount>4</frameCount>
+                <solidness>solid</solidness>
+            </graphics>
+        </gameobject>
+        <gameobject>
+            <position>6,7</position>
+            <graphics>
+                <fileName>tiles/sakura/2.png</fileName>
+                <frameCount>4</frameCount>
+                <solidness>solid</solidness>
+            </graphics>
+        </gameobject>
+        <gameobject>
+            <position>7,7</position>
+            <graphics>
+                <fileName>tiles/sakura/3.png</fileName>
+                <frameCount>4</frameCount>
+                <solidness>solid</solidness>
+            </graphics>
+        </gameobject>
+        <gameobject>
+            <position>5,8</position>
+            <graphics>
+                <fileName>tiles/sakura/4.png</fileName>
+                <frameCount>4</frameCount>
+                <solidness>solid</solidness>
+            </graphics>
+        </gameobject>
+        <gameobject>
+            <position>6,8</position>
+            <graphics>
+                <fileName>tiles/sakura/5.png</fileName>
+                <frameCount>4</frameCount>
+                <solidness>solid</solidness>
+            </graphics>
+        </gameobject>
+        <gameobject>
+            <position>7,8</position>
+            <graphics>
+                <fileName>tiles/sakura/6.png</fileName>
+                <frameCount>4</frameCount>
+                <solidness>solid</solidness>
+            </graphics>
+        </gameobject>
+        <gameobject>
+            <position>5,9</position>
+            <graphics>
+                <fileName>tiles/sakura/7.png</fileName>
+                <frameCount>4</frameCount>
+                <solidness>solid</solidness>
+            </graphics>
+        </gameobject>
+        <!--<gameobject>-->
+            <!--<position>6,9</position>-->
+            <!--<graphics>-->
+                <!--<fileName>tiles/sakura/8.png</fileName>-->
+                <!--<frameCount>4</frameCount>-->
+                <!--<solidness>solid</solidness>-->
+            <!--</graphics>-->
+        <!--</gameobject>-->
+        <gameobject>
+            <position>7,9</position>
+            <graphics>
+                <fileName>tiles/sakura/9.png</fileName>
+                <frameCount>4</frameCount>
+                <solidness>solid</solidness>
+            </graphics>
+        </gameobject>
+    </gameobjects>
     <characters>
         <character name="Philip">
             <position>5,2</position>
@@ -25,6 +99,14 @@
                 <frameCount>4</frameCount>
             </graphics>
             <dialogue>DialogTest2.xml</dialogue>
+        </character>
+        <character name="Sakura">
+            <position>6,9</position>
+            <graphics>
+                <fileName>sakura/8.png</fileName>
+                <frameCount>4</frameCount>
+            </graphics>
+            <dialogue>Sakura.xml</dialogue>
         </character>
     </characters>
     <transitions>
