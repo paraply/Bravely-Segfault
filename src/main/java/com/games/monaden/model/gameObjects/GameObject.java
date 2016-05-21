@@ -18,6 +18,8 @@ public class GameObject {
 
     private int animationFrames = 2;    //Counted from ZERO!
 
+    private int zOrder = 0;
+
     public int getHeight(){
         return imageHeight;
     }
@@ -64,6 +66,14 @@ public class GameObject {
 
     protected void setPosition(Point p){ position = p; }
 
+    public int getzOrder() {
+        return this.zOrder;
+    }
+
+    public void setzOrder(int zOrder) {
+        this.zOrder = zOrder;
+    }
+
     public GameObject(Point startPos, String imageSection, String imageFile, int imageWidth, int imageHeight)
     {
         position = startPos;
@@ -90,6 +100,11 @@ public class GameObject {
         this.imageWidth = World.TILE_SIZE;
         this.imageHeight = World.TILE_SIZE;
         this.solid = solid;
+    }
+
+    public GameObject(Point startPos, String imageFile, boolean solid, int zOrder) {
+        this(startPos, "", imageFile, solid);
+        this.zOrder = zOrder;
     }
 
 }

@@ -93,6 +93,7 @@ public class TileParser extends DefaultHandler {
      */
     public List<Tile> getTiles () {
         Collections.sort(tileList);
+        checkDuplicateID();
         return new ArrayList<>(tileList);
     }
 
@@ -105,7 +106,7 @@ public class TileParser extends DefaultHandler {
      * Prints a message with the found duplicates if true.
      * @return true if two or more tiles share IDs
      */
-    public boolean checkDuplicateID () {
+    private boolean checkDuplicateID () {
         boolean duplicate = false;
         StringBuilder errorMessage = new StringBuilder();
         errorMessage.append("Duplicates found:\n");
@@ -128,7 +129,7 @@ public class TileParser extends DefaultHandler {
         }
 
         if (duplicate) {
-            System.out.println(errorMessage.toString());
+            throw new IllegalStateException(errorMessage.toString());
         }
 
         return duplicate;

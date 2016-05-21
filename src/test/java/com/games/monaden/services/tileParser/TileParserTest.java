@@ -4,10 +4,12 @@ import com.games.monaden.model.Tile;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.xml.sax.SAXException;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -53,16 +55,39 @@ public class TileParserTest {
     }
 
     /**
+     * Same test file as testSize(), but this test checks for duplicates and finds none.
+     */
+    @Test
+    public void testNoDuplicates () {
+        IllegalStateException exception = null;
+        try {
+            tileFile = new File("src/main/resources/parseTests/TileTest1.xml");
+            parser.parse(tileFile, tileParser);
+            tileList = tileParser.getTiles();
+        } catch (IllegalStateException e) {
+            exception = e;
+        } catch (IOException | SAXException e) {
+            e.printStackTrace();
+        }
+        assertNull(exception);
+    }
+
+    /**
      * Test file has two duplicate IDs. The test tests the checkDuplicateID method.
      */
     @Test
     public void testDuplicates () {
+        IllegalStateException exception = null;
         try {
             tileFile = new File ("src/main/resources/parseTests/TileTestDuplicate.xml");
             parser.parse(tileFile, tileParser);
-            assertTrue(tileParser.checkDuplicateID());
-        } catch (Exception e) {
+            tileParser.getTiles(); //Runs private method checkDuplicateID()
+        } catch (IllegalStateException e) {
+            exception = e;
+            System.out.println(exception.getMessage());
+        } catch (IOException | SAXException e) {
             e.printStackTrace();
         }
+        assertNotNull(exception);
     }
 }
