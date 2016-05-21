@@ -56,6 +56,12 @@
         <solidness>non-solid</solidness>
     </tile>
 
+    <tile id="011">
+        <name>doorstep between LIGHT and dark gray left</name>  <!-- MOVE TOGETHER -->
+        <graphics>floor/doorsteplightup.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+
 <!-- Sakura Tree -->
     <tile id="23">
         <name>Sakura 1</name>
@@ -247,6 +253,39 @@
         <solidness>solid</solidness>
     </tile>
 
+    <!--BEIGE WALL-->
+    <tile id="640">
+        <name>beige wall up</name>
+        <graphics>wall/beige/up.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="641">
+        <name>beige wall down</name>
+        <graphics>wall/beige/down.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="642">
+        <name>beige wall right corner up</name>
+        <graphics>wall/beige/rightup.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="643">
+        <name>beige wall right corner down</name>
+        <graphics>wall/beige/rightdown.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="644">
+        <name>beige wall left corner up</name>
+        <graphics>wall/beige/leftup.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="645">
+        <name>beige wall right corner down</name>
+        <graphics>wall/beige/leftdown.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+
 
     <!-- BORDERS -->
     <tile id="900">
@@ -301,14 +340,16 @@
     </tile>
     <tile id="910">
         <name>Border Double Up-Right</name>
-        <graphics>wall/border/Double3.png</graphics>
+        <graphics>wall/border/double3.png</graphics>
         <solidness>solid</solidness>
     </tile>
     <tile id="911">
         <name>Border Double Down-Right</name>
-        <graphics>wall/border/Double4.png</graphics>
+        <graphics>wall/border/double4.png</graphics>
         <solidness>solid</solidness>
     </tile>
+
+
 
 
 
