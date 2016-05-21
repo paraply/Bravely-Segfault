@@ -24,7 +24,7 @@ public class GameLoop extends AnimationTimer {
     private InputState inputState = InputState.MOVEMENT;
 
     public void initializeGame(){
-        world = new World("outsidemonaden.xml");
+        world = new World("second.xml");
         Render.getInstance().setWorld(world);
         playerCharacter = new CharacterController();
         audioController = new AudioController();
