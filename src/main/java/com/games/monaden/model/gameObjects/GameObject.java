@@ -102,8 +102,8 @@ public class GameObject {
         this.solid = solid;
     }
 
-    public GameObject(Point startPos, String imageFile, boolean solid, int zOrder) {
-        this(startPos, "", imageFile, solid);
+    public GameObject(Point startPos, String imageSection, String imageFile, boolean solid, int zOrder) {
+        this(startPos, imageSection, imageFile, solid);
         this.zOrder = zOrder;
     }
 
