@@ -41,6 +41,15 @@ public class UserInput implements EventHandler<Event> {
             case SPACE:
                 functionKey = KeyCode.SPACE;
                 break;
+            case PLUS:
+                functionKey = KeyCode.PLUS;
+                break;
+            case MINUS:
+                functionKey = KeyCode.MINUS;
+                break;
+            case N:
+                functionKey = KeyCode.N;
+                break;
         }
     }
 
