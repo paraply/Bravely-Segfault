@@ -33,7 +33,6 @@ public class GameLoop extends AnimationTimer implements Observer {
     public void update(Observable o, Object arg) {
         setLevel((String)arg);
     }
-
     private enum InputState { MOVEMENT, DIALOG }
     private InputState inputState = InputState.MOVEMENT;
 
@@ -118,16 +117,15 @@ public class GameLoop extends AnimationTimer implements Observer {
                     Render.getInstance().renderDialog.newDialog(dialog);
                 }else if (funcReq == KeyCode.PLUS) {
 
-                    System.out.println("pressed: +");
                     volume = audioController.volumeUp();
+
                 } else if (funcReq == KeyCode.MINUS) {
 
-                    System.out.println("pressed: -");
                     volume = audioController.volumeDown();
 
                 } else if (funcReq == KeyCode.N) {
+                    
                     audioController.stopMusic();
-                    System.out.println("pressed: N");
                     audioController.playMusic(1);
 
                 }
