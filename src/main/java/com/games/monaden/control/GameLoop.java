@@ -1,35 +1,96 @@
 package com.games.monaden.control;
 
 import com.games.monaden.model.Dialog;
+import com.games.monaden.model.Point;
+import com.games.monaden.model.Tile;
 import com.games.monaden.model.World;
+import com.games.monaden.model.gameObjects.Character;
+import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.view.Render;
+import com.sun.org.apache.regexp.internal.RE;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
+
+import java.util.*;
 
 /**
  * Created by paraply on 2016-04-13.
  */
-public class GameLoop extends AnimationTimer {
+public class GameLoop extends AnimationTimer implements Observer {
 
     public final static int FREQUENCY = 16;
     private int countDown = FREQUENCY;
     private double volume = 0.0;
 
     private World world;
-    CharacterController playerCharacter;
-    AudioController audioController;
+    private CharacterController playerCharacter;
+    private AudioController audioController;
+    private HashMap<Integer, Tile> tileMap;
 
     private Dialog currentDialog;
+
+    @Override
+    public void update(Observable o, Object arg) {
+        setLevel((String)arg);
+    }
+
     private enum InputState { MOVEMENT, DIALOG }
     private InputState inputState = InputState.MOVEMENT;
 
-    public void initializeGame(){
-        world = new World("second.xml");
-        Render.getInstance().setWorld(world);
+    public GameLoop () {
+        tileMap = new HashMap<>();
         playerCharacter = new CharacterController();
+        playerCharacter.addObserver(this);
+    }
+
+    public void initializeGame(){
+        tileMap = new TileLoader().loadTiles();
+        world = new World();
+        setLevel("second.xml");
+        Render.getInstance().setWorld(world);
         audioController = new AudioController();
         audioController.playMusic(0);
     }
+
+    /**
+     * Sets the world's current level to be what the given file is.
+     * @param levelName File path to XML
+     */
+    private void setLevel (String levelName) {
+        LevelLoader levelLoader = new LevelLoader();
+        levelLoader.loadLevel(levelName);
+        int [][] primTileMap = levelLoader.getTileMap();
+
+        List<GameObject> gameObjects = new ArrayList<>();
+
+        for (int y = 0; y < World.MAP_SIZE; y++) {
+            for (int x = 0; x < World.MAP_SIZE; x++) {
+                Tile currentTile =  findTile(primTileMap[y][x]);
+                GameObject newGameObject = new GameObject(new Point(x, y), "tiles", currentTile.getFilepath().toString(), currentTile.isSolid());
+                newGameObject.setContinuousAnimation(currentTile.isAnimated());
+                gameObjects.add(newGameObject);
+            }
+        }
+
+        List<Character> interactables = levelLoader.getInteractables();
+
+        DialogLoader dialogLoader = new DialogLoader();
+
+        for (Character c : interactables) {
+            c.setDialog(dialogLoader.parseDialog(c.getDialogFile().getPath()));
+        }
+
+
+
+        world.setCurrentLevel(gameObjects, interactables, levelLoader.getTransitions());
+    }
+
+
+
+    private Tile findTile (int tileNr) {
+        return tileMap.get(tileNr);
+    }
+
 
     @Override
     public void handle(long now) {

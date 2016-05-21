@@ -24,12 +24,12 @@
                 <fileName>characters/philip-tan.png</fileName>
                 <frameCount>4</frameCount>
             </graphics>
-            <dialogue>tutorialPhilip.xml</dialogue>
+            <dialogue>DialogTest.xml</dialogue>
         </character>
     </characters>
     <transitions>
         <transition>
-            <filename>src/main/resources/parseTests/second.xml</filename>
+            <filename>second.xml</filename>
             <position>13,0</position>
             <newPosition>1,15</newPosition>
         </transition>

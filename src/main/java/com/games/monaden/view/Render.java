@@ -108,9 +108,9 @@ public class Render implements Observer{
     public void update(Observable observable, Object arg) {
         //Should probably be refactored later
         if(observable == world) {
-            if(arg == "transition"){
+//            if(arg == "transition"){
                 transition();
-            }
+//            }
         }
     }
 }

@@ -24,7 +24,7 @@
                 <filename>philip-tan.png</filename>
                 <framecount>4</framecount>
             </graphics>
-            <dialogue>tutorialPhilip.xml</dialogue>
+            <dialogue>DialogTest.xml</dialogue>
         </character>
     </characters>
     <transitions>

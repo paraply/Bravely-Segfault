@@ -1,0 +1,24 @@
+<class>
+    <dialog>
+        <image>nokia.png</image>
+        <text>Hej.</text>
+        <dialog>
+            <image>cat.png</image>
+            <text>...</text>
+            <response condition="has_item()==book">
+                <choice>:D</choice>
+                <subdialog>
+                    <image>nokia.png</image>
+                    <text>:(</text>
+                </subdialog>
+            </response>
+            <response condition="True">
+                <choice>D:</choice>
+                <subdialog>
+                    <image>cat.png</image>
+                    <text>:)</text>
+                </subdialog>
+            </response>
+        </dialog>
+    </dialog>
+</class>
