@@ -35,6 +35,7 @@ public class DialogLoader {
             return dialogParser.getRoot();
 
         } catch (Exception e) {
+            System.err.println("DialogLoader : parsedialog failed. Filename: " + dialogFile);
             e.printStackTrace();
         }
 

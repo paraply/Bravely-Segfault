@@ -49,4 +49,35 @@
         <solidness>non-solid</solidness>
     </gameobject>
 
+
+    <!--BOOKSHELF-->
+    <gameobject>
+        <position>10,3</position>
+        <graphics>
+            <fileName>bookshelf/1.png</fileName>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>11,3</position>
+        <graphics>
+            <fileName>bookshelf/2.png</fileName>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>10,4</position>
+        <graphics>
+            <fileName>bookshelf/3.png</fileName>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>11,4</position>
+        <graphics>
+            <fileName>bookshelf/4.png</fileName>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+
 </level>

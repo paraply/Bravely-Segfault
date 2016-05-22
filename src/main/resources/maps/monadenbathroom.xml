@@ -24,15 +24,16 @@
         <newPosition>14,8</newPosition>
     </transition>
 
-    <!-- TOILET BOTTOM -->
+
     <characters>
+        <!-- TOILET BOTTOM -->
         <character name="Toilet">
             <position>8,6</position>
             <graphics>
                 <fileName>toilet/2.png</fileName>
                 <frameCount>1</frameCount>
             </graphics>
-            <dialogue>toilet.xml</dialogue>
+            <dialogue>monadenbathroom/toilet.xml</dialogue>
         </character>
     </characters>
 
@@ -43,7 +44,7 @@
             <fileName>toilet/1.png</fileName>
             <zOrder>1</zOrder>
         </graphics>
-        <solidness>solid</solidness>
+        <solidness>non-solid</solidness>
     </gameobject>
 
 

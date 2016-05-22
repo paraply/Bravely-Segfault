@@ -4,6 +4,7 @@ import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.GameObject;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -23,6 +24,8 @@ public class Render implements Observer{
     private List<RenderObject> objects = new ArrayList<>();
     private List<RenderObject> interactables = new ArrayList<>();
     private RenderDialog renderDialog;
+    private int showStartScreen = 160;
+    private Image startScreen;
 
 
     // graphics context = main-canvas context
@@ -62,12 +65,28 @@ public class Render implements Observer{
         return render;
     }
 
-    public void redraw(){
-        objects.stream().filter(ro -> ro.zOrder() == 0).forEach(RenderObject::draw);
-        interactables.forEach(RenderObject :: draw);
-        player.draw();
+    private boolean showStartScreen(){
+        if (showStartScreen > 0){
+            if (startScreen == null){
+                startScreen = new Image("start/startscreen.png");
+            }
+            if (context != null) {
+                context.drawImage(startScreen, 0, 0, 512, 512, 0, 0, 512, 512);
+                showStartScreen--;
+            }
+            return true;
+        }
+        return false;
+    }
 
-        objects.stream().filter(ro -> ro.zOrder() == 1).forEach(RenderObject::draw);
+    public void redraw(){
+        if (!showStartScreen()) {
+            objects.stream().filter(ro -> ro.zOrder() == 0).forEach(RenderObject::draw);
+            interactables.forEach(RenderObject::draw);
+            player.draw();
+
+            objects.stream().filter(ro -> ro.zOrder() == 1).forEach(RenderObject::draw);
+        }
     }
 
     private void addWorldObjects(){
@@ -108,6 +127,8 @@ public class Render implements Observer{
         addInteractables();
         redraw();
     }
+
+
 
     @Override
     public void update(Observable observable, Object arg) {
