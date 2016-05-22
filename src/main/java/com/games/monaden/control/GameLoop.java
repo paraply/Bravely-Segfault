@@ -71,6 +71,8 @@ public class GameLoop extends AnimationTimer implements Observer {
             }
         }
 
+        gameObjects.addAll(levelLoader.getGameObjects());
+
         List<Character> interactables = levelLoader.getInteractables();
 
         DialogLoader dialogLoader = new DialogLoader();
