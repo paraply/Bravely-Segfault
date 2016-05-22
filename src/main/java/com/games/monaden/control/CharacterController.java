@@ -30,6 +30,7 @@ public class CharacterController extends Observable {
      */
     CharacterController(Point point) {
         player = new Character(point, "cat.png", 32, 32);
+        audioController = new AudioPlayer();
     }
 
     public void handleMovement(KeyCode moveReq, World world) {
@@ -57,7 +58,7 @@ public class CharacterController extends Observable {
         if (!tileIsOccupied(pointMovedTo, world)) {
             pointMovedTo = transitionIfPossible(world, pointMovedTo);
             player.setPosition(pointMovedTo);
-            // audioController.playSound("step"); // *** causes lots of tests for this class ***.
+            audioController.playSound("step"); // *** causes lots of tests for this class ***.
         }
         player.setDirection(dir);
     }
