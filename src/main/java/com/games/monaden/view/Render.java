@@ -6,6 +6,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
@@ -24,12 +25,11 @@ public class Render implements Observer{
     private List<RenderObject> objects = new ArrayList<>();
     private List<RenderObject> interactables = new ArrayList<>();
     private RenderDialog renderDialog;
-    private int showStartScreen = 160;
-    private Image startScreen;
+    private Pane startScreen;
 
 
     // graphics context = main-canvas context
-    // this is set by WindowController in its initialization
+    // this is set by Window in its initialization
     public void setGraphicsContext(GraphicsContext context){
         this.context = context;
         if (context == null){
@@ -57,7 +57,7 @@ public class Render implements Observer{
         this.player = new AnimatedObject(player,context);
     }
 
-    //This class is currently singleton, since its instance needs to be accessed by WindowController, RenderObjects. May change...
+    //This class is currently singleton, since its instance needs to be accessed by Window, RenderObjects. May change...
     public static synchronized Render getInstance(){
         if (render == null){
             render = new Render();
@@ -65,28 +65,24 @@ public class Render implements Observer{
         return render;
     }
 
-    private boolean showStartScreen(){
-        if (showStartScreen > 0){
-            if (startScreen == null){
-                startScreen = new Image("start/startscreen.png");
-            }
-            if (context != null) {
-                context.drawImage(startScreen, 0, 0, 512, 512, 0, 0, 512, 512);
-                showStartScreen--;
-            }
-            return true;
+    public void hideStartScreen(){
+        if (startScreen == null){
+            System.err.println("Render : hideStartScreen got null value");
+            return;
         }
-        return false;
+        startScreen.setVisible(false);
+    }
+
+
+    public void setStartScreen(Pane startScreen){
+        this.startScreen = startScreen;
     }
 
     public void redraw(){
-        if (!showStartScreen()) {
             objects.stream().filter(ro -> ro.zOrder() == 0).forEach(RenderObject::draw);
             interactables.forEach(RenderObject::draw);
             player.draw();
-
             objects.stream().filter(ro -> ro.zOrder() == 1).forEach(RenderObject::draw);
-        }
     }
 
     private void addWorldObjects(){

@@ -33,8 +33,8 @@ public class GameLoop extends AnimationTimer implements Observer {
         setLevel((String)arg);
     }
 
-    private enum InputState { MOVEMENT, DIALOG }
-    private InputState inputState = InputState.MOVEMENT;
+    private enum InputState { MOVEMENT, DIALOG, STARTSCREEN }
+    private InputState inputState = InputState.STARTSCREEN;
 
     public GameLoop () {
         tileMap = new HashMap<>();
@@ -98,6 +98,15 @@ public class GameLoop extends AnimationTimer implements Observer {
 
     @Override
     public void handle(long now) {
+        if (inputState == InputState.STARTSCREEN){
+            if (UserInput.getInstance().getLatestFunctionKey() == null){
+                return;
+            }else{
+                Render.getInstance().hideStartScreen();
+                inputState = InputState.MOVEMENT;
+            }
+        }
+
         Render.getInstance().redraw();
         if (countDown > 0){  // used to add a delay (better than sleep) to user movement
             countDown--;

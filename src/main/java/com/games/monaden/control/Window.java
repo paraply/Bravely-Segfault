@@ -10,14 +10,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class WindowController implements Initializable{
+public class Window implements Initializable{
     @FXML private Canvas mainCanvas; // Our canvas where the game will be drawn
     @FXML private HBox dialogbox;
+    @FXML private Pane startPane;
 
     // Called when JavaFX initialized the window.
     @Override
@@ -26,6 +28,7 @@ public class WindowController implements Initializable{
         mainCanvas.setOnKeyPressed(UserInput.getInstance());
         Render.getInstance().setGraphicsContext(mainCanvas.getGraphicsContext2D()); // Get the canvas context and send it to Render
         Render.getInstance().setDialogObjects(dialogbox);
+        Render.getInstance().setStartScreen(startPane);
     }
 
 }
