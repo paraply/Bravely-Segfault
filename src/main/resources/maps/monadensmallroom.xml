@@ -35,7 +35,7 @@
     <gameobject>
         <position>4,12</position>
         <graphics>
-            <fileName>tiles/doorstep/up.png</fileName>
+            <fileName>doorstep/up.png</fileName>
             <zOrder>0</zOrder>
         </graphics>
         <solidness>non-solid</solidness>
@@ -43,7 +43,7 @@
     <gameobject>
         <position>5,12</position>
         <graphics>
-            <fileName>tiles/doorstep/up.png</fileName>
+            <fileName>doorstep/up.png</fileName>
             <zOrder>0</zOrder>
         </graphics>
         <solidness>non-solid</solidness>

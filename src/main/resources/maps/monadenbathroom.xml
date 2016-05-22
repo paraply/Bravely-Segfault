@@ -24,22 +24,35 @@
         <newPosition>14,8</newPosition>
     </transition>
 
+    <!-- TOILET BOTTOM -->
     <characters>
         <character name="Toilet">
-            <position>8,5</position>
+            <position>8,6</position>
             <graphics>
-                <fileName>toilet.png</fileName>
+                <fileName>toilet/2.png</fileName>
                 <frameCount>1</frameCount>
             </graphics>
             <dialogue>toilet.xml</dialogue>
         </character>
     </characters>
 
+    <!-- TOILET -->
+    <gameobject>
+        <position>8,5</position>
+        <graphics>
+            <fileName>toilet/1.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+
+
+
     <!-- DOORSTEP -->
     <gameobject>
         <position>5,8</position>
         <graphics>
-            <fileName>tiles/doorstep/right.png</fileName>
+            <fileName>doorstep/right.png</fileName>
             <zOrder>0</zOrder>
         </graphics>
         <solidness>non-solid</solidness>

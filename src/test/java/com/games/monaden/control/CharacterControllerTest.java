@@ -29,7 +29,7 @@ public class CharacterControllerTest {
     public static void initClass() {
         startWorld = new World();
         List<GameObject> gameObjects = new ArrayList<>();
-        gameObjects.add(new GameObject(new Point(4, 5), null, null, true));
+        gameObjects.add(new GameObject(new Point(4, 5), null, true));
         List<Character> interactables = new ArrayList<>();
         interactables.add(new Character(new Point(10, 10), null));
         interactables.get(0).setDialog(new Dialog("Hello there."));

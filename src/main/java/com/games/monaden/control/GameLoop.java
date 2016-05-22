@@ -68,7 +68,7 @@ public class GameLoop extends AnimationTimer implements Observer {
                     System.err.println("Bad tile @ X" + x + " Y:" + y);
                     break outerloop;
                 }
-                GameObject newGameObject = new GameObject(new Point(x, y), "tiles", currentTile.getFilepath().toString(), currentTile.isSolid());
+                GameObject newGameObject = new GameObject(new Point(x, y), currentTile.getFilepath().toString(), currentTile.isSolid());
                 newGameObject.setContinuousAnimation(currentTile.isAnimated());
                 gameObjects.add(newGameObject);
             }

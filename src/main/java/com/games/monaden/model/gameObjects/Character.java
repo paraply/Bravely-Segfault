@@ -16,15 +16,15 @@ public class Character extends GameObject {
     public void setPosition(Point p){super.setPosition(p);}
 
     public Character(Point startPos, String imageFile, int imageWidth, int imageHeight) {
-        super(startPos, "characters", imageFile, imageWidth, imageHeight);
+        super(startPos,  imageFile, imageWidth, imageHeight);
     }
 
     public Character(Point startPos, String imageFile) {
-        super(startPos, "characters", imageFile);
+        super(startPos, imageFile);
     }
 
     public Character(Point startPos, String imageFile, int zOrder) {
-        super(startPos, "characters", imageFile, true, zOrder);
+        super(startPos,  imageFile, true, zOrder);
     }
 
     public String getName() {

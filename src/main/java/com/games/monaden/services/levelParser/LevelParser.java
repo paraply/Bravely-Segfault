@@ -125,7 +125,7 @@ public class LevelParser extends DefaultHandler {
                 }
                 break;
             case "gameobject":
-                GameObject gameObject = new GameObject(position, "", imageFile, solidness, zOrder);
+                GameObject gameObject = new GameObject(position, imageFile, solidness, zOrder);
                 gameObjects.add(gameObject);
                 zOrder = 0;
                 break;

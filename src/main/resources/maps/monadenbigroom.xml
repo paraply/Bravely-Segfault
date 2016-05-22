@@ -36,7 +36,7 @@
         <gameobject>
             <position>11,5</position>
             <graphics>
-                <fileName>tiles/sofa/front/1.png</fileName>
+                <fileName>sofa/front/1.png</fileName>
                 <zOrder>0</zOrder>
             </graphics>
             <solidness>solid</solidness>
@@ -44,7 +44,7 @@
         <gameobject>
             <position>12,5</position>
             <graphics>
-                <fileName>tiles/sofa/front/2.png</fileName>
+                <fileName>sofa/front/2.png</fileName>
                 <zOrder>0</zOrder>
             </graphics>
             <solidness>solid</solidness>
@@ -52,7 +52,7 @@
         <gameobject>
             <position>13,5</position>
             <graphics>
-                <fileName>tiles/sofa/front/3.png</fileName>
+                <fileName>sofa/front/3.png</fileName>
                 <zOrder>0</zOrder>
             </graphics>
             <solidness>solid</solidness>
@@ -62,7 +62,7 @@
         <gameobject>
             <position>10,6</position>
             <graphics>
-                <fileName>tiles/sofa/left/1.png</fileName>
+                <fileName>sofa/left/1.png</fileName>
                 <zOrder>1</zOrder>
             </graphics>
             <solidness>non-solid</solidness>
@@ -70,7 +70,7 @@
         <gameobject>
             <position>10,7</position>
             <graphics>
-                <fileName>tiles/sofa/left/2.png</fileName>
+                <fileName>sofa/left/2.png</fileName>
                 <zOrder>0</zOrder>
             </graphics>
             <solidness>solid</solidness>
@@ -78,7 +78,7 @@
         <gameobject>
             <position>10,8</position>
             <graphics>
-                <fileName>tiles/sofa/left/3.png</fileName>
+                <fileName>sofa/left/3.png</fileName>
                 <zOrder>0</zOrder>
             </graphics>
             <solidness>solid</solidness>
@@ -89,7 +89,7 @@
         <gameobject>
             <position>14,6</position>
             <graphics>
-                <fileName>tiles/sofa/right/1.png</fileName>
+                <fileName>sofa/right/1.png</fileName>
                 <zOrder>1</zOrder>
             </graphics>
             <solidness>non-solid</solidness>
@@ -97,7 +97,7 @@
         <gameobject>
             <position>14,7</position>
             <graphics>
-                <fileName>tiles/sofa/right/2.png</fileName>
+                <fileName>sofa/right/2.png</fileName>
                 <zOrder>0</zOrder>
             </graphics>
             <solidness>solid</solidness>
@@ -105,7 +105,7 @@
         <gameobject>
             <position>14,8</position>
             <graphics>
-                <fileName>tiles/sofa/right/3.png</fileName>
+                <fileName>sofa/right/3.png</fileName>
                 <zOrder>0</zOrder>
             </graphics>
             <solidness>solid</solidness>
@@ -116,7 +116,7 @@
         <gameobject>
             <position>13,11</position>
             <graphics>
-                <fileName>tiles/doorstep/down.png</fileName>
+                <fileName>doorstep/down.png</fileName>
                 <zOrder>0</zOrder>
             </graphics>
             <solidness>non-solid</solidness>
@@ -124,7 +124,7 @@
         <gameobject>
             <position>14,11</position>
             <graphics>
-                <fileName>tiles/doorstep/down.png</fileName>
+                <fileName>doorstep/down.png</fileName>
                 <zOrder>0</zOrder>
             </graphics>
             <solidness>non-solid</solidness>
