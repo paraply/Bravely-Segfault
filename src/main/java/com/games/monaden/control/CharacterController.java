@@ -57,7 +57,7 @@ public class CharacterController extends Observable {
         if (!tileIsOccupied(pointMovedTo, world)) {
             pointMovedTo = transitionIfPossible(world, pointMovedTo);
             player.setPosition(pointMovedTo);
-            audioController.playSound("step");
+            // audioController.playSound("step"); // *** causes lots of tests for this class ***.
         }
         player.setDirection(dir);
     }

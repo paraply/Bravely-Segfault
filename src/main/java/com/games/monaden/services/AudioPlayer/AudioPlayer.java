@@ -127,9 +127,7 @@ public class AudioPlayer {
     }
 
     private void loadSoundMap(){
-        String i = classLoader.getResource("sound/step.m4a").toExternalForm();
-
-        soundMap.put("step", i);
+        soundMap.put("step", classLoader.getResource("sound/step.m4a").toExternalForm());
         soundMap.put("step_sand_left",classLoader.getResource("sound/step_sand_l.flac").toExternalForm());
         soundMap.put("step_sand_right",classLoader.getResource("sound/step_sand_l.flac").toExternalForm());
     }
