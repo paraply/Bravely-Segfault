@@ -3,9 +3,9 @@
         <line>007,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
         <line>007,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
         <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,023,024,025,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,026,027,028,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,029,030,031,006,006,006,006,006,006,006,006,006,006</line>
+        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
+        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
+        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
         <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
         <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
         <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
@@ -15,8 +15,37 @@
         <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
         <line>007,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
         <line>007,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
-        <line>600,600,600,600,600,600,600,600,600,600,600,600,001,001,600,600</line>
+        <line>900,900,900,900,900,900,900,900,900,900,900,910,001,001,909,900</line>
     </tilemap>
+
+    <characters>
+        <character name="Sakura top left">
+            <position>4,6</position>
+            <graphics>
+                <fileName>transparent.png</fileName>
+            </graphics>
+            <dialogue>outsidemonaden/sakuratopleft.xml</dialogue>
+        </character>
+
+        <character name="Sakura bottom middle">
+            <position>9,10</position>
+            <graphics>
+                <fileName>transparent.png</fileName>
+            </graphics>
+            <dialogue>outsidemonaden/sakurabottommiddle.xml</dialogue>
+        </character>
+
+        <character name="Sakura top right">
+            <position>12,8</position>
+            <graphics>
+                <fileName>transparent.png</fileName>
+            </graphics>
+            <dialogue>outsidemonaden/sakuratopright.xml</dialogue>
+        </character>
+
+    </characters>
+
+
     <transitions>
         <transition>
             <filename>monadenentrance.xml</filename>
@@ -29,4 +58,250 @@
             <newPosition>8,3</newPosition>
         </transition>
     </transitions>
+
+    <!-- DOORSTEPS -->
+    <gameobject>
+        <position>12,15</position>
+        <graphics>
+            <fileName>tiles/doorstep/up.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>13,15</position>
+        <graphics>
+            <fileName>tiles/doorstep/up.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+
+
+
+
+<!-- SAKURA TREE LEFT TOP-->
+    <gameobject>
+        <position>3,4</position>
+        <graphics>
+            <fileName>tiles/sakura/1.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>4,4</position>
+        <graphics>
+            <fileName>tiles/sakura/2.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>5,4</position>
+        <graphics>
+            <fileName>tiles/sakura/3.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>3,5</position>
+        <graphics>
+            <fileName>tiles/sakura/4.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>4,5</position>
+        <graphics>
+            <fileName>tiles/sakura/5.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>5,5</position>
+        <graphics>
+            <fileName>tiles/sakura/6.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>3,6</position>
+        <graphics>
+            <fileName>tiles/sakura/7.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>4,6</position>
+        <graphics>
+            <fileName>tiles/sakura/8.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>5,6</position>
+        <graphics>
+            <fileName>tiles/sakura/9.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+
+
+
+    <!-- SAKURA TREE MIDDLE BOTTOM -->
+    <gameobject>
+        <position>8,8</position>
+        <graphics>
+            <fileName>tiles/sakura/1.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>9,8</position>
+        <graphics>
+            <fileName>tiles/sakura/2.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>10,8</position>
+        <graphics>
+            <fileName>tiles/sakura/3.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>8,9</position>
+        <graphics>
+            <fileName>tiles/sakura/4.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>9,9</position>
+        <graphics>
+            <fileName>tiles/sakura/5.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>10,9</position>
+        <graphics>
+            <fileName>tiles/sakura/6.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>8,10</position>
+        <graphics>
+            <fileName>tiles/sakura/7.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>9,10</position>
+        <graphics>
+            <fileName>tiles/sakura/8.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>10,10</position>
+        <graphics>
+            <fileName>tiles/sakura/9.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+
+
+    <!-- SAKURA TREE TOP RIGHT -->
+    <gameobject>
+        <position>11,6</position>
+        <graphics>
+            <fileName>tiles/sakura/1.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>12,6</position>
+        <graphics>
+            <fileName>tiles/sakura/2.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>13,6</position>
+        <graphics>
+            <fileName>tiles/sakura/3.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>11,7</position>
+        <graphics>
+            <fileName>tiles/sakura/4.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>12,7</position>
+        <graphics>
+            <fileName>tiles/sakura/5.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>13,7</position>
+        <graphics>
+            <fileName>tiles/sakura/6.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>11,8</position>
+        <graphics>
+            <fileName>tiles/sakura/7.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>12,8</position>
+        <graphics>
+            <fileName>tiles/sakura/8.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>13,8</position>
+        <graphics>
+            <fileName>tiles/sakura/9.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
 </level>

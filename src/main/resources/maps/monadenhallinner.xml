@@ -6,7 +6,7 @@
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>907,901,901,901,901,901,901,901,901,901,901,901,901,901,901,901</line>
         <line>903,605,605,605,605,605,605,605,605,605,605,605,608,002,002,607</line>
-        <line>903,602,602,602,602,602,602,602,602,602,602,602,609,003,003,606</line>
+        <line>903,602,602,602,602,602,602,602,602,602,602,602,609,002,002,606</line>
         <line>903,001,001,001,001,001,001,001,001,001,001,001,001,001,001,001</line>
         <line>903,001,001,001,001,001,001,001,001,001,001,001,001,001,001,001</line>
         <line>903,001,001,001,001,001,001,001,001,001,001,001,001,001,001,001</line>
@@ -45,6 +45,24 @@
             <newPosition>1,9</newPosition>
         </transition>
 
+
+        <!-- DOORSTEPS -->
+        <gameobject>
+            <position>13,6</position>
+            <graphics>
+                <fileName>tiles/doorstep/down.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>non-solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>14,6</position>
+            <graphics>
+                <fileName>tiles/doorstep/down.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>non-solid</solidness>
+        </gameobject>
 
     </transitions>
 </level>

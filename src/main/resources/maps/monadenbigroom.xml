@@ -11,7 +11,7 @@
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
-        <line>906,900,900,900,900,900,900,900,900,900,900,900,910,003,003,902</line>
+        <line>906,900,900,900,900,900,900,900,900,900,900,900,910,002,002,902</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,001,001,000</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
@@ -30,81 +30,7 @@
             <newPosition>14,7</newPosition>
         </transition>
     </transitions>
-
-
     <gameobjects>
-        <gameobject>
-            <position>5,7</position>
-            <graphics>
-                <fileName>tiles/sakura/1.png</fileName>
-                <zOrder>1</zOrder>
-            </graphics>
-            <solidness>non-solid</solidness>
-        </gameobject>
-        <gameobject>
-            <position>6,7</position>
-            <graphics>
-                <fileName>tiles/sakura/2.png</fileName>
-                <zOrder>1</zOrder>
-            </graphics>
-            <solidness>non-solid</solidness>
-        </gameobject>
-        <gameobject>
-            <position>7,7</position>
-            <graphics>
-                <fileName>tiles/sakura/3.png</fileName>
-                <zOrder>1</zOrder>
-            </graphics>
-            <solidness>non-solid</solidness>
-        </gameobject>
-        <gameobject>
-            <position>5,8</position>
-            <graphics>
-                <fileName>tiles/sakura/4.png</fileName>
-                <zOrder>1</zOrder>
-            </graphics>
-            <solidness>non-solid</solidness>
-        </gameobject>
-        <gameobject>
-            <position>6,8</position>
-            <graphics>
-                <fileName>tiles/sakura/5.png</fileName>
-                <zOrder>1</zOrder>
-            </graphics>
-            <solidness>non-solid</solidness>
-        </gameobject>
-        <gameobject>
-            <position>7,8</position>
-            <graphics>
-                <fileName>tiles/sakura/6.png</fileName>
-                <zOrder>1</zOrder>
-            </graphics>
-            <solidness>non-solid</solidness>
-        </gameobject>
-        <gameobject>
-            <position>5,9</position>
-            <graphics>
-                <fileName>tiles/sakura/7.png</fileName>
-                <zOrder>0</zOrder>
-            </graphics>
-            <solidness>non-solid</solidness>
-        </gameobject>
-        <gameobject>
-            <position>6,9</position>
-            <graphics>
-                <fileName>tiles/sakura/8.png</fileName>
-                <zOrder>0</zOrder>
-            </graphics>
-            <solidness>solid</solidness>
-        </gameobject>
-        <gameobject>
-            <position>7,9</position>
-            <graphics>
-                <fileName>tiles/sakura/9.png</fileName>
-                <zOrder>0</zOrder>
-            </graphics>
-            <solidness>non-solid</solidness>
-        </gameobject>
 
         <!-- SOFA HORIZONTAL-->
         <gameobject>
@@ -159,6 +85,50 @@
         </gameobject>
 
 
+        <!-- SOFA VERTICAL TURNED RIGHT-->
+        <gameobject>
+            <position>14,6</position>
+            <graphics>
+                <fileName>tiles/sofa/right/1.png</fileName>
+                <zOrder>1</zOrder>
+            </graphics>
+            <solidness>non-solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>14,7</position>
+            <graphics>
+                <fileName>tiles/sofa/right/2.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>14,8</position>
+            <graphics>
+                <fileName>tiles/sofa/right/3.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+
+
+        <!-- DOORSTEPS -->
+        <gameobject>
+            <position>13,11</position>
+            <graphics>
+                <fileName>tiles/doorstep/down.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>non-solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>14,11</position>
+            <graphics>
+                <fileName>tiles/doorstep/down.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>non-solid</solidness>
+        </gameobject>
 
     </gameobjects>
 </level>

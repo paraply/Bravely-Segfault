@@ -15,11 +15,6 @@
         <graphics>floor/darkgray.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
-    <tile id="003">
-        <name>doorstep between dark and light gray bottom</name> <!-- MOVE TOGETHER -->
-        <graphics>floor/doorstepdarklighthb.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
     <tile id="004">
         <name>bathroom floor tiles</name>
         <graphics>floor/bathroomtiles.png</graphics>
@@ -38,27 +33,6 @@
     <tile id="007">
         <name>outsidetile</name>
         <graphics>floor/groundstone.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="008">
-        <name>doorstep between dark and light gray top</name>  <!-- MOVE TOGETHER -->
-        <graphics>floor/doorstepdarklightht.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="009">
-        <name>doorstep between dark and light gray right</name>  <!-- MOVE TOGETHER -->
-        <graphics>floor/doorstepdarklightvr.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="010">
-        <name>doorstep between dark and light gray left</name>  <!-- MOVE TOGETHER -->
-        <graphics>floor/doorstepdarklightvl.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-
-    <tile id="011">
-        <name>doorstep between LIGHT and dark gray left</name>  <!-- MOVE TOGETHER -->
-        <graphics>floor/doorsteplightup.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
 

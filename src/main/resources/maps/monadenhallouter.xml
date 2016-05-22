@@ -6,9 +6,9 @@
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>600,600,002,002,002,002,002,002,002,002,002,002,600,005,005,600</line>
-        <line>600,600,600,600,003,003,600,600,600,600,600,600,600,005,005,600</line>
+        <line>600,600,600,600,002,002,600,600,600,600,600,600,600,005,005,600</line>
         <line>001,001,001,001,001,001,001,001,001,001,001,001,001,001,001,600</line>
-        <line>001,001,001,001,001,001,001,001,001,001,001,001,001,001,001,009</line>
+        <line>001,001,001,001,001,001,001,001,001,001,001,001,001,001,001,001</line>
         <line>001,001,001,001,001,001,001,001,001,001,001,001,001,001,001,600</line>
         <line>600,600,600,600,600,600,600,600,600,600,600,001,001,600,001,600</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
@@ -72,4 +72,41 @@
             <newPosition>8,12</newPosition>
         </transition>
     </transitions>
+
+
+    <!-- DOORSTEP SMALL ROOM -->
+    <gameobject>
+        <position>4,6</position>
+        <graphics>
+            <fileName>tiles/doorstep/down.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>5,6</position>
+        <graphics>
+            <fileName>tiles/doorstep/down.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+
+    <!-- DOORSTEP ENTRANCE -->
+    <gameobject>
+        <position>13,6</position>
+        <graphics>
+            <fileName>tiles/doorstep/down.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>14,6</position>
+        <graphics>
+            <fileName>tiles/doorstep/down.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
 </level>
