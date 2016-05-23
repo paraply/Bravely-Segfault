@@ -5,8 +5,8 @@
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>907,901,901,901,901,901,901,901,901,901,901,901,901,901,901,901</line>
-        <line>903,605,605,605,605,605,605,605,605,605,605,605,608,002,002,607</line>
-        <line>903,602,602,602,602,602,602,602,602,602,602,602,609,002,002,606</line>
+        <line>903,644,640,640,640,640,640,640,640,640,640,640,642,002,002,644</line>
+        <line>903,645,641,641,641,641,641,641,641,641,641,641,643,002,002,645</line>
         <line>903,001,001,001,001,001,001,001,001,001,001,001,001,001,001,001</line>
         <line>903,001,001,001,001,001,001,001,001,001,001,001,001,001,001,001</line>
         <line>903,001,001,001,001,001,001,001,001,001,001,001,001,001,001,001</line>
@@ -21,12 +21,12 @@
         <transition>
             <filename>monadenbigroom.xml</filename>
             <position>13,6</position>
-            <newPosition>13,11</newPosition>
+            <newPosition>13,10</newPosition>
         </transition>
         <transition>
             <filename>monadenbigroom.xml</filename>
             <position>14,6</position>
-            <newPosition>14,11</newPosition>
+            <newPosition>14,10</newPosition>
         </transition>
 
         <transition>
@@ -44,25 +44,9 @@
             <position>15,9</position>
             <newPosition>1,9</newPosition>
         </transition>
-
-
-        <!-- DOORSTEPS -->
-        <gameobject>
-            <position>13,6</position>
-            <graphics>
-                <fileName>doorstep/down.png</fileName>
-                <zOrder>0</zOrder>
-            </graphics>
-            <solidness>non-solid</solidness>
-        </gameobject>
-        <gameobject>
-            <position>14,6</position>
-            <graphics>
-                <fileName>doorstep/down.png</fileName>
-                <zOrder>0</zOrder>
-            </graphics>
-            <solidness>non-solid</solidness>
-        </gameobject>
-
     </transitions>
+
+    <!-- DOORSTEPS -->
+    <gameobject><position>13,6</position><graphics><fileName>doorstep/down.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>14,6</position><graphics><fileName>doorstep/down.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
 </level>

@@ -238,6 +238,11 @@
         <graphics>wall/border/doubleverticaldown.png</graphics>
         <solidness>solid</solidness>
     </tile>
+    <tile id="915">
+        <name>Border double vertical down</name>
+        <graphics>wall/border/doubleverticalup.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
 
     <tile id="916">
         <name>Border corner double bottom</name>

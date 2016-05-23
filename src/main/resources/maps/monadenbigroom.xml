@@ -2,8 +2,8 @@
     <tilemap>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>907,901,901,901,901,901,901,901,901,901,901,901,901,901,901,904</line>
-        <line>903,605,605,605,605,605,605,605,605,605,605,605,605,605,605,902</line>
-        <line>903,602,602,602,602,602,602,602,602,602,602,602,602,602,602,902</line>
+        <line>903,644,640,640,640,640,640,640,640,640,640,640,640,640,642,902</line>
+        <line>903,645,641,641,641,641,641,641,641,641,641,641,641,641,643,902</line>
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
@@ -11,8 +11,8 @@
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
         <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
-        <line>906,900,900,900,900,900,900,900,900,900,900,900,910,002,002,902</line>
-        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,001,001,000</line>
+        <line>906,900,900,900,900,900,900,900,900,900,900,900,910,001,001,902</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
@@ -21,12 +21,12 @@
 
         <transition>
             <filename>monadenhallinner.xml</filename>
-            <position>13,12</position>
+            <position>13,11</position>
             <newPosition>13,7</newPosition>
         </transition>
         <transition>
             <filename>monadenhallinner.xml</filename>
-            <position>14,12</position>
+            <position>14,11</position>
             <newPosition>14,7</newPosition>
         </transition>
     </transitions>
@@ -121,7 +121,7 @@
         <gameobject>
             <position>13,11</position>
             <graphics>
-                <fileName>doorstep/down.png</fileName>
+                <fileName>doorstep/up.png</fileName>
                 <zOrder>0</zOrder>
             </graphics>
             <solidness>non-solid</solidness>
@@ -129,7 +129,7 @@
         <gameobject>
             <position>14,11</position>
             <graphics>
-                <fileName>doorstep/down.png</fileName>
+                <fileName>doorstep/up.png</fileName>
                 <zOrder>0</zOrder>
             </graphics>
             <solidness>non-solid</solidness>
@@ -153,6 +153,18 @@
         <gameobject><position>6,7</position><graphics> <fileName>squaretable/3.png</fileName></graphics><solidness>solid</solidness></gameobject>
         <gameobject><position>7,7</position><graphics> <fileName>squaretable/4.png</fileName></graphics><solidness>solid</solidness></gameobject>
 
+
+        <!--SQUARE TABLE TOP LEFT-->
+        <gameobject><position>1,5</position><graphics> <fileName>squaretable/1.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>2,5</position><graphics> <fileName>squaretable/2.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>1,6</position><graphics> <fileName>squaretable/3.png</fileName></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>2,6</position><graphics> <fileName>squaretable/4.png</fileName></graphics><solidness>solid</solidness></gameobject>
+
+        <!--SQUARE TABLE BOTTOM LEFT-->
+        <gameobject><position>1,8</position><graphics> <fileName>squaretable/1.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>2,8</position><graphics> <fileName>squaretable/2.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>1,9</position><graphics> <fileName>squaretable/3.png</fileName></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>2,9</position><graphics> <fileName>squaretable/4.png</fileName></graphics><solidness>solid</solidness></gameobject>
 
     </gameobjects>
 </level>
