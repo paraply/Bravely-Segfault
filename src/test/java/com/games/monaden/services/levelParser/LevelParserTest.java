@@ -133,6 +133,7 @@ public class LevelParserTest {
             Character character = (Character)levelParser.getInteractables().get(0);
             assertTrue(character.getName().equals("Philip"));
             assertTrue(character.getPosition().equals(new Point(5,2)));
+            System.out.println(character.getImagePath());
             assertTrue(character.getImagePath().equals("tiles/characters/philip-tan.png"));
         } catch (Exception e) {
             e.printStackTrace();
