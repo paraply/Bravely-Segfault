@@ -21,7 +21,7 @@
         <character name="Philip">
             <position>5,2</position>
             <graphics>
-                <filename>philip-tan.png</filename>
+                <filename>characters/philip-tan.png</filename>
                 <framecount>4</framecount>
             </graphics>
             <dialogue>DialogTest.xml</dialogue>
