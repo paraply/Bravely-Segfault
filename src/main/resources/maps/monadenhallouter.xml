@@ -18,11 +18,14 @@
         <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
     </tilemap>
 
+    <characters>
+        <character name="Arkivrum"><position>14,10</position><graphics><fileName>doorstep/up.png</fileName></graphics><dialogue>monadenhallouter/archiveroom.xml</dialogue></character>
+    </characters>
+
+
     <!--DOORSTEP TO KITCHEN-->
     <gameobject><position>11,10</position><graphics><fileName>doorstep/up.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
     <gameobject><position>12,10</position><graphics><fileName>doorstep/up.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
-    <!--DOORSTEP TO ARKIVRUM-->
-    <gameobject><position>14,10</position><graphics><fileName>doorstep/up.png</fileName></graphics><solidness>solid</solidness></gameobject>
     <!--DOORSTEP TO BATHROOM-->
     <gameobject><position>15,8</position><graphics><fileName>doorstep/left.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
 
