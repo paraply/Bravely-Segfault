@@ -129,10 +129,7 @@ public class GameLoop extends AnimationTimer implements Observer {
                 System.out.println(funcReq);
                 Dialog dialog = playerCharacter.handleInteractions(funcReq, world);
                 if (dialog != null) {
-                    dialogController.setCurrentDialog(dialog);
-                    inputState = InputState.DIALOG;
-                    System.out.println("Creating new dialog: " + dialog.getDialogText());
-                    Render.getInstance().getDialog().newDialog(dialog);
+                    startDialog(dialog);
                 }else if (funcReq == KeyCode.PLUS) {
 
                     volume = audioController.volumeUp();
@@ -160,5 +157,12 @@ public class GameLoop extends AnimationTimer implements Observer {
                 inputState = InputState.MOVEMENT;
             }
         }
+    }
+
+    private void startDialog(Dialog dialog) {
+        dialogController.setCurrentDialog(dialog);
+        inputState = InputState.DIALOG;
+        System.out.println("Creating new dialog: " + dialog.getDialogText());
+        Render.getInstance().getDialog().newDialog(dialog);
     }
 }
