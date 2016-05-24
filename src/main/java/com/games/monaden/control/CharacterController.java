@@ -4,6 +4,7 @@ import com.games.monaden.model.Dialog;
 import com.games.monaden.model.Point;
 import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
+import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.view.Render;
@@ -58,6 +59,12 @@ public class CharacterController extends Observable {
             pointMovedTo = transitionIfPossible(world, pointMovedTo);
             player.setPosition(pointMovedTo);
             audioController.playSound("step"); // *** causes lots of tests for this class ***.
+
+            if (checkEvent(pointMovedTo, world)) {
+                System.out.println("CheckEvent true!");
+                setChanged();
+                notifyObservers(getEvent(pointMovedTo, world));
+            }
         }
         player.setDirection(dir);
     }
@@ -95,6 +102,28 @@ public class CharacterController extends Observable {
             }
         }
         return point;
+    }
+
+    private boolean checkEvent (Point point, World world) {
+        for (DialogEvent de : world.getEvents()) {
+            if (point.equals(de.getPosition())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Should be run after checkEvent() to avoid null.
+     * @return
+     */
+    private DialogEvent getEvent (Point point, World world) {
+        for (DialogEvent de : world.getEvents()) {
+            if (point.equals(de.getPosition())) {
+                return de;
+            }
+        }
+        return null;
     }
 
     Point getPlayerPos () {

@@ -42,9 +42,14 @@
             </graphics>
             <dialogue>outsidemonaden/sakuratopright.xml</dialogue>
         </character>
-
     </characters>
 
+    <events>
+        <dialogevent>
+            <position>9,13</position>
+            <dialogue>DialogTest.xml</dialogue>
+        </dialogevent>
+    </events>
 
     <transitions>
         <transition>

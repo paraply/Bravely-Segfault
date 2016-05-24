@@ -29,7 +29,12 @@ public class GameLoop extends AnimationTimer implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        setLevel((String)arg);
+        if (arg instanceof DialogEvent) {
+            DialogEvent de = (DialogEvent)arg;
+            startDialog((Dialog)de.getEventContent());
+        } else {
+            setLevel((String) arg);
+        }
     }
 
     private enum InputState { MOVEMENT, DIALOG, STARTSCREEN }
@@ -82,13 +87,19 @@ public class GameLoop extends AnimationTimer implements Observer {
 
         DialogLoader dialogLoader = new DialogLoader();
 
+        //Add dialog to each character
         for (Character c : interactables) {
             c.setDialog(dialogLoader.parseDialog(c.getDialogFile().getPath()));
         }
 
+        //Handle events in the level
+        List<DialogEvent> events = levelLoader.getEvents();
+        for (DialogEvent de : events) {
+            Dialog dialog = dialogLoader.parseDialog(de.getFilepath().getPath());
+            de.setEventContent(dialog);
+        }
 
-
-        world.setCurrentLevel(gameObjects, interactables, levelLoader.getTransitions());
+        world.setCurrentLevel(gameObjects, interactables, levelLoader.getTransitions(), events);
     }
 
 
@@ -100,7 +111,7 @@ public class GameLoop extends AnimationTimer implements Observer {
     private void handleEvents (Event event) {
         if (event instanceof DialogEvent) {
             Dialog dialog = (Dialog)event.getEventContent();
-
+            startDialog(dialog);
         }
     }
 

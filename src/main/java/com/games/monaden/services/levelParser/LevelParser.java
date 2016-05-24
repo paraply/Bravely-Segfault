@@ -3,9 +3,9 @@ package com.games.monaden.services.levelParser;
 import com.games.monaden.model.Point;
 import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
+import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
-import org.xml.sax.InputSource;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -47,6 +47,7 @@ public class LevelParser extends DefaultHandler {
     private List<GameObject> gameObjects = new ArrayList<>();
     private List<Character> interactables = new ArrayList<>();
     private List<Transition> transitions = new ArrayList<>();
+    private List<DialogEvent> events = new ArrayList<>();
 
     public LevelParser() {
         super();
@@ -145,6 +146,10 @@ public class LevelParser extends DefaultHandler {
             case "transition":
                 transitions.add(new Transition(position, transPos, imageFile));
                 break;
+            case "dialogevent":
+                DialogEvent de = new DialogEvent(dialogFile, position);
+                events.add(de);
+                break;
         }
     }
 
@@ -217,6 +222,13 @@ public class LevelParser extends DefaultHandler {
         return new ArrayList<>(this.transitions);
     }
 
+    /**
+     * Returns a copy of the transitions list
+     * @return a copy of the transitions list
+     */
+    public List<DialogEvent> getEvents() {
+        return new ArrayList<>(this.events);
+    }
 
     /**
      * Clones every row of the tilemap and returns these rows as a copy of the tilemap.
@@ -249,6 +261,13 @@ public class LevelParser extends DefaultHandler {
      */
     public void clearTransitions() {
         transitions.clear();
+    }
+
+    /**
+     * Clears the events list
+     */
+    public void clearEvents() {
+        events.clear();
     }
 
     /**

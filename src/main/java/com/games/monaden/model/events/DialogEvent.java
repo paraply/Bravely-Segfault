@@ -2,6 +2,9 @@ package com.games.monaden.model.events;
 
 import com.games.monaden.model.Dialog;
 import com.games.monaden.model.Event;
+import com.games.monaden.model.Point;
+
+import java.io.File;
 
 /**
  * Created by Philip on 2016-05-24.
@@ -9,7 +12,22 @@ import com.games.monaden.model.Event;
  */
 public class DialogEvent implements Event{
 
-    Dialog dialog;
+    private Dialog dialog;
+    private File filepath;
+    private Point position;
+
+    public DialogEvent(File filepath, Point position) {
+        this.filepath = filepath;
+        this.position = position;
+    }
+
+    public File getFilepath() {
+        return this.filepath;
+    }
+
+    public Point getPosition() {
+        return this.position;
+    }
 
     @Override
     public Object getEventContent() {
