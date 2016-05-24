@@ -2,8 +2,9 @@
     <dialog>
         <text>Cenny: Apple rulez</text>
         <image>cenny.png</image>
-        <response>
-            <choice>LOL noob</choice>
-        </response>
+        <dialog>
+            <text>You: LOL noob</text>
+            <image>player.png</image>
+        </dialog>
     </dialog>
 </class>
