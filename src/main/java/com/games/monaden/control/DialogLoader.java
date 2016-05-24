@@ -28,7 +28,7 @@ public class DialogLoader {
         dialogParser.reset();
 
         ClassLoader classLoader = this.getClass().getClassLoader();
-        InputStream is = classLoader.getResourceAsStream("dialogs/" + dialogFile);
+        InputStream is = classLoader.getResourceAsStream(pathForWindows("dialogs/" + dialogFile));
         try {
             parser.parse(is, dialogParser);
 
@@ -41,4 +41,12 @@ public class DialogLoader {
 
         return new Dialog("DialogLoader: Something went wrong here.");
     }
+
+    private String pathForWindows (String string) {
+        if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+            return string.replace("\\", "/");
+        }
+        return string;
+    }
+
 }
