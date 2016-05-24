@@ -35,6 +35,7 @@ public class World extends Observable{
             System.err.println("A world object has already been instantiated!");
         }
         instantiated = true;
+
     }
 
     public void setCurrentLevel (List<GameObject> gameObjects, List<Character> interactables, List<Transition> transitions) {

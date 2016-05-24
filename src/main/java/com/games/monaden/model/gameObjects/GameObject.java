@@ -9,7 +9,6 @@ import com.games.monaden.model.Point;
 public class GameObject {
     private Point position;
     private String imageFile;
-    private String imageSection;
     private boolean solid;
     private int imageWidth, imageHeight;
     private boolean continuousAnimation;
@@ -29,7 +28,7 @@ public class GameObject {
     }
 
     public String getImagePath(){
-        return pathForWindows(imageSection + "/" + imageFile);
+        return pathForWindows("tiles" + "/" + imageFile);
     }
 
     public boolean hasContinuousAnimation(){
@@ -74,36 +73,33 @@ public class GameObject {
         this.zOrder = zOrder;
     }
 
-    public GameObject(Point startPos, String imageSection, String imageFile, int imageWidth, int imageHeight)
+    public GameObject(Point startPos, String imageFile, int imageWidth, int imageHeight)
     {
         position = startPos;
-        this.imageSection = imageSection;
         this.imageFile = imageFile;
         this.imageWidth = imageWidth;
         this.imageHeight = imageHeight;
     }
 
-    public GameObject(Point startPos, String imageSection, String imageFile)
+    public GameObject(Point startPos, String imageFile)
     {
         position = startPos;
-        this.imageSection = imageSection;
         this.imageFile = imageFile;
         this.imageWidth = World.TILE_SIZE;
         this.imageHeight = World.TILE_SIZE;
     }
 
-    public GameObject(Point startPos, String imageSection, String imageFile, boolean solid)
+    public GameObject(Point startPos, String imageFile, boolean solid)
     {
         position = startPos;
-        this.imageSection = imageSection;
         this.imageFile = imageFile;
         this.imageWidth = World.TILE_SIZE;
         this.imageHeight = World.TILE_SIZE;
         this.solid = solid;
     }
 
-    public GameObject(Point startPos, String imageSection, String imageFile, boolean solid, int zOrder) {
-        this(startPos, imageSection, imageFile, solid);
+    public GameObject(Point startPos,String imageFile, boolean solid, int zOrder) {
+        this(startPos, imageFile, solid);
         this.zOrder = zOrder;
     }
 

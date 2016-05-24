@@ -4,7 +4,9 @@ import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.GameObject;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
@@ -22,11 +24,12 @@ public class Render implements Observer{
     private AnimatedObject player;
     private List<RenderObject> objects = new ArrayList<>();
     private List<RenderObject> interactables = new ArrayList<>();
-    public RenderDialog renderDialog; //TODO CHANGE TO PRIVATE AFTER TESTING
+    private RenderDialog renderDialog;
+    private Pane startScreen;
 
 
     // graphics context = main-canvas context
-    // this is set by WindowController in its initialization
+    // this is set by Window in its initialization
     public void setGraphicsContext(GraphicsContext context){
         this.context = context;
         if (context == null){
@@ -41,6 +44,11 @@ public class Render implements Observer{
         addInteractables();
     }
 
+//  The dialog needs to be accessed by the controller
+    public RenderDialog getDialog(){
+        return renderDialog;
+    }
+
     public void setDialogObjects(HBox dialog){
         renderDialog = new RenderDialog(dialog);
     }
@@ -49,7 +57,7 @@ public class Render implements Observer{
         this.player = new AnimatedObject(player,context);
     }
 
-    //This class is currently singleton, since its instance needs to be accessed by WindowController, RenderObjects. May change...
+    //This class is currently singleton, since its instance needs to be accessed by Window, RenderObjects. May change...
     public static synchronized Render getInstance(){
         if (render == null){
             render = new Render();
@@ -57,10 +65,24 @@ public class Render implements Observer{
         return render;
     }
 
+    public void hideStartScreen(){
+        if (startScreen == null){
+            System.err.println("Render : hideStartScreen got null value");
+            return;
+        }
+        startScreen.setVisible(false);
+    }
+
+
+    public void setStartScreen(Pane startScreen){
+        this.startScreen = startScreen;
+    }
+
     public void redraw(){
-        objects.forEach(RenderObject::draw);
-        interactables.forEach(RenderObject :: draw);
-        player.draw();
+            objects.stream().filter(ro -> ro.zOrder() == 0).forEach(RenderObject::draw);
+            interactables.forEach(RenderObject::draw);
+            player.draw();
+            objects.stream().filter(ro -> ro.zOrder() == 1).forEach(RenderObject::draw);
     }
 
     private void addWorldObjects(){
@@ -82,7 +104,6 @@ public class Render implements Observer{
             System.err.println("Render: addInteractables gets null from world.getInteractables");
         }
         for (GameObject go : world.getInteractables()){
-//            System.out.println("Adding interactable: " + go.getImagePath());
             if (go.hasContinuousAnimation()){
                 interactables.add(new AnimatedObject(go,context));
             }else{
@@ -100,16 +121,16 @@ public class Render implements Observer{
         interactables.clear();
         addWorldObjects();
         addInteractables();
-        player.hasTransitioned();
         redraw();
     }
 
+
+
     @Override
     public void update(Observable observable, Object arg) {
-        //Should probably be refactored later
         if(observable == world) {
 //            if(arg == "transition"){
-                transition();
+            transition();
 //            }
         }
     }
