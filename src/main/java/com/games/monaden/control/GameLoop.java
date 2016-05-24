@@ -47,7 +47,7 @@ public class GameLoop extends AnimationTimer implements Observer {
     public void initializeGame(){
         tileMap = new TileLoader().loadTiles();
         world = new World();
-        setLevel("outsidemonaden.xml");
+        setLevel("ea.xml");
         Render.getInstance().setWorld(world);
         audioController = new AudioController();
         audioController.playMusic(0);
@@ -162,7 +162,7 @@ public class GameLoop extends AnimationTimer implements Observer {
     private void startDialog(Dialog dialog) {
         dialogController.setCurrentDialog(dialog);
         inputState = InputState.DIALOG;
-        System.out.println("Creating new dialog: " + dialog.getDialogText());
+//        System.out.println("Creating new dialog: " + dialog.getDialogText());
         Render.getInstance().getDialog().newDialog(dialog);
     }
 }

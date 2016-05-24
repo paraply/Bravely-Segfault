@@ -82,7 +82,7 @@ public class AudioPlayer {
 
     public void playSound(String filepath) {
         try {
-            System.out.println(soundMap.get(filepath));
+//            System.out.println(soundMap.get(filepath));
             this.audioSound = new Media(soundMap.get(filepath));
             mediaplayerSound = new MediaPlayer(this.audioSound);
             mediaplayerSound.setStopTime(javafx.util.Duration.ONE);
@@ -120,7 +120,7 @@ public class AudioPlayer {
     }
 
     private void loadMusicMap(){
-        System.out.println(classLoader.getResource("music/music.mp3").toExternalForm());
+//        System.out.println(classLoader.getResource("music/music.mp3").toExternalForm());
         musicMap.put("music",classLoader.getResource("music/music.mp3").toExternalForm());
         musicMap.put("music2",classLoader.getResource("music/music2.mp3").toExternalForm());
 

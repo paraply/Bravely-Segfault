@@ -45,8 +45,6 @@ public class RenderDialog {
                 ImageView imageView = new ImageView();
                 imageView.setImage(new Image("avatars/" + dialogObject.getImageFile().toString()));
                 dialog.getChildren().add(imageView);
-            }else{
-                System.out.println("No dialog picture");
             }
 
             labelBox = new VBox();
@@ -61,7 +59,6 @@ public class RenderDialog {
                 answer = new Label[dialogObject.getChoiceTextCount()];
 
                 for (int i = 0; i < dialogObject.getChoiceTextCount(); i++) {
-                    System.out.println("CHOICE " + i + " " + dialogObject.getChoiceTextCount());
                     Label l = new Label();
                     l.setText(dialogObject.getChoiceText(i));
                     l.getStyleClass().add("dialog-choice");
@@ -96,7 +93,6 @@ public class RenderDialog {
             return;
         }
         if (selected > 0){
-            System.out.println("is okay");
             select(selected-1);
         }
     }
@@ -116,22 +112,16 @@ public class RenderDialog {
     }
 
     private void select(int answerIndex){
-        System.out.println("SELCT: " + answerIndex);
         if (dialogFail){
             return;
         }
         if (selected != -1){
-            System.out.println("Previously selected: " + selected);
             answer[selected].getStyleClass().remove("dialog-choice-selected"); // Remove old selection
             answer[selected].setText(dialogObject.getChoiceText(selected)) ;
         }
         selected = answerIndex;
         answer[selected].getStyleClass().add("dialog-choice-selected");
         answer[selected].setText("> " + dialogObject.getChoiceText(selected));
-    }
-
-    public void choose() {
-
     }
 
 }

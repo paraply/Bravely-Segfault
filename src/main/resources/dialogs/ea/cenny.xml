@@ -1,0 +1,9 @@
+<class>
+    <dialog>
+        <text>Cenny: Apple rulez</text>
+        <image>cenny.png</image>
+        <response>
+            <choice>LOL noob</choice>
+        </response>
+    </dialog>
+</class>
