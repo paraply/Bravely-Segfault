@@ -7,20 +7,20 @@ Participants: Mikael, Philip, Anton, Stefan
 1. Objectives
 * SDD
 * Assign work
-1. Reports
+2. Reports
 * Mike: Tiles, Dialog, Transition in view
 * Stefan: Rewrote maps
 * Anton: Transition, moved checkMovement & checkInteraction back to model 
 * Philip: Compiled a construction
-1. Discussion items
+3. Discussion items
 * Write SDD
-1. Outcomes and assignments
+4. Outcomes and assignments
 * Philip: Parse dialogs, Add character picture in dialog
 * Anton: SDD, start interaction
 * Stefan: Audio, Maps
 * Mike: Render dialog
 Render characters
 Render picture in dialog
-   1. Wrap up
-   * Next meeting Thursday 13.15
-   * Without Anton, because he will be gone
+5. Wrap up
+* Next meeting Thursday 13.15
+* Without Anton, because he will be gone

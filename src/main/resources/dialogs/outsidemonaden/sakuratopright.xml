@@ -1,0 +1,23 @@
+<class>
+        <dialog>
+            <text>GIT tryck till mästergrenen</text>
+            <response>
+                <choice>GIT rycka</choice>
+                <subdialog>
+                    <text>Ryckte tre blad från mästergrenen</text>
+                </subdialog>
+            </response>
+            <response>
+                <choice>GIT förbinda</choice>
+                <subdialog>
+                    <text>Tryckte upp tre blad till mästergrenen</text>
+                </subdialog>
+            </response>
+            <response>
+                <choice>GIT ympa</choice>
+                <subdialog>
+                    <text>Stackars träd</text>
+                </subdialog>
+            </response>
+        </dialog>
+</class>

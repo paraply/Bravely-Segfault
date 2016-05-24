@@ -42,7 +42,6 @@ public class RenderDialog {
 
             dialog.getChildren().clear();
             if (dialogObject.getImageFile() != null) {
-                System.out.println(dialogObject.getImageFile().getPath());
                 ImageView imageView = new ImageView();
                 imageView.setImage(new Image("avatars/" + dialogObject.getImageFile().toString()));
                 dialog.getChildren().add(imageView);

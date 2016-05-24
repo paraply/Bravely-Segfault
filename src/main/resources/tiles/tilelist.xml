@@ -1,170 +1,258 @@
 <class>
-    <tile id="0">
+<!-- BLACK AND FLOOR -->
+    <tile id="000">
         <name>satan</name>
         <graphics>black.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="001">
+        <name>light gray floor</name>
+        <graphics>floor/lightgray.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
-    <tile id="1">
-        <name>sidewalk horizontal</name>
-        <graphics>sidewalks/sidewalkh.png</graphics>
+    <tile id="002">
+        <name>dark gray floor</name>
+        <graphics>floor/darkgray.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
-    <tile id="2">
-        <name>sidewalk vertical</name>
-        <graphics>sidewalks/sidewalkv.png</graphics>
+    <tile id="004">
+        <name>bathroom floor tiles</name>
+        <graphics>floor/bathroomtiles.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
-    <tile id="3">
-        <name>horizontal road top part</name>
-        <graphics>roadh/1.png</graphics>
+    <tile id="005">
+        <name>entrance floor tiles</name>
+        <graphics>floor/entrance.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
-    <tile id="4">
-        <name>horizontal road middle part</name>
-        <graphics>roadh/2.png</graphics>
+    <tile id="006">
+        <name>gravel</name>
+        <graphics>floor/gravel.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
-    <tile id="5">
-        <name>horizontal road bottom part</name>
-        <graphics>roadh/3.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="6">
-        <name>vertical road left part</name>
-        <graphics>roadv/1.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="7">
-        <name>vertical road middle part</name>
-        <graphics>roadv/2.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="8">
-        <name>vertical road right part</name>
-        <graphics>roadv/3.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="9">
-        <name>crossing on horizontal road top part</name>
-        <graphics>crossingh/1.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="10">
-        <name>crossing on horizontal road middle part</name>
-        <graphics>crossingh/2.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="11">
-        <name>crossing on horizontal road bottom part</name>
-        <graphics>crossingh/3.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="12">
-        <name>crossing on vertical road top part</name>
-        <graphics>crossingv/1.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="13">
-        <name>crossing on vertical road middle part</name>
-        <graphics>crossingv/2.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
-    <tile id="14">
-        <name>crossing on vertical road bottom part</name>
-        <graphics>crossingv/3.png</graphics>
+    <tile id="007">
+        <name>outsidetile</name>
+        <graphics>floor/groundstone.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
 
-    <tile id="15">
-        <name>ground stone</name>
-        <graphics>groundstone.png</graphics>
-        <solidness>non-solid</solidness>
-    </tile>
 
-    <tile id="16">
-        <name>Blue bench on stone vertical top</name>
-        <graphics>bluebenchonstonev/1.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="17">
-        <name>Blue bench on stone vertical middle</name>
-        <graphics>bluebenchonstonev/2.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="18">
-        <name>Blue bench on stone vertical bottom</name>
-        <graphics>bluebenchonstonev/3.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-
-    <tile id="19">
-        <name>Blue bench on stone horizontal left</name>
-        <graphics>bluebenchonstoneh/1.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="20">
-        <name>Blue bench on stone horizontal middle</name>
-        <graphics>bluebenchonstoneh/2.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="21">
-        <name>Blue bench on stone horizontal right</name>
-        <graphics>bluebenchonstoneh/3.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-
-    <tile id="22">
+<!-- WALLS -->
+    <tile id="600">
         <name>Brick wall</name>
-        <graphics>brickwall.png</graphics>
+        <graphics>wall/brickwall.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="601">
+        <name>Window pane</name>
+        <graphics>wall/windowpane.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="602">
+        <name>White wall down</name>
+        <graphics>wall/white/whitedown.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="603">
+        <name>White wall left</name>
+        <graphics>wall/white/whiteleft.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="604">
+        <name>White wall right</name>
+        <graphics>wall/white/whiteright.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="605">
+        <name>White wall up</name>
+        <graphics>wall/white/whiteup.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="606">
+        <name>White wall double down-left</name>
+        <graphics>wall/white/double1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="607">
+        <name>White wall double up-left</name>
+        <graphics>wall/white/double2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="608">
+        <name>White wall double up-right</name>
+        <graphics>wall/white/double3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="609">
+        <name>White wall double down-right</name>
+        <graphics>wall/white/double4.png</graphics>
         <solidness>solid</solidness>
     </tile>
 
-    <tile id="23">
-        <name>Sakura 1</name>
-        <graphics>sakura/1.png</graphics>
+    <!--GREEN WALL-->
+    <tile id="620">
+        <name>green wall up</name>
+        <graphics>wall/green/up.png</graphics>
         <solidness>solid</solidness>
     </tile>
-    <tile id="24">
-        <name>Sakura 2</name>
-        <graphics>sakura/2.png</graphics>
+    <tile id="621">
+        <name>green wall down</name>
+        <graphics>wall/green/down.png</graphics>
         <solidness>solid</solidness>
     </tile>
-    <tile id="25">
-        <name>Sakura 3</name>
-        <graphics>sakura/3.png</graphics>
+    <tile id="622">
+        <name>green wall right corner up</name>
+        <graphics>wall/green/rightup.png</graphics>
         <solidness>solid</solidness>
     </tile>
-    <tile id="26">
-        <name>Sakura 4</name>
-        <graphics>sakura/4.png</graphics>
+    <tile id="623">
+        <name>green wall right corner down</name>
+        <graphics>wall/green/rightdown.png</graphics>
         <solidness>solid</solidness>
     </tile>
-    <tile id="27">
-        <name>Sakura 5</name>
-        <graphics>sakura/5.png</graphics>
+    <tile id="624">
+        <name>green wall left corner up</name>
+        <graphics>wall/green/lefttup.png</graphics>
         <solidness>solid</solidness>
     </tile>
-    <tile id="28">
-        <name>Sakura 6</name>
-        <graphics>sakura/6.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="29">
-        <name>Sakura 7</name>
-        <graphics>sakura/7.png</graphics>
-        <solidness>solid</solidness>
-    </tile>
-    <tile id="310">
-        <name>Sakura 9</name>
-        <graphics>sakura/9.png</graphics>
+    <tile id="625">
+        <name>green wall right corner down</name>
+        <graphics>wall/green/leftdown.png</graphics>
         <solidness>solid</solidness>
     </tile>
 
-    <tile id="30">
-        <name>Sakura 8</name>
-        <graphics>sakura/8.png</graphics>
+    <!--BATHROOM TILED WALL-->
+    <tile id="630">
+        <name>green wall up</name>
+        <graphics>wall/tiled/up.png</graphics>
         <solidness>solid</solidness>
     </tile>
+    <tile id="631">
+        <name>green wall down</name>
+        <graphics>wall/tiled/down.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+    <!--BEIGE WALL-->
+    <tile id="640">
+        <name>beige wall up</name>
+        <graphics>wall/beige/2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="641">
+        <name>beige wall down</name>
+        <graphics>wall/beige/5.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="642">
+        <name>beige wall right corner up</name>
+        <graphics>wall/beige/3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="643">
+        <name>beige wall right corner down</name>
+        <graphics>wall/beige/6.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="644">
+        <name>beige wall left corner up</name>
+        <graphics>wall/beige/1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="645">
+        <name>beige wall right corner down</name>
+        <graphics>wall/beige/4.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+
+
+    <!-- BORDERS -->
+    <tile id="900">
+        <name>Border Up</name>
+        <graphics>wall/border/up1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="901">
+        <name>Border Down</name>
+        <graphics>wall/border/down1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="902">
+        <name>Border Left</name>
+        <graphics>wall/border/left1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="903">
+        <name>Border Right</name>
+        <graphics>wall/border/right1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="904">
+        <name>Border Corner Down-Left</name>
+        <graphics>wall/border/corner1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="905">
+        <name>Border Corner Up-Left</name>
+        <graphics>wall/border/corner2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="906">
+        <name>Border Corner Up-Right</name>
+        <graphics>wall/border/corner3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="907">
+        <name>Border Corner Down-Right</name>
+        <graphics>wall/border/corner4.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="908">
+        <name>Border Double Down-Left</name>
+        <graphics>wall/border/double1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="909">
+        <name>Border Double Up-Left</name>
+        <graphics>wall/border/double2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="910">
+        <name>Border Double Up-Right</name>
+        <graphics>wall/border/double3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="911">
+        <name>Border Double Down-Right</name>
+        <graphics>wall/border/double4.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="913">
+        <name>Border Double vertical middle</name>
+        <graphics>wall/border/doubleverticalmiddle.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="914">
+        <name>Border double vertical down</name>
+        <graphics>wall/border/doubleverticaldown.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="915">
+        <name>Border double vertical down</name>
+        <graphics>wall/border/doubleverticalup.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+    <tile id="916">
+        <name>Border corner double bottom</name>
+        <graphics>wall/border/cornerdoublebottom.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+
+
+
 
 
 </class>

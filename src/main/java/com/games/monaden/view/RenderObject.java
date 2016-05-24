@@ -35,6 +35,10 @@ class RenderObject {
         }
     }
 
+    int zOrder(){
+        return gameObject.getzOrder();
+    }
+
     // x,y values specifies where in the world the character should be drawn
     private void calculateWorldCoordinates(){
         x = gameObject.getPosition().getX() * World.TILE_SIZE;

@@ -5,17 +5,13 @@
 
 .pane-background {
     -fx-background-color: rgb(240, 240, 240);
+    -fx-background-image: url("windowbackground.png");
 }
 
 .mainCanvas{
  -fx-background-color: red;
 }
 
-.canvas-border{
-    -fx-background-color: rgb(0, 240, 0);
-        -fx-border-width: 2px;
-        -fx-border-color: rgb(0,0,0);
-}
 
 .dialog-box{
     -fx-background-color: rgba(10,10,10,0.9);
@@ -26,6 +22,12 @@
     -fx-font-family: 'Pixel Azure Bonds';
     -fx-font-size: 16px;
     }
+
+.canvas-border{
+    -fx-background-color: rgb(0, 240, 0);
+        -fx-border-width: 0px;
+        -fx-border-color: rgb(0,0,0);
+}
 
 
 .dialog-question{
