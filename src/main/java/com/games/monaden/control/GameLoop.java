@@ -25,7 +25,7 @@ public class GameLoop extends AnimationTimer implements Observer {
     private AudioController audioController;
     private HashMap<Integer, Tile> tileMap;
 
-    private Dialog currentDialog;
+    private DialogController dialogController;
 
     @Override
     public void update(Observable o, Object arg) {
@@ -39,6 +39,7 @@ public class GameLoop extends AnimationTimer implements Observer {
         tileMap = new HashMap<>();
         playerCharacter = new CharacterController();
         playerCharacter.addObserver(this);
+        dialogController = new DialogController();
     }
 
     public void initializeGame(){
@@ -132,10 +133,7 @@ public class GameLoop extends AnimationTimer implements Observer {
                 System.out.println(funcReq);
                 Dialog dialog = playerCharacter.handleInteractions(funcReq, world);
                 if (dialog != null) {
-                    currentDialog = dialog;
-                    inputState = InputState.DIALOG;
-                    System.out.println("Creating new dialog: " + dialog.getDialogText());
-                    Render.getInstance().getDialog().newDialog(dialog);
+                    startDialog(dialog);
                 }else if (funcReq == KeyCode.PLUS) {
 
                     volume = audioController.volumeUp();
@@ -154,35 +152,21 @@ public class GameLoop extends AnimationTimer implements Observer {
         else if(inputState == InputState.DIALOG){
             UserInput userInput = UserInput.getInstance();
             KeyCode moveReq = userInput.getLatestMovementKey();
-            if (moveReq != null && currentDialog.getChoiceCount() != 0) {
-                if(moveReq == KeyCode.UP){
-                    Render.getInstance().getDialog().selectPreviousAnswer();
-                    countDown = FREQUENCY;
-                }
-                else if(moveReq == KeyCode.DOWN) {
-                    Render.getInstance().getDialog().selectNextAnswer();
-                    countDown = FREQUENCY;
-                }
+            if(dialogController.handleMovement(moveReq)){
+                countDown = FREQUENCY;
             }
 
             KeyCode funcReq = userInput.getLatestFunctionKey();
-            if (funcReq != null) {
-                if(funcReq == KeyCode.SPACE) {
-                    if(currentDialog.getChoiceCount() == 0){
-                        Render.getInstance().getDialog().hideDialog();
-                        inputState = InputState.MOVEMENT;
-                    }
-                    else {
-                        currentDialog = currentDialog.makeAChoice(Render.getInstance().getDialog().getSelected());
-                        if (currentDialog.getDialogText().equals("")) {
-                            Render.getInstance().getDialog().hideDialog();
-                            inputState = InputState.MOVEMENT;
-                        } else {
-                            Render.getInstance().getDialog().newDialog(currentDialog);
-                        }
-                    }
-                }
+            if(dialogController.handleSpecial(funcReq)){
+                inputState = InputState.MOVEMENT;
             }
         }
+    }
+
+    private void startDialog(Dialog dialog) {
+        dialogController.setCurrentDialog(dialog);
+        inputState = InputState.DIALOG;
+        System.out.println("Creating new dialog: " + dialog.getDialogText());
+        Render.getInstance().getDialog().newDialog(dialog);
     }
 }
