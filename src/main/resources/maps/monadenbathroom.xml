@@ -1,0 +1,62 @@
+<level>
+    <tilemap>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,907,901,901,901,901,901,904,000,000,000,000</line>
+        <line>000,000,000,000,000,903,630,630,630,630,630,902,000,000,000,000</line>
+        <line>000,000,000,000,000,903,631,631,631,631,631,902,000,000,000,000</line>
+        <line>000,000,000,000,000,903,004,004,004,004,004,902,000,000,000,000</line>
+        <line>000,000,000,000,000,903,004,004,004,004,004,902,000,000,000,000</line>
+        <line>000,000,000,000,000,911,004,004,004,004,004,902,000,000,000,000</line>
+        <line>000,000,000,000,000,001,004,004,004,004,004,902,000,000,000,000</line>
+        <line>000,000,000,000,000,910,004,004,004,004,004,902,000,000,000,000</line>
+        <line>000,000,000,000,000,903,004,004,004,004,004,902,000,000,000,000</line>
+        <line>000,000,000,000,000,906,900,900,900,900,900,905,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    </tilemap>
+
+    <transition>
+        <filename>monadenhallouter.xml</filename>
+        <position>5,8</position>
+        <newPosition>14,8</newPosition>
+    </transition>
+
+
+    <characters>
+        <!-- TOILET BOTTOM -->
+        <character name="Toilet">
+            <position>8,5</position>
+            <graphics>
+                <fileName>toilet/2.png</fileName>
+                <frameCount>1</frameCount>
+            </graphics>
+            <dialogue>monadenbathroom/toilet.xml</dialogue>
+        </character>
+    </characters>
+
+    <!-- TOILET -->
+    <gameobject>
+        <position>8,4</position>
+        <graphics>
+            <fileName>toilet/1.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+
+
+
+    <!-- DOORSTEP -->
+    <gameobject>
+        <position>5,8</position>
+        <graphics>
+            <fileName>doorstep/right.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+
+</level>

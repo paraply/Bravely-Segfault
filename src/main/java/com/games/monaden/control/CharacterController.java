@@ -6,7 +6,6 @@ import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
-import com.games.monaden.services.audioplayer.AudioPlayer;
 import com.games.monaden.view.Render;
 import javafx.scene.input.KeyCode;
 
@@ -15,12 +14,12 @@ import java.util.Observable;
 public class CharacterController extends Observable {
 
     private Character player;
-    private AudioPlayer audioController;
+    private AudioController audioController;
 
     public CharacterController() {
-        player = new Character(new Point(5,14), "cat.png", 32,32);
+        player = new Character(new Point(10,10), "characters/player.png", 32,32);
         Render.getInstance().setPlayerCharacter(player);
-        audioController = new AudioPlayer();
+        audioController = new AudioController();
     }
 
     /**
@@ -30,6 +29,7 @@ public class CharacterController extends Observable {
      */
     CharacterController(Point point) {
         player = new Character(point, "cat.png", 32, 32);
+        audioController = new AudioController();
     }
 
     public void handleMovement(KeyCode moveReq, World world) {
@@ -57,7 +57,7 @@ public class CharacterController extends Observable {
         if (!tileIsOccupied(pointMovedTo, world)) {
             pointMovedTo = transitionIfPossible(world, pointMovedTo);
             player.setPosition(pointMovedTo);
-            audioController.playSound("step");
+            audioController.playSound("step"); // *** causes lots of tests for this class ***.
         }
         player.setDirection(dir);
     }

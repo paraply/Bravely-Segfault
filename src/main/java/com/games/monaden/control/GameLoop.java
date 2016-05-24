@@ -27,25 +27,27 @@ public class GameLoop extends AnimationTimer implements Observer {
     private AudioController audioController;
     private HashMap<Integer, Tile> tileMap;
 
-    private Dialog currentDialog;
+    private DialogController dialogController;
 
     @Override
     public void update(Observable o, Object arg) {
         setLevel((String)arg);
     }
-    private enum InputState { MOVEMENT, DIALOG }
-    private InputState inputState = InputState.MOVEMENT;
+
+    private enum InputState { MOVEMENT, DIALOG, STARTSCREEN }
+    private InputState inputState = InputState.STARTSCREEN;
 
     public GameLoop () {
         tileMap = new HashMap<>();
         playerCharacter = new CharacterController();
         playerCharacter.addObserver(this);
+        dialogController = new DialogController();
     }
 
     public void initializeGame(){
         tileMap = new TileLoader().loadTiles();
         world = new World();
-        setLevel("second.xml");
+        setLevel("outsidemonaden.xml");
         Render.getInstance().setWorld(world);
         audioController = new AudioController();
         audioController.playMusic(0);
@@ -62,10 +64,15 @@ public class GameLoop extends AnimationTimer implements Observer {
 
         List<GameObject> gameObjects = new ArrayList<>();
 
+        outerloop:
         for (int y = 0; y < World.MAP_SIZE; y++) {
             for (int x = 0; x < World.MAP_SIZE; x++) {
                 Tile currentTile =  findTile(primTileMap[y][x]);
-                GameObject newGameObject = new GameObject(new Point(x, y), "tiles", currentTile.getFilepath().toString(), currentTile.isSolid());
+                if (currentTile == null){
+                    System.err.println("Bad tile @ X" + x + " Y:" + y);
+                    break outerloop;
+                }
+                GameObject newGameObject = new GameObject(new Point(x, y), currentTile.getFilepath().toString(), currentTile.isSolid());
                 newGameObject.setContinuousAnimation(currentTile.isAnimated());
                 gameObjects.add(newGameObject);
             }
@@ -95,6 +102,15 @@ public class GameLoop extends AnimationTimer implements Observer {
 
     @Override
     public void handle(long now) {
+        if (inputState == InputState.STARTSCREEN){
+            if (UserInput.getInstance().getLatestFunctionKey() == null){
+                return;
+            }else{
+                Render.getInstance().hideStartScreen();
+                inputState = InputState.MOVEMENT;
+            }
+        }
+
         Render.getInstance().redraw();
         if (countDown > 0){  // used to add a delay (better than sleep) to user movement
             countDown--;
@@ -113,10 +129,7 @@ public class GameLoop extends AnimationTimer implements Observer {
                 System.out.println(funcReq);
                 Dialog dialog = playerCharacter.handleInteractions(funcReq, world);
                 if (dialog != null) {
-                    currentDialog = dialog;
-                    inputState = InputState.DIALOG;
-                    System.out.println("Creating new dialog: " + dialog.getDialogText());
-                    Render.getInstance().renderDialog.newDialog(dialog);
+                    startDialog(dialog);
                 }else if (funcReq == KeyCode.PLUS) {
 
                     volume = audioController.volumeUp();
@@ -129,45 +142,27 @@ public class GameLoop extends AnimationTimer implements Observer {
                     
                     audioController.stopMusic();
                     audioController.playMusic(1);
-
                 }
             }
         }
         else if(inputState == InputState.DIALOG){
             UserInput userInput = UserInput.getInstance();
             KeyCode moveReq = userInput.getLatestMovementKey();
-            if (moveReq != null && currentDialog.getChoiceCount() != 0) {
-                if(moveReq == KeyCode.UP){
-                    System.out.println("UPP");
-                    Render.getInstance().renderDialog.selectPreviousAnswer();
-                    countDown = FREQUENCY;
-                }
-                else if(moveReq == KeyCode.DOWN) {
-                    System.out.println("NER");
-                    Render.getInstance().renderDialog.selectNextAnswer();
-                    countDown = FREQUENCY;
-                }
+            if(dialogController.handleMovement(moveReq)){
+                countDown = FREQUENCY;
             }
 
             KeyCode funcReq = userInput.getLatestFunctionKey();
-            if (funcReq != null) {
-                if(funcReq == KeyCode.SPACE) {
-                    if(currentDialog.getChoiceCount() == 0){
-                        Render.getInstance().renderDialog.hideDialog();
-                        inputState = InputState.MOVEMENT;
-                    }
-                    else {
-                        currentDialog = currentDialog.makeAChoice(Render.getInstance().renderDialog.getSelected());
-                        if (currentDialog.getDialogText().equals("")) {
-                            Render.getInstance().renderDialog.hideDialog();
-                            inputState = InputState.MOVEMENT;
-                        } else {
-                            Render.getInstance().renderDialog.newDialog(currentDialog);
-                            //System.out.println(currentDialog.toString());
-                        }
-                    }
-                }
+            if(dialogController.handleSpecial(funcReq)){
+                inputState = InputState.MOVEMENT;
             }
         }
+    }
+
+    private void startDialog(Dialog dialog) {
+        dialogController.setCurrentDialog(dialog);
+        inputState = InputState.DIALOG;
+        System.out.println("Creating new dialog: " + dialog.getDialogText());
+        Render.getInstance().getDialog().newDialog(dialog);
     }
 }

@@ -1,0 +1,25 @@
+﻿Date: 2016-05-19
+
+Facilitator: Mike
+
+Participants: Stefan, Philip, Mike
+
+1. Objectives
+* Remove circular dependencies
+* Maven
+* Sequence diagram
+2. Reports
+* Mike: Fixed dialog graphics, hash maps
+* Stefan: Translate Maps, Started with audio
+* Philip: Dialog parser and connecting parts
+3. Discussion items
+* Audio
+   * Start with background music
+* Menu
+   * Start thinking about start screen
+4. Outcomes and assignments
+* Philip: Circular dependencies, Maven, Sequence diagram
+* Mike: Start menu, Maps
+* Stefan: Backgrounds music, sound trigger. 
+5. Wrap up
+* Next Meeting, Tisdag 10.

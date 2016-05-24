@@ -1,0 +1,26 @@
+﻿Date: 2016-05-24
+
+Facilitator: Anton
+
+Participants: Philip, Anton, Mikael
+
+1. Objectives
+* Determine what needs to be done to finish project
+2. Reports
+* Mike: Created maps with Philip, added tiles and dialogs. Graphics stuff: start screen, GameObjects separated from normal background tiles.
+* Anton: Unicorn invasion of Dublin
+* Philip: Fixed: Maven stuff, JAR stuff, Refactoring for MVC and fixing dependencies, Fixed so that JAR works for Windows paths. Also maps with Mike.
+* Philip and Mike: EVERYTHING
+* Stefan (absent): Fixed audio
+3. Discussion items
+* Inventory system for story progression
+* Events: Interfaces
+   * Dialog
+   * Music
+4. Outcomes and assignments
+* Change AudioPlayer package name
+* Anton: Inventory
+* Philip: Events
+* Mike: Maps and content
+5. Wrap up
+* Next meeting: Thursday 13.15

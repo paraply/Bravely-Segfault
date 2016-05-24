@@ -64,6 +64,7 @@ public class LevelLoader {
             transitions = levelParser.getTransitions();
 
         } catch (Exception e) {
+            System.err.println("GameLoop : Loadlevel failed to read file: " + levelName);
             e.printStackTrace();
         }
     }

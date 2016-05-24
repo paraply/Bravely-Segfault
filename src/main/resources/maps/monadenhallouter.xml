@@ -1,0 +1,124 @@
+<level>
+    <tilemap>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>901,901,901,901,901,901,901,901,901,901,901,901,901,901,901,904</line>
+        <line>640,640,640,642,002,002,644,640,640,640,640,640,642,005,005,902</line>
+        <line>641,641,641,643,002,002,645,641,641,641,641,641,643,005,005,902</line>
+        <line>001,001,001,001,001,001,001,001,001,001,001,001,001,001,001,908</line>
+        <line>001,001,001,001,001,001,001,001,001,001,001,001,001,001,001,004</line>
+        <line>001,001,001,001,001,001,001,001,001,001,001,001,001,001,001,909</line>
+        <line>900,900,900,900,900,900,900,900,900,900,910,002,002,915,002,902</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    </tilemap>
+
+    <characters>
+        <character name="Arkivrum"><position>14,10</position><graphics><fileName>doorstep/up.png</fileName></graphics><dialogue>monadenhallouter/archiveroom.xml</dialogue></character>
+    </characters>
+
+
+    <!--DOORSTEP TO KITCHEN-->
+    <gameobject><position>11,10</position><graphics><fileName>doorstep/up.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>12,10</position><graphics><fileName>doorstep/up.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+    <!--DOORSTEP TO BATHROOM-->
+    <gameobject><position>15,8</position><graphics><fileName>doorstep/left.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+
+    <transitions>
+        <transition>
+            <filename>monadenhallinner.xml</filename>
+            <position>0,7</position>
+            <newPosition>14,7</newPosition>
+        </transition>
+        <transition>
+            <filename>monadenhallinner.xml</filename>
+            <position>0,8</position>
+            <newPosition>14,8</newPosition>
+        </transition>
+        <transition>
+            <filename>monadenhallinner.xml</filename>
+            <position>0,9</position>
+            <newPosition>14,9</newPosition>
+        </transition>
+
+        <transition>
+            <filename>monadensmallroom.xml</filename>
+            <position>4,6</position>
+            <newPosition>4,11</newPosition>
+        </transition>
+        <transition>
+            <filename>monadensmallroom.xml</filename>
+            <position>5,6</position>
+            <newPosition>5,11</newPosition>
+        </transition>
+        <transition>
+            <filename>monadenkitchen.xml</filename>
+            <position>11,10</position>
+            <newPosition>9,4</newPosition>
+        </transition>
+        <transition>
+            <filename>monadenkitchen.xml</filename>
+            <position>12,10</position>
+            <newPosition>10,4</newPosition>
+        </transition>
+
+        <transition>
+            <filename>monadenbathroom.xml</filename>
+            <position>15,8</position>
+            <newPosition>6,8</newPosition>
+        </transition>
+
+        <transition>
+            <filename>monadenentrance.xml</filename>
+            <position>13,5</position>
+            <newPosition>7,12</newPosition>
+        </transition>
+        <transition>
+            <filename>monadenentrance.xml</filename>
+            <position>14,5</position>
+            <newPosition>8,12</newPosition>
+        </transition>
+    </transitions>
+
+
+    <!-- DOORSTEP SMALL ROOM -->
+    <gameobject>
+        <position>4,6</position>
+        <graphics>
+            <fileName>doorstep/down.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>5,6</position>
+        <graphics>
+            <fileName>doorstep/down.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+
+    <!-- DOORSTEP ENTRANCE -->
+    <gameobject>
+        <position>13,6</position>
+        <graphics>
+            <fileName>doorstep/down.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>14,6</position>
+        <graphics>
+            <fileName>doorstep/down.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+</level>

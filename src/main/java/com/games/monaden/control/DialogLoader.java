@@ -28,16 +28,25 @@ public class DialogLoader {
         dialogParser.reset();
 
         ClassLoader classLoader = this.getClass().getClassLoader();
-        InputStream is = classLoader.getResourceAsStream("dialogs/" + dialogFile);
+        InputStream is = classLoader.getResourceAsStream(pathForWindows("dialogs/" + dialogFile));
         try {
             parser.parse(is, dialogParser);
 
             return dialogParser.getRoot();
 
         } catch (Exception e) {
+            System.err.println("DialogLoader : parsedialog failed. Filename: " + dialogFile);
             e.printStackTrace();
         }
 
         return new Dialog("DialogLoader: Something went wrong here.");
     }
+
+    private String pathForWindows (String string) {
+        if (System.getProperty("os.name").toLowerCase().contains("windows")) {
+            return string.replace("\\", "/");
+        }
+        return string;
+    }
+
 }
