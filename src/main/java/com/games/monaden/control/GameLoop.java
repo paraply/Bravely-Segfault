@@ -20,10 +20,11 @@ public class GameLoop extends AnimationTimer implements Observer {
 
     public final static int FREQUENCY = 16;
     private int countDown = FREQUENCY;
+    private double volume = 0.0;
 
     private World world;
     private CharacterController playerCharacter;
-
+    private AudioController audioController;
     private HashMap<Integer, Tile> tileMap;
 
     private Dialog currentDialog;
@@ -47,6 +48,8 @@ public class GameLoop extends AnimationTimer implements Observer {
         world = new World();
         setLevel("outsidemonaden.xml");
         Render.getInstance().setWorld(world);
+        audioController = new AudioController();
+        audioController.playMusic(0);
     }
 
     /**
@@ -111,7 +114,7 @@ public class GameLoop extends AnimationTimer implements Observer {
         if (countDown > 0){  // used to add a delay (better than sleep) to user movement
             countDown--;
         }
-        else if(inputState == InputState.MOVEMENT){
+        else if(inputState == InputState.MOVEMENT) {
             UserInput userInput = UserInput.getInstance();
             KeyCode moveReq = userInput.getLatestMovementKey();
             if (moveReq != null) {
@@ -120,13 +123,27 @@ public class GameLoop extends AnimationTimer implements Observer {
             }
 
             KeyCode funcReq = userInput.getLatestFunctionKey();
+
             if (funcReq != null) {
+                System.out.println(funcReq);
                 Dialog dialog = playerCharacter.handleInteractions(funcReq, world);
-                if(dialog != null){
+                if (dialog != null) {
                     currentDialog = dialog;
                     inputState = InputState.DIALOG;
-//                    System.out.println("Creating new dialog: " + dialog.getDialogText());
+                    System.out.println("Creating new dialog: " + dialog.getDialogText());
                     Render.getInstance().getDialog().newDialog(dialog);
+                }else if (funcReq == KeyCode.PLUS) {
+
+                    volume = audioController.volumeUp();
+
+                } else if (funcReq == KeyCode.MINUS) {
+
+                    volume = audioController.volumeDown();
+
+                } else if (funcReq == KeyCode.N) {
+                    
+                    audioController.stopMusic();
+                    audioController.playMusic(1);
                 }
             }
         }
