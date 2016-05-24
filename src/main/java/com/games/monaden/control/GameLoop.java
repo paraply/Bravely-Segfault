@@ -1,9 +1,6 @@
 package com.games.monaden.control;
 
-import com.games.monaden.model.Dialog;
-import com.games.monaden.model.Point;
-import com.games.monaden.model.Tile;
-import com.games.monaden.model.World;
+import com.games.monaden.model.*;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.view.Render;

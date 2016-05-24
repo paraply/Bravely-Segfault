@@ -1,6 +1,7 @@
 package com.games.monaden.control;
 
 import com.games.monaden.model.Dialog;
+import com.games.monaden.model.Inventory;
 import com.games.monaden.view.Render;
 import javafx.scene.input.KeyCode;
 
@@ -9,6 +10,7 @@ import javafx.scene.input.KeyCode;
  */
 public class DialogController {
     private Dialog currentDialog;
+    private Inventory inventory;
 
     public void setCurrentDialog(Dialog d){currentDialog = d;}
 
