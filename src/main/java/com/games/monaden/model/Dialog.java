@@ -74,14 +74,7 @@ public class Dialog {
         choices.add(child);
     }
 
-    /**
-     * Used to move to the next child. Meant to be used if there is only one child (no choices).
-     * @return
-     */
-    public Dialog traverse () {
-        return choices.get(0);
-    }
-
+    
     public String toString(){
         String result = getDialogText();
         for(int i = 0; i < getChoiceCount(); i++){
