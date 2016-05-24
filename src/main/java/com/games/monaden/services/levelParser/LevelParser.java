@@ -29,16 +29,17 @@ public class LevelParser extends DefaultHandler {
     private boolean bFile = false;
     private boolean bSolidness = false;
     private boolean bZOrder = false;
-    private boolean bTransition = false;
     private boolean bTransPos = false;
     private boolean bFrame = false;
     private boolean bDialogue = false;
+
 
     private int row = 0;
     private int [][] tileMap = new int [World.MAP_SIZE][World.MAP_SIZE];
     private boolean solidness = false;
     private int zOrder = 0;
     private String charName;
+    private World.MovementDirection characterDirection;
     private Point position;
     private Point transPos;
     private String imageFile;
@@ -71,6 +72,15 @@ public class LevelParser extends DefaultHandler {
 
             case "character":
                 charName = attributes.getValue("name");
+                String charDirection = attributes.getValue("direction");
+                if (charDirection != null){
+                    switch (charDirection){
+                        case "right": characterDirection = World.MovementDirection.RIGHT; break;
+                        case "down": characterDirection = World.MovementDirection.DOWN; break;
+                        case "left": characterDirection = World.MovementDirection.LEFT; break;
+                        case "up": characterDirection = World.MovementDirection.UP; break;
+                    }
+                }
                 bCharName = true;
                 break;
 
@@ -100,10 +110,6 @@ public class LevelParser extends DefaultHandler {
 
             case "dialogue":
                 bDialogue = true;
-                break;
-
-            case "transition":
-                bTransition = true;
                 break;
 
             case "newposition":
@@ -136,6 +142,11 @@ public class LevelParser extends DefaultHandler {
                     bCharName = false;
                     charName = null;
                 }
+                if (characterDirection != null){
+                    character.setDirection(characterDirection);
+                    characterDirection = null;
+                }
+
                 if (dialogFile != null) {
                     character.setDialogFile(dialogFile);
                 }

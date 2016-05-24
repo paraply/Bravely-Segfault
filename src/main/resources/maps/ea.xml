@@ -19,8 +19,8 @@
     </tilemap>
 
     <characters>
-        <character name="Philip"><position>8,4</position><graphics><fileName>characters/philip.png</fileName></graphics><dialogue>ea/philip.xml</dialogue></character>
-        <character name="Cenny"><position>4,11</position><graphics><fileName>characters/cenny.png</fileName></graphics><dialogue>ea/cenny.xml</dialogue></character>
+        <character name="Philip" ><position>8,4</position><graphics><fileName>characters/philip.png</fileName></graphics><dialogue>ea/philip.xml</dialogue></character>
+        <character name="Cenny" direction="up"><position>4,11</position><graphics><fileName>characters/cenny.png</fileName></graphics><dialogue>ea/cenny.xml</dialogue></character>
     </characters>
 
     <transitions>
