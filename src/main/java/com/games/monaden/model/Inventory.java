@@ -41,7 +41,7 @@ public class Inventory {
             if(theItem.getName().equals(item))
                 return theItem;
         }
-        return new Item("No item","No item exist in the list!");
+        return null;
     }
     
 

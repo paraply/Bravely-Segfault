@@ -26,7 +26,7 @@ public class InventoryTest {
     public void init(){
         itemList = new LinkedList<>();
         inventory = new Inventory(itemList);
-        item = new Item("Item","This is a item");
+        item = new KeyItem("Item","This is a item");
     }
 
     @Test
@@ -53,10 +53,10 @@ public class InventoryTest {
         @Test
     public void testRemoveItem(){
         inventory.addItem(item);
-        Item newItem = new Item("new Item","This is a new item");
+        Item newItem = new KeyItem("new Item","This is a new item");
         inventory.addItem(newItem);
         boolean removed = inventory.removeItem(item);
-        assertTrue(removed == true && itemList.size() == 1 &&
+        assertTrue(removed && itemList.size() == 1 &&
                 itemList.contains(newItem) && !itemList.contains(item));
     }
 }
