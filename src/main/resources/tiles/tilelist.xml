@@ -176,7 +176,7 @@
         <solidness>solid</solidness>
     </tile>
     <tile id="645">
-        <name>beige wall right corner down</name>
+        <name>beige wall left corner down</name>
         <graphics>wall/beige/4.png</graphics>
         <solidness>solid</solidness>
     </tile>

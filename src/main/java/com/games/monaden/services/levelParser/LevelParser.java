@@ -40,6 +40,7 @@ public class LevelParser extends DefaultHandler {
     private int zOrder = 0;
     private String charName;
     private World.MovementDirection characterDirection;
+    private World.MovementDirection transitionDirection;
     private Point position;
     private Point transPos;
     private String imageFile;
@@ -113,6 +114,15 @@ public class LevelParser extends DefaultHandler {
                 break;
 
             case "newposition":
+                String dir = attributes.getValue("direction");
+                if (dir != null){
+                    switch (dir){
+                        case "right": transitionDirection = World.MovementDirection.RIGHT; break;
+                        case "down": transitionDirection = World.MovementDirection.DOWN; break;
+                        case "left": transitionDirection = World.MovementDirection.LEFT; break;
+                        case "up": transitionDirection = World.MovementDirection.UP; break;
+                    }
+                }
                 bTransPos = true;
                 break;
         }
@@ -154,7 +164,13 @@ public class LevelParser extends DefaultHandler {
                 zOrder = 0;
                 break;
             case "transition":
-                transitions.add(new Transition(position, transPos, imageFile));
+                if (transitionDirection == null){
+                    transitions.add(new Transition(position, transPos, imageFile));
+                }else{
+                    transitions.add(new Transition(position, transPos, imageFile, transitionDirection));
+                    transitionDirection = null;
+                }
+
                 break;
         }
     }
