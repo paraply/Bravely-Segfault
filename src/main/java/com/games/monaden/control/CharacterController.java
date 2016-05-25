@@ -18,7 +18,8 @@ public class CharacterController extends Observable {
     private World.MovementDirection newDirection;
 
     public CharacterController() {
-        player = new Character(new Point(10,10), "characters/player.png", 32,32);
+        player = new Character(new Point(12,5), "characters/player.png", 32,32);
+        player.setDirection(World.MovementDirection.LEFT);
         Render.getInstance().setPlayerCharacter(player);
         audioController = new AudioController();
     }

@@ -20,13 +20,11 @@
     </tilemap>
 
     <transitions>
-        <transition><filename>outsideea.xml</filename><position>14,8</position><newPosition direction="up">7,11</newPosition></transition>
-        <transition><filename>outsideea.xml</filename><position>14,9</position><newPosition direction="up">8,11</newPosition></transition>
+        <transition><filename>linsensouth.xml</filename><position>14,8</position><newPosition direction="down">7,6</newPosition></transition>
+        <transition><filename>linsensouth.xml</filename><position>14,9</position><newPosition direction="down">8,6</newPosition></transition>
 
         <transition><filename>outsidemonaden.xml</filename><position>1,8</position><newPosition>14,13</newPosition></transition>
         <transition><filename>outsidemonaden.xml</filename><position>1,9</position><newPosition>14,14</newPosition></transition>
     </transitions>
-
-    <gameobject><position>4,6</position><graphics><fileName>paintings/1.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
 
 </level>

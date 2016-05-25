@@ -76,7 +76,7 @@ public class DialogParser extends DefaultHandler{
             currentDialog.setImageFile(new File(new String(ch, start, length)));
             bAvatar = false;
         } else if(bText) {
-            currentDialog.setDialogText(new String(ch, start, length));
+                currentDialog.setDialogText(new String(ch, start, length));
             bText = false;
         } else if (bResponse) {
 

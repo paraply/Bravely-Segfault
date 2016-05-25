@@ -31,8 +31,8 @@
         <transition><filename>ea.xml</filename><position>5,7</position><newPosition>12,5</newPosition></transition>
         <transition><filename>ea.xml</filename><position>5,8</position><newPosition>12,6</newPosition></transition>
 
-        <transition><filename>linsensouth.xml</filename><position>10,6</position><newPosition>12,5</newPosition></transition>
-        <transition><filename>linsensouth.xml</filename><position>10,7</position><newPosition>12,6</newPosition></transition>
+        <transition><filename>linsensouth.xml</filename><position>10,6</position><newPosition>6,8</newPosition></transition>
+        <transition><filename>linsensouth.xml</filename><position>10,7</position><newPosition>6,9</newPosition></transition>
 
         <transition><filename>edit6corridor.xml</filename><position>7,12</position><newPosition direction="left">13,8</newPosition></transition>
         <transition><filename>edit6corridor.xml</filename><position>8,12</position><newPosition direction="left">13,9</newPosition></transition>
