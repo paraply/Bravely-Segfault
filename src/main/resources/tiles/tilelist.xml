@@ -36,8 +36,24 @@
         <solidness>non-solid</solidness>
     </tile>
 
+    <!--stairs right-->
+    <tile id="020">
+        <name>right stairs. wall part</name>
+        <graphics>floor/stairs/right0.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="021">
+        <name>right stairs. up part</name>
+        <graphics>floor/stairs/right1.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="022">
+        <name>right stairs. down part</name>
+        <graphics>floor/stairs/right2.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
 
-<!-- WALLS -->
+    <!-- WALLS -->
     <tile id="600">
         <name>Brick wall</name>
         <graphics>wall/brickwall.png</graphics>
@@ -166,6 +182,27 @@
     </tile>
 
 
+    <!-- GLASS DOOR-->
+    <tile id="700">
+        <name>glass door top left</name>
+        <graphics>glassdoor/1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="701">
+        <name>glass door top right</name>
+        <graphics>glassdoor/2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="702">
+        <name>glass door bottom left</name>
+        <graphics>glassdoor/3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="703">
+        <name>glass door bottom right</name>
+        <graphics>glassdoor/4.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
 
     <!-- BORDERS -->
     <tile id="900">

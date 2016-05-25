@@ -24,8 +24,8 @@
     </characters>
 
     <transitions>
-        <transition><filename>outsideea.xml</filename><position>13,5</position><newPosition>4,7</newPosition></transition>
-        <transition><filename>outsideea.xml</filename><position>13,6</position><newPosition>5,7</newPosition></transition>
+        <transition><filename>outsideea.xml</filename><position>13,5</position><newPosition>6,7</newPosition></transition>
+        <transition><filename>outsideea.xml</filename><position>13,6</position><newPosition>6,8</newPosition></transition>
     </transitions>
 
     <!-- DOORSTEPS -->
