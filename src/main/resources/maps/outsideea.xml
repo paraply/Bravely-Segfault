@@ -34,8 +34,8 @@
         <transition><filename>linsensouth.xml</filename><position>10,6</position><newPosition>6,8</newPosition></transition>
         <transition><filename>linsensouth.xml</filename><position>10,7</position><newPosition>6,9</newPosition></transition>
 
-        <transition><filename>edit6corridor.xml</filename><position>7,12</position><newPosition direction="left">13,8</newPosition></transition>
-        <transition><filename>edit6corridor.xml</filename><position>8,12</position><newPosition direction="left">13,9</newPosition></transition>
+        <transition><filename>edit4corridor.xml</filename><position>7,12</position><newPosition direction="left">13,8</newPosition></transition>
+        <transition><filename>edit4corridor.xml</filename><position>8,12</position><newPosition direction="left">13,9</newPosition></transition>
     </transitions>
 
 

@@ -9,10 +9,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-import java.util.List;
-
 /**
  * Created by mike on 2016-05-16.
+ * This class is used to show dialogs using a JavaFX pane and labels
  */
 public class RenderDialog {
     private HBox dialog;
@@ -27,19 +26,21 @@ public class RenderDialog {
     public RenderDialog(HBox dialogBox){
         this.dialog = dialogBox;
         if (dialogBox == null){
-            System.err.println("RenderDialog: Got null as dialogBox");
+            System.err.println("Dialog render: Got null as dialogBox in the constructor");
             dialogFail = true;
         }
     }
 
     public void newDialog(Dialog dialogObject, Inventory inventory){
+        if (dialogFail){
+            return;
+        }
         if (dialog == null || dialogObject == null){
+            System.err.println("Dialog render : newDialog got a null object");
             return;
         }
         try {
             this.dialogObject = dialogObject;
-
-
 
             dialog.getChildren().clear();
             if (dialogObject.getImageFile() != null) {
@@ -58,32 +59,35 @@ public class RenderDialog {
             labelBox.getChildren().add(question);
 
             if (dialogObject.getChoiceTextCount(inventory) != 0) {
-                answer = new Label[dialogObject.getChoiceTextCount(inventory)];
-
-                for (int i = 0; i < dialogObject.getChoiceTextCount(inventory); i++) {
-                    System.out.println("CHOICE " + i + " " + dialogObject.getChoiceTextCount(inventory));
-                    Label l = new Label();
-                    l.setText(dialogObject.getChoiceText(i));
-                    l.getStyleClass().add("dialog-choice");
-                    l.setPadding(new Insets(0, 0, 0, 5));
-                    labelBox.getChildren().add(l);
-                    answer[i] = l;
-                }
-                selected = -1; // This is used to say that no answer was selected before
-
-                select(0);
+                createAnswers(inventory);
             }
             dialog.getChildren().add(labelBox);
             dialog.setVisible(true);
         }catch (Exception e){
-            System.err.println("RenderDialog: Error creating new dialog" );
+            System.err.println("Dialog Render: Error creating new dialog" );
             e.printStackTrace();
         }
     }
 
+    private void createAnswers(Inventory inventory){
+        answer = new Label[dialogObject.getChoiceTextCount(inventory)];
+
+        for (int i = 0; i < dialogObject.getChoiceTextCount(inventory); i++) {
+            Label l = new Label();
+            l.setText(dialogObject.getChoiceText(i));
+            l.getStyleClass().add("dialog-choice");
+            l.setPadding(new Insets(0, 0, 0, 5));
+            labelBox.getChildren().add(l);
+            answer[i] = l;
+        }
+        selected = -1; // This is used to say that no answer was selected before
+
+        select(0);
+    }
+
+
     public void hideDialog(){
         if (dialogFail){
-            System.err.println("Cannot hide failed dialog");
             return;
         }
         selected = 0;
@@ -95,7 +99,6 @@ public class RenderDialog {
     }
 
     public void select(int answerIndex){
-
         if (dialogFail){
             return;
         }

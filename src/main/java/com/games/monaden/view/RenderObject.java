@@ -19,7 +19,8 @@ class RenderObject {
     GameObject gameObject;
     private Image image;
     int x,y;                        // objects position in the world
-    int imageSrcX, imageSrcY;   // Coordinates to get a specific picture from the tileset
+    int imageSrcX;                  // Coordinates to get a specific picture
+    private int imageSrcY;          // from the tileset
     private GraphicsContext context;
     private boolean initFailed;
 

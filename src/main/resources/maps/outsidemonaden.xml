@@ -66,8 +66,8 @@
         <transition><filename>garbageroom.xml</filename><position>0,13</position><newPosition>9,7</newPosition></transition>
         <transition><filename>garbageroom.xml</filename><position>0,14</position><newPosition>9,8</newPosition></transition>
 
-        <transition><filename>edit6corridor.xml</filename><position>15,13</position><newPosition>2,8</newPosition></transition>
-        <transition><filename>edit6corridor.xml</filename><position>15,14</position><newPosition>2,9</newPosition></transition>
+        <transition><filename>edit4corridor.xml</filename><position>15,13</position><newPosition>2,8</newPosition></transition>
+        <transition><filename>edit4corridor.xml</filename><position>15,14</position><newPosition>2,9</newPosition></transition>
     </transitions>
 
     <!-- DOORSTEPS -->

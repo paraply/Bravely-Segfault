@@ -5,9 +5,6 @@ import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.GameObject;
 import javafx.scene.canvas.GraphicsContext;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by paraply on 2016-04-22.
  *
@@ -37,15 +34,19 @@ class AnimatedObject extends RenderObject {
     AnimatedObject(GameObject gameObject, GraphicsContext context) {
         super(gameObject, context);
         previousPosition = gameObject.getPosition();
-//        if (gameObject.hasContinuousAnimation() == false){
-//            animationFrequency = animationFrequency / 2;
-//        }
+        if (!gameObject.hasContinuousAnimation()){
+//            This is used to lower the animation speed only for still objects
+//            and not moving characters.
+//            Can be commented out for faster animations
+            animationFrequency = animationFrequency / 2;
+        }
     }
 
-    public void startTransition(){
+//    This is used to stop movement and reposition the player object when transitioning to a new world.
+//    Otherwise the player would first move at the wrong place when the new world has been drawn.
+    void startTransition(){
         inTransition = true;
     }
-
 
     public void draw(){
         calculateSourceX();
@@ -54,61 +55,70 @@ class AnimatedObject extends RenderObject {
     }
 
     private void calculateSourceX(){
-
-        if (gameObject.hasContinuousAnimation()){ // This is used for objects that are not moving but still has an animation.
-
-            x = gameObject.getPosition().getX() * World.TILE_SIZE;
-            y =  gameObject.getPosition().getY() * World.TILE_SIZE;
-
-            animationTick(); // Animate
-
+        if (gameObject.hasContinuousAnimation()){                           // This is used for objects that are not moving but still has an animation.
+            positionNonMovingObject();
         }else{ // Else if object does not have a continuous animation. Then it should only be animated during transition.
             if (currentTransitionStep == 0){                                // We are currently not in a moving state
                 if (!gameObject.getPosition().equals(previousPosition)){    // Check if we should be in a moving state (e.g the objects coordinates has changed since last time)
-                    if (inTransition){
-                        // We have to set the old coordinates to be the same as the new ones when we are transitioning
-                        // Otherwise the character would animate since the coordinates has changed
-                        previousPosition = gameObject.getPosition();
-                        inTransition = false;
-                        return;
-                    }
-                    currentTransitionStep = World.TILE_SIZE;                    // If we have a 32-bit TILE_SIZE, then we should move to another tile in maximum 32 steps.
-                    imageSrcX = 0;                                              // Do not animate first. We want to change the objects direction this time.
-                    x = previousPosition.getX() * World.TILE_SIZE;              // Stand still for now, we want to change direction first. Start moving in next transition.
-                    y =  previousPosition.getY() * World.TILE_SIZE;
+                    positionStartMovingCharacter();
                 }else{ // Object is standing still
-                    imageSrcX = 0;
-                    x = gameObject.getPosition().getX() * World.TILE_SIZE;
-                    y =  gameObject.getPosition().getY() * World.TILE_SIZE;
+                    positionStillCharacter();
                 }
-            }else{ // We are in a transitioning state
-                animationTick();
-
-                currentTransitionStep = currentTransitionStep - PIXELS_PER_STEP; // We move a specific number of pixels
-
-            switch (gameObject.getDirection()){ //
-                case UP: y =  (gameObject.getPosition().getY() * World.TILE_SIZE) + currentTransitionStep;       // Move up step by step
-                    break;
-                case DOWN: y =  (gameObject.getPosition().getY() * World.TILE_SIZE)   - currentTransitionStep;   // Move down step by step
-                    break;
-                case LEFT: x =  (gameObject.getPosition().getX() * World.TILE_SIZE) +  currentTransitionStep;    // Move left step by step
-                    break;
-                case RIGHT: x =  (gameObject.getPosition().getX() * World.TILE_SIZE)  - currentTransitionStep;   // Move right step by step
-                    break;
-            }
-
-            if (currentTransitionStep == 0){ // transition is done now
-                previousPosition = gameObject.getPosition();
-            }
-
+            }else{                                                          // We are in a transitioning state
+                positionMovingCharacter();
             }
         }
     }
 
-    public int getCurrentTransitionStep(){
-        return currentTransitionStep;
+    private void positionNonMovingObject(){ // An animation but still objects
+        x = gameObject.getPosition().getX() * World.TILE_SIZE;
+        y =  gameObject.getPosition().getY() * World.TILE_SIZE;
+        animationTick(); // Animate
     }
 
+    private void positionMovingCharacter(){ // A character that is currently moving
+        animationTick();
+        currentTransitionStep = currentTransitionStep - PIXELS_PER_STEP; // We move a specific number of pixels
+
+        switch (gameObject.getDirection()){ //
+            case UP: y =  (gameObject.getPosition().getY() * World.TILE_SIZE) + currentTransitionStep;       // Move up step by step
+                break;
+            case DOWN: y =  (gameObject.getPosition().getY() * World.TILE_SIZE)   - currentTransitionStep;   // Move down step by step
+                break;
+            case LEFT: x =  (gameObject.getPosition().getX() * World.TILE_SIZE) +  currentTransitionStep;    // Move left step by step
+                break;
+            case RIGHT: x =  (gameObject.getPosition().getX() * World.TILE_SIZE)  - currentTransitionStep;   // Move right step by step
+                break;
+        }
+
+        if (currentTransitionStep == 0){ // transition is done now
+            previousPosition = gameObject.getPosition();
+        }
+
+    }
+
+    private void positionStartMovingCharacter(){ // A character has not moved yet. (Visually)
+        if (inTransition){
+            // We have to set the old coordinates to be the same as the new ones when we are transitioning
+            // Otherwise the character would animate since the coordinates has changed
+            previousPosition = gameObject.getPosition();
+            inTransition = false;
+            return;
+        }
+        currentTransitionStep = World.TILE_SIZE;                    // If we have a 32-bit TILE_SIZE, then we should move to another tile in maximum 32 steps.
+        imageSrcX = 0;                                              // Do not animate first. We want to change the objects direction this time.
+        x = previousPosition.getX() * World.TILE_SIZE;              // Stand still for now, we want to change direction first. Start moving in next transition.
+        y =  previousPosition.getY() * World.TILE_SIZE;
+    }
+
+    private void positionStillCharacter(){ // A character that is standing still
+        imageSrcX = 0;
+        x = gameObject.getPosition().getX() * World.TILE_SIZE;
+        y =  gameObject.getPosition().getY() * World.TILE_SIZE;
+    }
+
+//      We do not want to animate on every tick.
+//      The animationFrequency is used to lower the speed. Otherwise the character movements and such would be too fast.
     private void animationTick(){
         animationTicks++;
         if (animationTicks > animationFrequency){
@@ -123,6 +133,4 @@ class AnimatedObject extends RenderObject {
             imageSrcX = currentAnimationFrame * gameObject.getWidth();
         }
     }
-
-
 }

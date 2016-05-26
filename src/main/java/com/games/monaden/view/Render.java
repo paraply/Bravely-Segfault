@@ -16,6 +16,11 @@ import java.util.Observer;
 
 /**
  * Created by paraply on 2016-04-19.
+ * This class is the main view class that handles everything you see on the screen:
+ * - Shows the start screen
+ * - Draws the world
+ * - Keeps a list of objects and redraws them continuously.
+ * - Displays dialogs
  */
 public class Render implements Observer{
     private static Render render; // Used by getInstance
@@ -49,6 +54,7 @@ public class Render implements Observer{
         return renderDialog;
     }
 
+//    This is the dialog pane which labels are added to.
     public void setDialogObjects(HBox dialog){
         renderDialog = new RenderDialog(dialog);
     }
@@ -57,7 +63,7 @@ public class Render implements Observer{
         this.player = new AnimatedObject(player,context);
     }
 
-    //This class is currently singleton, since its instance needs to be accessed by Window, RenderObjects. May change...
+    //This class is currently singleton, since its instance needs to be accessed by different parts of the application
     public static synchronized Render getInstance(){
         if (render == null){
             render = new Render();
@@ -73,21 +79,27 @@ public class Render implements Observer{
         startScreen.setVisible(false);
     }
 
-
     public void setStartScreen(Pane startScreen){
         this.startScreen = startScreen;
     }
 
+//    This is called by the game loop continuously
     public void redraw(){
+//        First draw the objects that should be behind the character
             objects.stream().filter(ro -> ro.zOrder() == 0).forEach(RenderObject::draw);
+//        Then draw everything you can interact with
             interactables.forEach(RenderObject::draw);
+//        Draw the player at a layer above the previously drawn objects
             player.draw();
+//        And at last draw the objects that should be at a layer above the player.
+//        This allows the player to walk behind objects such as trees.
             objects.stream().filter(ro -> ro.zOrder() == 1).forEach(RenderObject::draw);
     }
 
     private void addWorldObjects(){
         if (world.getObjects() == null){
             System.err.println("Render: addWorldObjects gets null from world.getObjects");
+            return;
         }
         for (GameObject go : world.getObjects()){
             if (go.hasContinuousAnimation()){
@@ -102,6 +114,7 @@ public class Render implements Observer{
     private void addInteractables(){
         if (world.getObjects() == null){
             System.err.println("Render: addInteractables gets null from world.getInteractables");
+            return;
         }
         for (GameObject go : world.getInteractables()){
             if (go.hasContinuousAnimation()){
@@ -113,7 +126,7 @@ public class Render implements Observer{
     }
 
     /**
-     *  Delete all objects and create new
+     *  Delete all objects and create new when we transition to a new world
      */
     private void transition(){
         player.startTransition();
@@ -125,13 +138,11 @@ public class Render implements Observer{
     }
 
 
-
+//  Called by the observer
     @Override
     public void update(Observable observable, Object arg) {
         if(observable == world) {
-//            if(arg == "transition"){
             transition();
-//            }
         }
     }
 }

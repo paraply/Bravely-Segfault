@@ -31,7 +31,6 @@
             <position>8,5</position>
             <graphics>
                 <fileName>toilet/2.png</fileName>
-                <frameCount>1</frameCount>
             </graphics>
             <dialogue>monadenbathroom/toilet.xml</dialogue>
         </character>
