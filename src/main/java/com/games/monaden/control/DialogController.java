@@ -18,11 +18,13 @@ public class DialogController {
     public boolean handleMovement(KeyCode moveReq){
         if (moveReq != null && currentDialog.getChoiceCount(inventory) != 0) {
             if(moveReq == KeyCode.UP){
-                Render.getInstance().getDialog().selectPreviousAnswer();
+                selection = currentDialog.selectUp(selection, inventory);
+                Render.getInstance().getDialog().select(selection);
                 return true;
             }
             else if(moveReq == KeyCode.DOWN) {
-                Render.getInstance().getDialog().selectNextAnswer(inventory);
+                selection = currentDialog.selectDown(selection, inventory);
+                Render.getInstance().getDialog().select(selection);
                 return true;
             }
         }
@@ -54,6 +56,7 @@ public class DialogController {
 
     public void startDialog(Dialog dialog) {
         currentDialog = dialog;
+        selection = 0;
         System.out.println("Creating new dialog: " + dialog.getDialogText());
         Render.getInstance().getDialog().newDialog(dialog, inventory);
     }

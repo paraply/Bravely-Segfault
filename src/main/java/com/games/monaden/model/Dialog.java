@@ -52,6 +52,26 @@ public class Dialog {
         }
         return null;
     }
+
+    public int selectUp(int id, Inventory inventory){
+        while(id > 0){
+            id --;
+            if(choices.get(id).reqSatisfied(inventory)) {
+                return id;
+            }
+        }
+        return id;
+    }
+
+    public int selectDown(int id, Inventory inventory){
+        while(id < choices.size() - 1){
+            id ++;
+            if(choices.get(id).reqSatisfied(inventory)) {
+                return id;
+            }
+        }
+        return id;
+    }
     
     public String getChoiceText(int id){
         return choices.get(id).getChoiceText();

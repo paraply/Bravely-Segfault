@@ -91,32 +91,11 @@ public class RenderDialog {
         dialog.setVisible(false);
     }
 
-    public void selectPreviousAnswer(){
-        if (dialogObject == null){
-            System.err.println("selectPreviousAnswer: dialogObject == null");
-            return;
-        }
-        if (selected > 0){
-            System.out.println("is okay");
-            select(selected-1);
-        }
-    }
-
-    public void selectNextAnswer(Inventory inventory){
-        if (dialogObject == null){
-            System.err.println("selectNextAnswer: dialogObject == null");
-            return;
-        }
-        if (selected < dialogObject.getChoiceCount(inventory) - 1){
-            select(selected+1);
-        }
-    }
-
     public int getSelected(){
         return selected;
     }
 
-    private void select(int answerIndex){
+    public void select(int answerIndex){
         System.out.println("SELCT: " + answerIndex);
         if (dialogFail){
             return;
