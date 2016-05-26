@@ -53,6 +53,7 @@ public class RenderDialog {
             question.getStyleClass().add("dialog-question");
             question.setPadding(new Insets(0, 0, 3, 5));
             question.setWrapText(true);
+
             labelBox.getChildren().add(question);
 
             if (dialogObject.getChoiceTextCount() != 0) {

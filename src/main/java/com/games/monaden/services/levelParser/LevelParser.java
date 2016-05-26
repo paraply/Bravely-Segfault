@@ -145,7 +145,6 @@ public class LevelParser extends DefaultHandler {
                 GameObject gameObject = new GameObject(position, imageFile, solidness, zOrder);
                 gameObject.setAnimationFrames(frameCount);
                 gameObject.setContinuousAnimation( frameCount != 0 );
-                System.out.println(frameCount);
                 gameObjects.add(gameObject);
                 zOrder = 0;
                 frameCount = 0;

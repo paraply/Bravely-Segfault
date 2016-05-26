@@ -18,6 +18,16 @@
         <line>900,900,900,900,900,900,900,900,900,900,900,910,005,005,909,900</line>
     </tilemap>
 
+
+    <character name="Hatterik" direction="up"><position>10,13</position><graphics><fileName>characters/hatterik.png</fileName></graphics><dialogue>outsidemonaden/hatterik.xml</dialogue></character>
+    <character name="Matilda" direction="right"><position>11,13</position><graphics><fileName>characters/matilda.png</fileName></graphics><dialogue>outsidemonaden/matilda.xml</dialogue></character>
+
+    <character name="Berra" direction="left"><position>13,11</position><graphics><fileName>characters/berra.png</fileName></graphics><dialogue>outsidemonaden/berra.xml</dialogue></character>
+    <gameobject><position>12,11</position><graphics><fileName>barbeque/1.png</fileName></graphics><solidness>solid</solidness><framecount>15</framecount></gameobject>
+    <character name="Hidden barbeque character" direction="left"><position>12,11</position><graphics><fileName>characters/transparent.png</fileName></graphics><dialogue>outsidemonaden/barbeque.xml</dialogue></character>
+
+    <character name="Anton" direction="down"><position>12,9</position><graphics><fileName>characters/anton.png</fileName></graphics><dialogue>outsidemonaden/anton.xml</dialogue></character>
+
     <characters>
         <character name="Sakura top left">
             <position>4,6</position>
