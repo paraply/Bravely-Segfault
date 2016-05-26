@@ -23,7 +23,7 @@
         <transition><filename>outsidemonaden.xml</filename><position>10,8</position><newPosition>1,14</newPosition></transition>
     </transitions>
     <gameobjects>
-        <gameobject><position>7,5</position><graphics><fileName>garbage/1.png</fileName><frameCount>2</frameCount></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>7,5</position><graphics><fileName>garbage/1.png</fileName><frameCount>8</frameCount></graphics><solidness>solid</solidness></gameobject>
         <gameobject><position>8,5</position><graphics><fileName>garbage/2.png</fileName></graphics><solidness>solid</solidness></gameobject>
         <gameobject><position>7,6</position><graphics><fileName>garbage/3.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
         <gameobject><position>8,6</position><graphics><fileName>garbage/4.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
