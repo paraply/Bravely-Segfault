@@ -2,12 +2,12 @@ package com.games.monaden.view;
 
 import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.GameObject;
+import javafx.animation.FadeTransition;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class Render implements Observer{
     private List<RenderObject> objects = new ArrayList<>();
     private List<RenderObject> interactables = new ArrayList<>();
     private RenderDialog renderDialog;
-    private Pane startScreen;
+    private Pane overlay;
 
 
     // graphics context = main-canvas context
@@ -71,17 +71,36 @@ public class Render implements Observer{
         return render;
     }
 
-    public void hideStartScreen(){
-        if (startScreen == null){
-            System.err.println("Render : hideStartScreen got null value");
+    public void hideOverlay(){
+        if (overlay == null){
+            System.err.println("Render : hideOverlay got null value");
             return;
         }
-        startScreen.setVisible(false);
+        overlay.setVisible(false);
+        overlay.getChildren().clear();
+        Rectangle r = new Rectangle();
+        r.setX(0);
+        r.setY(0);
+        r.setWidth(512);
+        r.setHeight(512);
+        overlay.getChildren().add(r);
+        overlay.setOpacity(1);
     }
 
-    public void setStartScreen(Pane startScreen){
-        this.startScreen = startScreen;
+    public void setOverlay(Pane overlay){
+        this.overlay = overlay;
     }
+
+
+    public void overlayFade(){
+        overlay.setVisible(true);
+        FadeTransition ft = new FadeTransition(Duration.millis(500));
+        ft.setFromValue(1.0);
+        ft.setToValue(0.0);
+        ft.setNode(overlay);
+        ft.play();
+    }
+
 
 //    This is called by the game loop continuously
     public void redraw(){

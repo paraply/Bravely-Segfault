@@ -9,7 +9,7 @@ import javafx.scene.input.KeyEvent;
 /**
  * Created by paraply on 2016-04-13.
  */
-public class UserInput implements EventHandler<Event> {
+class UserInput implements EventHandler<Event> {
     private static UserInput userInput;
     private KeyCode movementKey;
     private KeyCode functionKey;
@@ -53,19 +53,19 @@ public class UserInput implements EventHandler<Event> {
         }
     }
 
-    public KeyCode getLatestMovementKey(){
+    KeyCode getLatestMovementKey(){
         KeyCode key = movementKey;
         movementKey = null;
         return key;
     }
 
-    public KeyCode getLatestFunctionKey(){
+    KeyCode getLatestFunctionKey(){
         KeyCode key = functionKey;
         functionKey = null;
         return key;
     }
 
-    public static synchronized UserInput getInstance(){
+    static synchronized UserInput getInstance(){
         if (userInput == null){
             userInput = new UserInput();
         }

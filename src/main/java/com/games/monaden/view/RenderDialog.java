@@ -2,12 +2,14 @@ package com.games.monaden.view;
 
 import com.games.monaden.model.Dialog;
 import com.games.monaden.model.Inventory;
+import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 /**
  * Created by mike on 2016-05-16.
@@ -62,6 +64,12 @@ public class RenderDialog {
                 createAnswers(inventory);
             }
             dialog.getChildren().add(labelBox);
+            dialog.setOpacity(0);
+            FadeTransition ft = new FadeTransition(Duration.millis(400));
+            ft.setFromValue(0.0);
+            ft.setToValue(1.0);
+            ft.setNode(dialog);
+            ft.play();
             dialog.setVisible(true);
         }catch (Exception e){
             System.err.println("Dialog Render: Error creating new dialog" );
@@ -91,7 +99,12 @@ public class RenderDialog {
             return;
         }
         selected = 0;
-        dialog.setVisible(false);
+        FadeTransition ft = new FadeTransition(Duration.millis(400));
+        ft.setFromValue(1.0);
+        ft.setToValue(0.0);
+        ft.setNode(dialog);
+        ft.play();
+//        dialog.setVisible(false);
     }
 
     public int getSelected(){

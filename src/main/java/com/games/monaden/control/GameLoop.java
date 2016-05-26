@@ -14,9 +14,12 @@ import java.util.*;
  */
 public class GameLoop extends AnimationTimer implements Observer {
 
-    public final static int FREQUENCY = 16;
+    private final static int FREQUENCY = 16;
     private int countDown = FREQUENCY;
     private double volume = 0.0;
+
+    private final static int FADE_TIME = 32;
+    private int currentFadeTime = 0;
 
     private World world;
     private CharacterController playerCharacter;
@@ -28,10 +31,11 @@ public class GameLoop extends AnimationTimer implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         setLevel((String)arg);
+        startFade();
     }
 
-    private enum InputState { MOVEMENT, DIALOG, STARTSCREEN }
-    private InputState inputState = InputState.STARTSCREEN;
+    private enum InputState { MOVEMENT, DIALOG, STARTSCREEN, FADE}
+    private InputState inputState = InputState.STARTSCREEN; // The first state we are in is the start screen
 
     public GameLoop () {
         tileMap = new HashMap<>();
@@ -57,7 +61,6 @@ public class GameLoop extends AnimationTimer implements Observer {
         LevelLoader levelLoader = new LevelLoader();
         levelLoader.loadLevel(levelName);
         int [][] primTileMap = levelLoader.getTileMap();
-
         List<GameObject> gameObjects = new ArrayList<>();
 
         outerloop:
@@ -75,26 +78,23 @@ public class GameLoop extends AnimationTimer implements Observer {
         }
 
         gameObjects.addAll(levelLoader.getGameObjects());
-
         List<Character> interactables = levelLoader.getInteractables();
-
         DialogLoader dialogLoader = new DialogLoader();
-
         for (Character c : interactables) {
             c.setDialog(dialogLoader.parseDialog(c.getDialogFile().getPath()));
         }
-
-
-
         world.setCurrentLevel(gameObjects, interactables, levelLoader.getTransitions());
     }
-
-
 
     private Tile findTile (int tileNr) {
         return tileMap.get(tileNr);
     }
 
+    private void startFade(){
+        currentFadeTime = FADE_TIME;
+        inputState = InputState.FADE;
+        Render.getInstance().overlayFade();
+    }
 
     @Override
     public void handle(long now) {
@@ -102,12 +102,23 @@ public class GameLoop extends AnimationTimer implements Observer {
             if (UserInput.getInstance().getLatestFunctionKey() == null){
                 return;
             }else{
-                Render.getInstance().hideStartScreen();
-                inputState = InputState.MOVEMENT;
+                startFade();
             }
         }
 
+
         Render.getInstance().redraw();
+        if (inputState == InputState.FADE){
+
+            currentFadeTime--;
+            if (currentFadeTime == 0){
+                Render.getInstance().hideOverlay();
+                inputState = InputState.MOVEMENT;
+                Render.getInstance().redraw();
+            }
+            return;
+        }
+
         if (countDown > 0){  // used to add a delay (better than sleep) to user movement
             countDown--;
         }
@@ -134,7 +145,7 @@ public class GameLoop extends AnimationTimer implements Observer {
                     volume = audioController.volumeDown();
 
                 } else if (funcReq == KeyCode.N) {
-                    
+
                     audioController.stopMusic();
                     audioController.playMusic(1);
                 }
@@ -152,10 +163,16 @@ public class GameLoop extends AnimationTimer implements Observer {
                 inputState = InputState.MOVEMENT;
             }
         }
+
+
+
+
     }
 
     private void startDialog(Dialog dialog) {
         inputState = InputState.DIALOG;
         dialogController.startDialog(dialog);
     }
+
+
 }
