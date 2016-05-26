@@ -55,7 +55,7 @@ public class Dialog {
     }
     
     public void setDialogText(String text) {
-        this.dialogText = text;
+        this.dialogText = text.replace("*YOU*", World.PLAYER_NAME);
     }
 
     public void setImageFile (File file) {
