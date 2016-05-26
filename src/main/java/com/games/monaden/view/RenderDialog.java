@@ -57,11 +57,11 @@ public class RenderDialog {
             question.setWrapText(true);
             labelBox.getChildren().add(question);
 
-            if (dialogObject.getChoiceTextCount() != 0) {
-                answer = new Label[dialogObject.getChoiceTextCount()];
+            if (dialogObject.getChoiceCount() != 0) {
+                answer = new Label[dialogObject.getChoiceCount()];
 
-                for (int i = 0; i < dialogObject.getChoiceTextCount(); i++) {
-                    System.out.println("CHOICE " + i + " " + dialogObject.getChoiceTextCount());
+                for (int i = 0; i < dialogObject.getChoiceCount(); i++) {
+                    System.out.println("CHOICE " + i + " " + dialogObject.getChoiceCount());
                     Label l = new Label();
                     l.setText(dialogObject.getChoiceText(i));
                     l.getStyleClass().add("dialog-choice");
@@ -106,7 +106,7 @@ public class RenderDialog {
             System.err.println("selectNextAnswer: dialogObject == null");
             return;
         }
-        if (selected < dialogObject.getChoiceTextCount() - 1){
+        if (selected < dialogObject.getChoiceCount() - 1){
             select(selected+1);
         }
     }

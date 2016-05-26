@@ -16,38 +16,37 @@ import java.util.List;
 public class Dialog {
     
     private String dialogText;
-    private final List<String> text;
-    private final List<Dialog> choices;
+    private final List<DialogChoice> choices;
     private File imageFile;
 
     public int getChoiceCount(){return choices.size();}
-    public int getChoiceTextCount(){return text.size();}
 
     /**
      * Constructor for when there is no text yet. Text is to be added later.
      */
     public Dialog(){
-        this.text = new ArrayList<>();
         this.choices = new ArrayList<>();
     }
 
     public Dialog(String dialogText){
         this.dialogText = dialogText;
-        this.text = new ArrayList<>();
         this.choices = new ArrayList<>();
     }
     
-    public void readInChoices(String text, Dialog dialog){
-        this.text.add(text);
-        this.choices.add(dialog);
+    public void addChoice(DialogChoice dc){
+        this.choices.add(dc);
     }
     
-    public Dialog makeAChoice(int id){
-        return choices.get(id);
+    public Dialog makeAChoice(int id, Inventory inventory){
+        DialogChoice d = choices.get(id);
+        if(d.reqSatisfied(inventory)){
+            return d.getDialog();
+        }
+        return null;
     }
     
     public String getChoiceText(int id){
-        return text.get(id);
+        return choices.get(id).getChoiceText();
     }
 
     public String getDialogText(){
@@ -70,7 +69,7 @@ public class Dialog {
      * Sets a single child for when there is no choice.
      * @param child
      */
-    public void setChild (Dialog child) {
+    public void setChild (DialogChoice child) {
         choices.add(child);
     }
 

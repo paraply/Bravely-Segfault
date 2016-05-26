@@ -11,6 +11,7 @@ import javafx.scene.input.KeyCode;
 public class DialogController {
     private Dialog currentDialog;
     private Inventory inventory;
+    private int selection = 0;
 
     public void setCurrentDialog(Dialog d){currentDialog = d;}
 
@@ -38,7 +39,7 @@ public class DialogController {
                     return true;
                 }
                 else {
-                    currentDialog = currentDialog.makeAChoice(Render.getInstance().getDialog().getSelected());
+                    currentDialog = currentDialog.makeAChoice(Render.getInstance().getDialog().getSelected(), inventory);
                     if (currentDialog.getDialogText().equals("")) {
                         Render.getInstance().getDialog().hideDialog();
                         return true;

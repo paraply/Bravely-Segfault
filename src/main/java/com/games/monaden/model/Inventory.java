@@ -1,5 +1,6 @@
 package com.games.monaden.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,8 +11,8 @@ public class Inventory {
 
     private List<Item> itemList;
 
-    public Inventory(List<Item> itemList) {
-        this.itemList = itemList;
+    public Inventory() {
+        itemList = new ArrayList<>();
     }
 
     /**
@@ -43,7 +44,15 @@ public class Inventory {
         }
         return null;
     }
-    
+
+    public boolean containsItem(String item){
+        for(Item i : itemList){
+            if(i.getName().equals(item)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * Removes a item form the list

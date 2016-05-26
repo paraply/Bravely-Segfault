@@ -1,6 +1,7 @@
 package com.games.monaden.services.dialogParser;
 
 import com.games.monaden.model.Dialog;
+import com.games.monaden.model.DialogChoice;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -61,16 +62,16 @@ public class DialogParser extends DefaultHandler{
     @Override
     public void characters (char ch[], int start, int length) throws SAXException, IllegalArgumentException {
         if (bDialog) {
-            Dialog child = new Dialog();
+            DialogChoice child = new DialogChoice(new Dialog(), "");
             if (currentDialog != null) {
                 currentDialog.setChild(child);
                 parents.push(currentDialog);
             }
             if (!gotRoot) {
                 gotRoot = true;
-                root = child;
+                root = child.getDialog();
             }
-                currentDialog = child;
+                currentDialog = child.getDialog();
             bDialog = false;
         } else if (bAvatar) {
             currentDialog.setImageFile(new File(new String(ch, start, length)));
@@ -89,10 +90,10 @@ public class DialogParser extends DefaultHandler{
                 throw new IllegalArgumentException("subDialog: gotRoot wtf");
             }
 
-            Dialog child = new Dialog();
-            currentDialog.readInChoices(choiceText, child);
+            DialogChoice child = new DialogChoice(new Dialog(), choiceText);
+            currentDialog.addChoice(child);
             parents.push(currentDialog);
-            currentDialog = child;
+            currentDialog = child.getDialog();
 
             bSubDialog = false;
         }
