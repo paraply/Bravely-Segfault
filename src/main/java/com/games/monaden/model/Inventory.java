@@ -62,4 +62,16 @@ public class Inventory {
     public boolean removeItem(Item item) {
         return itemList.remove(item);
     }
+
+    public String toString(){
+        StringBuilder result = new StringBuilder();
+        for(Item item : itemList){
+            result.append("Name: ");
+            result.append(item.getName());
+            result.append(" Description: ");
+            result.append(item.getDescription());
+            result.append("\n");
+        }
+        return result.toString();
+    }
 }

@@ -18,6 +18,7 @@ public class Dialog {
     private String dialogText;
     private final List<DialogChoice> choices;
     private File imageFile;
+    private Item item;
 
     public int getChoiceCount(Inventory inventory){
         int count = 0;
@@ -75,6 +76,14 @@ public class Dialog {
     
     public String getChoiceText(int id){
         return choices.get(id).getChoiceText();
+    }
+
+    public void setItem(Item item){
+        this.item = item;
+    }
+
+    public Item getItem(){
+        return item;
     }
 
     public String getDialogText(){

@@ -2,6 +2,7 @@ package com.games.monaden.services.dialogParser;
 
 import com.games.monaden.model.Dialog;
 import com.games.monaden.model.DialogChoice;
+import com.games.monaden.model.KeyItem;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -11,6 +12,7 @@ import java.util.*;
 
 /**
  * Created by Philip on 2016/05/17.
+ * TODO: Should be possible to have several items being added
  */
 public class DialogParser extends DefaultHandler{
 
@@ -21,11 +23,15 @@ public class DialogParser extends DefaultHandler{
     private boolean bRequirement;
     private boolean bSubDialog;
     private boolean bAvatar;
+    private boolean bItemName;
+    private boolean bItemDescription;
+
+    private KeyItem item;
+    private String itemName;
+    private String itemDescription;
 
     private Dialog root;
     private boolean gotRoot = false;
-
-    private String condition;
 
     private Dialog currentDialog;
 
@@ -48,7 +54,6 @@ public class DialogParser extends DefaultHandler{
                 break;
             case "response":
                 bResponse = true;
-                condition = attributes.getValue("condition");
                 break;
             case "choice":
                 bChoice = true;
@@ -58,6 +63,12 @@ public class DialogParser extends DefaultHandler{
                 break;
             case "keyitem":
                 bRequirement = true;
+                break;
+            case "itemname":
+                bItemName = true;
+                break;
+            case "description":
+                bItemDescription = true;
                 break;
         }
     }
@@ -107,6 +118,12 @@ public class DialogParser extends DefaultHandler{
         } else if(bRequirement){
             requirements.add(new String(ch, start, length));
             bRequirement = false;
+        } else if(bItemName){
+            itemName = new String(ch, start, length);
+            bItemName = false;
+        } else if(bItemDescription){
+            itemDescription = new String(ch, start, length);
+            bItemDescription = false;
         }
     }
 
@@ -118,11 +135,23 @@ public class DialogParser extends DefaultHandler{
                 if (!parents.empty()) {
                     currentDialog = parents.pop();
                 }
+                if(item != null){
+                    currentDialog.setItem(item);
+                    item = null;
+                }
                 break;
             case "subdialog":
                 if (!parents.empty()) {
                     currentDialog = parents.pop();
                 }
+                if(item != null){
+                    currentDialog.setItem(item);
+                    item = null;
+                }
+                break;
+            case "additem":
+                item = new KeyItem(itemName, itemDescription);
+                System.out.println("Parsed an item: " + itemName + " " + itemDescription);
                 break;
         }
     }

@@ -1,7 +1,9 @@
 package com.games.monaden.control;
 
 import com.games.monaden.model.Dialog;
+import com.games.monaden.model.DialogChoice;
 import com.games.monaden.model.Inventory;
+import com.games.monaden.model.KeyItem;
 import com.games.monaden.view.Render;
 import javafx.scene.input.KeyCode;
 
@@ -41,12 +43,12 @@ public class DialogController {
                     return true;
                 }
                 else {
-                    currentDialog = currentDialog.makeAChoice(Render.getInstance().getDialog().getSelected(), inventory);
-                    if (currentDialog.getDialogText().equals("")) {
+                    Dialog temp = currentDialog.makeAChoice(Render.getInstance().getDialog().getSelected(), inventory);
+                    if (temp.getDialogText().equals("")) {
                         Render.getInstance().getDialog().hideDialog();
                         return true;
                     } else {
-                        Render.getInstance().getDialog().newDialog(currentDialog, inventory);
+                        startDialog(temp);
                     }
                 }
             }
@@ -56,8 +58,12 @@ public class DialogController {
 
     public void startDialog(Dialog dialog) {
         currentDialog = dialog;
+        if(dialog.getItem() != null){
+            inventory.addItem(dialog.getItem());
+        }
         selection = 0;
         System.out.println("Creating new dialog: " + dialog.getDialogText());
         Render.getInstance().getDialog().newDialog(dialog, inventory);
+        System.out.println(inventory.toString());
     }
 }

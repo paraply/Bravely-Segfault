@@ -1,5 +1,7 @@
 package com.games.monaden.model;
 
+import java.util.Comparator;
+
 /**
  * Created by Anton on 2016-05-24.
  */
