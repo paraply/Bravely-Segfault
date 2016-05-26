@@ -107,7 +107,6 @@ public class DialogParser extends DefaultHandler{
             DialogChoice child = new DialogChoice(new Dialog(), choiceText);
             for(String s : requirements){
                 child.addRequirement(s);
-                System.out.println("requirement!" + s);
             }
             currentDialog.addChoice(child);
             parents.push(currentDialog);
@@ -151,7 +150,6 @@ public class DialogParser extends DefaultHandler{
                 break;
             case "additem":
                 item = new KeyItem(itemName, itemDescription);
-                System.out.println("Parsed an item: " + itemName + " " + itemDescription);
                 break;
         }
     }
