@@ -10,7 +10,7 @@ import javafx.scene.input.KeyCode;
  */
 public class DialogController {
     private Dialog currentDialog;
-    private Inventory inventory;
+    private Inventory inventory = new Inventory();
     private int selection = 0;
 
     public void setCurrentDialog(Dialog d){currentDialog = d;}

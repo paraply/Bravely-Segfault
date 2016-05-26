@@ -7,9 +7,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.io.File;
-import java.util.LinkedList;
-import java.util.Stack;
-import java.util.StringJoiner;
+import java.util.*;
 
 /**
  * Created by Philip on 2016/05/17.
@@ -20,6 +18,7 @@ public class DialogParser extends DefaultHandler{
     private boolean bText;
     private boolean bResponse;
     private boolean bChoice;
+    private boolean bRequirement;
     private boolean bSubDialog;
     private boolean bAvatar;
 
@@ -32,6 +31,7 @@ public class DialogParser extends DefaultHandler{
 
     private Stack<Dialog> parents = new Stack<>();
     private String choiceText;
+    private List<String> requirements = new ArrayList<>();
 
     @Override
     public void startElement (String uri, String localName, String qName,
@@ -55,6 +55,9 @@ public class DialogParser extends DefaultHandler{
                 break;
             case "subdialog":
                 bSubDialog = true;
+                break;
+            case "keyitem":
+                bRequirement = true;
                 break;
         }
     }
@@ -91,11 +94,19 @@ public class DialogParser extends DefaultHandler{
             }
 
             DialogChoice child = new DialogChoice(new Dialog(), choiceText);
+            for(String s : requirements){
+                child.addRequirement(s);
+                System.out.println("requirement!" + s);
+            }
             currentDialog.addChoice(child);
             parents.push(currentDialog);
             currentDialog = child.getDialog();
+            requirements.clear();
 
             bSubDialog = false;
+        } else if(bRequirement){
+            requirements.add(new String(ch, start, length));
+            bRequirement = false;
         }
     }
 
@@ -129,5 +140,6 @@ public class DialogParser extends DefaultHandler{
         currentDialog = null;
         parents = new Stack<>();
         choiceText = null;
+        requirements.clear();
     }
 }
