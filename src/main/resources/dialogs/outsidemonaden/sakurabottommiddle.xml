@@ -4,7 +4,8 @@
 			<itemName>tree</itemName>
 			<description>ett vackert körsbärsträd</description>
 		</addItem>
-        <text>Vilket fint körsbärsträd. Jag tror jag tar med det. 
+        <image>player.png</image>
+        <text>*YOU*: Vilket fint körsbärsträd. Jag tror jag tar med det.
 *Du fick ett körsbärsträd*</text>
     </dialog>
 </class>

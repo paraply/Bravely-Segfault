@@ -36,8 +36,56 @@
         <solidness>non-solid</solidness>
     </tile>
 
+    <!--stairs right-->
+    <tile id="020">
+        <name>right stairs. wall part</name>
+        <graphics>floor/stairs/right0.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="021">
+        <name>right stairs. up part</name>
+        <graphics>floor/stairs/right1.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="022">
+        <name>right stairs. down part</name>
+        <graphics>floor/stairs/right2.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
 
-<!-- WALLS -->
+    <!--stairs left-->
+    <tile id="025">
+        <name>left stairs. wall part</name>
+        <graphics>floor/stairs/left0.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="026">
+        <name>right stairs. up part</name>
+        <graphics>floor/stairs/left1.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="027">
+        <name>right stairs. down part</name>
+        <graphics>floor/stairs/left2.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+
+    <!--stairs stone-->
+    <tile id="030">
+        <name>stone stairs. top part</name>
+        <graphics>floor/stairs/stone1.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="031">
+        <name>stone stairs. bottom part</name>
+        <graphics>floor/stairs/stone2.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+
+
+
+
+    <!-- WALLS -->
     <tile id="600">
         <name>Brick wall</name>
         <graphics>wall/brickwall.png</graphics>
@@ -160,10 +208,77 @@
         <solidness>solid</solidness>
     </tile>
     <tile id="645">
-        <name>beige wall right corner down</name>
+        <name>beige wall left corner down</name>
         <graphics>wall/beige/4.png</graphics>
         <solidness>solid</solidness>
     </tile>
+
+    <!--STONE WALL-->
+    <tile id="650">
+        <name>stone wall up</name>
+        <graphics>wall/stone/2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="651">
+        <name>stone wall down</name>
+        <graphics>wall/stone/5.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="652">
+        <name>stone wall right corner up</name>
+        <graphics>wall/stone/3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="653">
+        <name>stone wall right corner down</name>
+        <graphics>wall/stone/6.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="654">
+        <name>stone wall left corner up</name>
+        <graphics>wall/stone/1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="655">
+        <name>stone wall left corner down</name>
+        <graphics>wall/stone/4.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+
+
+    <!-- GLASS DOOR-->
+    <tile id="700">
+        <name>glass door top left</name>
+        <graphics>glassdoor/1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="701">
+        <name>glass door top right</name>
+        <graphics>glassdoor/2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="702">
+        <name>glass door bottom left</name>
+        <graphics>glassdoor/3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="703">
+        <name>glass door bottom right</name>
+        <graphics>glassdoor/4.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="708">
+        <name>glass door bottom left OPEN</name>
+        <graphics>glassdoor/3.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+
+    <tile id="709">
+        <name>glass door bottom right OPEN</name>
+        <graphics>glassdoor/4.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+
 
 
 

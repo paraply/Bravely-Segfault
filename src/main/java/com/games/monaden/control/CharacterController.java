@@ -15,9 +15,11 @@ public class CharacterController extends Observable {
 
     private Character player;
     private AudioController audioController;
+    private World.MovementDirection newDirection;
 
     public CharacterController() {
-        player = new Character(new Point(10,10), "characters/player.png", 32,32);
+        player = new Character(new Point(12,5), "characters/player.png", 32,32);
+        player.setDirection(World.MovementDirection.LEFT);
         Render.getInstance().setPlayerCharacter(player);
         audioController = new AudioController();
     }
@@ -37,27 +39,26 @@ public class CharacterController extends Observable {
         switch (moveReq) {
             case UP:
                 dir = World.MovementDirection.UP;
-//                System.out.println("MOVE UP");
                 break;
             case DOWN:
                 dir = World.MovementDirection.DOWN;
-//                System.out.println("MOVE DOWN");
                 break;
             case LEFT:
                 dir = World.MovementDirection.LEFT;
-//                System.out.println("MOVE LEFT");
                 break;
             case RIGHT:
                 dir = World.MovementDirection.RIGHT;
-//                System.out.println("MOVE RIGHT");
                 break;
         }
-//        player.setPosition(world.checkMovement(player.getPosition(), dir));
         Point pointMovedTo = getPoint(player.getPosition(), dir);
         if (!tileIsOccupied(pointMovedTo, world)) {
             pointMovedTo = transitionIfPossible(world, pointMovedTo);
             player.setPosition(pointMovedTo);
             audioController.playSound("step"); // *** causes lots of tests for this class ***.
+            if (newDirection != null){
+                dir = newDirection;
+                newDirection = null;
+            }
         }
         player.setDirection(dir);
     }
@@ -88,9 +89,13 @@ public class CharacterController extends Observable {
     private Point transitionIfPossible (World world, Point point) {
         for (Transition t : world.getTransitions()) {
             if (t.pos.equals(point)) {
+                if (t.direction != null){
+                    newDirection = t.direction;
+                }
                 String newLevel = t.newLevel;
                 setChanged();
                 notifyObservers(newLevel);
+
                 return t.newPos;
             }
         }
@@ -116,7 +121,6 @@ public class CharacterController extends Observable {
     public Dialog handleInteractions(KeyCode funcReq, World world){
         switch (funcReq) {
             case ESCAPE:
-                System.out.println("ESCAPE");
                 System.exit(0);
                 break;
             case SPACE:

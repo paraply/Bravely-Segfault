@@ -46,8 +46,6 @@ public class RenderDialog {
                 ImageView imageView = new ImageView();
                 imageView.setImage(new Image("avatars/" + dialogObject.getImageFile().toString()));
                 dialog.getChildren().add(imageView);
-            }else{
-                System.out.println("No dialog picture");
             }
 
             labelBox = new VBox();
@@ -58,11 +56,11 @@ public class RenderDialog {
             question.setWrapText(true);
             labelBox.getChildren().add(question);
 
-            if (dialogObject.getChoiceCount(inventory) != 0) {
-                answer = new Label[dialogObject.getChoiceCount(inventory)];
+            if (dialogObject.getChoiceTextCount(inventory) != 0) {
+                answer = new Label[dialogObject.getChoiceTextCount(inventory)];
 
-                for (int i = 0; i < dialogObject.getChoiceCount(inventory); i++) {
-                    System.out.println("CHOICE " + i + " " + dialogObject.getChoiceCount(inventory));
+                for (int i = 0; i < dialogObject.getChoiceTextCount(inventory); i++) {
+                    System.out.println("CHOICE " + i + " " + dialogObject.getChoiceTextCount(inventory));
                     Label l = new Label();
                     l.setText(dialogObject.getChoiceText(i));
                     l.getStyleClass().add("dialog-choice");
@@ -96,22 +94,17 @@ public class RenderDialog {
     }
 
     public void select(int answerIndex){
-        System.out.println("SELCT: " + answerIndex);
+
         if (dialogFail){
             return;
         }
         if (selected != -1){
-            System.out.println("Previously selected: " + selected);
             answer[selected].getStyleClass().remove("dialog-choice-selected"); // Remove old selection
             answer[selected].setText(dialogObject.getChoiceText(selected)) ;
         }
         selected = answerIndex;
         answer[selected].getStyleClass().add("dialog-choice-selected");
         answer[selected].setText("> " + dialogObject.getChoiceText(selected));
-    }
-
-    public void choose() {
-
     }
 
 }

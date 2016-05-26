@@ -4,7 +4,6 @@ import com.games.monaden.model.*;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.view.Render;
-import com.sun.org.apache.regexp.internal.RE;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
 
@@ -44,7 +43,7 @@ public class GameLoop extends AnimationTimer implements Observer {
     public void initializeGame(){
         tileMap = new TileLoader().loadTiles();
         world = new World();
-        setLevel("outsidemonaden.xml");
+        setLevel("ea.xml");
         Render.getInstance().setWorld(world);
         audioController = new AudioController();
         audioController.playMusic(0);
@@ -123,7 +122,6 @@ public class GameLoop extends AnimationTimer implements Observer {
             KeyCode funcReq = userInput.getLatestFunctionKey();
 
             if (funcReq != null) {
-                System.out.println(funcReq);
                 Dialog dialog = playerCharacter.handleInteractions(funcReq, world);
                 if (dialog != null) {
                     startDialog(dialog);

@@ -30,6 +30,16 @@ public class Dialog {
         return count;
     }
 
+    public int getChoiceTextCount(Inventory inventory){
+        int count = 0;
+        for(DialogChoice dc : choices){
+            if (dc.reqSatisfied(inventory) && !dc.getChoiceText().equals("")){
+                count++;
+            }
+        }
+        return count;
+    }
+
     /**
      * Constructor for when there is no text yet. Text is to be added later.
      */
@@ -91,7 +101,7 @@ public class Dialog {
     }
     
     public void setDialogText(String text) {
-        this.dialogText = text;
+        this.dialogText = text.replace("*YOU*", World.PLAYER_NAME);
     }
 
     public void setImageFile (File file) {
