@@ -1,13 +1,9 @@
 package com.games.monaden.control;
 
-import com.games.monaden.model.Dialog;
-import com.games.monaden.model.Point;
-import com.games.monaden.model.Tile;
-import com.games.monaden.model.World;
+import com.games.monaden.model.*;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.view.Render;
-import com.sun.org.apache.regexp.internal.RE;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
 
@@ -126,7 +122,6 @@ public class GameLoop extends AnimationTimer implements Observer {
             KeyCode funcReq = userInput.getLatestFunctionKey();
 
             if (funcReq != null) {
-                System.out.println(funcReq);
                 Dialog dialog = playerCharacter.handleInteractions(funcReq, world);
                 if (dialog != null) {
                     startDialog(dialog);
@@ -160,9 +155,7 @@ public class GameLoop extends AnimationTimer implements Observer {
     }
 
     private void startDialog(Dialog dialog) {
-        dialogController.setCurrentDialog(dialog);
         inputState = InputState.DIALOG;
-//        System.out.println("Creating new dialog: " + dialog.getDialogText());
-        Render.getInstance().getDialog().newDialog(dialog);
+        dialogController.startDialog(dialog);
     }
 }

@@ -39,22 +39,17 @@ public class CharacterController extends Observable {
         switch (moveReq) {
             case UP:
                 dir = World.MovementDirection.UP;
-//                System.out.println("MOVE UP");
                 break;
             case DOWN:
                 dir = World.MovementDirection.DOWN;
-//                System.out.println("MOVE DOWN");
                 break;
             case LEFT:
                 dir = World.MovementDirection.LEFT;
-//                System.out.println("MOVE LEFT");
                 break;
             case RIGHT:
                 dir = World.MovementDirection.RIGHT;
-//                System.out.println("MOVE RIGHT");
                 break;
         }
-//        player.setPosition(world.checkMovement(player.getPosition(), dir));
         Point pointMovedTo = getPoint(player.getPosition(), dir);
         if (!tileIsOccupied(pointMovedTo, world)) {
             pointMovedTo = transitionIfPossible(world, pointMovedTo);
@@ -126,7 +121,6 @@ public class CharacterController extends Observable {
     public Dialog handleInteractions(KeyCode funcReq, World world){
         switch (funcReq) {
             case ESCAPE:
-                System.out.println("ESCAPE");
                 System.exit(0);
                 break;
             case SPACE:
