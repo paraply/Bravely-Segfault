@@ -1,6 +1,7 @@
 package com.games.monaden.view;
 
 import com.games.monaden.model.Dialog;
+import com.games.monaden.model.Inventory;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -31,7 +32,7 @@ public class RenderDialog {
         }
     }
 
-    public void newDialog(Dialog dialogObject){
+    public void newDialog(Dialog dialogObject, Inventory inventory){
         if (dialog == null || dialogObject == null){
             return;
         }
@@ -55,10 +56,11 @@ public class RenderDialog {
             question.setWrapText(true);
             labelBox.getChildren().add(question);
 
-            if (dialogObject.getChoiceTextCount() != 0) {
-                answer = new Label[dialogObject.getChoiceTextCount()];
+            if (dialogObject.getChoiceTextCount(inventory) != 0) {
+                answer = new Label[dialogObject.getChoiceTextCount(inventory)];
 
-                for (int i = 0; i < dialogObject.getChoiceTextCount(); i++) {
+                for (int i = 0; i < dialogObject.getChoiceTextCount(inventory); i++) {
+                    System.out.println("CHOICE " + i + " " + dialogObject.getChoiceTextCount(inventory));
                     Label l = new Label();
                     l.setText(dialogObject.getChoiceText(i));
                     l.getStyleClass().add("dialog-choice");
@@ -87,31 +89,12 @@ public class RenderDialog {
         dialog.setVisible(false);
     }
 
-    public void selectPreviousAnswer(){
-        if (dialogObject == null){
-            System.err.println("selectPreviousAnswer: dialogObject == null");
-            return;
-        }
-        if (selected > 0){
-            select(selected-1);
-        }
-    }
-
-    public void selectNextAnswer(){
-        if (dialogObject == null){
-            System.err.println("selectNextAnswer: dialogObject == null");
-            return;
-        }
-        if (selected < dialogObject.getChoiceTextCount() - 1){
-            select(selected+1);
-        }
-    }
-
     public int getSelected(){
         return selected;
     }
 
-    private void select(int answerIndex){
+    public void select(int answerIndex){
+
         if (dialogFail){
             return;
         }

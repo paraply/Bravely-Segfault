@@ -11,6 +11,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Stefan
@@ -46,39 +48,39 @@ public class DialogTest {
 
         
         //Reading in choices
-        frontDoor.readInChoices(goToHall, hall); // hall in index 0
+        frontDoor.addChoice(new DialogChoice(hall, goToHall)); // hall in index 0
 
-        hall.readInChoices(goToKitchen, kitchen);// kitchen in index 0
-        hall.readInChoices(goToBedRoom, bedRoom);// bedRoom in index 1
+        hall.addChoice(new DialogChoice(kitchen, goToKitchen));// kitchen in index 0
+        hall.addChoice(new DialogChoice(bedRoom, goToBedRoom));// bedRoom in index 1
 
         
     }
         
     @Test
     public void testMovingToHall(){
-        Dialog firstChoice = frontDoor.makeAChoice(0);
+        Dialog firstChoice = frontDoor.makeAChoice(0, new Inventory());
         assertTrue(firstChoice.getDialogText().equals(hall.getDialogText()));
     }
     
     @Test
     public void testMovingToKitchen(){
-        Dialog firstChoice = frontDoor.makeAChoice(0);
-        Dialog secondChoice = firstChoice.makeAChoice(0);
+        Dialog firstChoice = frontDoor.makeAChoice(0, new Inventory());
+        Dialog secondChoice = firstChoice.makeAChoice(0, new Inventory());
         assertTrue(secondChoice.getDialogText().equals(kitchen.getDialogText()));
     }
 
     
     @Test
     public void testMovingToBedRoom(){
-        Dialog firstChoice = frontDoor.makeAChoice(0);
-        Dialog secondChoice = firstChoice.makeAChoice(1);
+        Dialog firstChoice = frontDoor.makeAChoice(0, new Inventory());
+        Dialog secondChoice = firstChoice.makeAChoice(1, new Inventory());
         assertTrue(secondChoice.getDialogText().equals(bedRoom.getDialogText()));
     }
     
     
     @Test
     public void testChangeValues(){
-        Dialog firstChoice = frontDoor.makeAChoice(0);
+        Dialog firstChoice = frontDoor.makeAChoice(0, new Inventory());
         String text = firstChoice.getDialogText();
         text = text + " [This have changed!]";
         assertTrue(firstChoice.getDialogText().equals("This is the hall"));
