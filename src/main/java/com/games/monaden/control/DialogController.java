@@ -16,13 +16,13 @@ public class DialogController {
     public void setCurrentDialog(Dialog d){currentDialog = d;}
 
     public boolean handleMovement(KeyCode moveReq){
-        if (moveReq != null && currentDialog.getChoiceCount() != 0) {
+        if (moveReq != null && currentDialog.getChoiceCount(inventory) != 0) {
             if(moveReq == KeyCode.UP){
                 Render.getInstance().getDialog().selectPreviousAnswer();
                 return true;
             }
             else if(moveReq == KeyCode.DOWN) {
-                Render.getInstance().getDialog().selectNextAnswer();
+                Render.getInstance().getDialog().selectNextAnswer(inventory);
                 return true;
             }
         }
@@ -34,7 +34,7 @@ public class DialogController {
     public boolean handleSpecial(KeyCode funcReq){
         if (funcReq != null) {
             if(funcReq == KeyCode.SPACE) {
-                if(currentDialog.getChoiceCount() == 0){
+                if(currentDialog.getChoiceCount(inventory) == 0){
                     Render.getInstance().getDialog().hideDialog();
                     return true;
                 }
@@ -44,11 +44,17 @@ public class DialogController {
                         Render.getInstance().getDialog().hideDialog();
                         return true;
                     } else {
-                        Render.getInstance().getDialog().newDialog(currentDialog);
+                        Render.getInstance().getDialog().newDialog(currentDialog, inventory);
                     }
                 }
             }
         }
         return false;
+    }
+
+    public void startDialog(Dialog dialog) {
+        currentDialog = dialog;
+        System.out.println("Creating new dialog: " + dialog.getDialogText());
+        Render.getInstance().getDialog().newDialog(dialog, inventory);
     }
 }

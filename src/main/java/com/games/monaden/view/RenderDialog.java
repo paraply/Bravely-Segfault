@@ -1,6 +1,7 @@
 package com.games.monaden.view;
 
 import com.games.monaden.model.Dialog;
+import com.games.monaden.model.Inventory;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -31,7 +32,7 @@ public class RenderDialog {
         }
     }
 
-    public void newDialog(Dialog dialogObject){
+    public void newDialog(Dialog dialogObject, Inventory inventory){
         if (dialog == null || dialogObject == null){
             return;
         }
@@ -57,11 +58,11 @@ public class RenderDialog {
             question.setWrapText(true);
             labelBox.getChildren().add(question);
 
-            if (dialogObject.getChoiceCount() != 0) {
-                answer = new Label[dialogObject.getChoiceCount()];
+            if (dialogObject.getChoiceCount(inventory) != 0) {
+                answer = new Label[dialogObject.getChoiceCount(inventory)];
 
-                for (int i = 0; i < dialogObject.getChoiceCount(); i++) {
-                    System.out.println("CHOICE " + i + " " + dialogObject.getChoiceCount());
+                for (int i = 0; i < dialogObject.getChoiceCount(inventory); i++) {
+                    System.out.println("CHOICE " + i + " " + dialogObject.getChoiceCount(inventory));
                     Label l = new Label();
                     l.setText(dialogObject.getChoiceText(i));
                     l.getStyleClass().add("dialog-choice");
@@ -101,12 +102,12 @@ public class RenderDialog {
         }
     }
 
-    public void selectNextAnswer(){
+    public void selectNextAnswer(Inventory inventory){
         if (dialogObject == null){
             System.err.println("selectNextAnswer: dialogObject == null");
             return;
         }
-        if (selected < dialogObject.getChoiceCount() - 1){
+        if (selected < dialogObject.getChoiceCount(inventory) - 1){
             select(selected+1);
         }
     }

@@ -19,7 +19,15 @@ public class Dialog {
     private final List<DialogChoice> choices;
     private File imageFile;
 
-    public int getChoiceCount(){return choices.size();}
+    public int getChoiceCount(Inventory inventory){
+        int count = 0;
+        for(DialogChoice dc : choices){
+            if (dc.reqSatisfied(inventory)){
+                count++;
+            }
+        }
+        return count;
+    }
 
     /**
      * Constructor for when there is no text yet. Text is to be added later.
@@ -76,7 +84,7 @@ public class Dialog {
     
     public String toString(){
         String result = getDialogText();
-        for(int i = 0; i < getChoiceCount(); i++){
+        for(int i = 0; i < choices.size(); i++){
             result += "\n*" + getChoiceText(i);
         }
         return result;

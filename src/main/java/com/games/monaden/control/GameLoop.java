@@ -157,9 +157,7 @@ public class GameLoop extends AnimationTimer implements Observer {
     }
 
     private void startDialog(Dialog dialog) {
-        dialogController.setCurrentDialog(dialog);
         inputState = InputState.DIALOG;
-        System.out.println("Creating new dialog: " + dialog.getDialogText());
-        Render.getInstance().getDialog().newDialog(dialog);
+        dialogController.startDialog(dialog);
     }
 }
