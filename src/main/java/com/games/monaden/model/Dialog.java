@@ -16,38 +16,84 @@ import java.util.List;
 public class Dialog {
     
     private String dialogText;
-    private final List<String> text;
-    private final List<Dialog> choices;
+    private final List<DialogChoice> choices;
     private File imageFile;
+    private Item item;
 
-    public int getChoiceCount(){return choices.size();}
-    public int getChoiceTextCount(){return text.size();}
+    public int getChoiceCount(Inventory inventory){
+        int count = 0;
+        for(DialogChoice dc : choices){
+            if (dc.reqSatisfied(inventory)){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int getChoiceTextCount(Inventory inventory){
+        int count = 0;
+        for(DialogChoice dc : choices){
+            if (dc.reqSatisfied(inventory) && !dc.getChoiceText().equals("")){
+                count++;
+            }
+        }
+        return count;
+    }
 
     /**
      * Constructor for when there is no text yet. Text is to be added later.
      */
     public Dialog(){
-        this.text = new ArrayList<>();
         this.choices = new ArrayList<>();
     }
 
     public Dialog(String dialogText){
         this.dialogText = dialogText;
-        this.text = new ArrayList<>();
         this.choices = new ArrayList<>();
     }
     
-    public void readInChoices(String text, Dialog dialog){
-        this.text.add(text);
-        this.choices.add(dialog);
+    public void addChoice(DialogChoice dc){
+        this.choices.add(dc);
     }
     
-    public Dialog makeAChoice(int id){
-        return choices.get(id);
+    public Dialog makeAChoice(int id, Inventory inventory){
+        DialogChoice d = choices.get(id);
+        if(d.reqSatisfied(inventory)){
+            return d.getDialog();
+        }
+        return null;
+    }
+
+    public int selectUp(int id, Inventory inventory){
+        while(id > 0){
+            id --;
+            if(choices.get(id).reqSatisfied(inventory)) {
+                return id;
+            }
+        }
+        return id;
+    }
+
+    public int selectDown(int id, Inventory inventory){
+        while(id < choices.size() - 1){
+            id ++;
+            if(choices.get(id).reqSatisfied(inventory)) {
+                return id;
+            }
+        }
+        return id;
     }
     
     public String getChoiceText(int id){
-        return text.get(id);
+        return choices.get(id).getChoiceText();
+    }
+
+    public void setItem(Item item){
+        this.item = item;
+    }
+
+    public Item getItem(){
+        return item;
     }
 
     public String getDialogText(){
@@ -55,7 +101,7 @@ public class Dialog {
     }
     
     public void setDialogText(String text) {
-        this.dialogText = text;
+        this.dialogText = text.replace("*YOU*", World.PLAYER_NAME);
     }
 
     public void setImageFile (File file) {
@@ -70,21 +116,14 @@ public class Dialog {
      * Sets a single child for when there is no choice.
      * @param child
      */
-    public void setChild (Dialog child) {
+    public void setChild (DialogChoice child) {
         choices.add(child);
     }
 
-    /**
-     * Used to move to the next child. Meant to be used if there is only one child (no choices).
-     * @return
-     */
-    public Dialog traverse () {
-        return choices.get(0);
-    }
-
+    
     public String toString(){
         String result = getDialogText();
-        for(int i = 0; i < getChoiceCount(); i++){
+        for(int i = 0; i < choices.size(); i++){
             result += "\n*" + getChoiceText(i);
         }
         return result;

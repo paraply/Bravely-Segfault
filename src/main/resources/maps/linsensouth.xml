@@ -1,0 +1,28 @@
+<level>
+        <tilemap>
+            <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+            <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+            <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+            <line>000,000,000,000,000,907,901,901,901,901,904,000,000,000,000,000</line>
+            <line>000,000,000,000,000,903,644,700,701,642,902,000,000,000,000,000</line>
+            <line>000,000,000,000,000,903,645,708,709,643,902,000,000,000,000,000</line>
+            <line>000,000,000,000,000,903,002,002,002,002,902,000,000,000,000,000</line>
+            <line>000,000,000,000,000,911,002,002,002,002,908,000,000,000,000,000</line>
+            <line>000,000,000,000,000,001,002,002,002,002,001,000,000,000,000,000</line>
+            <line>000,000,000,000,000,001,002,002,002,002,001,000,000,000,000,000</line>
+            <line>000,000,000,000,000,900,900,900,900,900,900,000,000,000,000,000</line>
+            <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+            <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+            <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+            <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+            <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        </tilemap>
+
+    <transitions>
+        <transition><filename>outsideea.xml</filename><position>5,8</position><newPosition>9,6</newPosition></transition>
+        <transition><filename>outsideea.xml</filename><position>5,9</position><newPosition>9,7</newPosition></transition>
+
+        <transition><filename>edit1corridor.xml</filename><position>7,5</position><newPosition direction="left">13,8</newPosition></transition>
+        <transition><filename>edit1corridor.xml</filename><position>8,5</position><newPosition direction="left">13,9</newPosition></transition>
+    </transitions>
+</level>
