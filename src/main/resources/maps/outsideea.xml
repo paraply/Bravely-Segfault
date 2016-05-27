@@ -25,6 +25,9 @@
 
         <gameobject><position>7,12</position><graphics><fileName>doorstep/up.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
         <gameobject><position>8,12</position><graphics><fileName>doorstep/up.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+        <character name="Hidden door character" direction="left"><position>7,5</position><graphics><fileName>characters/transparent.png</fileName></graphics><dialogue>outsideea/door.xml</dialogue></character>
+        <character name="Hidden door character" direction="left"><position>8,5</position><graphics><fileName>characters/transparent.png</fileName></graphics><dialogue>outsideea/door.xml</dialogue></character>
     </gameobject>
 
     <transitions>

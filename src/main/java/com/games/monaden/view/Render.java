@@ -32,7 +32,7 @@ public class Render implements Observer{
     private RenderDialog renderDialog;
     private Pane startScreen;
     private Canvas canvas;
-    private static final int START_TRANSITION_FADE = 2000;
+    private static final int START_TRANSITION_FADE = 1000;
     private static final int TRANSITION_FADE = 200;
     private boolean inTransition;
     private int currentTransitionTime;
