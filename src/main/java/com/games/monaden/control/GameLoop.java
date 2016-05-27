@@ -18,8 +18,8 @@ public class GameLoop extends AnimationTimer implements Observer {
     private int countDown = FREQUENCY;
     private double volume = 0.0;
 
-    private final static int FADE_TIME = 32;
-    private int currentFadeTime = 0;
+    private final static int STARTSCREEN_FADING = 64;
+    private int currentStartFade;
 
     private World world;
     private CharacterController playerCharacter;
@@ -31,10 +31,9 @@ public class GameLoop extends AnimationTimer implements Observer {
     @Override
     public void update(Observable o, Object arg) {
         setLevel((String)arg);
-        startFade();
     }
 
-    private enum InputState { MOVEMENT, DIALOG, STARTSCREEN, FADE}
+    private enum InputState { MOVEMENT, DIALOG, STARTSCREEN, STARTSCREEN_FADING}
     private InputState inputState = InputState.STARTSCREEN; // The first state we are in is the start screen
 
     public GameLoop () {
@@ -90,11 +89,6 @@ public class GameLoop extends AnimationTimer implements Observer {
         return tileMap.get(tileNr);
     }
 
-    private void startFade(){
-        currentFadeTime = FADE_TIME;
-        inputState = InputState.FADE;
-        Render.getInstance().overlayFade();
-    }
 
     @Override
     public void handle(long now) {
@@ -102,22 +96,26 @@ public class GameLoop extends AnimationTimer implements Observer {
             if (UserInput.getInstance().getLatestFunctionKey() == null){
                 return;
             }else{
-                startFade();
+                currentStartFade = STARTSCREEN_FADING;
+                inputState = InputState.STARTSCREEN_FADING;
+                Render.getInstance().startscreenFade();
+
             }
         }
 
+
+
+        if (inputState == InputState.STARTSCREEN_FADING){
+            currentStartFade--;
+            if (currentStartFade == 0){
+                Render.getInstance().hideStartScreen();
+                inputState = InputState.MOVEMENT;
+                return;
+            }
+
+        }
 
         Render.getInstance().redraw();
-        if (inputState == InputState.FADE){
-
-            currentFadeTime--;
-            if (currentFadeTime == 0){
-                Render.getInstance().hideOverlay();
-                inputState = InputState.MOVEMENT;
-                Render.getInstance().redraw();
-            }
-            return;
-        }
 
         if (countDown > 0){  // used to add a delay (better than sleep) to user movement
             countDown--;

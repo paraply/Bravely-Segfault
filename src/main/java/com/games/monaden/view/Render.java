@@ -3,6 +3,7 @@ package com.games.monaden.view;
 import com.games.monaden.model.World;
 import com.games.monaden.model.gameObjects.GameObject;
 import javafx.animation.FadeTransition;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -30,7 +31,27 @@ public class Render implements Observer{
     private List<RenderObject> objects = new ArrayList<>();
     private List<RenderObject> interactables = new ArrayList<>();
     private RenderDialog renderDialog;
-    private Pane overlay;
+    private Pane startScreen;
+    private Canvas canvas;
+    private static final  int TRANSITION_FADE = 1000;
+
+
+    public void setCanvas(Canvas canvas){
+        this.canvas = canvas;
+    }
+
+    public void startscreenFade(){
+        startScreen.setVisible(true);
+        FadeTransition ft = new FadeTransition(Duration.millis(2000));
+        ft.setFromValue(1.0);
+        ft.setToValue(0.1);
+        ft.setNode(startScreen);
+        ft.play();
+    }
+
+    public void hideStartScreen(){
+        startScreen.setVisible(false);
+    }
 
 
     // graphics context = main-canvas context
@@ -71,35 +92,10 @@ public class Render implements Observer{
         return render;
     }
 
-    public void hideOverlay(){
-        if (overlay == null){
-            System.err.println("Render : hideOverlay got null value");
-            return;
-        }
-        overlay.setVisible(false);
-        overlay.getChildren().clear();
-        Rectangle r = new Rectangle();
-        r.setX(0);
-        r.setY(0);
-        r.setWidth(512);
-        r.setHeight(512);
-        overlay.getChildren().add(r);
-        overlay.setOpacity(1);
+    public void setStartScreen(Pane startScreen){
+        this.startScreen = startScreen;
     }
 
-    public void setOverlay(Pane overlay){
-        this.overlay = overlay;
-    }
-
-
-    public void overlayFade(){
-        overlay.setVisible(true);
-        FadeTransition ft = new FadeTransition(Duration.millis(500));
-        ft.setFromValue(1.0);
-        ft.setToValue(0.0);
-        ft.setNode(overlay);
-        ft.play();
-    }
 
 
 //    This is called by the game loop continuously
@@ -148,12 +144,23 @@ public class Render implements Observer{
      *  Delete all objects and create new when we transition to a new world
      */
     private void transition(){
+        System.out.println("TRANSITION");
+        FadeTransition ft = new FadeTransition(Duration.millis(TRANSITION_FADE));
+        ft.setFromValue(1.0);
+        ft.setToValue(0.1);
+        ft.setNode(canvas);
+        ft.play();
         player.startTransition();
         objects.clear();
         interactables.clear();
         addWorldObjects();
         addInteractables();
         redraw();
+        FadeTransition ft2 = new FadeTransition(Duration.millis(TRANSITION_FADE));
+        ft2.setFromValue(0.1);
+        ft2.setToValue(1.0);
+        ft2.setNode(canvas);
+        ft2.play();
     }
 
 

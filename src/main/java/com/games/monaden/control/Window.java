@@ -24,9 +24,10 @@ public class Window implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         mainCanvas.setFocusTraversable(true); // May be necessary to get key events
         mainCanvas.setOnKeyPressed(UserInput.getInstance());
+        Render.getInstance().setCanvas(mainCanvas);
         Render.getInstance().setGraphicsContext(mainCanvas.getGraphicsContext2D()); // Get the canvas context and send it to Render
         Render.getInstance().setDialogObjects(dialogbox);
-        Render.getInstance().setOverlay(startPane);
+        Render.getInstance().setStartScreen(startPane);
     }
 
 }

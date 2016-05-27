@@ -22,6 +22,7 @@ public class RenderDialog {
     private Label[] answer;
     private int selected;
     private Dialog dialogObject;
+    private final int DIALOG_FADE_TIME = 280;
 
     private boolean dialogFail;
 
@@ -65,7 +66,7 @@ public class RenderDialog {
             }
             dialog.getChildren().add(labelBox);
             dialog.setOpacity(0);
-            FadeTransition ft = new FadeTransition(Duration.millis(400));
+            FadeTransition ft = new FadeTransition(Duration.millis(DIALOG_FADE_TIME));
             ft.setFromValue(0.0);
             ft.setToValue(1.0);
             ft.setNode(dialog);
@@ -99,7 +100,7 @@ public class RenderDialog {
             return;
         }
         selected = 0;
-        FadeTransition ft = new FadeTransition(Duration.millis(400));
+        FadeTransition ft = new FadeTransition(Duration.millis(DIALOG_FADE_TIME));
         ft.setFromValue(1.0);
         ft.setToValue(0.0);
         ft.setNode(dialog);
@@ -115,6 +116,11 @@ public class RenderDialog {
         if (dialogFail){
             return;
         }
+
+        if (answer == null){
+            return;
+        }
+
         if (selected != -1){
             answer[selected].getStyleClass().remove("dialog-choice-selected"); // Remove old selection
             answer[selected].setText(dialogObject.getChoiceText(selected)) ;
