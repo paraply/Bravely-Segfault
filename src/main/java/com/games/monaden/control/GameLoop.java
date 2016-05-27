@@ -2,6 +2,7 @@ package com.games.monaden.control;
 
 import com.games.monaden.model.*;
 import com.games.monaden.model.events.DialogEvent;
+import com.games.monaden.model.events.Event;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.view.Render;

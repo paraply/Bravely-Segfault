@@ -1,4 +1,4 @@
-package com.games.monaden.model;
+package com.games.monaden.model.events;
 
 /**
  * Created by Philip on 2016-05-24.

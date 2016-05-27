@@ -19,6 +19,7 @@ public class Dialog {
     private final List<DialogChoice> choices;
     private File imageFile;
     private Item item;
+    private Transition transition;
 
     public int getChoiceCount(Inventory inventory){
         int count = 0;
@@ -95,6 +96,10 @@ public class Dialog {
     public Item getItem(){
         return item;
     }
+
+    public Transition getTransition(){ return transition; }
+
+    public void setTransition(Transition t){ this.transition = t; }
 
     public String getDialogText(){
         return dialogText;

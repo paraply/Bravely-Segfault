@@ -7,10 +7,12 @@ import com.games.monaden.model.KeyItem;
 import com.games.monaden.view.Render;
 import javafx.scene.input.KeyCode;
 
+import java.util.Observable;
+
 /**
  * Created by Anton on 2016-05-24.
  */
-public class DialogController {
+public class DialogController extends Observable{
     private Dialog currentDialog;
     private Inventory inventory = new Inventory();
     private int selection = 0;
@@ -61,9 +63,15 @@ public class DialogController {
         if(dialog.getItem() != null){
             inventory.addItem(dialog.getItem());
         }
-        selection = 0;
-        System.out.println("Creating new dialog: " + dialog.getDialogText());
-        Render.getInstance().getDialog().newDialog(dialog, inventory);
-        System.out.println(inventory.toString());
+        if(dialog.getTransition() != null){
+            setChanged();
+            notifyObservers();
+        }
+        else {
+            selection = 0;
+            System.out.println("Creating new dialog: " + dialog.getDialogText());
+            Render.getInstance().getDialog().newDialog(dialog, inventory);
+            System.out.println(inventory.toString());
+        }
     }
 }

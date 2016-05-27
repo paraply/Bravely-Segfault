@@ -1,7 +1,6 @@
 package com.games.monaden.model.events;
 
 import com.games.monaden.model.Dialog;
-import com.games.monaden.model.Event;
 import com.games.monaden.model.Point;
 
 import java.io.File;
