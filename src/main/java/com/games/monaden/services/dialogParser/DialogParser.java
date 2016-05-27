@@ -148,10 +148,6 @@ public class DialogParser extends DefaultHandler{
     public void endElement (String uri, String localName, String qName) throws SAXException{
         switch (qName.toLowerCase()) {
             case "dialog":
-                //TODO: Create dialog object, link to parent
-                if (!parents.empty()) {
-                    currentDialog = parents.pop();
-                }
                 if(item != null){
                     currentDialog.setItem(item);
                     item = null;
@@ -159,6 +155,10 @@ public class DialogParser extends DefaultHandler{
                 if(transition != null){
                     currentDialog.setTransition(transition);
                     transition = null;
+                }
+                //TODO: Create dialog object, link to parent
+                if (!parents.empty()) {
+                    currentDialog = parents.pop();
                 }
                 break;
             case "subdialog":

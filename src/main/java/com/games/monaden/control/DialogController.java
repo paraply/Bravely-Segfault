@@ -63,6 +63,7 @@ public class DialogController extends Observable{
         if(dialog.getTransition() != null){
             setChanged();
             notifyObservers(dialog.getTransition());
+            Render.getInstance().getDialog().hideDialog();
         }
         else {
             selection = 0;
