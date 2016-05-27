@@ -7,7 +7,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -33,8 +32,10 @@ public class Render implements Observer{
     private RenderDialog renderDialog;
     private Pane startScreen;
     private Canvas canvas;
-    private static final  int TRANSITION_FADE = 1000;
-
+    private static final int START_TRANSITION_FADE = 2000;
+    private static final int TRANSITION_FADE = 200;
+    private boolean inTransition;
+    private int currentTransitionTime;
 
     public void setCanvas(Canvas canvas){
         this.canvas = canvas;
@@ -42,7 +43,7 @@ public class Render implements Observer{
 
     public void startscreenFade(){
         startScreen.setVisible(true);
-        FadeTransition ft = new FadeTransition(Duration.millis(2000));
+        FadeTransition ft = new FadeTransition(Duration.millis(START_TRANSITION_FADE));
         ft.setFromValue(1.0);
         ft.setToValue(0.1);
         ft.setNode(startScreen);
@@ -100,6 +101,14 @@ public class Render implements Observer{
 
 //    This is called by the game loop continuously
     public void redraw(){
+        if (inTransition){
+            currentTransitionTime--;
+            if (currentTransitionTime == 0){
+                stopTransition();
+            }
+            return;
+        }
+
 //        First draw the objects that should be behind the character
             objects.stream().filter(ro -> ro.zOrder() == 0).forEach(RenderObject::draw);
 //        Then draw everything you can interact with
@@ -143,8 +152,7 @@ public class Render implements Observer{
     /**
      *  Delete all objects and create new when we transition to a new world
      */
-    private void transition(){
-        System.out.println("TRANSITION");
+    private void startTransition(){
         FadeTransition ft = new FadeTransition(Duration.millis(TRANSITION_FADE));
         ft.setFromValue(1.0);
         ft.setToValue(0.1);
@@ -153,6 +161,11 @@ public class Render implements Observer{
         player.startTransition();
         objects.clear();
         interactables.clear();
+        currentTransitionTime = TRANSITION_FADE / 16;
+        inTransition = true;
+    }
+
+    public void stopTransition(){
         addWorldObjects();
         addInteractables();
         redraw();
@@ -161,6 +174,7 @@ public class Render implements Observer{
         ft2.setToValue(1.0);
         ft2.setNode(canvas);
         ft2.play();
+        inTransition = false;
     }
 
 
@@ -168,7 +182,7 @@ public class Render implements Observer{
     @Override
     public void update(Observable observable, Object arg) {
         if(observable == world) {
-            transition();
+            startTransition();
         }
     }
 }
