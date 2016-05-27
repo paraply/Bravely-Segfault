@@ -109,6 +109,10 @@ public class CharacterController extends Observable {
         return point;
     }
 
+    public void transitionEvent(Transition t){
+        player.setPosition(t.newPos);
+    }
+
     private boolean checkEvent (Point point, World world) {
         for (DialogEvent de : world.getEvents()) {
             if (point.equals(de.getPosition())) {

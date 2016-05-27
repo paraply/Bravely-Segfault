@@ -1,9 +1,6 @@
 package com.games.monaden.control;
 
-import com.games.monaden.model.Dialog;
-import com.games.monaden.model.DialogChoice;
-import com.games.monaden.model.Inventory;
-import com.games.monaden.model.KeyItem;
+import com.games.monaden.model.*;
 import com.games.monaden.view.Render;
 import javafx.scene.input.KeyCode;
 
@@ -65,7 +62,7 @@ public class DialogController extends Observable{
         }
         if(dialog.getTransition() != null){
             setChanged();
-            notifyObservers();
+            notifyObservers(dialog.getTransition());
         }
         else {
             selection = 0;

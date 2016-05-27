@@ -32,8 +32,13 @@ public class GameLoop extends AnimationTimer implements Observer {
         if (arg instanceof DialogEvent) {
             DialogEvent de = (DialogEvent)arg;
             startDialog((Dialog)de.getEventContent());
-        } else {
+        } else if (arg instanceof String) {
             setLevel((String) arg);
+        } else if (arg instanceof Transition){
+            Transition t = (Transition)arg;
+            playerCharacter.transitionEvent(t);
+            setLevel(t.newLevel);
+            inputState = InputState.MOVEMENT;
         }
     }
 
@@ -45,6 +50,7 @@ public class GameLoop extends AnimationTimer implements Observer {
         playerCharacter = new CharacterController();
         playerCharacter.addObserver(this);
         dialogController = new DialogController();
+        dialogController.addObserver(this);
     }
 
     public void initializeGame(){
