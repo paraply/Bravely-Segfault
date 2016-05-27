@@ -1,6 +1,8 @@
 package com.games.monaden.control;
 
 import com.games.monaden.model.*;
+import com.games.monaden.model.events.DialogEvent;
+import com.games.monaden.model.events.Event;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.view.Render;
@@ -27,7 +29,17 @@ public class GameLoop extends AnimationTimer implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        setLevel((String)arg);
+        if (arg instanceof DialogEvent) {
+            DialogEvent de = (DialogEvent)arg;
+            startDialog((Dialog)de.getEventContent());
+        } else if (arg instanceof String) {
+            setLevel((String) arg);
+        } else if (arg instanceof Transition){
+            Transition t = (Transition)arg;
+            playerCharacter.transitionEvent(t);
+            setLevel(t.newLevel);
+            inputState = InputState.MOVEMENT;
+        }
     }
 
     private enum InputState { MOVEMENT, DIALOG, STARTSCREEN }
@@ -38,6 +50,7 @@ public class GameLoop extends AnimationTimer implements Observer {
         playerCharacter = new CharacterController();
         playerCharacter.addObserver(this);
         dialogController = new DialogController();
+        dialogController.addObserver(this);
     }
 
     public void initializeGame(){
@@ -80,13 +93,19 @@ public class GameLoop extends AnimationTimer implements Observer {
 
         DialogLoader dialogLoader = new DialogLoader();
 
+        //Add dialog to each character
         for (Character c : interactables) {
             c.setDialog(dialogLoader.parseDialog(c.getDialogFile().getPath()));
         }
 
+        //Handle events in the level
+        List<DialogEvent> events = levelLoader.getEvents();
+        for (DialogEvent de : events) {
+            Dialog dialog = dialogLoader.parseDialog(de.getFilepath().getPath());
+            de.setEventContent(dialog);
+        }
 
-
-        world.setCurrentLevel(gameObjects, interactables, levelLoader.getTransitions());
+        world.setCurrentLevel(gameObjects, interactables, levelLoader.getTransitions(), events);
     }
 
 
@@ -95,6 +114,12 @@ public class GameLoop extends AnimationTimer implements Observer {
         return tileMap.get(tileNr);
     }
 
+    private void handleEvents (Event event) {
+        if (event instanceof DialogEvent) {
+            Dialog dialog = (Dialog)event.getEventContent();
+            startDialog(dialog);
+        }
+    }
 
     @Override
     public void handle(long now) {
