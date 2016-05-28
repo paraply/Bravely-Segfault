@@ -1,0 +1,37 @@
+<class>
+    <dialog>
+        <text>Hej alla, välkomna till Datavetenskapligt program!</text>
+        <image>philip.png</image>
+        <dialog>
+            <text>Ni kommer att få plugga hårt för att klara era studier.
+Under era första två veckor kommer ni att läsa två introduktionskurser: en i matte, en i programmering.</text>
+            <image>philip.png</image>
+            <dialog>
+                <text>Vi har även en studentorganisation som finns till för att förbättra tillvaron för alla oss studenter här på programmet, de så kallade typmagikerna.
+                </text>
+                <image>philip.png</image>
+                <dialog>
+                    <text>Tyvärr har alla utom två personer som satt i styrelsen för Typmagikerna avgått precis innan läsårsstart.
+Därför har det beslutats att en av er förstaårsstudenter ska gå med i styrelsen för att hjälpa dem med sitt arbete.
+                    </text>
+                    <image>philip.png</image>
+                    <dialog>
+                        <text>Person nummer fyra på vår lista har valts av rättvist tärningskast.
+*YOU*, du är den utvalde.</text>
+                        <image>philip.png</image>
+                        <dialog>
+                            <text>Glöm inte att gå på vår introgrillning, som startar alldeles strax! Vi ses där! Nyaaa~</text>
+                            <image>philip.png</image>
+                            <dialog>
+                                <transition>
+                                    <newPosition>5,5</newPosition>
+                                    <fileName>scene_2/ea.xml</fileName>
+                                </transition>
+                            </dialog>
+                        </dialog>
+                    </dialog>
+                </dialog>
+            </dialog>
+        </dialog>
+    </dialog>
+</class>
