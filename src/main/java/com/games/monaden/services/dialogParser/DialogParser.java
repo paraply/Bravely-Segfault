@@ -1,8 +1,6 @@
 package com.games.monaden.services.dialogParser;
 
-import com.games.monaden.model.Dialog;
-import com.games.monaden.model.DialogChoice;
-import com.games.monaden.model.KeyItem;
+import com.games.monaden.model.*;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -25,10 +23,16 @@ public class DialogParser extends DefaultHandler{
     private boolean bAvatar;
     private boolean bItemName;
     private boolean bItemDescription;
+    private boolean bFileName;
+    private boolean bNewPosition;
 
     private KeyItem item;
     private String itemName;
     private String itemDescription;
+
+    private Transition transition;
+    private String fileName;
+    private Point newPosition;
 
     private Dialog root;
     private boolean gotRoot = false;
@@ -69,6 +73,12 @@ public class DialogParser extends DefaultHandler{
                 break;
             case "description":
                 bItemDescription = true;
+                break;
+            case "filename":
+                bFileName = true;
+                break;
+            case "newposition":
+                bNewPosition = true;
                 break;
         }
     }
@@ -123,6 +133,14 @@ public class DialogParser extends DefaultHandler{
         } else if(bItemDescription){
             itemDescription = new String(ch, start, length);
             bItemDescription = false;
+        } else if(bFileName){
+            fileName = new String(ch, start, length);
+            bFileName = false;
+        } else if(bNewPosition){
+            String [] point = new String(ch, start, length).split(",");
+            newPosition = new Point(Integer.parseInt(point[0])
+                    , Integer.parseInt(point[1]));
+            bNewPosition = false;
         }
     }
 
@@ -130,13 +148,17 @@ public class DialogParser extends DefaultHandler{
     public void endElement (String uri, String localName, String qName) throws SAXException{
         switch (qName.toLowerCase()) {
             case "dialog":
-                //TODO: Create dialog object, link to parent
-                if (!parents.empty()) {
-                    currentDialog = parents.pop();
-                }
                 if(item != null){
                     currentDialog.setItem(item);
                     item = null;
+                }
+                if(transition != null){
+                    currentDialog.setTransition(transition);
+                    transition = null;
+                }
+                //TODO: Create dialog object, link to parent
+                if (!parents.empty()) {
+                    currentDialog = parents.pop();
                 }
                 break;
             case "subdialog":
@@ -150,6 +172,9 @@ public class DialogParser extends DefaultHandler{
                 break;
             case "additem":
                 item = new KeyItem(itemName, itemDescription);
+                break;
+            case "transition":
+                transition = new Transition(new Point(0,0), newPosition, fileName);
                 break;
         }
     }
@@ -167,6 +192,8 @@ public class DialogParser extends DefaultHandler{
         currentDialog = null;
         parents = new Stack<>();
         choiceText = null;
+        transition = null;
+        item = null;
         requirements.clear();
     }
 }

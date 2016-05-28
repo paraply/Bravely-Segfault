@@ -3,8 +3,21 @@
         <text>Cenny: Apple rulez</text>
         <image>cenny.png</image>
         <dialog>
+            <addItem>
+                <itemName>tree</itemName>
+                <description>ett vackert körsbärsträd</description>
+            </addItem>
             <text>*YOU*: LOL noob</text>
             <image>player.png</image>
+
+            <dialog>
+                <transition>
+                    <filename>monadenbathroom.xml</filename>
+                    <newPosition>6,7</newPosition>
+                </transition>
+                <text>Transition</text>
+            </dialog>
+
         </dialog>
     </dialog>
 </class>
