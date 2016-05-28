@@ -1,0 +1,22 @@
+<class>
+    <dialog>
+        <text>Grillning, bra sällskap.
+Konversationen flödar.
+Nu är livet bra.</text>
+        <image>astar.png</image>
+        <dialog>
+            <text>*YOU*: Pratar du bara i dikter eller?</text>
+            <image>player.png</image>
+            <dialog>
+                <text>Haiku är kärlek.
+En diktform som passar allt.
+Haiku är livet.</text>
+                <image>astar.png</image>
+                <dialog>
+                    <text>*YOU*: Jag tolkar det som ett ja.</text>
+                    <image>player.png</image>
+                </dialog>
+            </dialog>
+        </dialog>
+    </dialog>
+</class>

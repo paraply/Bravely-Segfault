@@ -1,0 +1,99 @@
+<class>
+    <dialog>
+        <text>Philip-senpai: Hej! Var det du som var utvald till ny styrelseledamot? Nyaa~</text>
+        <image>philip.png</image>
+        <dialog>
+            <text>*YOU*: Tydligen... vad är det ni vill att jag ska göra egentligen?</text>
+            <image>player.png</image>
+            <dialog>
+                <text>Philip-senpai: Jag vet inte riktigt vad styrelsen planerar faktiskt.
+Det är lite mystiskt hur alla bara hoppade av.</text>
+                <image>philip.png</image>
+                <response>
+                    <choice>Hur många är kvar i styrelsen?</choice>
+                    <subdialog>
+                        <text>Philip-senpai: Två. A-star, snubben som pratar i haikus, är ordförande. Han är lite knepig ibland, men han menar väl. Tror jag.</text>
+                        <image>philip.png</image>
+                        <dialog>
+                            <text>Philip-senpai: Du har också Matilda, som är kassör. Försök att inte hamna på hennes dåliga sida...</text>
+                            <image>philip.png</image>
+                            <response>
+                                <choice>Vilka var det som hoppade av egentligen?</choice>
+                                <subdialog>
+                                    <text>Philip-senpai: Det törs jag inte säga, tänk om jag råkar ut för något! Nyaa~</text>
+                                    <image>philip.png</image>
+                                    <dialog>
+                                        <text>*YOU*: Kan du inte ge mig en ledtråd?</text>
+                                        <image>player.png</image>
+                                        <dialog>
+                                            <text>Philip-senpai: Nej, det vore väl allt lite... knasigt...</text>
+                                            <image>philip.png</image>
+                                            <dialog>
+                                                <text>*YOU*: Okej, tack för informationen i alla fall...</text>
+                                                <image>player.png</image>
+                                            </dialog>
+                                        </dialog>
+                                    </dialog>
+                                </subdialog>
+                            </response>
+                            <response>
+                                <choice>Tack för informationen!</choice>
+                                <subdialog>
+                                    <text>Philip-senpai: Inga problem!</text>
+                                    <image>philip.png</image>
+                                </subdialog>
+                            </response>
+                        </dialog>
+                    </subdialog>
+                </response>
+                <response>
+                    <choice>Vilka var det som hoppade av egentligen?</choice>
+                    <subdialog>
+                        <text>Philip-senpai: Det törs jag inte säga, tänk om jag råkar ut för något! Nyaa~</text>
+                        <image>philip.png</image>
+                        <response>
+                            <choice>Hur många är kvar i styrelsen?</choice>
+                            <subdialog>
+                                <text>Philip-senpai: Två. A-star, snubben som pratar i haikus, är ordförande. Han är lite knepig ibland, men han menar väl. Tror jag.</text>
+                                <image>philip.png</image>
+                                <dialog>
+                                    <text>Philip-senpai: Du har också Matilda, som är kassör. Försök att inte hamna på hennes dåliga sida...</text>
+                                    <image>philip.png</image>
+                                    <dialog>
+                                        <text>*YOU*: Okej, tack för informationen i alla fall...</text>
+                                        <image>player.png</image>
+                                    </dialog>
+                                </dialog>
+                            </subdialog>
+                        </response>
+                        <response>
+                            <choice>Kan du inte ge mig en ledtråd?</choice>
+                            <subdialog>
+                                <text>Philip-senpai: Nej, det vore väl allt lite... knasigt...</text>
+                                <image>philip.png</image>
+                                <dialog>
+                                    <text>*YOU*: Okej, tack för informationen i alla fall...</text>
+                                    <image>player.png</image>
+                                </dialog>
+                            </subdialog>
+                        </response>
+                        <response>
+                            <choice>Tack för informationen!</choice>
+                            <subdialog>
+                                <text>Philip-senpai: Inga problem!</text>
+                                <image>philip.png</image>
+                            </subdialog>
+                        </response>
+                    </subdialog>
+                </response>
+                <response>
+                    <choice>Okej. Ha det bra!</choice>
+                    <subdialog>
+                        <text>Philip-senpai: Må typsignaturen välsigna dig.</text>
+                        <image>philip.png</image>
+                    </subdialog>
+                </response>
+            </dialog>
+        </dialog>
+    </dialog>
+</class>
