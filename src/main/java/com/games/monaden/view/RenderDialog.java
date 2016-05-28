@@ -86,6 +86,7 @@ public class RenderDialog {
             l.setText(dialogObject.getChoiceText(i));
             l.getStyleClass().add("dialog-choice");
             l.setPadding(new Insets(0, 0, 0, 5));
+            l.setWrapText(true);
             labelBox.getChildren().add(l);
             answer[i] = l;
         }
