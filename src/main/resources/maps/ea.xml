@@ -19,18 +19,17 @@
     </tilemap>
 
     <characters>
-        <character name="Philip" ><position>8,4</position><graphics><fileName>characters/philip.png</fileName></graphics><dialogue>ea/philip.xml</dialogue></character>
+        <character name="Philip" ><position>8,4</position><graphics><fileName>characters/philip.png</fileName></graphics><dialogue>scene_1/ea/introTrigger.xml</dialogue></character>
+        <character name="Anton" ><position>9,4</position><graphics><fileName>characters/anton.png</fileName></graphics><dialogue>scene_1/ea/astar.xml</dialogue></character>
 
-        <character name="Cenny" direction="up"><position>4,11</position><graphics><fileName>characters/cenny.png</fileName></graphics><dialogue>ea/cenny.xml</dialogue></character>
+        <character name="Axel" direction="up"><position>8,9</position><graphics><fileName>characters/axel.png</fileName></graphics><dialogue>scene_1/ea/axel.xml</dialogue></character>
+        <character name="Simon" direction="up"><position>9,9</position><graphics><fileName>characters/simon.png</fileName></graphics><dialogue>scene_1/ea/simon.xml</dialogue></character>
 
-        <character name="Axel" direction="up"><position>8,9</position><graphics><fileName>characters/axel.png</fileName></graphics><dialogue>ea/axel.xml</dialogue></character>
-        <character name="Simon" direction="up"><position>9,9</position><graphics><fileName>characters/simon.png</fileName></graphics><dialogue>ea/simon.xml</dialogue></character>
+        <character name="Almen" direction="up"><position>10,8</position><graphics><fileName>characters/almen.png</fileName></graphics><dialogue>scene_1/ea/almen.xml</dialogue></character>
+        <character name="Robert" direction="up"><position>5,9</position><graphics><fileName>characters/robert.png</fileName></graphics><dialogue>scene_1/ea/robert.xml</dialogue></character>
 
-        <character name="Almen" direction="up"><position>10,8</position><graphics><fileName>characters/almen.png</fileName></graphics><dialogue>ea/almen.xml</dialogue></character>
-        <character name="Robert" direction="up"><position>5,9</position><graphics><fileName>characters/robert.png</fileName></graphics><dialogue>ea/robert.xml</dialogue></character>
-
-        <character name="Niclas" direction="up"><position>4,9</position><graphics><fileName>characters/niclas.png</fileName></graphics><dialogue>ea/niclas.xml</dialogue></character>
-
+        <character name="Niclas" direction="up"><position>4,9</position><graphics><fileName>characters/niclas.png</fileName></graphics><dialogue>scene_1/ea/niclas.xml</dialogue></character>
+        <character name="Cenny" direction="up"><position>4,11</position><graphics><fileName>characters/cenny.png</fileName></graphics><dialogue>scene_1/ea/cenny.xml</dialogue></character>
     </characters>
 
     <transitions>

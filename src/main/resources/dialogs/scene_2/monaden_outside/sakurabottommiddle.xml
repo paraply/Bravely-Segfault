@@ -1,0 +1,13 @@
+<class>
+    <dialog>
+		<addItem>
+			<itemName>tree</itemName>
+			<description>ett vackert körsbärsträd</description>
+		</addItem>
+        <text>*YOU*: Vilket fint körsbärsträd. Jag tror jag tar med det.</text>
+        <image>player.png</image>
+        <dialog>
+            <text>Du stoppade ditt nya träd i fickan.</text>
+        </dialog>
+    </dialog>
+</class>

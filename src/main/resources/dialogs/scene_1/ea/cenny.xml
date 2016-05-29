@@ -1,0 +1,42 @@
+<class>
+    <dialog>
+        <text>Cenny: Hej.</text>
+        <image>cenny.png</image>
+        <dialog>
+            <text>*YOU*: Hej.</text>
+            <image>player.png</image>
+            <dialog>
+                <text>Cenny: Visste du att Apples produkter ger dig ett längre liv? Det är statistiskt bevisat!</text>
+                <image>cenny.png</image>
+                <response>
+                    <choice>Är du nån sorts religiös fanatiker eller?</choice>
+                    <subdialog>
+                        <text>Cenny: Vad fan säger du? Jag hatar religion.</text>
+                        <image>cenny.png</image>
+                        <dialog>
+                            <text>Cenny: Taste my sword, you bitchlord!</text>
+                            <image>cenny.png</image>
+                            <dialog>
+                                <text>Du backar snabbt undan innan han blir våldsam</text>
+                            </dialog>
+                        </dialog>
+                    </subdialog>
+                </response>
+                <response>
+                    <choice>Det visste jag inte! Har du mer intressant "fakta"?</choice>
+                    <subdialog>
+                        <text>Cenny: Swift är gudarnas språk, börja med det så fort du kan</text>
+                        <image>cenny.png</image>
+                    </subdialog>
+                </response>
+                <response>
+                    <choice>Som Steve Jobs då eller?</choice>
+                    <subdialog>
+                        <text>Cenny: ...</text>
+                        <image>cenny.png</image>
+                    </subdialog>
+                </response>
+            </dialog>
+        </dialog>
+    </dialog>
+</class>

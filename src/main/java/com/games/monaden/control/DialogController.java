@@ -42,7 +42,7 @@ public class DialogController extends Observable{
                     return true;
                 }
                 else {
-                    Dialog temp = currentDialog.makeAChoice(Render.getInstance().getDialog().getSelected(), inventory);
+                    Dialog temp = currentDialog.makeAChoice(selection, inventory);
                     if (temp.getDialogText().equals("")) {
                         Render.getInstance().getDialog().hideDialog();
                         return true;

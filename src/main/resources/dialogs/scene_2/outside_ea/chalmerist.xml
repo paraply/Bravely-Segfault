@@ -1,0 +1,20 @@
+<class>
+    <dialog>
+        <text>Chalmerist: Öh, vem fan är du? *hick*</text>
+        <image>chalmerist.png</image>
+        <response>
+            <choice>Det är jag som är döden</choice>
+            <subdialog>
+                <text>Chalmerist: Bruh, do you even?</text>
+                <image>chalmerist.png</image>
+            </subdialog>
+        </response>
+        <response>
+            <choice>Vem är jag? Levande charader</choice>
+            <subdialog>
+                <text>Chalmerist: Öh, okej. Jag ska nog gå och supa istället, sayonara.</text>
+                <image>chalmerist.png</image>
+            </subdialog>
+        </response>
+    </dialog>
+</class>

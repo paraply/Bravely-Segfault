@@ -1,0 +1,24 @@
+<class>
+        <dialog>
+            <text>Framför dig är mästergrenen</text>
+            <response>
+                <choice>git rycka</choice>
+                <subdialog>
+                    <text>Ryckte tre blad från mästergrenen</text>
+                </subdialog>
+            </response>
+            <response>
+                <choice>git förbinda</choice>
+                <subdialog>
+                    <text>Tryckte upp tre blad till mästergrenen</text>
+                </subdialog>
+            </response>
+            <response>
+                <choice>git ympa</choice>
+                <subdialog>
+                    <image>player.png</image>
+                    <text>*YOU*: Stackars träd</text>
+                </subdialog>
+            </response>
+        </dialog>
+</class>

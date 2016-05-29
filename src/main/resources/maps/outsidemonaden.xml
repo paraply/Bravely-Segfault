@@ -52,6 +52,14 @@
             </graphics>
             <dialogue>outsidemonaden/sakuratopright.xml</dialogue>
         </character>
+
+        <character name="Philip">
+            <position>12,9</position>
+            <graphis>
+                <fileName>characters/philip.png</fileName>
+            </graphis>
+            <dialogue>scene_2/monaden_outside/philip.xml</dialogue>
+        </character>
     </characters>
 
     <events>
