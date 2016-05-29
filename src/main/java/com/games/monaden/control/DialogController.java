@@ -71,7 +71,6 @@ public class DialogController extends Observable{
         }
         else {
             selection = 0;
-            System.out.println("Creating new dialog: " + dialog.getDialogText());
             Render.getInstance().getDialog().newDialog(dialog, inventory);
             System.out.println(inventory.toString());
         }
