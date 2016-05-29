@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * Created by Philip on 2016-04-26.
- * A SAXParser for Tilemaps. After parsing, the parser will create objects to get.
+ * A SAXParser for level files. After parsing, the parser will create objects to get.
  */
 public class LevelParser extends DefaultHandler {
 

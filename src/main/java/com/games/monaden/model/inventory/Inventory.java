@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  This class contains an list with Items
- *  You can get the list, add, get and remove items.
+ Class is responsible for keeping track of any items the player has in their inventory.
  */
 public class Inventory {
 

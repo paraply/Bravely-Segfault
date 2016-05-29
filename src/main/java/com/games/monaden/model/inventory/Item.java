@@ -1,12 +1,12 @@
 package com.games.monaden.model.inventory;
 
 /**
- * Item is things in the game you can either trigger effects or use in the game.
- * It contains name, description and if it a consumable och/or a KeyItem.
+ Currently only one implementation of this
+ Could be extended to have consumables and equipment if a battle system is added.
  */
 public interface Item {
 
-    public String getDescription();
+    String getDescription();
 
-    public String getName();
+    String getName();
 }

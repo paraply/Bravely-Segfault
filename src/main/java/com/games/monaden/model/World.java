@@ -8,7 +8,6 @@ import com.games.monaden.model.primitives.Transition;
 import java.util.*;
 
 /**
- * Created by Anton on 2016-04-17.
  * There should only be a single instance of this class, but it should not have a global access point.
  * For now only sending a message to the console, should be handled in a better way
  */

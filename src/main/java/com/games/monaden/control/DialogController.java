@@ -8,7 +8,8 @@ import javafx.scene.input.KeyCode;
 import java.util.Observable;
 
 /**
- * Created by Anton on 2016-05-24.
+ Class is responsible for any input concerning dialogs.
+
  */
 public class DialogController extends Observable{
     private Dialog currentDialog;
@@ -56,6 +57,8 @@ public class DialogController extends Observable{
         return false;
     }
 
+    //Should be called whenever a dialog is started (subdialogs as well)
+    //Otherwise dialog transitions and item additions will not be handled properly
     public void startDialog(Dialog dialog) {
         currentDialog = dialog;
         if(dialog.getItem() != null){

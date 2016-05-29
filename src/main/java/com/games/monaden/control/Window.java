@@ -1,7 +1,8 @@
 package com.games.monaden.control;
 
 /**
- * Created by paraply on 2016-04-13.
+ Class is entry point for the JavaFX program
+ Holds graphics windows
  */
 
 import com.games.monaden.view.Render;

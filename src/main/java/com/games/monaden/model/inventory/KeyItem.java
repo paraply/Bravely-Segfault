@@ -1,9 +1,7 @@
 package com.games.monaden.model.inventory;
 
-import com.games.monaden.model.inventory.Item;
-
 /**
- * Created by Anton on 2016-05-24.
+ A key item is an item that is unique and that can be used as a requirement for a dialog choice.
  */
 public class KeyItem implements Item {
     private final String name;

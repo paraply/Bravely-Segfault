@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 
 /**
- * Created by mike on 2016-05-19.
+ Helper class for easy loading of the tileList from the parser
  */
 public class TileLoader {
     public HashMap<Integer, Tile> loadTiles(){

@@ -5,7 +5,8 @@ import com.games.monaden.model.World;
 import com.games.monaden.model.primitives.Point;
 
 /**
- * Created by Anton on 2016-04-19.
+ Main entity class of the game, anything which exists in the world is a game object or a subclass of it.
+ Contains a lot of information, could possibly be split up further to hold graphics information in some subclass or instance variable.
  */
 public class GameObject {
     private Point position;

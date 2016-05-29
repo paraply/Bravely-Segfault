@@ -13,8 +13,8 @@ import java.io.File;
 import java.util.*;
 
 /**
- * Created by Philip on 2016/05/17.
- * TODO: Should be possible to have several items being added
+ Responsible for parsing dialog files from xml and constructing dialog objects from them.
+ TODO: Should be possible to have several items being added
  */
 public class DialogParser extends DefaultHandler{
 

@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * Created by Philip on 2016-04-21.
- * Parses
+ * Parses the tileList
  */
 public class TileParser extends DefaultHandler {
     private boolean bName = false;

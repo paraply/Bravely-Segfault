@@ -15,8 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Stefan
+ Class is a tree-structure for dialogs.
+ Dialogs without any choices still contains a choice that is empty, in order to identify when to close the dialog.
+ It also takes into account the player's current inventory, and only shows choices where the inventory satisfies their requirements.
  */
 public class Dialog {
     

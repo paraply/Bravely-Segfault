@@ -13,6 +13,10 @@ import javafx.scene.input.KeyCode;
 
 import java.util.Observable;
 
+/**
+ Class is responsible for all input that concerns the player character in the world.
+ Moves the player, checks if any interactions should be started, calls for transitions between levels when needed.
+ */
 public class CharacterController extends Observable {
 
     private Character player;
@@ -56,7 +60,7 @@ public class CharacterController extends Observable {
         if (!tileIsOccupied(pointMovedTo, world)) {
             pointMovedTo = transitionIfPossible(world, pointMovedTo);
             player.setPosition(pointMovedTo);
-            audioController.playSound("step"); // *** causes lots of tests for this class ***.
+            audioController.playSound("step"); // This causes a lot of errors from test suite.
 
             if (checkEvent(pointMovedTo, world)) {
                 System.out.println("CheckEvent true!");
@@ -110,6 +114,7 @@ public class CharacterController extends Observable {
         return point;
     }
 
+    //Called from outside this class when a transition is triggered somewhere else (for example from a dialog)
     public void transitionEvent(Transition t){
         player.setPosition(t.newPos);
     }
@@ -140,6 +145,7 @@ public class CharacterController extends Observable {
         return new Point(player.getPosition().getX(), player.getPosition().getY());
     }
 
+    //Calculates a point in the direction next to the supplied point, taking into account world bounds
     private Point getPoint (Point currentPoint, MovementDirection direction) {
         Point newPoint = currentPoint.nextTo(direction);
 

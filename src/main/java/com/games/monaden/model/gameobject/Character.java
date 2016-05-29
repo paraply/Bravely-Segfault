@@ -6,7 +6,7 @@ import com.games.monaden.model.primitives.Point;
 import java.io.File;
 
 /**
- * Created by Anton on 2016-04-19.
+ A character is a GameObject that has a name and possibly contains a dialog.
  */
 public class Character extends GameObject {
     private String name;

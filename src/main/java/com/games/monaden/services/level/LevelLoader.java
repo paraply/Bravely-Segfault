@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Philip on 2016/05/19.
+ Helper class for easy loading of levels from parser
  */
 public class LevelLoader {
 

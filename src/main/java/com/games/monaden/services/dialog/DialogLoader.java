@@ -7,7 +7,7 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.InputStream;
 
 /**
- * Created by Philip on 2016/05/19.
+ Helper class for easy loading of dialogs from the parser
  */
 public class DialogLoader {
     SAXParser parser;
