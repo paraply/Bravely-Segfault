@@ -18,8 +18,7 @@ public class GameLoop extends AnimationTimer implements Observer {
 
     public final static int FREQUENCY = 16;
     private int countDown = FREQUENCY;
-    private double volume = 0.0;
-
+    
     private World world;
     private CharacterController playerCharacter;
     private AudioController audioController;
