@@ -1,6 +1,8 @@
 package com.games.monaden.model;
 
 
+import com.games.monaden.model.inventory.Item;
+import com.games.monaden.model.inventory.KeyItem;
 import org.junit.Before;
 import org.junit.Test;
 

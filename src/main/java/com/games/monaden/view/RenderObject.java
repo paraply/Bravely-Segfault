@@ -1,14 +1,12 @@
 package com.games.monaden.view;
 
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.GameObject;
 import com.games.monaden.model.World;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 
 /**
- * Created by paraply on 2016-04-21.
- *
  * This class draws objects without animations on the screen.
  * It is a superclass to AnimatedObject that handles animations.
  *

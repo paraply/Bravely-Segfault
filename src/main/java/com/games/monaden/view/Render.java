@@ -1,7 +1,7 @@
 package com.games.monaden.view;
 
 import com.games.monaden.model.World;
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.GameObject;
 import javafx.animation.FadeTransition;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -15,7 +15,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * Created by paraply on 2016-04-19.
  * This class is the main view class that handles everything you see on the screen:
  * - Shows the start screen
  * - Draws the world

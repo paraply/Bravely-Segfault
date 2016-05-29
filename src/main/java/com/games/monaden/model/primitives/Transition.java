@@ -1,10 +1,10 @@
-package com.games.monaden.model;
+package com.games.monaden.model.primitives;
 
 public class Transition {
     public Point pos;
     public Point newPos;
     public String newLevel;
-    public World.MovementDirection direction;
+    public MovementDirection direction;
 
     public Transition(Point p, Point np, String l){
         pos = p;
@@ -12,7 +12,7 @@ public class Transition {
         newLevel = l;
     }
 
-    public Transition(Point p, Point np, String l, World.MovementDirection dir){
+    public Transition(Point p, Point np, String l, MovementDirection dir){
         pos = p;
         newPos = np;
         newLevel = l;

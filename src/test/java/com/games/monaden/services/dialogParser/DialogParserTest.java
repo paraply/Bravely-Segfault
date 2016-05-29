@@ -1,5 +1,6 @@
 package com.games.monaden.services.dialogParser;
 
+import com.games.monaden.services.dialog.DialogParser;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,8 +8,6 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import java.io.File;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by Philip on 2016-05-18.

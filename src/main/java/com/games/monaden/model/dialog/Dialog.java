@@ -3,16 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.games.monaden.model;
+package com.games.monaden.model.dialog;
+
+import com.games.monaden.model.*;
+import com.games.monaden.model.inventory.Inventory;
+import com.games.monaden.model.inventory.Item;
+import com.games.monaden.model.primitives.Transition;
 
 import java.io.File;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Stefan
+ Class is a tree-structure for dialogs.
+ Dialogs without any choices still contains a choice that is empty, in order to identify when to close the dialog.
+ It also takes into account the player's current inventory, and only shows choices where the inventory satisfies their requirements.
  */
 public class Dialog {
     
@@ -77,7 +82,7 @@ public class Dialog {
     }
 
     public int selectDown(int id, Inventory inventory){
-        while(id < choices.size() - 1){
+        while(id < getChoiceCount(inventory) - 1){
             id ++;
             if(choices.get(id).reqSatisfied(inventory)) {
                 return id;

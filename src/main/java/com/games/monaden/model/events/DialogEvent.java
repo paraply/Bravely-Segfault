@@ -1,13 +1,12 @@
 package com.games.monaden.model.events;
 
-import com.games.monaden.model.Dialog;
-import com.games.monaden.model.Point;
+import com.games.monaden.model.dialog.Dialog;
+import com.games.monaden.model.primitives.Point;
 
 import java.io.File;
 
 /**
- * Created by Philip on 2016-05-24.
- * Event for dialogs. When this event is triggered, a dialog should open.
+ Event for dialogs. When this event is triggered, a dialog should open.
  */
 public class DialogEvent implements Event{
 

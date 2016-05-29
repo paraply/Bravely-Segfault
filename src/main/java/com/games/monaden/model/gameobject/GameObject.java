@@ -1,10 +1,12 @@
-package com.games.monaden.model.gameObjects;
+package com.games.monaden.model.gameobject;
 
+import com.games.monaden.model.primitives.MovementDirection;
 import com.games.monaden.model.World;
-import com.games.monaden.model.Point;
+import com.games.monaden.model.primitives.Point;
 
 /**
- * Created by Anton on 2016-04-19.
+ Main entity class of the game, anything which exists in the world is a game object or a subclass of it.
+ Contains a lot of information, could possibly be split up further to hold graphics information in some subclass or instance variable.
  */
 public class GameObject {
     private Point position;
@@ -12,7 +14,7 @@ public class GameObject {
     private boolean solid;
     private int imageWidth, imageHeight;
     private boolean continuousAnimation;
-    private World.MovementDirection direction = World.MovementDirection.DOWN;
+    private MovementDirection direction = MovementDirection.DOWN;
     //Should contain collision
 
     private int animationFrames = 2;    //Counted from ZERO!
@@ -52,11 +54,11 @@ public class GameObject {
     }
 
 
-    public World.MovementDirection getDirection(){
+    public MovementDirection getDirection(){
         return direction;
     }
 
-    public void setDirection(World.MovementDirection direction){
+    public void setDirection(MovementDirection direction){
         this.direction = direction;
     }
 

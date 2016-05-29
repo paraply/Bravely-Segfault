@@ -1,13 +1,11 @@
 package com.games.monaden.view;
 
-import com.games.monaden.model.Point;
+import com.games.monaden.model.primitives.Point;
 import com.games.monaden.model.World;
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.GameObject;
 import javafx.scene.canvas.GraphicsContext;
 
 /**
- * Created by paraply on 2016-04-22.
- *
  * This class is a subclass to RenderObject
  * and is used to draw moving characters and animated objects.
  */

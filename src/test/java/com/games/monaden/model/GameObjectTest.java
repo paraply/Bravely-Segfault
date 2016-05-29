@@ -1,6 +1,8 @@
 package com.games.monaden.model;
 
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.GameObject;
+import com.games.monaden.model.primitives.MovementDirection;
+import com.games.monaden.model.primitives.Point;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -17,8 +19,8 @@ public class GameObjectTest {
 
     @Test
     public void testDirection(){
-        gameObject.setDirection(World.MovementDirection.RIGHT);
-        assertTrue(gameObject.getDirection() == World.MovementDirection.RIGHT);
+        gameObject.setDirection(MovementDirection.RIGHT);
+        assertTrue(gameObject.getDirection() == MovementDirection.RIGHT);
     }
 
     @Test

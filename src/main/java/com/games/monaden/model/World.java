@@ -1,13 +1,13 @@
 package com.games.monaden.model;
 
 import com.games.monaden.model.events.DialogEvent;
-import com.games.monaden.model.gameObjects.Character;
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.Character;
+import com.games.monaden.model.gameobject.GameObject;
+import com.games.monaden.model.primitives.Transition;
 
 import java.util.*;
 
 /**
- * Created by Anton on 2016-04-17.
  * There should only be a single instance of this class, but it should not have a global access point.
  * For now only sending a message to the console, should be handled in a better way
  */
@@ -51,10 +51,6 @@ public class World extends Observable{
 
         setChanged();
         notifyObservers();
-    }
-
-    public enum MovementDirection {
-        UP, DOWN, LEFT, RIGHT
     }
 
 }

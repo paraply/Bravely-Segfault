@@ -1,14 +1,13 @@
-package com.games.monaden.control;
+package com.games.monaden.services.dialog;
 
-import com.games.monaden.model.Dialog;
-import com.games.monaden.services.dialogParser.DialogParser;
+import com.games.monaden.model.dialog.Dialog;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.InputStream;
 
 /**
- * Created by Philip on 2016/05/19.
+ Helper class for easy loading of dialogs from the parser
  */
 public class DialogLoader {
     SAXParser parser;

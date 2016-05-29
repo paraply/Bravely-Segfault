@@ -1,7 +1,7 @@
 package com.games.monaden.view;
 
-import com.games.monaden.model.Dialog;
-import com.games.monaden.model.Inventory;
+import com.games.monaden.model.dialog.Dialog;
+import com.games.monaden.model.inventory.Inventory;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -12,7 +12,6 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 /**
- * Created by mike on 2016-05-16.
  * This class is used to show dialogs using a JavaFX pane and labels
  */
 public class RenderDialog {
