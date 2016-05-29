@@ -72,7 +72,7 @@ public class DialogController extends Observable{
         else {
             selection = 0;
             Render.getInstance().getDialog().newDialog(dialog, inventory);
-            System.out.println(inventory.toString());
+            if(!inventory.getItemList().isEmpty()) System.out.println(inventory.toString());
         }
     }
 }
