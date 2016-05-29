@@ -2,6 +2,7 @@ package com.games.monaden.control;
 
 import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
+import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.services.levelParser.LevelParser;
@@ -21,6 +22,7 @@ public class LevelLoader {
     private List<GameObject> gameObjects;
     private List<Character> interactables;
     private List<Transition> transitions;
+    private List<DialogEvent> events;
 
 
     SAXParser parser;
@@ -33,6 +35,7 @@ public class LevelLoader {
         interactables = new ArrayList<>();
         levelParser = new LevelParser();
         transitions = new ArrayList<>();
+        events = new ArrayList<>();
         try {
             parser = factory.newSAXParser();
         } catch (Exception e) {
@@ -63,6 +66,9 @@ public class LevelLoader {
             transitions.clear();
             transitions = levelParser.getTransitions();
 
+            events.clear();
+            events = levelParser.getEvents();
+
         } catch (Exception e) {
             System.err.println("GameLoop : Loadlevel failed to read file: " + levelName);
             e.printStackTrace();
@@ -83,5 +89,9 @@ public class LevelLoader {
 
     List<Transition> getTransitions () {
         return this.transitions;
+    }
+
+    List<DialogEvent> getEvents () {
+        return this.events;
     }
 }

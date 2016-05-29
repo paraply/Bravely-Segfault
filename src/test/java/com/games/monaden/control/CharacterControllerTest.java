@@ -4,6 +4,7 @@ import com.games.monaden.model.Dialog;
 import com.games.monaden.model.Point;
 import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
+import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import javafx.scene.input.KeyCode;
@@ -34,7 +35,8 @@ public class CharacterControllerTest {
         interactables.add(new Character(new Point(10, 10), null));
         interactables.get(0).setDialog(new Dialog("Hello there."));
         List<Transition> transitions = new ArrayList<>();
-        startWorld.setCurrentLevel(gameObjects, interactables, transitions);
+        List<DialogEvent> events = new ArrayList<>();
+        startWorld.setCurrentLevel(gameObjects, interactables, transitions, events);
     }
 
     @Before

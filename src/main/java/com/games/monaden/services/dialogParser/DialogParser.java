@@ -1,17 +1,16 @@
 package com.games.monaden.services.dialogParser;
 
-import com.games.monaden.model.Dialog;
+import com.games.monaden.model.*;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.io.File;
-import java.util.LinkedList;
-import java.util.Stack;
-import java.util.StringJoiner;
+import java.util.*;
 
 /**
  * Created by Philip on 2016/05/17.
+ * TODO: Should be possible to have several items being added
  */
 public class DialogParser extends DefaultHandler{
 
@@ -19,18 +18,30 @@ public class DialogParser extends DefaultHandler{
     private boolean bText;
     private boolean bResponse;
     private boolean bChoice;
+    private boolean bRequirement;
     private boolean bSubDialog;
     private boolean bAvatar;
+    private boolean bItemName;
+    private boolean bItemDescription;
+    private boolean bFileName;
+    private boolean bNewPosition;
+
+    private KeyItem item;
+    private String itemName;
+    private String itemDescription;
+
+    private Transition transition;
+    private String fileName;
+    private Point newPosition;
 
     private Dialog root;
     private boolean gotRoot = false;
-
-    private String condition;
 
     private Dialog currentDialog;
 
     private Stack<Dialog> parents = new Stack<>();
     private String choiceText;
+    private List<String> requirements = new ArrayList<>();
 
     @Override
     public void startElement (String uri, String localName, String qName,
@@ -47,7 +58,6 @@ public class DialogParser extends DefaultHandler{
                 break;
             case "response":
                 bResponse = true;
-                condition = attributes.getValue("condition");
                 break;
             case "choice":
                 bChoice = true;
@@ -55,28 +65,43 @@ public class DialogParser extends DefaultHandler{
             case "subdialog":
                 bSubDialog = true;
                 break;
+            case "keyitem":
+                bRequirement = true;
+                break;
+            case "itemname":
+                bItemName = true;
+                break;
+            case "description":
+                bItemDescription = true;
+                break;
+            case "filename":
+                bFileName = true;
+                break;
+            case "newposition":
+                bNewPosition = true;
+                break;
         }
     }
 
     @Override
     public void characters (char ch[], int start, int length) throws SAXException, IllegalArgumentException {
         if (bDialog) {
-            Dialog child = new Dialog();
+            DialogChoice child = new DialogChoice(new Dialog(), "");
             if (currentDialog != null) {
                 currentDialog.setChild(child);
                 parents.push(currentDialog);
             }
             if (!gotRoot) {
                 gotRoot = true;
-                root = child;
+                root = child.getDialog();
             }
-                currentDialog = child;
+                currentDialog = child.getDialog();
             bDialog = false;
         } else if (bAvatar) {
             currentDialog.setImageFile(new File(new String(ch, start, length)));
             bAvatar = false;
         } else if(bText) {
-            currentDialog.setDialogText(new String(ch, start, length));
+                currentDialog.setDialogText(new String(ch, start, length));
             bText = false;
         } else if (bResponse) {
 
@@ -89,12 +114,33 @@ public class DialogParser extends DefaultHandler{
                 throw new IllegalArgumentException("subDialog: gotRoot wtf");
             }
 
-            Dialog child = new Dialog();
-            currentDialog.readInChoices(choiceText, child);
+            DialogChoice child = new DialogChoice(new Dialog(), choiceText);
+            for(String s : requirements){
+                child.addRequirement(s);
+            }
+            currentDialog.addChoice(child);
             parents.push(currentDialog);
-            currentDialog = child;
+            currentDialog = child.getDialog();
+            requirements.clear();
 
             bSubDialog = false;
+        } else if(bRequirement){
+            requirements.add(new String(ch, start, length));
+            bRequirement = false;
+        } else if(bItemName){
+            itemName = new String(ch, start, length);
+            bItemName = false;
+        } else if(bItemDescription){
+            itemDescription = new String(ch, start, length);
+            bItemDescription = false;
+        } else if(bFileName){
+            fileName = new String(ch, start, length);
+            bFileName = false;
+        } else if(bNewPosition){
+            String [] point = new String(ch, start, length).split(",");
+            newPosition = new Point(Integer.parseInt(point[0])
+                    , Integer.parseInt(point[1]));
+            bNewPosition = false;
         }
     }
 
@@ -102,6 +148,14 @@ public class DialogParser extends DefaultHandler{
     public void endElement (String uri, String localName, String qName) throws SAXException{
         switch (qName.toLowerCase()) {
             case "dialog":
+                if(item != null){
+                    currentDialog.setItem(item);
+                    item = null;
+                }
+                if(transition != null){
+                    currentDialog.setTransition(transition);
+                    transition = null;
+                }
                 //TODO: Create dialog object, link to parent
                 if (!parents.empty()) {
                     currentDialog = parents.pop();
@@ -111,6 +165,16 @@ public class DialogParser extends DefaultHandler{
                 if (!parents.empty()) {
                     currentDialog = parents.pop();
                 }
+                if(item != null){
+                    currentDialog.setItem(item);
+                    item = null;
+                }
+                break;
+            case "additem":
+                item = new KeyItem(itemName, itemDescription);
+                break;
+            case "transition":
+                transition = new Transition(new Point(0,0), newPosition, fileName);
                 break;
         }
     }
@@ -128,5 +192,8 @@ public class DialogParser extends DefaultHandler{
         currentDialog = null;
         parents = new Stack<>();
         choiceText = null;
+        transition = null;
+        item = null;
+        requirements.clear();
     }
 }

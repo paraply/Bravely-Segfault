@@ -19,20 +19,12 @@ import static org.junit.Assert.assertTrue;
 public class InventoryTest {
 
     Inventory inventory;
-    List<Item> itemList;
     Item item;
 
     @Before
     public void init(){
-        itemList = new LinkedList<>();
-        inventory = new Inventory(itemList);
-        item = new Item("Item","This is a item");
-    }
-
-    @Test
-    public void testGetList(){
-        List<Item> givenList = inventory.getItemList();
-        assertTrue(givenList.equals(itemList) && givenList != null);
+        inventory = new Inventory();
+        item = new KeyItem("Item","This is a item");
     }
 
     @Test
@@ -53,10 +45,10 @@ public class InventoryTest {
         @Test
     public void testRemoveItem(){
         inventory.addItem(item);
-        Item newItem = new Item("new Item","This is a new item");
+        Item newItem = new KeyItem("new Item","This is a new item");
         inventory.addItem(newItem);
         boolean removed = inventory.removeItem(item);
-        assertTrue(removed == true && itemList.size() == 1 &&
-                itemList.contains(newItem) && !itemList.contains(item));
+        assertTrue(removed && inventory.getItemList().size() == 1 &&
+                inventory.containsItem(newItem.getName()) && !inventory.containsItem(item.getName()));
     }
 }

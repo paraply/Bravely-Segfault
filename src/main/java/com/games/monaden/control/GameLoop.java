@@ -1,13 +1,11 @@
 package com.games.monaden.control;
 
-import com.games.monaden.model.Dialog;
-import com.games.monaden.model.Point;
-import com.games.monaden.model.Tile;
-import com.games.monaden.model.World;
+import com.games.monaden.model.*;
+import com.games.monaden.model.events.DialogEvent;
+import com.games.monaden.model.events.Event;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 import com.games.monaden.view.Render;
-import com.sun.org.apache.regexp.internal.RE;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
 
@@ -31,7 +29,17 @@ public class GameLoop extends AnimationTimer implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        setLevel((String)arg);
+        if (arg instanceof DialogEvent) {
+            DialogEvent de = (DialogEvent)arg;
+            startDialog((Dialog)de.getEventContent());
+        } else if (arg instanceof String) {
+            setLevel((String) arg);
+        } else if (arg instanceof Transition){
+            Transition t = (Transition)arg;
+            playerCharacter.transitionEvent(t);
+            setLevel(t.newLevel);
+            inputState = InputState.MOVEMENT;
+        }
     }
 
     private enum InputState { MOVEMENT, DIALOG, STARTSCREEN }
@@ -42,12 +50,13 @@ public class GameLoop extends AnimationTimer implements Observer {
         playerCharacter = new CharacterController();
         playerCharacter.addObserver(this);
         dialogController = new DialogController();
+        dialogController.addObserver(this);
     }
 
     public void initializeGame(){
         tileMap = new TileLoader().loadTiles();
         world = new World();
-        setLevel("outsidemonaden.xml");
+        setLevel("ea.xml");
         Render.getInstance().setWorld(world);
         audioController = new AudioController();
         audioController.playMusic(0);
@@ -84,13 +93,19 @@ public class GameLoop extends AnimationTimer implements Observer {
 
         DialogLoader dialogLoader = new DialogLoader();
 
+        //Add dialog to each character
         for (Character c : interactables) {
             c.setDialog(dialogLoader.parseDialog(c.getDialogFile().getPath()));
         }
 
+        //Handle events in the level
+        List<DialogEvent> events = levelLoader.getEvents();
+        for (DialogEvent de : events) {
+            Dialog dialog = dialogLoader.parseDialog(de.getFilepath().getPath());
+            de.setEventContent(dialog);
+        }
 
-
-        world.setCurrentLevel(gameObjects, interactables, levelLoader.getTransitions());
+        world.setCurrentLevel(gameObjects, interactables, levelLoader.getTransitions(), events);
     }
 
 
@@ -99,6 +114,12 @@ public class GameLoop extends AnimationTimer implements Observer {
         return tileMap.get(tileNr);
     }
 
+    private void handleEvents (Event event) {
+        if (event instanceof DialogEvent) {
+            Dialog dialog = (Dialog)event.getEventContent();
+            startDialog(dialog);
+        }
+    }
 
     @Override
     public void handle(long now) {
@@ -126,7 +147,6 @@ public class GameLoop extends AnimationTimer implements Observer {
             KeyCode funcReq = userInput.getLatestFunctionKey();
 
             if (funcReq != null) {
-                System.out.println(funcReq);
                 Dialog dialog = playerCharacter.handleInteractions(funcReq, world);
                 if (dialog != null) {
                     startDialog(dialog);
@@ -160,9 +180,7 @@ public class GameLoop extends AnimationTimer implements Observer {
     }
 
     private void startDialog(Dialog dialog) {
-        dialogController.setCurrentDialog(dialog);
         inputState = InputState.DIALOG;
-        System.out.println("Creating new dialog: " + dialog.getDialogText());
-        Render.getInstance().getDialog().newDialog(dialog);
+        dialogController.startDialog(dialog);
     }
 }

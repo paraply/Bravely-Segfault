@@ -3,9 +3,9 @@ package com.games.monaden.services.levelParser;
 import com.games.monaden.model.Point;
 import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
+import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
-import org.xml.sax.InputSource;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -29,16 +29,18 @@ public class LevelParser extends DefaultHandler {
     private boolean bFile = false;
     private boolean bSolidness = false;
     private boolean bZOrder = false;
-    private boolean bTransition = false;
     private boolean bTransPos = false;
     private boolean bFrame = false;
     private boolean bDialogue = false;
+
 
     private int row = 0;
     private int [][] tileMap = new int [World.MAP_SIZE][World.MAP_SIZE];
     private boolean solidness = false;
     private int zOrder = 0;
     private String charName;
+    private World.MovementDirection characterDirection;
+    private World.MovementDirection transitionDirection;
     private Point position;
     private Point transPos;
     private String imageFile;
@@ -47,6 +49,7 @@ public class LevelParser extends DefaultHandler {
     private List<GameObject> gameObjects = new ArrayList<>();
     private List<Character> interactables = new ArrayList<>();
     private List<Transition> transitions = new ArrayList<>();
+    private List<DialogEvent> events = new ArrayList<>();
 
     public LevelParser() {
         super();
@@ -71,6 +74,15 @@ public class LevelParser extends DefaultHandler {
 
             case "character":
                 charName = attributes.getValue("name");
+                String charDirection = attributes.getValue("direction");
+                if (charDirection != null){
+                    switch (charDirection){
+                        case "right": characterDirection = World.MovementDirection.RIGHT; break;
+                        case "down": characterDirection = World.MovementDirection.DOWN; break;
+                        case "left": characterDirection = World.MovementDirection.LEFT; break;
+                        case "up": characterDirection = World.MovementDirection.UP; break;
+                    }
+                }
                 bCharName = true;
                 break;
 
@@ -102,11 +114,16 @@ public class LevelParser extends DefaultHandler {
                 bDialogue = true;
                 break;
 
-            case "transition":
-                bTransition = true;
-                break;
-
             case "newposition":
+                String dir = attributes.getValue("direction");
+                if (dir != null){
+                    switch (dir){
+                        case "right": transitionDirection = World.MovementDirection.RIGHT; break;
+                        case "down": transitionDirection = World.MovementDirection.DOWN; break;
+                        case "left": transitionDirection = World.MovementDirection.LEFT; break;
+                        case "up": transitionDirection = World.MovementDirection.UP; break;
+                    }
+                }
                 bTransPos = true;
                 break;
         }
@@ -136,6 +153,11 @@ public class LevelParser extends DefaultHandler {
                     bCharName = false;
                     charName = null;
                 }
+                if (characterDirection != null){
+                    character.setDirection(characterDirection);
+                    characterDirection = null;
+                }
+
                 if (dialogFile != null) {
                     character.setDialogFile(dialogFile);
                 }
@@ -143,7 +165,17 @@ public class LevelParser extends DefaultHandler {
                 zOrder = 0;
                 break;
             case "transition":
-                transitions.add(new Transition(position, transPos, imageFile));
+                if (transitionDirection == null){
+                    transitions.add(new Transition(position, transPos, imageFile));
+                }else{
+                    transitions.add(new Transition(position, transPos, imageFile, transitionDirection));
+                    transitionDirection = null;
+                }
+
+                break;
+            case "dialogevent":
+                DialogEvent de = new DialogEvent(dialogFile, position);
+                events.add(de);
                 break;
         }
     }
@@ -217,6 +249,13 @@ public class LevelParser extends DefaultHandler {
         return new ArrayList<>(this.transitions);
     }
 
+    /**
+     * Returns a copy of the transitions list
+     * @return a copy of the transitions list
+     */
+    public List<DialogEvent> getEvents() {
+        return new ArrayList<>(this.events);
+    }
 
     /**
      * Clones every row of the tilemap and returns these rows as a copy of the tilemap.
@@ -249,6 +288,13 @@ public class LevelParser extends DefaultHandler {
      */
     public void clearTransitions() {
         transitions.clear();
+    }
+
+    /**
+     * Clears the events list
+     */
+    public void clearEvents() {
+        events.clear();
     }
 
     /**

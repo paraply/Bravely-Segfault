@@ -1,0 +1,32 @@
+<level>
+    <tilemap>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,907,901,901,901,901,904,000,000,000,000,000</line>
+        <line>000,000,000,000,000,903,654,650,650,652,902,000,000,000,000,000</line>
+        <line>000,000,000,000,000,903,655,651,651,653,902,000,000,000,000,000</line>
+        <line>000,000,000,000,000,903,007,007,007,007,908,000,000,000,000,000</line>
+        <line>000,000,000,000,000,903,007,007,007,007,007,000,000,000,000,000</line>
+        <line>000,000,000,000,000,903,007,007,007,007,007,000,000,000,000,000</line>
+        <line>000,000,000,000,000,903,007,007,007,007,909,000,000,000,000,000</line>
+        <line>000,000,000,000,000,906,900,900,900,900,905,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    </tilemap>
+
+    <transitions>
+        <transition><filename>outsidemonaden.xml</filename><position>10,7</position><newPosition>1,13</newPosition></transition>
+        <transition><filename>outsidemonaden.xml</filename><position>10,8</position><newPosition>1,14</newPosition></transition>
+    </transitions>
+    <gameobjects>
+        <gameobject><position>7,5</position><graphics><fileName>garbage/1.png</fileName><frameCount>2</frameCount></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>8,5</position><graphics><fileName>garbage/2.png</fileName></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>7,6</position><graphics><fileName>garbage/3.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+        <gameobject><position>8,6</position><graphics><fileName>garbage/4.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+    </gameobjects>
+
+</level>

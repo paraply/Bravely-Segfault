@@ -1,5 +1,6 @@
 package com.games.monaden.model;
 
+import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
 
@@ -15,10 +16,12 @@ public class World extends Observable{
 
     public static final int TILE_SIZE = 32;
     public static final int MAP_SIZE = 16;
+    public static final String PLAYER_NAME = "student";
 
     private List<GameObject> objects = new ArrayList<>();
     private List<Character> interactables = new ArrayList<>();
     private List<Transition> transitions = new ArrayList<>();
+    private List<DialogEvent> events = new ArrayList<>();
 
     public List<GameObject> getObjects(){
         return objects;
@@ -27,7 +30,9 @@ public class World extends Observable{
         return interactables;
     }
     public List<Transition> getTransitions() { return transitions; }
-
+    public List<DialogEvent> getEvents() {
+        return events;
+    }
 
     // Start the game using a starting level and the tilemap that was loaded in GameLoop : initializeGame
     public World() {
@@ -38,10 +43,11 @@ public class World extends Observable{
 
     }
 
-    public void setCurrentLevel (List<GameObject> gameObjects, List<Character> interactables, List<Transition> transitions) {
+    public void setCurrentLevel (List<GameObject> gameObjects, List<Character> interactables, List<Transition> transitions, List<DialogEvent> events) {
         this.objects = gameObjects;
         this.interactables = interactables;
         this.transitions = transitions;
+        this.events = events;
 
         setChanged();
         notifyObservers();

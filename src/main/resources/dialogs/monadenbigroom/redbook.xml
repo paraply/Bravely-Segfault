@@ -1,5 +1,10 @@
 <class>
     <dialog>
-        <text>Java med Swing. Av Jan Skansholm</text>
+		<addItem>
+			<itemName>gitBook</itemName>
+			<description>Din guide till storhet</description>
+		</addItem>
+        <text>Den stora boken om git. 
+*Du fylls av beslutsamhet.*</text>
     </dialog>
 </class>

@@ -1,20 +1,20 @@
 <level>
     <tilemap>
-        <line>007,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
-        <line>007,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
-        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,006,006,006,006,006,006,006,006,006,006,006,006,006,006</line>
-        <line>007,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
-        <line>007,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
+        <line>911,655,651,651,651,651,651,651,651,651,651,651,651,651,651,651</line>
+        <line>002,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
+        <line>002,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
+        <line>910,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>911,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>007,007,007,007,007,007,007,007,007,007,007,007,007,007,007,030</line>
+        <line>007,007,007,007,007,007,007,007,007,007,007,007,007,007,007,031</line>
         <line>900,900,900,900,900,900,900,900,900,900,900,910,005,005,909,900</line>
     </tilemap>
 
@@ -43,41 +43,51 @@
             <dialogue>outsidemonaden/sakuratopright.xml</dialogue>
         </character>
 
+        <character name="Philip">
+            <position>12,9</position>
+            <graphis>
+                <fileName>characters/philip.png</fileName>
+            </graphis>
+            <dialogue>scene_2/monaden_outside/philip.xml</dialogue>
+        </character>
     </characters>
 
+    <events>
+        <dialogevent>
+            <position>9,13</position>
+            <dialogue>DialogTest.xml</dialogue>
+        </dialogevent>
+    </events>
 
     <transitions>
-        <transition>
-            <filename>monadenentrance.xml</filename>
-            <position>12,15</position>
-            <newPosition>7,3</newPosition>
-        </transition>
-        <transition>
-            <filename>monadenentrance.xml</filename>
-            <position>13,15</position>
-            <newPosition>8,3</newPosition>
-        </transition>
+        <transition><filename>monadenentrance.xml</filename><position>12,15</position><newPosition>7,3</newPosition></transition>
+        <transition><filename>monadenentrance.xml</filename><position>13,15</position><newPosition>8,3</newPosition></transition>
+
+        <transition><filename>paintingroom.xml</filename><position>0,1</position><newPosition>9,8</newPosition></transition>
+        <transition><filename>paintingroom.xml</filename><position>0,2</position><newPosition>9,9</newPosition></transition>
+
+        <transition><filename>garbageroom.xml</filename><position>0,13</position><newPosition>9,7</newPosition></transition>
+        <transition><filename>garbageroom.xml</filename><position>0,14</position><newPosition>9,8</newPosition></transition>
+
+        <transition><filename>edit6corridor.xml</filename><position>15,13</position><newPosition>2,8</newPosition></transition>
+        <transition><filename>edit6corridor.xml</filename><position>15,14</position><newPosition>2,9</newPosition></transition>
     </transitions>
 
     <!-- DOORSTEPS -->
-    <gameobject>
-        <position>12,15</position>
-        <graphics>
-            <fileName>doorstep/up.png</fileName>
-            <zOrder>0</zOrder>
-        </graphics>
-        <solidness>non-solid</solidness>
-    </gameobject>
-    <gameobject>
-        <position>13,15</position>
-        <graphics>
-            <fileName>doorstep/up.png</fileName>
-            <zOrder>0</zOrder>
-        </graphics>
-        <solidness>non-solid</solidness>
-    </gameobject>
+    <gameobject><position>12,15</position><graphics><fileName>doorstep/up.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>13,15</position><graphics><fileName>doorstep/up.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>0,1</position><graphics><fileName>doorstep/right.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>0,2</position><graphics><fileName>doorstep/right.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
 
-
+    <gameobject><position>15,4</position><graphics><fileName>fence/top.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,5</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,6</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,7</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,8</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,9</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,10</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,11</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,12</position><graphics><fileName>fence/bottom.png</fileName></graphics><solidness>solid</solidness></gameobject>
 
 
 <!-- SAKURA TREE LEFT TOP-->

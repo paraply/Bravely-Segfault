@@ -1,25 +1,31 @@
 package com.games.monaden.control;
 
-import com.games.monaden.model.Dialog;
+import com.games.monaden.model.*;
 import com.games.monaden.view.Render;
 import javafx.scene.input.KeyCode;
+
+import java.util.Observable;
 
 /**
  * Created by Anton on 2016-05-24.
  */
-public class DialogController {
+public class DialogController extends Observable{
     private Dialog currentDialog;
+    private Inventory inventory = new Inventory();
+    private int selection = 0;
 
     public void setCurrentDialog(Dialog d){currentDialog = d;}
 
     public boolean handleMovement(KeyCode moveReq){
-        if (moveReq != null && currentDialog.getChoiceCount() != 0) {
+        if (moveReq != null && currentDialog.getChoiceCount(inventory) != 0) {
             if(moveReq == KeyCode.UP){
-                Render.getInstance().getDialog().selectPreviousAnswer();
+                selection = currentDialog.selectUp(selection, inventory);
+                Render.getInstance().getDialog().select(selection);
                 return true;
             }
             else if(moveReq == KeyCode.DOWN) {
-                Render.getInstance().getDialog().selectNextAnswer();
+                selection = currentDialog.selectDown(selection, inventory);
+                Render.getInstance().getDialog().select(selection);
                 return true;
             }
         }
@@ -31,21 +37,39 @@ public class DialogController {
     public boolean handleSpecial(KeyCode funcReq){
         if (funcReq != null) {
             if(funcReq == KeyCode.SPACE) {
-                if(currentDialog.getChoiceCount() == 0){
+                if(currentDialog.getChoiceCount(inventory) == 0){
                     Render.getInstance().getDialog().hideDialog();
                     return true;
                 }
                 else {
-                    currentDialog = currentDialog.makeAChoice(Render.getInstance().getDialog().getSelected());
-                    if (currentDialog.getDialogText().equals("")) {
+                    Dialog temp = currentDialog.makeAChoice(selection, inventory);
+                    if (temp.getDialogText().equals("")) {
                         Render.getInstance().getDialog().hideDialog();
                         return true;
                     } else {
-                        Render.getInstance().getDialog().newDialog(currentDialog);
+                        startDialog(temp);
                     }
                 }
             }
         }
         return false;
+    }
+
+    public void startDialog(Dialog dialog) {
+        currentDialog = dialog;
+        if(dialog.getItem() != null){
+            inventory.addItem(dialog.getItem());
+        }
+        if(dialog.getTransition() != null){
+            setChanged();
+            notifyObservers(dialog.getTransition());
+            Render.getInstance().getDialog().hideDialog();
+        }
+        else {
+            selection = 0;
+            System.out.println("Creating new dialog: " + dialog.getDialogText());
+            Render.getInstance().getDialog().newDialog(dialog, inventory);
+            System.out.println(inventory.toString());
+        }
     }
 }

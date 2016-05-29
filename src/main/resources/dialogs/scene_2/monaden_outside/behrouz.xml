@@ -1,0 +1,34 @@
+<class>
+    <dialog>
+        <text>Behrouz Talebika-chan: Välkommen! Slå dig ner, ta lite mat, jag bjuder!</text>
+        <image>berra.png</image>
+        <dialog>
+            <text>*YOU*: Jag trodde det var Typmagikerna som bjöd?</text>
+            <image>player.png</image>
+            <dialog>
+                <text>Behrouz Talebika-chan: Ahla!</text>
+                <image>berra.png</image>
+                <dialog>
+                    <text>*YOU*: Atla?</text>
+                    <image>player.png</image>
+                    <dialog>
+                        <text>Behrouz Talebika-chan: Ahla!</text>
+                        <image>berra.png</image>
+                        <dialog>
+                            <text>*YOU*: Ahla?</text>
+                            <image>player.png</image>
+                            <dialog>
+                                <text>Behrouz Talebika-chan: Ahla!</text>
+                                <image>berra.png</image>
+                                <dialog>
+                                    <text>*YOU*: Ahla!</text>
+                                    <image>player.png</image>
+                                </dialog>
+                            </dialog>
+                        </dialog>
+                    </dialog>
+                </dialog>
+            </dialog>
+        </dialog>
+    </dialog>
+</class>
