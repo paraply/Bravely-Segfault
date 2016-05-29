@@ -1,4 +1,4 @@
-package com.games.monaden.services.levelParser;
+package com.games.monaden.services.level;
 
 import com.games.monaden.model.Point;
 import com.games.monaden.model.Transition;

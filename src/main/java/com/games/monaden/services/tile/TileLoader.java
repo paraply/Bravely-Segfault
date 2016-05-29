@@ -1,8 +1,8 @@
-package com.games.monaden.control;
+package com.games.monaden.services.tile;
 
 
 import com.games.monaden.model.Tile;
-import com.games.monaden.services.tileParser.TileParser;
+import com.games.monaden.services.tile.TileParser;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;

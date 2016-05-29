@@ -1,4 +1,4 @@
-package com.games.monaden.services.tileParser;
+package com.games.monaden.services.tile;
 
 import com.games.monaden.model.Tile;
 import org.xml.sax.Attributes;

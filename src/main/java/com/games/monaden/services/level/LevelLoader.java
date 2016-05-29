@@ -1,11 +1,10 @@
-package com.games.monaden.control;
+package com.games.monaden.services.level;
 
 import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameObjects.Character;
 import com.games.monaden.model.gameObjects.GameObject;
-import com.games.monaden.services.levelParser.LevelParser;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -75,23 +74,23 @@ public class LevelLoader {
         }
     }
 
-    int[][] getTileMap () {
+    public int[][] getTileMap () {
         return this.tileMap;
     }
 
-    List<GameObject> getGameObjects () {
+    public List<GameObject> getGameObjects () {
         return this.gameObjects;
     }
 
-    List<Character> getInteractables () {
+    public List<Character> getInteractables () {
         return this.interactables;
     }
 
-    List<Transition> getTransitions () {
+    public List<Transition> getTransitions () {
         return this.transitions;
     }
 
-    List<DialogEvent> getEvents () {
+    public List<DialogEvent> getEvents () {
         return this.events;
     }
 }

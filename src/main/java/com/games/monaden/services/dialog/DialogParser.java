@@ -1,4 +1,4 @@
-package com.games.monaden.services.dialogParser;
+package com.games.monaden.services.dialog;
 
 import com.games.monaden.model.*;
 import org.xml.sax.Attributes;

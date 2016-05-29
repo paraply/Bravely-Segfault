@@ -1,7 +1,6 @@
-package com.games.monaden.control;
+package com.games.monaden.services.dialog;
 
 import com.games.monaden.model.Dialog;
-import com.games.monaden.services.dialogParser.DialogParser;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
