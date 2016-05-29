@@ -111,8 +111,8 @@ public class AudioPlayer {
     }
 
     private void loadMusicList() {
-        musicList.add(classLoader.getResource("music/music.mp3").toExternalForm());
-        musicList.add(classLoader.getResource("music/music2.mp3").toExternalForm());
+        musicList.add(classLoader.getResource("music/song2.mp3").toExternalForm());
+        musicList.add(classLoader.getResource("music/Dogsong.mp3").toExternalForm());
 
     }
 
