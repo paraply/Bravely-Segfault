@@ -1,6 +1,6 @@
 package com.games.monaden.model;
 
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.GameObject;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

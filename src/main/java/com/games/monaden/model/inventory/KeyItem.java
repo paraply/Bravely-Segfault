@@ -1,6 +1,6 @@
-package com.games.monaden.model;
+package com.games.monaden.model.inventory;
 
-import java.util.Comparator;
+import com.games.monaden.model.inventory.Item;
 
 /**
  * Created by Anton on 2016-05-24.

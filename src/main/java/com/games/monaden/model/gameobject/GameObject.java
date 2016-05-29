@@ -1,4 +1,4 @@
-package com.games.monaden.model.gameObjects;
+package com.games.monaden.model.gameobject;
 
 import com.games.monaden.model.World;
 import com.games.monaden.model.Point;

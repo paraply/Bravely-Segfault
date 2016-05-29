@@ -1,10 +1,11 @@
 package com.games.monaden.control;
 
 import com.games.monaden.model.*;
+import com.games.monaden.model.dialog.Dialog;
 import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.events.Event;
-import com.games.monaden.model.gameObjects.Character;
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.Character;
+import com.games.monaden.model.gameobject.GameObject;
 import com.games.monaden.services.dialog.DialogLoader;
 import com.games.monaden.services.level.LevelLoader;
 import com.games.monaden.services.tile.TileLoader;

@@ -3,7 +3,7 @@ package com.games.monaden.services.levelParser;
 import com.games.monaden.model.Point;
 import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
-import com.games.monaden.model.gameObjects.Character;
+import com.games.monaden.model.gameobject.Character;
 import com.games.monaden.services.level.LevelParser;
 import org.junit.Before;
 import org.junit.Test;

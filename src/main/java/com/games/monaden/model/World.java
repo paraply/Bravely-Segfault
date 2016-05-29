@@ -1,8 +1,8 @@
 package com.games.monaden.model;
 
 import com.games.monaden.model.events.DialogEvent;
-import com.games.monaden.model.gameObjects.Character;
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.Character;
+import com.games.monaden.model.gameobject.GameObject;
 
 import java.util.*;
 

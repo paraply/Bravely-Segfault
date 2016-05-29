@@ -1,4 +1,4 @@
-package com.games.monaden.model;
+package com.games.monaden.model.inventory;
 
 import java.util.ArrayList;
 import java.util.List;

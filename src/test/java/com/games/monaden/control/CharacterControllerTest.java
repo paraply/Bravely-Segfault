@@ -1,12 +1,12 @@
 package com.games.monaden.control;
 
-import com.games.monaden.model.Dialog;
+import com.games.monaden.model.dialog.Dialog;
 import com.games.monaden.model.Point;
 import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.events.DialogEvent;
-import com.games.monaden.model.gameObjects.Character;
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.Character;
+import com.games.monaden.model.gameobject.GameObject;
 import javafx.scene.input.KeyCode;
 import org.junit.Before;
 import org.junit.BeforeClass;

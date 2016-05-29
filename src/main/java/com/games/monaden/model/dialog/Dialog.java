@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.games.monaden.model;
+package com.games.monaden.model.dialog;
+
+import com.games.monaden.model.*;
+import com.games.monaden.model.inventory.Inventory;
+import com.games.monaden.model.inventory.Item;
 
 import java.io.File;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 

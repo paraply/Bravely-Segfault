@@ -1,4 +1,4 @@
-package com.games.monaden.model;
+package com.games.monaden.model.inventory;
 
 /**
  * Item is things in the game you can either trigger effects or use in the game.

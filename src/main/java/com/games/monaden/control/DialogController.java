@@ -1,6 +1,7 @@
 package com.games.monaden.control;
 
-import com.games.monaden.model.*;
+import com.games.monaden.model.dialog.Dialog;
+import com.games.monaden.model.inventory.Inventory;
 import com.games.monaden.view.Render;
 import javafx.scene.input.KeyCode;
 

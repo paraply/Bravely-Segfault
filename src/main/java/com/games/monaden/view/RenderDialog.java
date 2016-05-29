@@ -1,7 +1,7 @@
 package com.games.monaden.view;
 
-import com.games.monaden.model.Dialog;
-import com.games.monaden.model.Inventory;
+import com.games.monaden.model.dialog.Dialog;
+import com.games.monaden.model.inventory.Inventory;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;

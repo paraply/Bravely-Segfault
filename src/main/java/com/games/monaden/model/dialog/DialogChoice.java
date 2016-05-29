@@ -1,4 +1,6 @@
-package com.games.monaden.model;
+package com.games.monaden.model.dialog;
+
+import com.games.monaden.model.inventory.Inventory;
 
 import java.util.ArrayList;
 import java.util.List;

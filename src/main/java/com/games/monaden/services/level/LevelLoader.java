@@ -3,8 +3,8 @@ package com.games.monaden.services.level;
 import com.games.monaden.model.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.events.DialogEvent;
-import com.games.monaden.model.gameObjects.Character;
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.Character;
+import com.games.monaden.model.gameobject.GameObject;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;

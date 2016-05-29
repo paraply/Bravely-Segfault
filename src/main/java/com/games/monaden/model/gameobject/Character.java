@@ -1,6 +1,6 @@
-package com.games.monaden.model.gameObjects;
+package com.games.monaden.model.gameobject;
 
-import com.games.monaden.model.Dialog;
+import com.games.monaden.model.dialog.Dialog;
 import com.games.monaden.model.Point;
 
 import java.io.File;

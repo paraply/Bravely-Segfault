@@ -1,6 +1,9 @@
 package com.games.monaden.services.dialog;
 
 import com.games.monaden.model.*;
+import com.games.monaden.model.dialog.Dialog;
+import com.games.monaden.model.dialog.DialogChoice;
+import com.games.monaden.model.inventory.KeyItem;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
