@@ -5,8 +5,6 @@
  */
 package com.games.monaden.model.primitives;
 
-import com.games.monaden.model.MovementDirection;
-
 /**
  *
  * @author Spock

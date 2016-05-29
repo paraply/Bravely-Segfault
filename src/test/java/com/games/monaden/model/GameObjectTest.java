@@ -1,6 +1,7 @@
 package com.games.monaden.model;
 
 import com.games.monaden.model.gameobject.GameObject;
+import com.games.monaden.model.primitives.MovementDirection;
 import com.games.monaden.model.primitives.Point;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,6 +1,6 @@
 package com.games.monaden.control;
 
-import com.games.monaden.model.MovementDirection;
+import com.games.monaden.model.primitives.MovementDirection;
 import com.games.monaden.model.dialog.Dialog;
 import com.games.monaden.model.primitives.Point;
 import com.games.monaden.model.primitives.Transition;

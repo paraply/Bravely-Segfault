@@ -1,6 +1,6 @@
 package com.games.monaden.services.level;
 
-import com.games.monaden.model.MovementDirection;
+import com.games.monaden.model.primitives.MovementDirection;
 import com.games.monaden.model.primitives.Point;
 import com.games.monaden.model.primitives.Transition;
 import com.games.monaden.model.World;

@@ -1,6 +1,6 @@
 package com.games.monaden.model.gameobject;
 
-import com.games.monaden.model.MovementDirection;
+import com.games.monaden.model.primitives.MovementDirection;
 import com.games.monaden.model.World;
 import com.games.monaden.model.primitives.Point;
 

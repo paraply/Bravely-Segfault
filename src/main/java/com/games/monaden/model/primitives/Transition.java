@@ -1,7 +1,5 @@
 package com.games.monaden.model.primitives;
 
-import com.games.monaden.model.MovementDirection;
-
 public class Transition {
     public Point pos;
     public Point newPos;
