@@ -82,7 +82,7 @@ public class Dialog {
     }
 
     public int selectDown(int id, Inventory inventory){
-        while(id < choices.size() - 1){
+        while(id < getChoiceCount(inventory) - 1){
             id ++;
             if(choices.get(id).reqSatisfied(inventory)) {
                 return id;
