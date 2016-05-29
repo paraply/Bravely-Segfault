@@ -1,9 +1,11 @@
 package com.games.monaden.model;
 
+import com.games.monaden.model.inventory.Inventory;
+import com.games.monaden.model.inventory.Item;
+import com.games.monaden.model.inventory.KeyItem;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;

@@ -5,6 +5,8 @@ package com.games.monaden.model;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import com.games.monaden.model.primitives.Point;
 import org.junit.Before;
 import org.junit.Test;
 

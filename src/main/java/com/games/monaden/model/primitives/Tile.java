@@ -1,4 +1,4 @@
-package com.games.monaden.model;
+package com.games.monaden.model.primitives;
 
 
 import java.io.File;

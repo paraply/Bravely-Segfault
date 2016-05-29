@@ -1,26 +1,31 @@
 package com.games.monaden.control;
 
-import com.games.monaden.model.Dialog;
-import com.games.monaden.model.Point;
-import com.games.monaden.model.Transition;
+import com.games.monaden.model.primitives.MovementDirection;
+import com.games.monaden.model.dialog.Dialog;
+import com.games.monaden.model.primitives.Point;
+import com.games.monaden.model.primitives.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.events.DialogEvent;
-import com.games.monaden.model.gameObjects.Character;
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.Character;
+import com.games.monaden.model.gameobject.GameObject;
 import com.games.monaden.view.Render;
 import javafx.scene.input.KeyCode;
 
 import java.util.Observable;
 
+/**
+ Class is responsible for all input that concerns the player character in the world.
+ Moves the player, checks if any interactions should be started, calls for transitions between levels when needed.
+ */
 public class CharacterController extends Observable {
 
     private Character player;
     private AudioController audioController;
-    private World.MovementDirection newDirection;
+    private MovementDirection newDirection;
 
     public CharacterController() {
         player = new Character(new Point(8 ,5), "characters/player.png", 32,32);
-        player.setDirection(World.MovementDirection.LEFT);
+        player.setDirection(MovementDirection.LEFT);
         Render.getInstance().setPlayerCharacter(player);
         audioController = new AudioController();
     }
@@ -36,26 +41,26 @@ public class CharacterController extends Observable {
     }
 
     public void handleMovement(KeyCode moveReq, World world) {
-        World.MovementDirection dir = World.MovementDirection.UP;
+        MovementDirection dir = MovementDirection.UP;
         switch (moveReq) {
             case UP:
-                dir = World.MovementDirection.UP;
+                dir = MovementDirection.UP;
                 break;
             case DOWN:
-                dir = World.MovementDirection.DOWN;
+                dir = MovementDirection.DOWN;
                 break;
             case LEFT:
-                dir = World.MovementDirection.LEFT;
+                dir = MovementDirection.LEFT;
                 break;
             case RIGHT:
-                dir = World.MovementDirection.RIGHT;
+                dir = MovementDirection.RIGHT;
                 break;
         }
         Point pointMovedTo = getPoint(player.getPosition(), dir);
         if (!tileIsOccupied(pointMovedTo, world)) {
             pointMovedTo = transitionIfPossible(world, pointMovedTo);
             player.setPosition(pointMovedTo);
-            audioController.playSound("step"); // *** causes lots of tests for this class ***.
+            audioController.playSound("step"); // This causes a lot of errors from test suite.
 
             if (checkEvent(pointMovedTo, world)) {
                 System.out.println("CheckEvent true!");
@@ -109,6 +114,7 @@ public class CharacterController extends Observable {
         return point;
     }
 
+    //Called from outside this class when a transition is triggered somewhere else (for example from a dialog)
     public void transitionEvent(Transition t){
         player.setPosition(t.newPos);
     }
@@ -139,7 +145,8 @@ public class CharacterController extends Observable {
         return new Point(player.getPosition().getX(), player.getPosition().getY());
     }
 
-    private Point getPoint (Point currentPoint, World.MovementDirection direction) {
+    //Calculates a point in the direction next to the supplied point, taking into account world bounds
+    private Point getPoint (Point currentPoint, MovementDirection direction) {
         Point newPoint = currentPoint.nextTo(direction);
 
         if(newPoint.getY() < 0 || newPoint.getY() >= World.MAP_SIZE

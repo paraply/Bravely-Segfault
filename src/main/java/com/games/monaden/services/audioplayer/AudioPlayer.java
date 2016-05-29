@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Created by Admin on 2016-05-18.
+ Responsible for playing sounds by request from rest of program
  */
 public class AudioPlayer {
 

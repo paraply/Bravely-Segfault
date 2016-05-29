@@ -5,7 +5,7 @@ import com.games.monaden.services.audioplayer.AudioPlayer;
 import java.io.File;
 
 /**
- * Created by Admin on 2016-05-21.
+ Class is responsible for calling audio playing.
  */
 public class AudioController {
     AudioPlayer musicPlayer;

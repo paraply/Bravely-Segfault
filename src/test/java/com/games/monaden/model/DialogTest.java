@@ -8,10 +8,11 @@ package com.games.monaden.model;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import com.games.monaden.model.dialog.Dialog;
+import com.games.monaden.model.dialog.DialogChoice;
+import com.games.monaden.model.inventory.Inventory;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
-import java.util.ArrayList;
 
 /**
  *
