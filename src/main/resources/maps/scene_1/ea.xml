@@ -38,6 +38,14 @@
             <position>8,11</position>
             <dialogue>scene_1/ea/introTalk.xml</dialogue>
         </dialogevent>
+        <dialogevent>
+            <position>13,5</position>
+            <dialogue>scene_1/ea/introTrigger.xml</dialogue>
+        </dialogevent>
+        <dialogevent>
+            <position>13,6</position>
+            <dialogue>scene_1/ea/introTrigger.xml</dialogue>
+        </dialogevent>
     </events>
 
     <!-- DOORSTEPS -->
