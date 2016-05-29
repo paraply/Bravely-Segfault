@@ -1,0 +1,21 @@
+<class>
+    <dialog>
+        <text>*YOU*: Varför är denna tavlan alltid sned??</text>
+        <image>player.png</image>
+
+        <response>
+            <choice>Vem bryr sig?</choice>
+            <subdialog>
+                <text>Enbart Philip-senpai-tan-chan</text>
+            </subdialog>
+        </response>
+
+        <response>
+            <choice>Världen går under!</choice>
+                <transition>
+                    <newPosition>8,6</newPosition>
+                    <fileName>scene_2/paintingroomstraight.xml</fileName>
+                </transition>
+        </response>
+    </dialog>
+</class>
