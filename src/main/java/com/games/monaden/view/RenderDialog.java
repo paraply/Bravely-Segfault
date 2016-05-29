@@ -12,7 +12,6 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 /**
- * Created by mike on 2016-05-16.
  * This class is used to show dialogs using a JavaFX pane and labels
  */
 public class RenderDialog {

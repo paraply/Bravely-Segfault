@@ -1,0 +1,44 @@
+<level>
+    <tilemap>
+        <line>000,000,903,651,651,651,651,651,651,651,651,651,653,902,000,000</line>
+        <line>000,000,000,007,007,007,007,007,007,007,007,007,007,902,000,000</line>
+        <line>000,000,000,007,007,007,007,007,007,007,007,007,007,902,000,000</line>
+        <line>000,000,000,007,007,007,007,007,007,007,007,007,007,902,000,000</line>
+        <line>000,000,903,007,007,007,007,007,007,007,007,007,007,902,000,000</line>
+        <line>000,000,903,007,007,007,007,007,007,007,007,007,007,902,000,000</line>
+        <line>000,000,903,007,007,007,007,007,007,007,007,007,007,902,000,000</line>
+        <line>000,000,903,007,007,007,007,007,007,007,007,007,007,902,000,000</line>
+        <line>000,000,903,007,007,007,007,007,007,007,007,007,007,902,000,000</line>
+        <line>000,000,903,007,007,007,007,007,007,007,007,007,007,902,000,000</line>
+        <line>000,000,903,007,007,007,007,007,007,007,007,007,007,902,000,000</line>
+        <line>000,000,903,007,007,007,007,007,007,007,007,007,007,902,000,000</line>
+        <line>000,000,903,007,007,007,007,007,007,007,007,007,007,902,000,000</line>
+        <line>000,000,906,900,900,900,900,900,900,900,900,900,900,905,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    </tilemap>
+
+    <transition><filename>scene_2/outsidemonaden.xml</filename><position>3,1</position><newPosition>14,1</newPosition></transition>
+    <transition><filename>scene_2/outsidemonaden.xml</filename><position>3,2</position><newPosition>14,2</newPosition></transition>
+    <transition><filename>scene_2/outsidemonaden.xml</filename><position>3,3</position><newPosition>14,3</newPosition></transition>
+
+
+    <gameobject><position>3,4</position><graphics><fileName>fence/top.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>3,5</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>3,6</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>3,7</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>3,8</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>3,9</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>3,10</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>3,11</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>3,12</position><graphics><fileName>fence/bottom.png</fileName></graphics><solidness>solid</solidness></gameobject>
+
+
+    <gameobject><position>5,8</position><graphics><fileName>car/1.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>6,8</position><graphics><fileName>car/2.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>5,9</position><graphics><fileName>car/3.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>6,9</position><graphics><fileName>car/4.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>5,10</position><graphics><fileName>car/5.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>6,10</position><graphics><fileName>car/6.png</fileName></graphics><solidness>solid</solidness></gameobject>
+
+</level>

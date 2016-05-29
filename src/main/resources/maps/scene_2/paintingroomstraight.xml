@@ -32,8 +32,6 @@
     <gameobject><position>6,5</position><graphics><fileName>doorstep/down.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
     <gameobject><position>7,5</position><graphics><fileName>doorstep/down.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
 
-    <character name="Askew painting"><position>8,5</position><graphics><fileName>paintings/smallaskew.png</fileName></graphics><dialogue>paintingroom/askewpainting.xml</dialogue></character>
+    <character name="Straight painting"><position>8,5</position><graphics><fileName>paintings/smallstraight.png</fileName></graphics><dialogue>paintingroom/straightpainting.xml</dialogue></character>
     <gameobject><position>9,5</position><graphics><fileName>paintings/smallstraight.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
-
-
 </level>

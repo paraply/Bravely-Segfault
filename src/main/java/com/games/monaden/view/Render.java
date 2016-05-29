@@ -15,7 +15,6 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * Created by paraply on 2016-04-19.
  * This class is the main view class that handles everything you see on the screen:
  * - Shows the start screen
  * - Draws the world

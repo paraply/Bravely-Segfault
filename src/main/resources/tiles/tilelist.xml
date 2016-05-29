@@ -70,7 +70,7 @@
         <solidness>non-solid</solidness>
     </tile>
 
-    <!--stairs stone-->
+    <!--stairs stone left-->
     <tile id="030">
         <name>stone stairs. top part</name>
         <graphics>floor/stairs/stone1.png</graphics>
@@ -81,9 +81,6 @@
         <graphics>floor/stairs/stone2.png</graphics>
         <solidness>non-solid</solidness>
     </tile>
-
-
-
 
     <!-- WALLS -->
     <tile id="600">
