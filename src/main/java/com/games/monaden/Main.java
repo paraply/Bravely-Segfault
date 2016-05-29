@@ -23,6 +23,7 @@ public class Main extends Application {
             Parent root = FXMLLoader.load( windowURL); // The JavaFX window
             primaryStage.setTitle("Bravely Segfault");
             primaryStage.setScene(new Scene(root, 800, 600));
+            primaryStage.setResizable(false);
             primaryStage.show();
             primaryStage.setOnCloseRequest(event -> System.out.println("USER CLOSED APPLICATION WINDOW"));
             GameLoop gameLoop = new GameLoop();
