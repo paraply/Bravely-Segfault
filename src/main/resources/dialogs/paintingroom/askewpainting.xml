@@ -6,16 +6,22 @@
         <response>
             <choice>Vem bryr sig?</choice>
             <subdialog>
-                <text>Enbart Philip-senpai-tan-chan</text>
+                <text>Philip-senpai bryr sig</text>
             </subdialog>
         </response>
 
         <response>
-            <choice>Världen går under!</choice>
-                <transition>
-                    <newPosition>8,6</newPosition>
-                    <fileName>scene_2/paintingroomstraight.xml</fileName>
-                </transition>
+            <choice>VÄRLDEN GÅR UNDER!</choice>
+            <subdialog>
+                <text>MÅNTIARA, FÖRFLYTTA DEN!</text>
+                <dialog>
+                    <text></text>
+                    <transition>
+                        <newPosition>8,6</newPosition>
+                        <fileName>scene_2/paintingroomstraight.xml</fileName>
+                    </transition>
+                </dialog>
+            </subdialog>
         </response>
     </dialog>
 </class>

@@ -59,8 +59,7 @@ public class GameLoop extends AnimationTimer implements Observer {
     public void initializeGame(){
         tileMap = new TileLoader().loadTiles();
         world = new World();
-//        setLevel("scene_1/ea.xml");
-        setLevel("scene_2/paintingroom.xml");
+        setLevel("scene_1/ea.xml");
         Render.getInstance().setWorld(world);
         audioController = new AudioController();
         audioController.playMusic(0);
