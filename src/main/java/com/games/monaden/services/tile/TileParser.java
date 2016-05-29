@@ -1,6 +1,6 @@
 package com.games.monaden.services.tile;
 
-import com.games.monaden.model.Tile;
+import com.games.monaden.model.primitives.Tile;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;

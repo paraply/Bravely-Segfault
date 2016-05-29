@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.games.monaden.model;
+package com.games.monaden.model.primitives;
+
+import com.games.monaden.model.MovementDirection;
 
 /**
  *
@@ -26,7 +28,7 @@ public class Point {
         this.y = y;
     }
 
-    public Point nextTo(World.MovementDirection direction){
+    public Point nextTo(MovementDirection direction){
         switch(direction){
             case UP:
                 return new Point(x, y - 1);

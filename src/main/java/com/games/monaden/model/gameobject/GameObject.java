@@ -1,7 +1,8 @@
 package com.games.monaden.model.gameobject;
 
+import com.games.monaden.model.MovementDirection;
 import com.games.monaden.model.World;
-import com.games.monaden.model.Point;
+import com.games.monaden.model.primitives.Point;
 
 /**
  * Created by Anton on 2016-04-19.
@@ -12,7 +13,7 @@ public class GameObject {
     private boolean solid;
     private int imageWidth, imageHeight;
     private boolean continuousAnimation;
-    private World.MovementDirection direction = World.MovementDirection.DOWN;
+    private MovementDirection direction = MovementDirection.DOWN;
     //Should contain collision
 
     private int animationFrames = 2;    //Counted from ZERO!
@@ -52,11 +53,11 @@ public class GameObject {
     }
 
 
-    public World.MovementDirection getDirection(){
+    public MovementDirection getDirection(){
         return direction;
     }
 
-    public void setDirection(World.MovementDirection direction){
+    public void setDirection(MovementDirection direction){
         this.direction = direction;
     }
 

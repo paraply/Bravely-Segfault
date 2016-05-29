@@ -3,6 +3,7 @@ package com.games.monaden.model;
 import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameobject.Character;
 import com.games.monaden.model.gameobject.GameObject;
+import com.games.monaden.model.primitives.Transition;
 
 import java.util.*;
 
@@ -51,10 +52,6 @@ public class World extends Observable{
 
         setChanged();
         notifyObservers();
-    }
-
-    public enum MovementDirection {
-        UP, DOWN, LEFT, RIGHT
     }
 
 }

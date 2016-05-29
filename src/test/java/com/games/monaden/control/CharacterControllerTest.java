@@ -1,8 +1,8 @@
 package com.games.monaden.control;
 
 import com.games.monaden.model.dialog.Dialog;
-import com.games.monaden.model.Point;
-import com.games.monaden.model.Transition;
+import com.games.monaden.model.primitives.Point;
+import com.games.monaden.model.primitives.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameobject.Character;

@@ -8,6 +8,7 @@ package com.games.monaden.model.dialog;
 import com.games.monaden.model.*;
 import com.games.monaden.model.inventory.Inventory;
 import com.games.monaden.model.inventory.Item;
+import com.games.monaden.model.primitives.Transition;
 
 import java.io.File;
 import java.util.ArrayList;

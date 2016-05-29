@@ -1,8 +1,9 @@
 package com.games.monaden.control;
 
+import com.games.monaden.model.MovementDirection;
 import com.games.monaden.model.dialog.Dialog;
-import com.games.monaden.model.Point;
-import com.games.monaden.model.Transition;
+import com.games.monaden.model.primitives.Point;
+import com.games.monaden.model.primitives.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameobject.Character;
@@ -16,11 +17,11 @@ public class CharacterController extends Observable {
 
     private Character player;
     private AudioController audioController;
-    private World.MovementDirection newDirection;
+    private MovementDirection newDirection;
 
     public CharacterController() {
         player = new Character(new Point(8 ,5), "characters/player.png", 32,32);
-        player.setDirection(World.MovementDirection.LEFT);
+        player.setDirection(MovementDirection.LEFT);
         Render.getInstance().setPlayerCharacter(player);
         audioController = new AudioController();
     }
@@ -36,19 +37,19 @@ public class CharacterController extends Observable {
     }
 
     public void handleMovement(KeyCode moveReq, World world) {
-        World.MovementDirection dir = World.MovementDirection.UP;
+        MovementDirection dir = MovementDirection.UP;
         switch (moveReq) {
             case UP:
-                dir = World.MovementDirection.UP;
+                dir = MovementDirection.UP;
                 break;
             case DOWN:
-                dir = World.MovementDirection.DOWN;
+                dir = MovementDirection.DOWN;
                 break;
             case LEFT:
-                dir = World.MovementDirection.LEFT;
+                dir = MovementDirection.LEFT;
                 break;
             case RIGHT:
-                dir = World.MovementDirection.RIGHT;
+                dir = MovementDirection.RIGHT;
                 break;
         }
         Point pointMovedTo = getPoint(player.getPosition(), dir);
@@ -139,7 +140,7 @@ public class CharacterController extends Observable {
         return new Point(player.getPosition().getX(), player.getPosition().getY());
     }
 
-    private Point getPoint (Point currentPoint, World.MovementDirection direction) {
+    private Point getPoint (Point currentPoint, MovementDirection direction) {
         Point newPoint = currentPoint.nextTo(direction);
 
         if(newPoint.getY() < 0 || newPoint.getY() >= World.MAP_SIZE
