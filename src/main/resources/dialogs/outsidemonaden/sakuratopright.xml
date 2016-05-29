@@ -20,14 +20,5 @@
                     <text>*YOU*: Stackars träd</text>
                 </subdialog>
             </response>
-			<response>
-				<choice>GIT GÖJ</choice>
-				<requirements>
-					<keyItem>gitBook</keyItem>
-				</requirements>
-				<subdialog>
-					<text>Carve it into your soul, kid!</text>
-				</subdialog>	
-			</response>
         </dialog>
 </class>

@@ -1,0 +1,82 @@
+<level>
+    <tilemap>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,907,901,901,901,901,901,901,901,901,901,901,901,904,000,000</line>
+        <line>000,903,644,640,640,640,640,640,640,640,640,640,642,902,000,000</line>
+        <line>000,903,645,641,641,641,641,641,641,641,641,641,643,902,000,000</line>
+        <line>000,903,002,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,903,002,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,903,002,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,903,002,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,903,002,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,903,002,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,903,002,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,903,002,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,906,900,910,001,001,909,900,900,900,900,900,900,905,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    </tilemap>
+    <transitions>
+        <transition>
+            <filename>scene_2/monadenhallouter.xml</filename>
+            <position>4,12</position>
+            <newPosition>4,7</newPosition>
+        </transition>
+        <transition>
+            <filename>scene_2/monadenhallouter.xml</filename>
+            <position>5,12</position>
+            <newPosition>5,7</newPosition>
+        </transition>
+    </transitions>
+
+    <!-- DOORSTEPS -->
+    <gameobject>
+        <position>4,12</position>
+        <graphics>
+            <fileName>doorstep/up.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>5,12</position>
+        <graphics>
+            <fileName>doorstep/up.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+
+
+    <!--BOOKSHELF-->
+    <gameobject>
+        <position>10,3</position>
+        <graphics>
+            <fileName>bookshelf/1.png</fileName>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>11,3</position>
+        <graphics>
+            <fileName>bookshelf/2.png</fileName>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>10,4</position>
+        <graphics>
+            <fileName>bookshelf/3.png</fileName>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>11,4</position>
+        <graphics>
+            <fileName>bookshelf/4.png</fileName>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+
+</level>

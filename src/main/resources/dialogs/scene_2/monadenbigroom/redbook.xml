@@ -1,0 +1,9 @@
+<class>
+    <dialog>
+		<addItem>
+			<itemName>gitBook</itemName>
+			<description>Din guide till storhet</description>
+		</addItem>
+        <text>Den stora boken om git.*N*Du fylls av beslutsamhet.</text>
+    </dialog>
+</class>
