@@ -1,0 +1,44 @@
+<level>
+    <tilemap>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,907,901,901,901,901,904,000,000,000,000,000</line>
+        <line>000,000,000,000,000,903,644,001,001,642,902,000,000,000,000,000</line>
+        <line>000,000,000,000,000,903,645,001,001,643,902,000,000,000,000,000</line>
+        <line>000,000,000,000,000,903,002,002,002,002,902,000,000,000,000,000</line>
+        <line>000,000,000,000,000,911,002,002,002,002,908,000,000,000,000,000</line>
+        <line>000,000,000,000,000,007,002,002,002,002,026,000,000,000,000,000</line>
+        <line>000,000,000,000,000,007,002,002,002,002,027,000,000,000,000,000</line>
+        <line>000,000,000,000,000,900,900,900,900,900,900,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    </tilemap>
+
+    <gameobject><position>7,4</position><graphics><fileName>opendoor/1.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>8,4</position><graphics><fileName>opendoor/2.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>7,5</position><graphics><fileName>opendoor/3.png</fileName><zOrder>1</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>8,5</position><graphics><fileName>opendoor/4.png</fileName><zOrder>1</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+
+    <!-- DOORSTEPS -->
+    <gameobject><position>5,8</position><graphics><fileName>doorstep/right.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>5,9</position><graphics><fileName>doorstep/right.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+    <gameobject><position>7,5</position><graphics><fileName>doorstep/down.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>8,5</position><graphics><fileName>doorstep/down.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+    <transitions>
+        <transition><filename>scene_2/outsidemonaden.xml</filename><position>5,8</position><newPosition>14,13</newPosition></transition>
+        <transition><filename>scene_2/outsidemonaden.xml</filename><position>5,9</position><newPosition>14,14</newPosition></transition>
+
+        <transition><filename>scene_2/edit1corridor.xml</filename><position>7,5</position><newPosition direction="right">2,8</newPosition></transition>
+        <transition><filename>scene_2/edit1corridor.xml</filename><position>8,5</position><newPosition direction="right">2,9</newPosition></transition>
+
+        <transition><filename>scene_2/edit4corridor.xml</filename><position>10,8</position><newPosition>2,8</newPosition></transition>
+        <transition><filename>scene_2/edit4corridor.xml</filename><position>10,9</position><newPosition>2,9</newPosition></transition>
+    </transitions>
+</level>
