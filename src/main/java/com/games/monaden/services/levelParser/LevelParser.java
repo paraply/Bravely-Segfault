@@ -45,6 +45,7 @@ public class LevelParser extends DefaultHandler {
     private Point transPos;
     private String imageFile;
     private File dialogFile;
+    private int frameCount = 0;
 
     private List<GameObject> gameObjects = new ArrayList<>();
     private List<Character> interactables = new ArrayList<>();
@@ -98,9 +99,9 @@ public class LevelParser extends DefaultHandler {
                 bFile = true;
                 break;
 
-            case "frameCount":
-            bFrame = true;
-            break;
+            case "framecount":
+                bFrame = true;
+                break;
 
             case "zorder":
                 bZOrder = true;
@@ -143,8 +144,11 @@ public class LevelParser extends DefaultHandler {
                 break;
             case "gameobject":
                 GameObject gameObject = new GameObject(position, imageFile, solidness, zOrder);
+                gameObject.setAnimationFrames(frameCount);
+                gameObject.setContinuousAnimation( frameCount != 0 );
                 gameObjects.add(gameObject);
                 zOrder = 0;
+                frameCount = 0;
                 break;
             case "character":
                 Character character = new Character(position, imageFile, zOrder);
@@ -221,6 +225,9 @@ public class LevelParser extends DefaultHandler {
             transPos = new Point(Integer.parseInt(point[0])
                     , Integer.parseInt(point[1]));
             bTransPos = false;
+        } else if (bFrame) {
+            frameCount = Integer.parseInt(new String(ch, start, length));
+            bFrame = false;
         }
     }
 

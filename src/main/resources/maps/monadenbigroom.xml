@@ -35,6 +35,9 @@
         <character name="Red book"><position>7,7</position><graphics><fileName>book/redopen.png</fileName></graphics><dialogue>monadenbigroom/redbook.xml</dialogue></character>
     </characters>
 
+    <character name="Hugo" direction="down"><position>5,9</position><graphics><fileName>characters/hugo.png</fileName></graphics><dialogue>monadenbigroom/hugo.xml</dialogue></character>
+
+
     <gameobjects>
 
         <!-- SOFA HORIZONTAL-->

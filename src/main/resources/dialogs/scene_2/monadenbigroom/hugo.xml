@@ -1,0 +1,23 @@
+<class>
+    <dialog>
+        <text>Hugo: Naturalhugo.png</text>
+        <image>naturalhugo.png</image>
+        <response>
+            <choice>Wat?</choice>
+            <subdialog>
+                <text>Hugo: Jag är naturlig.</text>
+                <image>naturalhugo.png</image>
+            </subdialog>
+        </response>
+        <response>
+            <choice>git commit -m "Wat?"</choice>
+            <requirements>
+                <keyItem>gitBook</keyItem>
+            </requirements>
+            <subdialog>
+                <text>Hugo: git push --natural</text>
+                <image>naturalhugo.png</image>
+            </subdialog>
+        </response>
+    </dialog>
+</class>

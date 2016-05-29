@@ -6,6 +6,7 @@
 package com.games.monaden.model;
 
 import java.io.File;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,6 +108,7 @@ public class Dialog {
     
     public void setDialogText(String text) {
         this.dialogText = text.replace("*YOU*", World.PLAYER_NAME);
+        this.dialogText = dialogText.replace("*N*", System.lineSeparator());
     }
 
     public void setImageFile (File file) {

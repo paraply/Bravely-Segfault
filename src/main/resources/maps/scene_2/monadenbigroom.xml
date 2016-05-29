@@ -1,0 +1,173 @@
+<level>
+    <tilemap>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>907,901,901,901,901,901,901,901,901,901,901,901,901,901,901,904</line>
+        <line>903,644,640,640,640,640,640,640,640,640,640,640,640,640,642,902</line>
+        <line>903,645,641,641,641,641,641,641,641,641,641,641,641,641,643,902</line>
+        <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
+        <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
+        <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
+        <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
+        <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
+        <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
+        <line>903,002,002,002,002,002,002,002,002,002,002,002,002,002,002,902</line>
+        <line>906,900,900,900,900,900,900,900,900,900,900,900,910,001,001,902</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    </tilemap>
+    <transitions>
+
+        <transition>
+            <filename>scene_2/monadenhallinner.xml</filename>
+            <position>13,11</position>
+            <newPosition>13,7</newPosition>
+        </transition>
+        <transition>
+            <filename>scene_2/monadenhallinner.xml</filename>
+            <position>14,11</position>
+            <newPosition>14,7</newPosition>
+        </transition>
+    </transitions>
+
+    <characters>
+        <character name="Red book"><position>7,7</position><graphics><fileName>book/redopen.png</fileName></graphics><dialogue>scene_2/monadenbigroom/redbook.xml</dialogue></character>
+        <character name="Hugo" direction="down"><position>5,9</position><graphics><fileName>characters/hugo.png</fileName></graphics><dialogue>scene_2/monadenbigroom/hugo.xml</dialogue></character>
+    </characters>
+
+
+
+    <gameobjects>
+
+        <!-- SOFA HORIZONTAL-->
+        <gameobject>
+            <position>11,5</position>
+            <graphics>
+                <fileName>sofa/front/1.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>12,5</position>
+            <graphics>
+                <fileName>sofa/front/2.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>13,5</position>
+            <graphics>
+                <fileName>sofa/front/3.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+
+        <!-- SOFA VERTICAL TURNED LEFT-->
+        <gameobject>
+            <position>10,6</position>
+            <graphics>
+                <fileName>sofa/left/1.png</fileName>
+                <zOrder>1</zOrder>
+            </graphics>
+            <solidness>non-solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>10,7</position>
+            <graphics>
+                <fileName>sofa/left/2.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>10,8</position>
+            <graphics>
+                <fileName>sofa/left/3.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+
+
+        <!-- SOFA VERTICAL TURNED RIGHT-->
+        <gameobject>
+            <position>14,6</position>
+            <graphics>
+                <fileName>sofa/right/1.png</fileName>
+                <zOrder>1</zOrder>
+            </graphics>
+            <solidness>non-solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>14,7</position>
+            <graphics>
+                <fileName>sofa/right/2.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>14,8</position>
+            <graphics>
+                <fileName>sofa/right/3.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>solid</solidness>
+        </gameobject>
+
+
+        <!-- DOORSTEPS -->
+        <gameobject>
+            <position>13,11</position>
+            <graphics>
+                <fileName>doorstep/up.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>non-solid</solidness>
+        </gameobject>
+        <gameobject>
+            <position>14,11</position>
+            <graphics>
+                <fileName>doorstep/up.png</fileName>
+                <zOrder>0</zOrder>
+            </graphics>
+            <solidness>non-solid</solidness>
+        </gameobject>
+
+
+        <!--SOFA SQUARE TABLE-->
+        <gameobject><position>11,6</position><graphics> <fileName>sofasquaretable/1.png</fileName><zOrder>1</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+        <gameobject><position>12,6</position><graphics> <fileName>sofasquaretable/2.png</fileName><zOrder>1</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+        <gameobject><position>13,6</position><graphics> <fileName>sofasquaretable/3.png</fileName><zOrder>1</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+        <gameobject><position>11,7</position><graphics> <fileName>sofasquaretable/4.png</fileName></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>12,7</position><graphics> <fileName>sofasquaretable/5.png</fileName></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>13,7</position><graphics> <fileName>sofasquaretable/6.png</fileName></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>11,8</position><graphics> <fileName>sofasquaretable/7.png</fileName></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>12,8</position><graphics> <fileName>sofasquaretable/8.png</fileName></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>13,8</position><graphics> <fileName>sofasquaretable/9.png</fileName></graphics><solidness>solid</solidness></gameobject>
+
+        <!--CENTER SQUARE TABLE-->
+        <gameobject><position>6,6</position><graphics> <fileName>squaretable/1.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>7,6</position><graphics> <fileName>squaretable/2.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>6,7</position><graphics> <fileName>squaretable/3.png</fileName></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>7,7</position><graphics> <fileName>squaretable/4.png</fileName></graphics><solidness>solid</solidness></gameobject>
+
+
+        <!--SQUARE TABLE TOP LEFT-->
+        <gameobject><position>1,5</position><graphics> <fileName>squaretable/1.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>2,5</position><graphics> <fileName>squaretable/2.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>1,6</position><graphics> <fileName>squaretable/3.png</fileName></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>2,6</position><graphics> <fileName>squaretable/4.png</fileName></graphics><solidness>solid</solidness></gameobject>
+
+        <!--SQUARE TABLE BOTTOM LEFT-->
+        <gameobject><position>1,8</position><graphics> <fileName>squaretable/1.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>2,8</position><graphics> <fileName>squaretable/2.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>1,9</position><graphics> <fileName>squaretable/3.png</fileName></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>2,9</position><graphics> <fileName>squaretable/4.png</fileName></graphics><solidness>solid</solidness></gameobject>
+
+    </gameobjects>
+</level>

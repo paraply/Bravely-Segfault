@@ -1,0 +1,320 @@
+<level>
+    <tilemap>
+        <line>911,655,651,651,651,651,651,651,651,651,651,651,651,651,651,651</line>
+        <line>002,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
+        <line>002,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
+        <line>910,007,007,007,007,007,007,007,007,007,007,007,007,007,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>903,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>911,007,007,006,006,006,006,006,006,006,006,006,006,006,007,007</line>
+        <line>007,007,007,007,007,007,007,007,007,007,007,007,007,007,007,030</line>
+        <line>007,007,007,007,007,007,007,007,007,007,007,007,007,007,007,031</line>
+        <line>900,900,900,900,900,900,900,900,900,900,900,910,005,005,909,900</line>
+    </tilemap>
+
+    <!--
+    <character name="Matilda" direction="right"><position>11,13</position><graphics><fileName>characters/matilda.png</fileName></graphics><dialogue>outsidemonaden/matilda.xml</dialogue></character>
+    -->
+    <character name="Berra" direction="left"><position>13,11</position><graphics><fileName>characters/berra.png</fileName></graphics><dialogue>scene_2/monaden_outside/behrouz.xml</dialogue></character>
+    <gameobject><position>12,11</position><graphics><fileName>barbeque/1.png</fileName></graphics><solidness>solid</solidness><framecount>15</framecount></gameobject>
+    <character name="Hidden barbeque character" direction="left"><position>12,11</position><graphics><fileName>characters/transparent.png</fileName></graphics><dialogue>scene_2/monaden_outside/grill.xml</dialogue></character>
+
+    <character name="Anton" direction="down"><position>12,9</position><graphics><fileName>characters/anton.png</fileName></graphics><dialogue>scene_2/monaden_outside/astar.xml</dialogue></character>
+
+    <characters>
+        <character name="Sakura top left">
+            <position>4,6</position>
+            <graphics>
+                <fileName>characters/transparent.png</fileName>
+            </graphics>
+            <dialogue>scene_2/monaden_outside/sakuratopleft.xml</dialogue>
+        </character>
+
+        <character name="Sakura bottom middle">
+            <position>9,10</position>
+            <graphics>
+                <fileName>characters/transparent.png</fileName>
+            </graphics>
+            <dialogue>scene_2/monaden_outside/sakurabottommiddle.xml</dialogue>
+        </character>
+
+        <character name="Sakura top right">
+            <position>12,8</position>
+            <graphics>
+                <fileName>characters/transparent.png</fileName>
+            </graphics>
+            <dialogue>scene_2/monaden_outside/sakuratopright.xml</dialogue>
+        </character>
+
+        <character name="Philip">
+            <position>9,11</position>
+            <graphis>
+                <fileName>characters/philip.png</fileName>
+            </graphis>
+            <dialogue>scene_2/monaden_outside/philip.xml</dialogue>
+        </character>
+    </characters>
+
+    <transitions>
+
+        <transition><filename>scene_2/monadenentrance.xml</filename><position>12,15</position><newPosition>7,3</newPosition></transition>
+        <transition><filename>scene_2/monadenentrance.xml</filename><position>13,15</position><newPosition>8,3</newPosition></transition>
+
+        <transition><filename>scene_2/paintingroom.xml</filename><position>0,1</position><newPosition>9,8</newPosition></transition>
+        <transition><filename>scene_2/paintingroom.xml</filename><position>0,2</position><newPosition>9,9</newPosition></transition>
+
+        <transition><filename>scene_2/garbageroom.xml</filename><position>0,13</position><newPosition>9,7</newPosition></transition>
+        <transition><filename>scene_2/garbageroom.xml</filename><position>0,14</position><newPosition>9,8</newPosition></transition>
+
+        <transition><filename>scene_2/edit4corridor.xml</filename><position>15,13</position><newPosition>2,8</newPosition></transition>
+        <transition><filename>scene_2/edit4corridor.xml</filename><position>15,14</position><newPosition>2,9</newPosition></transition>
+    </transitions>
+
+    <!-- DOORSTEPS -->
+    <gameobject><position>12,15</position><graphics><fileName>doorstep/up.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>13,15</position><graphics><fileName>doorstep/up.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>0,1</position><graphics><fileName>doorstep/right.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>0,2</position><graphics><fileName>doorstep/right.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
+
+    <gameobject><position>15,4</position><graphics><fileName>fence/top.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,5</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,6</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,7</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,8</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,9</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,10</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,11</position><graphics><fileName>fence/middle.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>15,12</position><graphics><fileName>fence/bottom.png</fileName></graphics><solidness>solid</solidness></gameobject>
+
+
+<!-- SAKURA TREE LEFT TOP-->
+    <gameobject>
+        <position>3,4</position>
+        <graphics>
+            <fileName>sakura/1.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>4,4</position>
+        <graphics>
+            <fileName>sakura/2.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>5,4</position>
+        <graphics>
+            <fileName>sakura/3.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>3,5</position>
+        <graphics>
+            <fileName>sakura/4.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>4,5</position>
+        <graphics>
+            <fileName>sakura/5.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>5,5</position>
+        <graphics>
+            <fileName>sakura/6.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>3,6</position>
+        <graphics>
+            <fileName>sakura/7.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>4,6</position>
+        <graphics>
+            <fileName>sakura/8.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>5,6</position>
+        <graphics>
+            <fileName>sakura/9.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+
+
+
+    <!-- SAKURA TREE MIDDLE BOTTOM -->
+    <gameobject>
+        <position>8,8</position>
+        <graphics>
+            <fileName>sakura/1.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>9,8</position>
+        <graphics>
+            <fileName>sakura/2.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>10,8</position>
+        <graphics>
+            <fileName>sakura/3.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>8,9</position>
+        <graphics>
+            <fileName>sakura/4.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>9,9</position>
+        <graphics>
+            <fileName>sakura/5.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>10,9</position>
+        <graphics>
+            <fileName>sakura/6.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>8,10</position>
+        <graphics>
+            <fileName>sakura/7.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>9,10</position>
+        <graphics>
+            <fileName>sakura/8.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>10,10</position>
+        <graphics>
+            <fileName>sakura/9.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+
+
+    <!-- SAKURA TREE TOP RIGHT -->
+    <gameobject>
+        <position>11,6</position>
+        <graphics>
+            <fileName>sakura/1.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>12,6</position>
+        <graphics>
+            <fileName>sakura/2.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>13,6</position>
+        <graphics>
+            <fileName>sakura/3.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>11,7</position>
+        <graphics>
+            <fileName>sakura/4.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>12,7</position>
+        <graphics>
+            <fileName>sakura/5.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>13,7</position>
+        <graphics>
+            <fileName>sakura/6.png</fileName>
+            <zOrder>1</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>11,8</position>
+        <graphics>
+            <fileName>sakura/7.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>12,8</position>
+        <graphics>
+            <fileName>sakura/8.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>solid</solidness>
+    </gameobject>
+    <gameobject>
+        <position>13,8</position>
+        <graphics>
+            <fileName>sakura/9.png</fileName>
+            <zOrder>0</zOrder>
+        </graphics>
+        <solidness>non-solid</solidness>
+    </gameobject>
+</level>
