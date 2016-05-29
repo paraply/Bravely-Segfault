@@ -1,10 +1,17 @@
 package com.games.monaden.control;
 
 import com.games.monaden.model.*;
+import com.games.monaden.model.dialog.Dialog;
 import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.events.Event;
-import com.games.monaden.model.gameObjects.Character;
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.Character;
+import com.games.monaden.model.gameobject.GameObject;
+import com.games.monaden.model.primitives.Point;
+import com.games.monaden.model.primitives.Tile;
+import com.games.monaden.model.primitives.Transition;
+import com.games.monaden.services.dialog.DialogLoader;
+import com.games.monaden.services.level.LevelLoader;
+import com.games.monaden.services.tile.TileLoader;
 import com.games.monaden.view.Render;
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
@@ -12,7 +19,9 @@ import javafx.scene.input.KeyCode;
 import java.util.*;
 
 /**
- * Created by paraply on 2016-04-13.
+ Class is responsible for handling all input and supplying it to the correct controller
+ Also initializes the game, loads levels and generally ties everything together.
+ Could possibly be broken up into smaller classes?
  */
 public class GameLoop extends AnimationTimer implements Observer {
 
@@ -45,6 +54,8 @@ public class GameLoop extends AnimationTimer implements Observer {
         }
     }
 
+    //The input state determines to which controller we want to send input.
+    //This could probably be handled with a controller interface instead!
     private enum InputState { MOVEMENT, DIALOG, STARTSCREEN, STARTSCREEN_FADING}
     private InputState inputState = InputState.STARTSCREEN; // The first state we are in is the start screen
 
@@ -131,10 +142,7 @@ public class GameLoop extends AnimationTimer implements Observer {
 
             }
         }
-
-
-
-        if (inputState == InputState.STARTSCREEN_FADING){
+        else if (inputState == InputState.STARTSCREEN_FADING){
             currentStartFade--;
             if (currentStartFade == 0){
                 Render.getInstance().hideStartScreen();
@@ -190,16 +198,11 @@ public class GameLoop extends AnimationTimer implements Observer {
                 inputState = InputState.MOVEMENT;
             }
         }
-
-
-
-
     }
 
+    //Used if dialogs are triggered from event (for example stepping on a tile)
     private void startDialog(Dialog dialog) {
         inputState = InputState.DIALOG;
         dialogController.startDialog(dialog);
     }
-
-
 }

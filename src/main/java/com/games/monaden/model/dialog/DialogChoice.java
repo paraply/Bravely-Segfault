@@ -1,10 +1,12 @@
-package com.games.monaden.model;
+package com.games.monaden.model.dialog;
+
+import com.games.monaden.model.inventory.Inventory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Anton on 2016-05-26.
+ Class is used by dialog to hold information about the choices you can make in a dialog
  */
 public class DialogChoice {
     private Dialog dialog;

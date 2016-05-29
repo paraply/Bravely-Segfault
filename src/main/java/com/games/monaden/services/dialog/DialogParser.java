@@ -1,6 +1,10 @@
-package com.games.monaden.services.dialogParser;
+package com.games.monaden.services.dialog;
 
-import com.games.monaden.model.*;
+import com.games.monaden.model.dialog.Dialog;
+import com.games.monaden.model.dialog.DialogChoice;
+import com.games.monaden.model.inventory.KeyItem;
+import com.games.monaden.model.primitives.Point;
+import com.games.monaden.model.primitives.Transition;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -9,8 +13,8 @@ import java.io.File;
 import java.util.*;
 
 /**
- * Created by Philip on 2016/05/17.
- * TODO: Should be possible to have several items being added
+ Responsible for parsing dialog files from xml and constructing dialog objects from them.
+ TODO: Should be possible to have several items being added
  */
 public class DialogParser extends DefaultHandler{
 

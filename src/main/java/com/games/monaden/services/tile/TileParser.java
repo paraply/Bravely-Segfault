@@ -1,6 +1,6 @@
-package com.games.monaden.services.tileParser;
+package com.games.monaden.services.tile;
 
-import com.games.monaden.model.Tile;
+import com.games.monaden.model.primitives.Tile;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * Created by Philip on 2016-04-21.
- * Parses
+ * Parses the tileList
  */
 public class TileParser extends DefaultHandler {
     private boolean bName = false;

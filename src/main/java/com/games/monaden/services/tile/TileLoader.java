@@ -1,8 +1,7 @@
-package com.games.monaden.control;
+package com.games.monaden.services.tile;
 
 
-import com.games.monaden.model.Tile;
-import com.games.monaden.services.tileParser.TileParser;
+import com.games.monaden.model.primitives.Tile;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -10,7 +9,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 
 /**
- * Created by mike on 2016-05-19.
+ Helper class for easy loading of the tileList from the parser
  */
 public class TileLoader {
     public HashMap<Integer, Tile> loadTiles(){

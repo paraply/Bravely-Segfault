@@ -7,7 +7,7 @@ import javafx.scene.input.KeyEvent;
 
 
 /**
- * Created by paraply on 2016-04-13.
+ Class is responsible for holding the latest user input
  */
 class UserInput implements EventHandler<Event> {
     private static UserInput userInput;

@@ -1,11 +1,12 @@
-package com.games.monaden.services.levelParser;
+package com.games.monaden.services.level;
 
-import com.games.monaden.model.Point;
-import com.games.monaden.model.Transition;
+import com.games.monaden.model.primitives.MovementDirection;
+import com.games.monaden.model.primitives.Point;
+import com.games.monaden.model.primitives.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.events.DialogEvent;
-import com.games.monaden.model.gameObjects.Character;
-import com.games.monaden.model.gameObjects.GameObject;
+import com.games.monaden.model.gameobject.Character;
+import com.games.monaden.model.gameobject.GameObject;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -16,7 +17,7 @@ import java.util.List;
 
 /**
  * Created by Philip on 2016-04-26.
- * A SAXParser for Tilemaps. After parsing, the parser will create objects to get.
+ * A SAXParser for level files. After parsing, the parser will create objects to get.
  */
 public class LevelParser extends DefaultHandler {
 
@@ -39,8 +40,8 @@ public class LevelParser extends DefaultHandler {
     private boolean solidness = false;
     private int zOrder = 0;
     private String charName;
-    private World.MovementDirection characterDirection;
-    private World.MovementDirection transitionDirection;
+    private MovementDirection characterDirection;
+    private MovementDirection transitionDirection;
     private Point position;
     private Point transPos;
     private String imageFile;
@@ -78,10 +79,10 @@ public class LevelParser extends DefaultHandler {
                 String charDirection = attributes.getValue("direction");
                 if (charDirection != null){
                     switch (charDirection){
-                        case "right": characterDirection = World.MovementDirection.RIGHT; break;
-                        case "down": characterDirection = World.MovementDirection.DOWN; break;
-                        case "left": characterDirection = World.MovementDirection.LEFT; break;
-                        case "up": characterDirection = World.MovementDirection.UP; break;
+                        case "right": characterDirection = MovementDirection.RIGHT; break;
+                        case "down": characterDirection = MovementDirection.DOWN; break;
+                        case "left": characterDirection = MovementDirection.LEFT; break;
+                        case "up": characterDirection = MovementDirection.UP; break;
                     }
                 }
                 bCharName = true;
@@ -119,10 +120,10 @@ public class LevelParser extends DefaultHandler {
                 String dir = attributes.getValue("direction");
                 if (dir != null){
                     switch (dir){
-                        case "right": transitionDirection = World.MovementDirection.RIGHT; break;
-                        case "down": transitionDirection = World.MovementDirection.DOWN; break;
-                        case "left": transitionDirection = World.MovementDirection.LEFT; break;
-                        case "up": transitionDirection = World.MovementDirection.UP; break;
+                        case "right": transitionDirection = MovementDirection.RIGHT; break;
+                        case "down": transitionDirection = MovementDirection.DOWN; break;
+                        case "left": transitionDirection = MovementDirection.LEFT; break;
+                        case "up": transitionDirection = MovementDirection.UP; break;
                     }
                 }
                 bTransPos = true;

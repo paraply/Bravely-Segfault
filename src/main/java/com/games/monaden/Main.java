@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 
 /**
- * Created by paraply on 2016-04-13.
+ Main entry point of the program
  */
 
 public class Main extends Application {
