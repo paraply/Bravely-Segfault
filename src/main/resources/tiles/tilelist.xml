@@ -279,8 +279,36 @@
         <solidness>non-solid</solidness>
     </tile>
 
-
-
+    <tile id="720">
+        <name>counter top left</name>
+        <graphics>counter/1.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="721">
+        <name>counter top middle</name>
+        <graphics>counter/2.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="722">
+        <name>counter top right</name>
+        <graphics>counter/3.png</graphics>
+        <solidness>solid</solidness>
+    </tile>
+    <tile id="723">
+        <name>counter bottom left</name>
+        <graphics>counter/4.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="724">
+        <name>counter bottom middle</name>
+        <graphics>counter/5.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
+    <tile id="725">
+        <name>counter bottom right</name>
+        <graphics>counter/6.png</graphics>
+        <solidness>non-solid</solidness>
+    </tile>
 
     <!-- BORDERS -->
     <tile id="900">

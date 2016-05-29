@@ -1,0 +1,10 @@
+<class>
+    <dialog>
+        <text>Hugo: Jag ser naturlig ut.</text>
+        <image>naturalhugo.png</image>
+        <dialog>
+            <text>*YOU*: LOL nope.</text>
+            <image>player.png</image>
+        </dialog>
+    </dialog>
+</class>

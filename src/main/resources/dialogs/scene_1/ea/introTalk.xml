@@ -23,8 +23,9 @@ Därför har det beslutats att en av er förstaårsstudenter ska gå med i styre
                             <text>Philip-senpai: Glöm inte att gå på vår introgrillning, som startar alldeles strax! Vi ses där! Nyaaa~</text>
                             <image>philip.png</image>
                             <dialog>
+                                <text>MÅNTIARA, FÖRFLYTTA MIG!</text>
                                 <transition>
-                                    <newPosition>5,5</newPosition>
+                                    <newPosition>8,11</newPosition>
                                     <fileName>scene_2/ea.xml</fileName>
                                 </transition>
                             </dialog>

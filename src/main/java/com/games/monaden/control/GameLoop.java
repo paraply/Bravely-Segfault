@@ -16,9 +16,12 @@ import java.util.*;
  */
 public class GameLoop extends AnimationTimer implements Observer {
 
-    public final static int FREQUENCY = 16;
+    private final static int FREQUENCY = 16;
     private int countDown = FREQUENCY;
     private double volume = 0.0;
+
+    private final static int STARTSCREEN_FADING = 64;
+    private int currentStartFade;
 
     private World world;
     private CharacterController playerCharacter;
@@ -42,8 +45,8 @@ public class GameLoop extends AnimationTimer implements Observer {
         }
     }
 
-    private enum InputState { MOVEMENT, DIALOG, STARTSCREEN }
-    private InputState inputState = InputState.STARTSCREEN;
+    private enum InputState { MOVEMENT, DIALOG, STARTSCREEN, STARTSCREEN_FADING}
+    private InputState inputState = InputState.STARTSCREEN; // The first state we are in is the start screen
 
     public GameLoop () {
         tileMap = new HashMap<>();
@@ -56,7 +59,7 @@ public class GameLoop extends AnimationTimer implements Observer {
     public void initializeGame(){
         tileMap = new TileLoader().loadTiles();
         world = new World();
-        setLevel("ea.xml");
+        setLevel("scene_1/ea.xml");
         Render.getInstance().setWorld(world);
         audioController = new AudioController();
         audioController.playMusic(0);
@@ -70,7 +73,6 @@ public class GameLoop extends AnimationTimer implements Observer {
         LevelLoader levelLoader = new LevelLoader();
         levelLoader.loadLevel(levelName);
         int [][] primTileMap = levelLoader.getTileMap();
-
         List<GameObject> gameObjects = new ArrayList<>();
 
         outerloop:
@@ -88,9 +90,7 @@ public class GameLoop extends AnimationTimer implements Observer {
         }
 
         gameObjects.addAll(levelLoader.getGameObjects());
-
         List<Character> interactables = levelLoader.getInteractables();
-
         DialogLoader dialogLoader = new DialogLoader();
 
         //Add dialog to each character
@@ -107,8 +107,6 @@ public class GameLoop extends AnimationTimer implements Observer {
 
         world.setCurrentLevel(gameObjects, interactables, levelLoader.getTransitions(), events);
     }
-
-
 
     private Tile findTile (int tileNr) {
         return tileMap.get(tileNr);
@@ -127,12 +125,27 @@ public class GameLoop extends AnimationTimer implements Observer {
             if (UserInput.getInstance().getLatestFunctionKey() == null){
                 return;
             }else{
-                Render.getInstance().hideStartScreen();
-                inputState = InputState.MOVEMENT;
+                currentStartFade = STARTSCREEN_FADING;
+                inputState = InputState.STARTSCREEN_FADING;
+                Render.getInstance().startscreenFade();
+
             }
         }
 
+
+
+        if (inputState == InputState.STARTSCREEN_FADING){
+            currentStartFade--;
+            if (currentStartFade == 0){
+                Render.getInstance().hideStartScreen();
+                inputState = InputState.MOVEMENT;
+                return;
+            }
+
+        }
+
         Render.getInstance().redraw();
+
         if (countDown > 0){  // used to add a delay (better than sleep) to user movement
             countDown--;
         }
@@ -159,7 +172,7 @@ public class GameLoop extends AnimationTimer implements Observer {
                     volume = audioController.volumeDown();
 
                 } else if (funcReq == KeyCode.N) {
-                    
+
                     audioController.stopMusic();
                     audioController.playMusic(1);
                 }
@@ -177,10 +190,16 @@ public class GameLoop extends AnimationTimer implements Observer {
                 inputState = InputState.MOVEMENT;
             }
         }
+
+
+
+
     }
 
     private void startDialog(Dialog dialog) {
         inputState = InputState.DIALOG;
         dialogController.startDialog(dialog);
     }
+
+
 }

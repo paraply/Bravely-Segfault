@@ -1,0 +1,31 @@
+<level>
+    <tilemap>
+    <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    <line>000,907,901,901,901,901,901,901,901,901,901,901,901,901,904,000</line>
+    <line>000,903,001,001,001,001,001,001,001,001,001,001,001,001,902,000</line>
+    <line>000,903,001,001,001,001,001,001,001,001,001,001,001,001,902,000</line>
+    <line>000,911,720,721,721,721,721,721,721,721,721,721,721,722,908,000</line>
+    <line>000,002,723,724,724,724,724,724,724,724,724,724,724,725,002,000</line>
+    <line>000,002,001,001,001,001,001,001,001,001,001,001,001,001,002,000</line>
+    <line>000,910,001,001,001,001,001,001,001,001,001,001,001,001,909,000</line>
+    <line>000,906,900,900,900,900,900,900,900,900,900,900,900,900,905,000</line>
+    <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+</tilemap>
+
+
+    <transition><filename>scene_2/linsensouth.xml</filename><position>1,8</position><newPosition>9,8</newPosition></transition>
+    <transition><filename>scene_2/linsensouth.xml</filename><position>1,9</position><newPosition>9,9</newPosition></transition>
+
+    <transition><filename>scene_2/paintingroom.xml</filename><position>14,8</position><newPosition direction="down">6,6</newPosition></transition>
+    <transition><filename>scene_2/paintingroom.xml</filename><position>14,9</position><newPosition direction="down">7,6</newPosition></transition>
+
+    <gameobject><position>3,7</position><graphics><fileName>kitchen/plates.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>4,7</position><graphics><fileName>kitchen/coffee.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+</level>

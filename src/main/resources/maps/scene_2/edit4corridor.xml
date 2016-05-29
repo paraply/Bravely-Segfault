@@ -1,0 +1,32 @@
+<level>
+    <tilemap>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>907,901,901,901,901,901,901,901,901,901,901,901,901,901,904,000</line>
+        <line>903,644,640,640,640,640,640,640,640,640,640,640,640,642,902,000</line>
+        <line>903,025,641,641,641,641,641,641,641,641,641,641,641,643,908,000</line>
+        <line>903,026,002,002,002,002,002,002,002,002,002,002,002,002,001,000</line>
+        <line>903,027,002,002,002,002,002,002,002,002,002,002,002,002,001,000</line>
+        <line>906,910,002,002,002,002,002,002,002,002,002,002,002,002,909,000</line>
+        <line>000,906,900,900,900,900,900,900,900,900,900,900,900,900,905,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    </tilemap>
+
+    <transitions>
+        <transition><filename>scene_2/outsideea.xml</filename><position>14,8</position><newPosition direction="up">7,11</newPosition></transition>
+        <transition><filename>scene_2/outsideea.xml</filename><position>14,9</position><newPosition direction="up">8,11</newPosition></transition>
+
+        <transition><filename>scene_2/outsidemonaden.xml</filename><position>1,8</position><newPosition>14,13</newPosition></transition>
+        <transition><filename>scene_2/outsidemonaden.xml</filename><position>1,9</position><newPosition>14,14</newPosition></transition>
+    </transitions>
+
+    <gameobject><position>4,6</position><graphics><fileName>paintings/1.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+</level>

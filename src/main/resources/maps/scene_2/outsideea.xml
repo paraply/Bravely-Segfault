@@ -1,0 +1,46 @@
+<level>
+    <tilemap>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,907,901,901,901,901,901,904,000,000,000,000</line>
+        <line>000,000,000,000,000,903,644,700,701,640,642,902,000,000,000,000</line>
+        <line>000,000,000,000,000,903,645,702,703,641,020,902,000,000,000,000</line>
+        <line>000,000,000,000,000,911,001,001,001,001,021,902,000,000,000,000</line>
+        <line>000,000,000,000,000,002,001,001,001,001,022,902,000,000,000,000</line>
+        <line>000,000,000,000,000,002,001,001,001,001,909,905,000,000,000,000</line>
+        <line>000,000,000,000,000,910,001,001,001,001,902,000,000,000,000,000</line>
+        <line>000,000,000,000,000,903,001,001,001,001,902,000,000,000,000,000</line>
+        <line>000,000,000,000,000,903,001,001,001,001,902,000,000,000,000,000</line>
+        <line>000,000,000,000,000,906,910,002,002,909,905,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    </tilemap>
+
+    <gameobject>
+        <!-- DOORSTEPS -->
+        <gameobject><position>5,7</position><graphics><fileName>doorstep/right.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+        <gameobject><position>5,8</position><graphics><fileName>doorstep/right.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+        <gameobject><position>7,12</position><graphics><fileName>doorstep/up.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+        <gameobject><position>8,12</position><graphics><fileName>doorstep/up.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+        <character name="Hidden door character" direction="left"><position>7,5</position><graphics><fileName>characters/transparent.png</fileName></graphics><dialogue>scene_2/outside_ea/door.xml</dialogue></character>
+        <character name="Hidden door character" direction="left"><position>8,5</position><graphics><fileName>characters/transparent.png</fileName></graphics><dialogue>scene_2/outside_ea/door.xml</dialogue></character>
+    </gameobject>
+
+    <transitions>
+        <transition><filename>scene_2/ea.xml</filename><position>5,7</position><newPosition>12,5</newPosition></transition>
+        <transition><filename>scene_2/ea.xml</filename><position>5,8</position><newPosition>12,6</newPosition></transition>
+
+        <transition><filename>scene_2/linsensouth.xml</filename><position>10,6</position><newPosition>6,8</newPosition></transition>
+        <transition><filename>scene_2/linsensouth.xml</filename><position>10,7</position><newPosition>6,9</newPosition></transition>
+
+        <transition><filename>scene_2/edit4corridor.xml</filename><position>7,12</position><newPosition direction="left">13,8</newPosition></transition>
+        <transition><filename>scene_2/edit4corridor.xml</filename><position>8,12</position><newPosition direction="left">13,9</newPosition></transition>
+
+    </transitions>
+
+
+</level>
