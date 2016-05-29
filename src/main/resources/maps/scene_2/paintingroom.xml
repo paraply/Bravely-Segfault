@@ -21,5 +21,8 @@
     <transitions>
         <transition><filename>scene_2/outsidemonaden.xml</filename><position>10,8</position><newPosition>1,1</newPosition></transition>
         <transition><filename>scene_2/outsidemonaden.xml</filename><position>10,9</position><newPosition>1,2</newPosition></transition>
+
+        <transition><filename>scene_2/linsen.xml</filename><position>6,5</position><newPosition direction="left">13,8</newPosition></transition>
+        <transition><filename>scene_2/linsen.xml</filename><position>7,5</position><newPosition direction="left">13,9</newPosition></transition>
     </transitions>
 </level>
