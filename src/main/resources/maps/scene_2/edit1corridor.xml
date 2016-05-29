@@ -20,11 +20,11 @@
     </tilemap>
 
     <transitions>
-        <transition><filename>linsensouth.xml</filename><position>14,8</position><newPosition direction="down">7,6</newPosition></transition>
-        <transition><filename>linsensouth.xml</filename><position>14,9</position><newPosition direction="down">8,6</newPosition></transition>
+        <transition><filename>scene_2/linsensouth.xml</filename><position>14,8</position><newPosition direction="down">7,6</newPosition></transition>
+        <transition><filename>scene_2/linsensouth.xml</filename><position>14,9</position><newPosition direction="down">8,6</newPosition></transition>
 
-        <transition><filename>outsidemonaden.xml</filename><position>1,8</position><newPosition>14,13</newPosition></transition>
-        <transition><filename>outsidemonaden.xml</filename><position>1,9</position><newPosition>14,14</newPosition></transition>
+        <transition><filename>scene_2/outsidemonaden.xml</filename><position>1,8</position><newPosition>14,13</newPosition></transition>
+        <transition><filename>scene_2/outsidemonaden.xml</filename><position>1,9</position><newPosition>14,14</newPosition></transition>
     </transitions>
 
 </level>

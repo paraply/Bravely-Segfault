@@ -19,11 +19,11 @@
 </tilemap>
 
 
-    <transition><filename>linsensouth.xml</filename><position>1,8</position><newPosition>9,8</newPosition></transition>
-    <transition><filename>linsensouth.xml</filename><position>1,9</position><newPosition>9,9</newPosition></transition>
+    <transition><filename>scene_2/linsensouth.xml</filename><position>1,8</position><newPosition>9,8</newPosition></transition>
+    <transition><filename>scene_2/linsensouth.xml</filename><position>1,9</position><newPosition>9,9</newPosition></transition>
 
-    <transition><filename>paintingroom.xml</filename><position>14,8</position><newPosition>9,8</newPosition></transition>
-    <transition><filename>paintingroom.xml</filename><position>14,9</position><newPosition>9,9</newPosition></transition>
+    <transition><filename>scene_2/paintingroom.xml</filename><position>14,8</position><newPosition direction="down">6,6</newPosition></transition>
+    <transition><filename>scene_2/paintingroom.xml</filename><position>14,9</position><newPosition direction="down">7,6</newPosition></transition>
 
     <gameobject><position>3,7</position><graphics><fileName>kitchen/plates.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
     <gameobject><position>4,7</position><graphics><fileName>kitchen/coffee.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
