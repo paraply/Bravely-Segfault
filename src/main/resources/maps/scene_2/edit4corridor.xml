@@ -27,6 +27,7 @@
         <transition><filename>scene_2/editsouthentrance.xml</filename><position>1,9</position><newPosition>9,9</newPosition></transition>
     </transitions>
 
-    <gameobject><position>4,6</position><graphics><fileName>paintings/1.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>5,6</position><graphics><fileName>paintings/1.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
 
+    <character name="Spock"><position>5,7</position><graphis><fileName>characters/spock.png</fileName></graphis><dialogue>scene_2/edit_plan_3_korridor/spock.xml</dialogue></character>
 </level>
