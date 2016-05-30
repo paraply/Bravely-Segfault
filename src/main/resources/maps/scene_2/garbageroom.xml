@@ -29,4 +29,6 @@
         <gameobject><position>8,6</position><graphics><fileName>garbage/4.png</fileName></graphics><solidness>non-solid</solidness></gameobject>
     </gameobjects>
 
+    <character name="Garbage"><position>8,6</position><graphics><fileName>characters/transparent.png</fileName></graphics><dialogue>scene_2/garbageroom/garbage.xml</dialogue></character>
+
 </level>

@@ -1,0 +1,78 @@
+<level>
+    <tilemap>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+        <line>000,000,907,901,901,901,901,901,901,901,901,901,901,904,000,000</line>
+        <line>000,000,903,644,640,640,640,640,640,640,640,640,640,902,000,000</line>
+        <line>000,000,903,645,641,641,641,641,641,641,641,641,641,902,000,000</line>
+        <line>000,000,903,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,000,903,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,000,903,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,000,903,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,000,903,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,000,903,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,000,903,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,000,903,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,000,903,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,000,903,002,002,002,002,002,002,002,002,002,002,902,000,000</line>
+        <line>000,000,906,900,900,900,900,900,900,900,900,900,900,905,000,000</line>
+        <line>000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000</line>
+    </tilemap>
+    <characters>
+        <character name="Stefan" ><position>6,4</position><graphics><fileName>characters/stefan.png</fileName></graphics><dialogue>scenethanks/stefan.xml</dialogue></character>
+        <character name="Mike" ><position>7,4</position><graphics><fileName>characters/mike.png</fileName></graphics><dialogue>scenethanks/mike.xml</dialogue></character>
+        <character name="Philip" ><position>8,4</position><graphics><fileName>characters/philip.png</fileName></graphics><dialogue>scenethanks/philip.xml</dialogue></character>
+        <character name="Anton" ><position>9,4</position><graphics><fileName>characters/anton.png</fileName></graphics><dialogue>scenethanks/anton.xml</dialogue></character>
+    </characters>
+
+    <!--BLACKBOARD-->
+    <gameobject><position>5,2</position><graphics><fileName>blackboard/1.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>6,2</position><graphics><fileName>blackboard/2.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>7,2</position><graphics><fileName>blackboard/3.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>8,2</position><graphics><fileName>blackboard/4.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>9,2</position><graphics><fileName>blackboard/5.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>5,3</position><graphics><fileName>blackboard/6.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>6,3</position><graphics><fileName>blackboard/7.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>7,3</position><graphics><fileName>blackboard/8.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>8,3</position><graphics><fileName>blackboard/9.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>9,3</position><graphics><fileName>blackboard/10.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+
+
+    <!--SCHOOL DESK 1L-->
+    <gameobject><position>4,8</position><graphics><fileName>schoolbench/1.png</fileName><zOrder>0</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>5,8</position><graphics><fileName>schoolbench/2.png</fileName><zOrder>0</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>4,9</position><graphics><fileName>schoolbench/3.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>5,9</position><graphics><fileName>schoolbench/4.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+    <!--SCHOOL DESK 1R-->
+    <gameobject><position>8,8</position><graphics><fileName>schoolbench/1.png</fileName><zOrder>0</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>9,8</position><graphics><fileName>schoolbench/2.png</fileName><zOrder>0</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>8,9</position><graphics><fileName>schoolbench/3.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>9,9</position><graphics><fileName>schoolbench/4.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+    <!--SCHOOL DESK 2L-->
+    <gameobject><position>4,10</position><graphics><fileName>schoolbench/1.png</fileName><zOrder>0</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>5,10</position><graphics><fileName>schoolbench/2.png</fileName><zOrder>0</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>4,11</position><graphics><fileName>schoolbench/3.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>5,11</position><graphics><fileName>schoolbench/4.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+    <!--SCHOOL DESK 2R-->
+    <gameobject><position>8,10</position><graphics><fileName>schoolbench/1.png</fileName><zOrder>0</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>9,10</position><graphics><fileName>schoolbench/2.png</fileName><zOrder>0</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>8,11</position><graphics><fileName>schoolbench/3.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>9,11</position><graphics><fileName>schoolbench/4.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+    <!--SCHOOL DESK 3L-->
+    <gameobject><position>4,12</position><graphics><fileName>schoolbench/1.png</fileName><zOrder>0</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>5,12</position><graphics><fileName>schoolbench/2.png</fileName><zOrder>0</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>4,13</position><graphics><fileName>schoolbench/3.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>5,13</position><graphics><fileName>schoolbench/4.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+    <!--SCHOOL DESK 3R-->
+    <gameobject><position>8,12</position><graphics><fileName>schoolbench/1.png</fileName><zOrder>0</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>9,12</position><graphics><fileName>schoolbench/2.png</fileName><zOrder>0</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>8,13</position><graphics><fileName>schoolbench/3.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+    <gameobject><position>9,13</position><graphics><fileName>schoolbench/4.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
+
+</level>
+

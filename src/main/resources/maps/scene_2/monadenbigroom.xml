@@ -34,11 +34,22 @@
     <characters>
         <character name="Red book"><position>7,7</position><graphics><fileName>book/redopen.png</fileName></graphics><dialogue>scene_2/monadenbigroom/redbook.xml</dialogue></character>
         <character name="Hugo" direction="down"><position>5,9</position><graphics><fileName>characters/hugo.png</fileName></graphics><dialogue>scene_2/monadenbigroom/hugo.xml</dialogue></character>
+        <character name="Matilda" direction="down"><position>5,6</position><graphics><fileName>characters/matilda.png</fileName></graphics><dialogue>scene_2/monadenbigroom/matilda.xml</dialogue></character>
     </characters>
 
 
 
     <gameobjects>
+        <gameobject><position>3,2</position><graphics><fileName>largewindow/1.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>4,2</position><graphics><fileName>largewindow/2.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>3,3</position><graphics><fileName>largewindow/3.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>4,3</position><graphics><fileName>largewindow/4.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+
+        <gameobject><position>11,2</position><graphics><fileName>largewindow/1.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>12,2</position><graphics><fileName>largewindow/2.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>11,3</position><graphics><fileName>largewindow/3.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+        <gameobject><position>12,3</position><graphics><fileName>largewindow/4.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+
 
         <!-- SOFA HORIZONTAL-->
         <gameobject>

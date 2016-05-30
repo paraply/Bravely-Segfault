@@ -36,6 +36,18 @@
         </character>
     </characters>
 
+    <characters>
+        <!-- TOILET BOTTOM -->
+        <character name="Toilet">
+            <position>9,9</position>
+            <graphics>
+                <fileName>characters/jonathan.png</fileName>
+            </graphics>
+            <dialogue>scene_2/monadenbathroom/jonathan.xml</dialogue>
+        </character>
+    </characters>
+
+
     <!-- TOILET -->
     <gameobject>
         <position>8,4</position>

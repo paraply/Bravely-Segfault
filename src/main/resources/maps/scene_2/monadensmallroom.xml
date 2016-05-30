@@ -30,6 +30,18 @@
         </transition>
     </transitions>
 
+    <!--WINDOW-->
+    <gameobject><position>3,2</position><graphics><fileName>largewindow/1.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>4,2</position><graphics><fileName>largewindow/2.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>3,3</position><graphics><fileName>largewindow/3.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>4,3</position><graphics><fileName>largewindow/4.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+
+    <!--CENTER SQUARE TABLE-->
+    <gameobject><position>6,6</position><graphics> <fileName>squaretable/1.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>7,6</position><graphics> <fileName>squaretable/2.png</fileName><zOrder>1</zOrder></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>6,7</position><graphics> <fileName>squaretable/3.png</fileName></graphics><solidness>solid</solidness></gameobject>
+    <gameobject><position>7,7</position><graphics> <fileName>squaretable/4.png</fileName></graphics><solidness>solid</solidness></gameobject>
+
     <!-- DOORSTEPS -->
     <gameobject>
         <position>4,12</position>

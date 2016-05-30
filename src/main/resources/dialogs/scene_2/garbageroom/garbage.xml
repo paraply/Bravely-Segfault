@@ -1,0 +1,27 @@
+<class>
+    <dialog>
+        <text>*YOU*: Det här är skräp</text>
+        <image>player.png</image>
+
+        <response>
+            <choice>Men erat spel är jättefint</choice>
+            <subdialog>
+                <text>^_^</text>
+            </subdialog>
+        </response>
+
+        <response>
+            <choice>Som erat spel</choice>
+            <subdialog>
+                <text>;_;</text>
+                <dialog>
+                    <text></text>
+                    <transition>
+                        <newPosition>8,6</newPosition>
+                        <fileName>scene_thanks/thanks.xml</fileName>
+                    </transition>
+                </dialog>
+            </subdialog>
+        </response>
+    </dialog>
+</class>
