@@ -27,9 +27,19 @@ public class Inventory {
      * Adds a Item to the list
      * @param item
      */
-    public void addItem(Item item) {
-        itemList.add(item);
-    }
+    public boolean addItem(Item item) {
+        boolean exist = false;
+        for (Item theItem : itemList) {
+            if(theItem.equal(item)){
+                exist = true;
+            }
+        }
+            if (!exist) {
+                itemList.add(item);
+                return true;
+            }
+        return false;
+        }
 
     /**
      * Given a string will it return the wanted Item.

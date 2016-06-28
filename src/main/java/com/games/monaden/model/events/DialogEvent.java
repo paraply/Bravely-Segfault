@@ -8,6 +8,7 @@ import java.io.File;
 /**
  Event for dialogs. When this event is triggered, a dialog should open.
  */
+
 public class DialogEvent implements Event{
 
     private Dialog dialog;

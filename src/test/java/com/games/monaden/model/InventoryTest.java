@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /*
@@ -53,4 +54,13 @@ public class InventoryTest {
         assertTrue(removed && inventory.getItemList().size() == 1 &&
                 inventory.containsItem(newItem.getName()) && !inventory.containsItem(item.getName()));
     }
+
+    @Test
+    public void testAddItemTwice(){
+        inventory.addItem(item);
+        Item sameItem = item;
+        assertFalse(inventory.addItem(sameItem));
+    }
+
+
 }

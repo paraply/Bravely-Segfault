@@ -9,6 +9,7 @@ package com.games.monaden.model.primitives;
  Primitive to keep track of two ints.
  Lacks a hashCode implementation.
  */
+
 public class Point {
 
     private final int x;

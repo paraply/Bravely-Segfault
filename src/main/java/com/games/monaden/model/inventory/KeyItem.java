@@ -19,4 +19,11 @@ public class KeyItem implements Item {
     public String getDescription(){
         return description;
     }
+
+    public boolean equal(Item item){
+        if(item.getName() == name || item.getDescription() == description){
+            return true;
+        }
+        return false;
+    }
 }

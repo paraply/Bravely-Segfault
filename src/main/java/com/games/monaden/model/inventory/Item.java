@@ -9,4 +9,6 @@ public interface Item {
     String getDescription();
 
     String getName();
+
+    boolean equal(Item item);
 }
