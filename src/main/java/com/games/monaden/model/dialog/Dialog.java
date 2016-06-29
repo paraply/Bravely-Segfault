@@ -112,7 +112,7 @@ public class Dialog {
     }
     
     public void setDialogText(String text) {
-        this.dialogText = text.replace("*YOU*", World.PLAYER_NAME);
+        this.dialogText = text.replace("*YOU*", World.playerName);
         this.dialogText = dialogText.replace("*N*", System.lineSeparator());
     }
 

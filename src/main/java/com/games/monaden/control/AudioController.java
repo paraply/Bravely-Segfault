@@ -6,7 +6,9 @@ import java.io.File;
 
 /**
  Class is responsible for calling audio playing.
+ As a link between the GameLoop and CharacterController to the service AudioPlayer.
  */
+
 public class AudioController {
     AudioPlayer musicPlayer;
 

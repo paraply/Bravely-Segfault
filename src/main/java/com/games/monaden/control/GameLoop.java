@@ -67,15 +67,19 @@ public class GameLoop extends AnimationTimer implements Observer {
         dialogController.addObserver(this);
     }
 
-    public void initializeGame(){
+    public void initializeGame() {
         tileMap = new TileLoader().loadTiles();
         world = new World();
         setLevel("scene_1/ea.xml");
         Render.getInstance().setWorld(world);
         audioController = new AudioController();
         audioController.playMusic(0);
-    }
 
+        //start dialog, ställ in karaktär och ställ in namn.
+        //dialogController.startDialog("start");
+        // skapa metoderna set name i world klassen,
+
+    }
     /**
      * Sets the world's current level to be what the given file is.
      * @param levelName File path to XML
