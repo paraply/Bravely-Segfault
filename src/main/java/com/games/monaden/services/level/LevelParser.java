@@ -33,6 +33,7 @@ public class LevelParser extends DefaultHandler {
     private boolean bTransPos = false;
     private boolean bFrame = false;
     private boolean bDialogue = false;
+    private boolean bObjectMovement = false;
 
 
     private int row = 0;
@@ -42,6 +43,7 @@ public class LevelParser extends DefaultHandler {
     private String charName;
     private MovementDirection characterDirection;
     private MovementDirection transitionDirection;
+    private MovementDirection[] objectMovement;
     private Point position;
     private Point transPos;
     private String imageFile;
@@ -85,8 +87,29 @@ public class LevelParser extends DefaultHandler {
                         case "up": characterDirection = MovementDirection.UP; break;
                     }
                 }
+
+                String move = attributes.getValue("move");
+                if (move != null) {
+                    String[] moveString = move.split(":");
+                    objectMovement = new MovementDirection[move.length()];
+                    int index = 0;
+                    for (String movement : moveString) {
+                        MovementDirection objectDirection = null;
+                        switch (movement) {
+                            case "right": objectDirection = MovementDirection.RIGHT; break;
+                            case "down": objectDirection = MovementDirection.DOWN; break;
+                            case "left": objectDirection = MovementDirection.LEFT; break;
+                            case "up": objectDirection = MovementDirection.UP; break;
+                        }
+                                objectMovement[index] = objectDirection;
+                                index++;
+                    }
+                    bObjectMovement = true;
+                }
+
                 bCharName = true;
                 break;
+
 
             case "position":
                 bPosition = true;
@@ -165,6 +188,10 @@ public class LevelParser extends DefaultHandler {
 
                 if (dialogFile != null) {
                     character.setDialogFile(dialogFile);
+                }
+                if (objectMovement != null) {
+                    character.setMovements(objectMovement);
+
                 }
                 interactables.add(character);
                 zOrder = 0;

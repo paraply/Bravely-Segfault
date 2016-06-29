@@ -1,5 +1,6 @@
 package com.games.monaden.services.levelParser;
 
+import com.games.monaden.model.primitives.MovementDirection;
 import com.games.monaden.model.primitives.Point;
 import com.games.monaden.model.primitives.Transition;
 import com.games.monaden.model.World;
@@ -8,6 +9,7 @@ import com.games.monaden.services.level.LevelParser;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.swing.text.Position;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
@@ -171,4 +173,28 @@ public class LevelParserTest {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Test a Non Playable Characters movement input is correct in the end!
+     *
+     * from TileLevelExample1.xml <character name="Philip"  move="right:up:left:down">
+     */
+
+
+    @Test
+    public void testCharacterMovement() {
+        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
+        try {
+            parser.parse(mapFile, levelParser);
+            Character character = levelParser.getInteractables().get(0);
+            MovementDirection[] finalMovement = character.getMovements();
+            assertTrue(MovementDirection.RIGHT == finalMovement[0]);
+            assertTrue(MovementDirection.UP == finalMovement[1]);
+            assertTrue(MovementDirection.LEFT == finalMovement[2]);
+            assertTrue(MovementDirection.DOWN == finalMovement[3]);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

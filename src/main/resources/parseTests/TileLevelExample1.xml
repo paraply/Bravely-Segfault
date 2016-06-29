@@ -18,13 +18,14 @@
         <line>16,2,3,4,5,0,0,1,2,3,0,1,0,0,1,2</line>
     </tilemap>
     <characters>
-        <character name="Philip">
+        <character name="Philip"  move="right:up:left:down">
             <position>5,2</position>
             <graphics>
                 <filename>characters/philip-tan.png</filename>
                 <framecount>4</framecount>
             </graphics>
             <dialogue>DialogTest.xml</dialogue>
+            <movment>Right</movment>
         </character>
     </characters>
     <transitions>
