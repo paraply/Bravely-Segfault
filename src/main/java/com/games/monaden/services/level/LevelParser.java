@@ -35,6 +35,7 @@ public class LevelParser extends DefaultHandler {
     private boolean bFrame = false;
     private boolean bDialogue = false;
     private boolean bObjectMovement = false;
+    private boolean bSound = false;
 
 
     private int row = 0;
@@ -168,12 +169,16 @@ public class LevelParser extends DefaultHandler {
                 }
                 break;
             case "gameobject":
-                GameObject gameObject = new GameObject(position, imageFile, solidness, zOrder);
-                gameObject.setAnimationFrames(frameCount);
-                gameObject.setContinuousAnimation( frameCount != 0 );
-                gameObjects.add(gameObject);
-                zOrder = 0;
-                frameCount = 0;
+                if(bGameObject) {
+                    GameObject gameObject = new GameObject(position, imageFile, solidness, zOrder);
+                    gameObject.setAnimationFrames(frameCount);
+                    gameObject.setContinuousAnimation(frameCount != 0);
+                    gameObjects.add(gameObject);
+                    zOrder = 0;
+                    frameCount = 0;
+                    bGameObject = false;
+                }
+                else if(bSound){
                 break;
             case "character":
                 Character character = new Character(position, imageFile, zOrder);
@@ -190,9 +195,9 @@ public class LevelParser extends DefaultHandler {
                 if (dialogFile != null) {
                     character.setDialogFile(dialogFile);
                 }
-                if (objectMovement != null) {
+                if (bObjectMovement & objectMovement != null) {
                     character.setMovements(objectMovement);
-
+                    bObjectMovement = false;
                 }
                 interactables.add(character);
                 zOrder = 0;

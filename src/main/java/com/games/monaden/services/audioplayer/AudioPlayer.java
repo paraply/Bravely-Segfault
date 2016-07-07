@@ -29,9 +29,10 @@ public class AudioPlayer {
         musicList = new ArrayList<>();
         musicMap = new HashMap<>();
         soundMap = new HashMap<>();
-        loadMusicList();
-        loadMusicMap();
-        loadSoundMap();
+        loadMusicList("music/Dogsong.mp3");
+        loadMusicList("music/song2");
+        loadMusicMap("dogsong" ,"music/Dogsong.mp3");
+        loadSoundMap("step","sound/step.m4a");
     }
 
     public void stopMusic() {
@@ -110,21 +111,18 @@ public class AudioPlayer {
 
     }
 
-    private void loadMusicList() {
+    private void loadMusicList(String music) {
         musicList.add(classLoader.getResource("music/song2.mp3").toExternalForm());
-        musicList.add(classLoader.getResource("music/Dogsong.mp3").toExternalForm());
+        System.out.println("Loaded music: song2.mp3");
+    }
+
+    private void loadMusicMap(String name,String music){
+        musicMap.put( name ,classLoader.getResource(music).toExternalForm());
 
     }
 
-    private void loadMusicMap(){
-        musicMap.put("music",classLoader.getResource("music/music.mp3").toExternalForm());
-        musicMap.put("music2",classLoader.getResource("music/music2.mp3").toExternalForm());
-
-    }
-
-    private void loadSoundMap(){
-        soundMap.put("step", classLoader.getResource("sound/step.m4a").toExternalForm());
+    private void loadSoundMap(String name, String sound){
+        soundMap.put(name, classLoader.getResource(sound).toExternalForm());
         soundMap.put("step_sand_left",classLoader.getResource("sound/step_sand_l.flac").toExternalForm());
-        soundMap.put("step_sand_right",classLoader.getResource("sound/step_sand_l.flac").toExternalForm());
     }
 }
