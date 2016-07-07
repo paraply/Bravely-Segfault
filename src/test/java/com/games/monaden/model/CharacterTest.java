@@ -38,5 +38,5 @@ public class CharacterTest {
         System.out.println(player.getDialogFile().getName());
         assertTrue( 0 =="DialogTest.xml".compareTo(player.getDialogFile().getName()));
     }
-    
+
 }
