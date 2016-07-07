@@ -169,6 +169,7 @@ public class GameLoop extends AnimationTimer implements Observer {
             KeyCode moveReq = userInput.getLatestMovementKey();
             if (moveReq != null) {
                 playerCharacter.handleMovement(moveReq, world);
+                audioController.playSound("step"); // This causes a lot of errors from test suite.
                 countDown = FREQUENCY;
             }
 

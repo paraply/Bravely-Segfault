@@ -20,14 +20,13 @@ import java.util.Observable;
 public class CharacterController extends Observable {
 
     private Character player;
-    private AudioController audioController;
     private MovementDirection newDirection;
 
     public CharacterController() {
         player = new Character(new Point(8 ,5), "characters/player.png", 32,32);
         player.setDirection(MovementDirection.LEFT);
         Render.getInstance().setPlayerCharacter(player);
-        audioController = new AudioController();
+
     }
 
     public CharacterController(Character npc){
@@ -41,7 +40,6 @@ public class CharacterController extends Observable {
      */
     CharacterController(Point point) {
         player = new Character(point, "cat.png", 32, 32);
-        audioController = new AudioController();
     }
 
     public void handleMovement(KeyCode moveReq, World world) {
@@ -64,7 +62,6 @@ public class CharacterController extends Observable {
         if (!tileIsOccupied(pointMovedTo, world)) {
             pointMovedTo = transitionIfPossible(world, pointMovedTo);
             player.setPosition(pointMovedTo);
-//            audioController.playSound("step"); // This causes a lot of errors from test suite.
 
             if (checkEvent(pointMovedTo, world)) {
                 System.out.println("CheckEvent true!");
