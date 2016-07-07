@@ -7,6 +7,7 @@ import com.games.monaden.model.World;
 import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameobject.Character;
 import com.games.monaden.model.gameobject.GameObject;
+import com.games.monaden.services.audioplayer.AudioPlayer;
 import javafx.scene.input.KeyCode;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.Attributes;
@@ -36,7 +37,7 @@ public class LevelParser extends DefaultHandler {
     private boolean bFrame = false;
     private boolean bDialogue = false;
     private boolean bObjectMovement = false;
-    private boolean bSound = false;
+    private boolean bMusic = false;
 
 
     private int row = 0;
@@ -52,6 +53,8 @@ public class LevelParser extends DefaultHandler {
     private String imageFile;
     private File dialogFile;
     private int frameCount = 0;
+    private String musicPath = "";
+    private String musicName = "";
 
     private List<GameObject> gameObjects = new ArrayList<>();
     private List<Character> interactables = new ArrayList<>();
@@ -82,12 +85,20 @@ public class LevelParser extends DefaultHandler {
             case "character":
                 charName = attributes.getValue("name");
                 String charDirection = attributes.getValue("direction");
-                if (charDirection != null){
-                    switch (charDirection){
-                        case "right": characterDirection = MovementDirection.RIGHT; break;
-                        case "down": characterDirection = MovementDirection.DOWN; break;
-                        case "left": characterDirection = MovementDirection.LEFT; break;
-                        case "up": characterDirection = MovementDirection.UP; break;
+                if (charDirection != null) {
+                    switch (charDirection) {
+                        case "right":
+                            characterDirection = MovementDirection.RIGHT;
+                            break;
+                        case "down":
+                            characterDirection = MovementDirection.DOWN;
+                            break;
+                        case "left":
+                            characterDirection = MovementDirection.LEFT;
+                            break;
+                        case "up":
+                            characterDirection = MovementDirection.UP;
+                            break;
                     }
                 }
 
@@ -99,13 +110,21 @@ public class LevelParser extends DefaultHandler {
                     for (String movement : moveString) {
                         KeyCode objectDirection = null;
                         switch (movement) {
-                            case "right": objectDirection = KeyCode.RIGHT; break;
-                            case "down": objectDirection = KeyCode.DOWN; break;
-                            case "left": objectDirection = KeyCode.LEFT; break;
-                            case "up": objectDirection = KeyCode.UP; break;
+                            case "right":
+                                objectDirection = KeyCode.RIGHT;
+                                break;
+                            case "down":
+                                objectDirection = KeyCode.DOWN;
+                                break;
+                            case "left":
+                                objectDirection = KeyCode.LEFT;
+                                break;
+                            case "up":
+                                objectDirection = KeyCode.UP;
+                                break;
                         }
-                                objectMovement[index] = objectDirection;
-                                index++;
+                        objectMovement[index] = objectDirection;
+                        index++;
                     }
                     bObjectMovement = true;
                 }
@@ -135,8 +154,8 @@ public class LevelParser extends DefaultHandler {
                 break;
 
             case "solidness":
-            bSolidness = true;
-            break;
+                bSolidness = true;
+                break;
 
             case "dialogue":
                 bDialogue = true;
@@ -144,18 +163,32 @@ public class LevelParser extends DefaultHandler {
 
             case "newposition":
                 String dir = attributes.getValue("direction");
-                if (dir != null){
-                    switch (dir){
-                        case "right": transitionDirection = MovementDirection.RIGHT; break;
-                        case "down": transitionDirection = MovementDirection.DOWN; break;
-                        case "left": transitionDirection = MovementDirection.LEFT; break;
-                        case "up": transitionDirection = MovementDirection.UP; break;
+                if (dir != null) {
+                    switch (dir) {
+                        case "right":
+                            transitionDirection = MovementDirection.RIGHT;
+                            break;
+                        case "down":
+                            transitionDirection = MovementDirection.DOWN;
+                            break;
+                        case "left":
+                            transitionDirection = MovementDirection.LEFT;
+                            break;
+                        case "up":
+                            transitionDirection = MovementDirection.UP;
+                            break;
                     }
                 }
                 bTransPos = true;
                 break;
-        }
 
+
+            case "music":
+                musicName = attributes.getValue("name");
+                musicPath = attributes.getValue("path");
+                bMusic = true;
+                break;
+        }
     }
 
     @Override
@@ -180,7 +213,6 @@ public class LevelParser extends DefaultHandler {
                     frameCount = 0;
                     bGameObject = false;
                 }
-                else if(bSound){}
                 break;
             case "character":
                 Character character = new Character(position, imageFile, zOrder);
@@ -216,6 +248,18 @@ public class LevelParser extends DefaultHandler {
             case "dialogevent":
                 DialogEvent de = new DialogEvent(dialogFile, position);
                 events.add(de);
+                break;
+
+            case "music":
+                if(bMusic){
+                    AudioPlayer player = new AudioPlayer();
+                    if(musicName != "") {
+                        player.addMusic(musicName,musicPath);
+                    }else{
+                        player.addMusic(musicPath);
+                    }
+                    bMusic = false;
+                }
                 break;
         }
     }
@@ -350,4 +394,6 @@ public class LevelParser extends DefaultHandler {
         }
         row = 0;
     }
+
+    //TODO: Create getMusic
 }

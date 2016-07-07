@@ -32,9 +32,9 @@ public class AudioPlayer {
         musicList = new ArrayList<>();
         musicMap = new HashMap<>();
         soundMap = new HashMap<>();
-        loadMusicList("music/Dogsong.mp3");
-        loadMusicList("music/song2");
-        loadMusicMap("dogsong" ,"music/Dogsong.mp3");
+        addMusic("music/Dogsong.mp3");
+        addMusic("music/song2");
+        addMusic("dogsong" ,"music/Dogsong.mp3");
         loadSoundMap("step","sound/step.m4a");
     }
 
@@ -114,12 +114,12 @@ public class AudioPlayer {
 
     }
 
-    private void loadMusicList(String music) {
+    public void addMusic(String music) {
         musicList.add(classLoader.getResource("music/song2.mp3").toExternalForm());
         System.out.println("Loaded music: song2.mp3");
     }
 
-    private void loadMusicMap(String name,String music){
+    public void addMusic(String name,String music){
         musicMap.put( name ,classLoader.getResource(music).toExternalForm());
 
     }

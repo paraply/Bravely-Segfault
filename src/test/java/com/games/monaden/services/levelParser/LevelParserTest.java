@@ -39,6 +39,9 @@ public class LevelParserTest {
         levelParser.clearTilemap();
         levelParser.clearInteractables();
         levelParser.clearTransitions();
+
+        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
+
     }
 
     /**
@@ -46,7 +49,6 @@ public class LevelParserTest {
      */
     @Test
     public void testSize () {
-        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
         try {
             parser.parse(mapFile, levelParser);
             int[][] tileMap = levelParser.getTileMap();
@@ -71,7 +73,6 @@ public class LevelParserTest {
     @Test
     public void testClearTilemap () {
         int[] empty = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
         try {
             parser.parse(mapFile, levelParser);
             int [][] tilemap = levelParser.getTileMap();
@@ -98,7 +99,6 @@ public class LevelParserTest {
      */
     @Test
     public void iteratingLines () {
-        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
         try {
             parser.parse(mapFile, levelParser);
             int [][] tilemap = levelParser.getTileMap();
@@ -117,7 +117,6 @@ public class LevelParserTest {
      */
     @Test
     public void testCharacterListSize () {
-        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
         try {
             parser.parse(mapFile, levelParser);
             assertTrue(levelParser.getInteractables().size() == 1);
@@ -131,7 +130,6 @@ public class LevelParserTest {
      */
     @Test
     public void testCharacterContent () {
-        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
         try {
             parser.parse(mapFile, levelParser);
             Character character = (Character)levelParser.getInteractables().get(0);
@@ -149,7 +147,6 @@ public class LevelParserTest {
      */
     @Test
     public void testTransitionListSize(){
-        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
         try {
             parser.parse(mapFile, levelParser);
             assertTrue(levelParser.getTransitions().size() == 1);
@@ -163,7 +160,6 @@ public class LevelParserTest {
      */
     @Test
     public void testTransitionContent () {
-        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
         try {
             parser.parse(mapFile, levelParser);
             Transition transition = levelParser.getTransitions().get(0);
@@ -182,7 +178,6 @@ public class LevelParserTest {
      */
     @Test
     public void testCharacterMovement() {
-        mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
         try {
             parser.parse(mapFile, levelParser);
             Character character = levelParser.getInteractables().get(0);
