@@ -92,7 +92,7 @@ public class LevelParser extends DefaultHandler {
                 String move = attributes.getValue("move");
                 if (move != null) {
                     String[] moveString = move.split(":");
-                    objectMovement = new KeyCode[move.length()];
+                    objectMovement = new KeyCode[moveString.length];
                     int index = 0;
                     for (String movement : moveString) {
                         KeyCode objectDirection = null;

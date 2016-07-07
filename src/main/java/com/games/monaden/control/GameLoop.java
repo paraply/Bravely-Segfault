@@ -27,7 +27,7 @@ public class GameLoop extends AnimationTimer implements Observer {
 
     private final static int FREQUENCY = 16;
     private int countDown = FREQUENCY;
-    private int npcCountDown = FREQUENCY;
+    private int npcCountDown = FREQUENCY*10;
 
     private double volume = 0.0;
 
@@ -208,17 +208,17 @@ public class GameLoop extends AnimationTimer implements Observer {
         /**
          *  Move all objects in the level that have a moving scheme.
          */
-        else if(npcCountDown != 0) {
+        if(npcCountDown != 0) {
             npcCountDown --;
         }else if(npcCountDown == 0){
+            npcCountDown = FREQUENCY*10;
             for (Character npc : world.getInteractables()) {
 
                 if (npc.getMovements() != null) {
                     npcMove(npc);
                 }
-
             }
-            npcCountDown = FREQUENCY;
+
         }
     }
 
@@ -231,9 +231,16 @@ public class GameLoop extends AnimationTimer implements Observer {
 
 
     private void npcMove(Character npc){
-        CharacterController npcController = new CharacterController(npc);
 
-        KeyCode key = KeyCode.UP;
+        CharacterController npcController = new CharacterController(npc);
+        KeyCode[] moveScheme = npc.getMovements();
+        int move = getMove(moveScheme.length, npc.getStep());
+        KeyCode key = moveScheme[move];
         npcController.handleMovement(key, world);
+        npc.addStep();
+    }
+
+    private int getMove(int length, int i){
+        return i % length;
     }
 }

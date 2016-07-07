@@ -17,6 +17,7 @@ public class GameObject {
     private boolean continuousAnimation;
     private MovementDirection direction = MovementDirection.DOWN;
     private KeyCode[] movements = null;
+    private int step = 0;
     //Should contain collision
 
     private int animationFrames = 2;    //Counted from ZERO!
@@ -36,6 +37,16 @@ public class GameObject {
     public void setMovements(KeyCode[] givenMovements){
         movements = givenMovements;
     }
+
+    public void addStep(){
+        if(step < movements.length-1)
+        this.step = step+1;
+        else{
+            step = 0;
+        }
+    }
+
+    public int getStep(){return this.step; }
 
     public String getImagePath(){
         return pathForWindows("tiles" + "/" + imageFile);

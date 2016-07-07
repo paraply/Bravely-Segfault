@@ -64,7 +64,7 @@ public class CharacterController extends Observable {
         if (!tileIsOccupied(pointMovedTo, world)) {
             pointMovedTo = transitionIfPossible(world, pointMovedTo);
             player.setPosition(pointMovedTo);
-            audioController.playSound("step"); // This causes a lot of errors from test suite.
+//            audioController.playSound("step"); // This causes a lot of errors from test suite.
 
             if (checkEvent(pointMovedTo, world)) {
                 System.out.println("CheckEvent true!");
