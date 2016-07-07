@@ -6,6 +6,7 @@ import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.events.Event;
 import com.games.monaden.model.gameobject.Character;
 import com.games.monaden.model.gameobject.GameObject;
+import com.games.monaden.model.primitives.MovementDirection;
 import com.games.monaden.model.primitives.Point;
 import com.games.monaden.model.primitives.Tile;
 import com.games.monaden.model.primitives.Transition;
