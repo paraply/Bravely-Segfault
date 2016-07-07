@@ -21,6 +21,9 @@ public class AudioPlayer {
     private double volume = 0.8;
     private int songNr = 0;
 
+    //TODO: Remove MusicList and only use musicMap
+    //TODO: Change the way to GameLoop so it works.
+
     private List<String> musicList;
     private HashMap<String,String> musicMap;
     private HashMap<String,String> soundMap;

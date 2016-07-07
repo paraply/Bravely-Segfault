@@ -23,6 +23,7 @@ import java.util.List;
 public class LevelParser extends DefaultHandler {
 
     //TODO: Missing handling of frame count, dialogue, and transitions.
+    //TODO: Change to read in new songs per new level. By adding music tag and read in the new music file from AudioPlayer
 
     private boolean bLine = false;
     private boolean bGameObject = false;
@@ -154,6 +155,7 @@ public class LevelParser extends DefaultHandler {
                 bTransPos = true;
                 break;
         }
+
     }
 
     @Override
@@ -178,7 +180,7 @@ public class LevelParser extends DefaultHandler {
                     frameCount = 0;
                     bGameObject = false;
                 }
-                else if(bSound){
+                else if(bSound){}
                 break;
             case "character":
                 Character character = new Character(position, imageFile, zOrder);
