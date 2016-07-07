@@ -28,7 +28,7 @@ public class GameLoop extends AnimationTimer implements Observer {
 
     private final static int FREQUENCY = 16;
     private int countDown = FREQUENCY;
-    private int npcCountDown = FREQUENCY*10;
+    private int npcCountDown = FREQUENCY*5;
 
     private double volume = 0.0;
 
