@@ -22,6 +22,7 @@ public class LevelLoader {
     private List<Character> interactables;
     private List<Transition> transitions;
     private List<DialogEvent> events;
+    private List<String> musicList;
 
 
     SAXParser parser;
@@ -35,6 +36,7 @@ public class LevelLoader {
         levelParser = new LevelParser();
         transitions = new ArrayList<>();
         events = new ArrayList<>();
+        musicList = new ArrayList<>();
         try {
             parser = factory.newSAXParser();
         } catch (Exception e) {
@@ -48,6 +50,7 @@ public class LevelLoader {
         levelParser.clearGameObjects();
         levelParser.clearInteractables();
         levelParser.clearTransitions();
+        levelParser.clearMusicList();
 
         ClassLoader classLoader = this.getClass().getClassLoader();
         InputStream is = classLoader.getResourceAsStream("maps/" + levelName);
@@ -67,6 +70,9 @@ public class LevelLoader {
 
             events.clear();
             events = levelParser.getEvents();
+
+            musicList.clear();
+            musicList = levelParser.getMusicList();
 
         } catch (Exception e) {
             System.err.println("GameLoop : Loadlevel failed to read file: " + levelName);
@@ -92,5 +98,9 @@ public class LevelLoader {
 
     public List<DialogEvent> getEvents () {
         return this.events;
+    }
+
+    public List<String> getMusicList () {
+        return this.musicList;
     }
 }

@@ -69,6 +69,7 @@ public class GameLoop extends AnimationTimer implements Observer {
         playerCharacter.addObserver(this);
         dialogController = new DialogController();
         dialogController.addObserver(this);
+        audioController = new AudioController();
     }
 
     public void initializeGame() {
@@ -76,7 +77,7 @@ public class GameLoop extends AnimationTimer implements Observer {
         world = new World();
         setLevel("scene_1/ea.xml");
         Render.getInstance().setWorld(world);
-        audioController = new AudioController();
+
         audioController.playMusic(0);
 
         //start dialog, ställ in karaktär och ställ in namn.
@@ -124,6 +125,11 @@ public class GameLoop extends AnimationTimer implements Observer {
             de.setEventContent(dialog);
         }
 
+        List<String> musicList = levelLoader.getMusicList();
+        for (String path : musicList) {
+
+            audioController.addMusic(path);
+        }
         world.setCurrentLevel(gameObjects, interactables, levelLoader.getTransitions(), events);
     }
 

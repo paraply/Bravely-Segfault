@@ -31,7 +31,7 @@
         <character name="Niclas" direction="up"><position>4,9</position><graphics><fileName>characters/niclas.png</fileName></graphics><dialogue>scene_1/ea/niclas.xml</dialogue></character>
         <character name="Cenny" direction="up" move="right:left"><position>4,11</position><graphics><fileName>characters/cenny.png</fileName></graphics><dialogue>scene_1/ea/cenny.xml</dialogue></character>
     </characters>
-
+    <music path="music/Dogsong.mp3"></music>
 
     <events>
         <dialogevent>

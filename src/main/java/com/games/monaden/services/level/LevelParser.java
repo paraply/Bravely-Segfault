@@ -7,7 +7,6 @@ import com.games.monaden.model.World;
 import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameobject.Character;
 import com.games.monaden.model.gameobject.GameObject;
-import com.games.monaden.services.audioplayer.AudioPlayer;
 import javafx.scene.input.KeyCode;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.Attributes;
@@ -54,12 +53,12 @@ public class LevelParser extends DefaultHandler {
     private File dialogFile;
     private int frameCount = 0;
     private String musicPath = "";
-    private String musicName = "";
 
     private List<GameObject> gameObjects = new ArrayList<>();
     private List<Character> interactables = new ArrayList<>();
     private List<Transition> transitions = new ArrayList<>();
     private List<DialogEvent> events = new ArrayList<>();
+    private List<String> musicList = new ArrayList<>();
 
     public LevelParser() {
         super();
@@ -184,7 +183,6 @@ public class LevelParser extends DefaultHandler {
 
 
             case "music":
-                musicName = attributes.getValue("name");
                 musicPath = attributes.getValue("path");
                 bMusic = true;
                 break;
@@ -252,12 +250,7 @@ public class LevelParser extends DefaultHandler {
 
             case "music":
                 if(bMusic){
-                    AudioPlayer player = new AudioPlayer();
-                    if(musicName != "") {
-                        player.addMusic(musicName,musicPath);
-                    }else{
-                        player.addMusic(musicPath);
-                    }
+                    musicList.add(musicPath);
                     bMusic = false;
                 }
                 break;
@@ -344,6 +337,9 @@ public class LevelParser extends DefaultHandler {
         return new ArrayList<>(this.events);
     }
 
+    public List<String> getMusicList() {
+        return new ArrayList<>(this.musicList);
+    }
     /**
      * Clones every row of the tilemap and returns these rows as a copy of the tilemap.
      * @return a copy of the tilemap
@@ -384,6 +380,7 @@ public class LevelParser extends DefaultHandler {
         events.clear();
     }
 
+    public void clearMusicList() { musicList.clear();}
     /**
      * Clears the tilemap by setting all cells in the matrix to 0
      */
@@ -395,5 +392,5 @@ public class LevelParser extends DefaultHandler {
         row = 0;
     }
 
-    //TODO: Create getMusic
+
 }

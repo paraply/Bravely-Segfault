@@ -42,4 +42,7 @@ public class AudioController {
         return musicPlayer.volumeUp();
     }
 
+    public void addMusic(String path){
+        musicPlayer.addMusic(path);
+    }
 }
