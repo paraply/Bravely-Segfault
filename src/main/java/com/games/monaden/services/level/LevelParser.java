@@ -7,6 +7,7 @@ import com.games.monaden.model.World;
 import com.games.monaden.model.events.DialogEvent;
 import com.games.monaden.model.gameobject.Character;
 import com.games.monaden.model.gameobject.GameObject;
+import javafx.scene.input.KeyCode;
 import org.xml.sax.helpers.DefaultHandler;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -43,7 +44,7 @@ public class LevelParser extends DefaultHandler {
     private String charName;
     private MovementDirection characterDirection;
     private MovementDirection transitionDirection;
-    private MovementDirection[] objectMovement;
+    private KeyCode[] objectMovement;
     private Point position;
     private Point transPos;
     private String imageFile;
@@ -91,15 +92,15 @@ public class LevelParser extends DefaultHandler {
                 String move = attributes.getValue("move");
                 if (move != null) {
                     String[] moveString = move.split(":");
-                    objectMovement = new MovementDirection[move.length()];
+                    objectMovement = new KeyCode[move.length()];
                     int index = 0;
                     for (String movement : moveString) {
-                        MovementDirection objectDirection = null;
+                        KeyCode objectDirection = null;
                         switch (movement) {
-                            case "right": objectDirection = MovementDirection.RIGHT; break;
-                            case "down": objectDirection = MovementDirection.DOWN; break;
-                            case "left": objectDirection = MovementDirection.LEFT; break;
-                            case "up": objectDirection = MovementDirection.UP; break;
+                            case "right": objectDirection = KeyCode.RIGHT; break;
+                            case "down": objectDirection = KeyCode.DOWN; break;
+                            case "left": objectDirection = KeyCode.LEFT; break;
+                            case "up": objectDirection = KeyCode.UP; break;
                         }
                                 objectMovement[index] = objectDirection;
                                 index++;

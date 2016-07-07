@@ -30,6 +30,10 @@ public class CharacterController extends Observable {
         audioController = new AudioController();
     }
 
+    public CharacterController(Character npc){
+        player = npc;
+    }
+
     /**
      * Mainly used for tests.
      * Should probably be removed after testing
@@ -158,6 +162,12 @@ public class CharacterController extends Observable {
 
     }
 
+    /**
+     * Is Used only in test
+     * @param funcReq
+     * @param world
+     * @return
+     */
     public Dialog handleInteractions(KeyCode funcReq, World world){
         switch (funcReq) {
             case ESCAPE:

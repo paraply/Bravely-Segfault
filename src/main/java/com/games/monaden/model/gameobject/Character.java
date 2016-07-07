@@ -3,6 +3,7 @@ package com.games.monaden.model.gameobject;
 import com.games.monaden.model.dialog.Dialog;
 import com.games.monaden.model.primitives.MovementDirection;
 import com.games.monaden.model.primitives.Point;
+import javafx.scene.input.KeyCode;
 
 import java.io.File;
 
@@ -13,12 +14,11 @@ public class Character extends GameObject {
     private String name;
     private Dialog dialog;
     private File dialogFile;
-    private MovementDirection[] movements;
 
-    public void setMovements(MovementDirection[] givenMovements){
-        movements = givenMovements;
+    public void setMovements(KeyCode[] givenMovements){
+        super.setMovements(givenMovements);
     }
-    public MovementDirection[] getMovements(){ return movements; }
+    public KeyCode[] getMovements(){ return super.getMovements(); }
 
     public void setPosition(Point p){super.setPosition(p);}
 

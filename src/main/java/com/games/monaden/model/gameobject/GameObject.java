@@ -3,6 +3,7 @@ package com.games.monaden.model.gameobject;
 import com.games.monaden.model.primitives.MovementDirection;
 import com.games.monaden.model.World;
 import com.games.monaden.model.primitives.Point;
+import javafx.scene.input.KeyCode;
 
 /**
  Main entity class of the game, anything which exists in the world is a game object or a subclass of it.
@@ -15,6 +16,7 @@ public class GameObject {
     private int imageWidth, imageHeight;
     private boolean continuousAnimation;
     private MovementDirection direction = MovementDirection.DOWN;
+    private KeyCode[] movements = null;
     //Should contain collision
 
     private int animationFrames = 2;    //Counted from ZERO!
@@ -27,6 +29,12 @@ public class GameObject {
 
     public int getWidth(){
         return imageWidth;
+    }
+
+    public KeyCode[] getMovements(){ return movements; }
+
+    public void setMovements(KeyCode[] givenMovements){
+        movements = givenMovements;
     }
 
     public String getImagePath(){

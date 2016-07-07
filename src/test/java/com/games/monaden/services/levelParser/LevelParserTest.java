@@ -6,6 +6,7 @@ import com.games.monaden.model.primitives.Transition;
 import com.games.monaden.model.World;
 import com.games.monaden.model.gameobject.Character;
 import com.games.monaden.services.level.LevelParser;
+import javafx.scene.input.KeyCode;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -174,24 +175,22 @@ public class LevelParserTest {
         }
     }
 
+
     /**
-     * Test a Non Playable Characters movement input is correct in the end!
-     *
+     * Test a Non Playable Characters movement input is correct in the end from the xml file!
      * from TileLevelExample1.xml <character name="Philip"  move="right:up:left:down">
      */
-
-
     @Test
     public void testCharacterMovement() {
         mapFile = new File("src/main/resources/parseTests/TileLevelExample1.xml");
         try {
             parser.parse(mapFile, levelParser);
             Character character = levelParser.getInteractables().get(0);
-            MovementDirection[] finalMovement = character.getMovements();
-            assertTrue(MovementDirection.RIGHT == finalMovement[0]);
-            assertTrue(MovementDirection.UP == finalMovement[1]);
-            assertTrue(MovementDirection.LEFT == finalMovement[2]);
-            assertTrue(MovementDirection.DOWN == finalMovement[3]);
+            KeyCode[] finalMovement = character.getMovements();
+            assertTrue(KeyCode.RIGHT == finalMovement[0]);
+            assertTrue(KeyCode.UP == finalMovement[1]);
+            assertTrue(KeyCode.LEFT == finalMovement[2]);
+            assertTrue(KeyCode.DOWN == finalMovement[3]);
         } catch (Exception e) {
             e.printStackTrace();
         }

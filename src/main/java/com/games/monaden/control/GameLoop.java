@@ -27,6 +27,8 @@ public class GameLoop extends AnimationTimer implements Observer {
 
     private final static int FREQUENCY = 16;
     private int countDown = FREQUENCY;
+    private int npcCountDown = FREQUENCY;
+
     private double volume = 0.0;
 
     private final static int STARTSCREEN_FADING = 64;
@@ -34,6 +36,7 @@ public class GameLoop extends AnimationTimer implements Observer {
 
     private World world;
     private CharacterController playerCharacter;
+
     private AudioController audioController;
     private HashMap<Integer, Tile> tileMap;
 
@@ -202,11 +205,35 @@ public class GameLoop extends AnimationTimer implements Observer {
                 inputState = InputState.MOVEMENT;
             }
         }
+        /**
+         *  Move all objects in the level that have a moving scheme.
+         */
+        else if(npcCountDown != 0) {
+            npcCountDown --;
+        }else if(npcCountDown == 0){
+            for (Character npc : world.getInteractables()) {
+
+                if (npc.getMovements() != null) {
+                    npcMove(npc);
+                }
+
+            }
+            npcCountDown = FREQUENCY;
+        }
     }
+
 
     //Used if dialogs are triggered from event (for example stepping on a tile)
     private void startDialog(Dialog dialog) {
         inputState = InputState.DIALOG;
         dialogController.startDialog(dialog);
+    }
+
+
+    private void npcMove(Character npc){
+        CharacterController npcController = new CharacterController(npc);
+
+        KeyCode key = KeyCode.UP;
+        npcController.handleMovement(key, world);
     }
 }
