@@ -12,7 +12,7 @@
         <response>
             <choice>Vem är jag? Levande charader</choice>
             <subdialog>
-                <text>Chalmerist: Öh, okej. Jag ska nog gå och supa istället, sayonara.</text>
+                <text>Chalmerist: Öh, okej. Jag ska nog gå, sayonara.</text>
                 <image>chalmerist.png</image>
             </subdialog>
         </response>

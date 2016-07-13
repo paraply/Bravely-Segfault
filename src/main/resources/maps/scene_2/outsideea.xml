@@ -26,6 +26,8 @@
         <gameobject><position>7,12</position><graphics><fileName>doorstep/up.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
         <gameobject><position>8,12</position><graphics><fileName>doorstep/up.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
 
+        <character name="stefan" direction="left" move="up:left:up:right:down:left:down:right"><position>9,11</position><graphics><fileName>characters/stefan.png</fileName></graphics><dialogue>scene_2/outside_ea/chalmerist.xml</dialogue></character>
+
         <character name="Hidden door character" direction="left"><position>7,5</position><graphics><fileName>characters/transparent.png</fileName></graphics><dialogue>scene_2/outside_ea/door.xml</dialogue></character>
         <character name="Hidden door character" direction="left"><position>8,5</position><graphics><fileName>characters/transparent.png</fileName></graphics><dialogue>scene_2/outside_ea/door.xml</dialogue></character>
     </gameobject>

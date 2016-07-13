@@ -38,7 +38,11 @@ public class AudioPlayer {
     }
 
     public void stopMusic() {
-        this.mediaplayerMusic.stop();
+        try {
+            this.mediaplayerMusic.stop();
+        }catch (Exception e){
+            System.err.println("Can't stop music");
+        }
     }
 
     public void playMusic(String song) {
@@ -56,7 +60,7 @@ public class AudioPlayer {
                 this.mediaplayerMusic.setAutoPlay(true);
                 this.mediaplayerMusic.setVolume(volume);
             } catch (Exception e) {
-                System.err.println("error: sound can't play");
+                System.err.println("error: music (" + song + ") can't play");
                 System.err.println("error: " + e);
             }
         }
@@ -77,7 +81,7 @@ public class AudioPlayer {
             this.mediaplayerMusic.setAutoPlay(true);
             this.mediaplayerMusic.setVolume(volume);
         } catch (Exception e) {
-            System.err.println("error: sound can't play");
+            System.err.println("error: music"+ songNr + " can't play");
             System.err.println("error: " + e);
         }
 

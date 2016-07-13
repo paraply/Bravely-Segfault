@@ -28,6 +28,8 @@
         <transition><filename>scene_2/outsideea.xml</filename><position>13,6</position><newPosition>6,8</newPosition></transition>
     </transitions>
 
+    <music path="music/music2.mp3"></music>
+
     <!-- DOORSTEPS -->
     <gameobject><position>13,5</position><graphics><fileName>doorstep/left.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
     <gameobject><position>13,6</position><graphics><fileName>doorstep/left.png</fileName><zOrder>0</zOrder></graphics><solidness>non-solid</solidness></gameobject>
