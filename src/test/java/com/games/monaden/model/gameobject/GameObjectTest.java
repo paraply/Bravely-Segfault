@@ -1,4 +1,4 @@
-package com.games.monaden.model;
+package com.games.monaden.model.gameobject;
 
 import com.games.monaden.model.gameobject.GameObject;
 import com.games.monaden.model.primitives.MovementDirection;

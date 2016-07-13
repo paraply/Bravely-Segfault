@@ -1,4 +1,4 @@
-package com.games.monaden.model;
+package com.games.monaden.model.inventory;
 
 import com.games.monaden.model.inventory.Inventory;
 import com.games.monaden.model.inventory.Item;

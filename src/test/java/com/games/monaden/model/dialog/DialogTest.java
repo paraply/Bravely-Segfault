@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.games.monaden.model;
+package com.games.monaden.model.dialog;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

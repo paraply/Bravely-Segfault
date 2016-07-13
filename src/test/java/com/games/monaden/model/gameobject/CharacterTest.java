@@ -1,4 +1,4 @@
-package com.games.monaden.model;
+package com.games.monaden.model.gameobject;
 
 import com.games.monaden.model.dialog.Dialog;
 import com.games.monaden.model.gameobject.Character;
