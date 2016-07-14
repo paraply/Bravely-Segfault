@@ -23,7 +23,6 @@ import java.util.List;
 public class LevelParser extends DefaultHandler {
 
     //TODO: Missing handling of frame count, dialogue, and transitions.
-    //TODO: Change to read in new songs per new level. By adding music tag and read in the new music file from AudioPlayer
 
     private boolean bLine = false;
     private boolean bGameObject = false;
